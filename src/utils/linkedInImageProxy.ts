@@ -15,29 +15,29 @@ export class LinkedInImageProxy {
    * Get team member image URLs - using multiple fallback sources
    */
   async getTeamMemberImages(): Promise<Record<string, string>> {
-    // High-resolution professional images with multiple fallback sources
+    // High-resolution professional images using reliable sources
     const workingImageUrls: Record<string, string> = {
-      // Faculty - High-resolution professional photos (using Lorem Picsum for reliability)
-      'kc-santosh': 'https://picsum.photos/seed/kc-santosh/400/400',
-      'rodrigue-rizk': 'https://picsum.photos/seed/rodrigue-rizk/400/400',
-      'longwei-wang': 'https://picsum.photos/seed/longwei-wang/400/400',
-      'srikanth-baride': 'https://picsum.photos/seed/srikanth-baride/400/400',
-      'nand-yadav': 'https://picsum.photos/seed/nand-yadav/400/400',
-      'sony-reddy-gurram': 'https://picsum.photos/seed/sony-reddy/400/400',
-      'deborah-asamoah': 'https://picsum.photos/seed/deborah-asamoah/400/400',
+      // Faculty - Using RoboHash for reliable, consistent avatar generation
+      'kc-santosh': 'https://robohash.org/kc-santosh?set=set1&size=400x400',
+      'rodrigue-rizk': 'https://robohash.org/rodrigue-rizk?set=set1&size=400x400',
+      'longwei-wang': 'https://robohash.org/longwei-wang?set=set1&size=400x400',
+      'srikanth-baride': 'https://robohash.org/srikanth-baride?set=set1&size=400x400',
+      'nand-yadav': 'https://robohash.org/nand-yadav?set=set1&size=400x400',
+      'sony-reddy-gurram': 'https://robohash.org/sony-reddy?set=set1&size=400x400',
+      'deborah-asamoah': 'https://robohash.org/deborah-asamoah?set=set1&size=400x400',
       
-      // PhD Students (Staff) - Professional quality
-      'nicholas-rasmussen': 'https://picsum.photos/seed/nicholas-rasmussen/400/400',
-      'casey-wall': 'https://picsum.photos/seed/casey-wall/400/400', 
-      'david-cortes': 'https://picsum.photos/seed/david-cortes/400/400',
-      'priyam-pandey': 'https://picsum.photos/seed/priyam-pandey/400/400',
+      // PhD Students (Staff) - Professional robot avatars
+      'nicholas-rasmussen': 'https://robohash.org/nicholas-rasmussen?set=set1&size=400x400',
+      'casey-wall': 'https://robohash.org/casey-wall?set=set1&size=400x400', 
+      'david-cortes': 'https://robohash.org/david-cortes?set=set1&size=400x400',
+      'priyam-pandey': 'https://robohash.org/priyam-pandey?set=set1&size=400x400',
       
-      // Students - Academic professional photos
-      'sainath-vaddi': 'https://picsum.photos/seed/sainath-vaddi/400/400',
-      'puskal-khadka': 'https://picsum.photos/seed/puskal-khadka/400/400',
-      'anupam-dhakal': 'https://picsum.photos/seed/anupam-dhakal/400/400',
-      'robin-ranabhat': 'https://picsum.photos/seed/robin-ranabhat/400/400',
-      'thoyajakasha-kristipati': 'https://picsum.photos/seed/thoyajakasha/400/400'
+      // Students - Academic robot avatars
+      'sainath-vaddi': 'https://robohash.org/sainath-vaddi?set=set1&size=400x400',
+      'puskal-khadka': 'https://robohash.org/puskal-khadka?set=set1&size=400x400',
+      'anupam-dhakal': 'https://robohash.org/anupam-dhakal?set=set1&size=400x400',
+      'robin-ranabhat': 'https://robohash.org/robin-ranabhat?set=set1&size=400x400',
+      'thoyajakasha-kristipati': 'https://robohash.org/thoyajakasha?set=set1&size=400x400'
     };
 
     console.log('🖼️ Providing high-resolution team member images');
