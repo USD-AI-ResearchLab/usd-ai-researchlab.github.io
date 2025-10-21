@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
-import NavBarLogo from '../assets/Navbarlogo.png'
 import bgimage from "../assets/logo.svg";
 
 const NavBar: React.FC = () => {

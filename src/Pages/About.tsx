@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import bgimage from "../assets/logo.svg";
 
 const About: React.FC = () => {
   const fadeInUp = {
