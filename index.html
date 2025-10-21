@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/jpg" href="src/assets/RealLogo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="description" content="AI Lab - Pioneering the future of artificial intelligence through innovation, research, and collaboration." />
+    <meta name="theme-color" content="#dc2626" />
+    <title>AI LAB - Artificial Intelligence Research & Innovation</title>
+    <style>
+      /* Prevent FOUC (Flash of Unstyled Content) */
+      html { visibility: hidden; opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Show content once loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        document.documentElement.style.visibility = 'visible';
+        document.documentElement.style.opacity = '1';
+      });
+    </script>
+  </body>
+</html>
