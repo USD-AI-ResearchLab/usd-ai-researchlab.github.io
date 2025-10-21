@@ -46,7 +46,12 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, memberK
                 filter: 'contrast(1.02) brightness(1.01) saturate(1.05)',
                 objectPosition: 'center 25%'
               }}
+              crossOrigin="anonymous"
+              onLoad={() => {
+                console.log(`✅ Image loaded successfully for ${name}:`, imageUrl);
+              }}
               onError={(e) => {
+                console.error(`❌ Image failed to load for ${name}:`, imageUrl);
                 // Fallback to initials if image fails to load
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
