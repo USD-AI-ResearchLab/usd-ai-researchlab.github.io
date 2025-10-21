@@ -17,15 +17,20 @@ export class LinkedInImageProxy {
   async getTeamMemberImages(): Promise<Record<string, string>> {
     // High-quality placeholder images for current team members
     const workingImageUrls: Record<string, string> = {
+      // Faculty
+      'kc-santosh': 'https://randomuser.me/api/portraits/men/92.jpg',
+      'rodrigue-rizk': 'https://randomuser.me/api/portraits/men/85.jpg',
+      'longwei-wang': 'https://randomuser.me/api/portraits/men/71.jpg',
+      'srikanth-baride': 'https://randomuser.me/api/portraits/men/63.jpg',
+      'nand-yadav': 'https://randomuser.me/api/portraits/men/48.jpg',
+      'sony-reddy-gurram': 'https://randomuser.me/api/portraits/men/55.jpg',
+      'deborah-asamoah': 'https://randomuser.me/api/portraits/women/44.jpg',
+      
       // PhD Students (Staff) 
       'nicholas-rasmussen': 'https://randomuser.me/api/portraits/men/83.jpg',
       'casey-wall': 'https://randomuser.me/api/portraits/men/45.jpg', 
       'david-cortes': 'https://randomuser.me/api/portraits/men/67.jpg',
       'priyam-pandey': 'https://randomuser.me/api/portraits/men/38.jpg',
-      
-      // Faculty
-      'sony-reddy-gurram': 'https://randomuser.me/api/portraits/men/55.jpg',
-      'deborah-asamoah': 'https://randomuser.me/api/portraits/women/44.jpg',
       
       // Students  
       'sainath-vaddi': 'https://randomuser.me/api/portraits/men/78.jpg',
