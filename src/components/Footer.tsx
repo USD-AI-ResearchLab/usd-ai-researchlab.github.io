@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Updated footer with LinkedIn only and correct email
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white py-12 mt-16">
