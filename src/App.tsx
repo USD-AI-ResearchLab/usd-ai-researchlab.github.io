@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import People from "./Pages/People";
@@ -10,7 +11,6 @@ import Students from "./Pages/PeoplePage/Students";
 import Resources from "./Pages/Resources";
 import Initiatives from "./Pages/Initiatives";
 import Affiliates from "./Pages/Affiliates";
-import Contact from "./Pages/Contact";
 
 const App: React.FC = () => {
   return (
@@ -28,9 +28,9 @@ const App: React.FC = () => {
           <Route path="/resources" element={<Resources />} />
           <Route path="/initiatives" element={<Initiatives />} />
           <Route path="/affiliates" element={<Affiliates />} />
-          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }

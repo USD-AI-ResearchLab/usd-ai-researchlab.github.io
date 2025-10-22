@@ -141,16 +141,7 @@ const NavBar: React.FC = () => {
             }`} style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></span>
           </li>
         </Link>
-        <Link to="/contact">
-          <li className={`font-medium transition-colors duration-200 relative group ${
-            location.pathname === '/contact' ? '' : 'text-gray-700'
-          }`} style={{ color: location.pathname === '/contact' ? 'var(--logo-red, #C53030)' : undefined }}>
-            Contact
-            <span className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${
-              location.pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'
-            }`} style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></span>
-          </li>
-        </Link>
+
       </ul>
 
       <div className={`fixed top-20 right-0 w-64 min-h-screen bg-white/90 backdrop-blur-2xl flex flex-col items-start justify-start gap-6 pt-8 px-6 pb-8 md:hidden transition-all duration-500 ease-in-out shadow-2xl overflow-y-auto z-40 ${
@@ -185,7 +176,7 @@ const NavBar: React.FC = () => {
           <Link to="/resources" onClick={toggleMenu}><div className="text-lg font-medium" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Resources</div></Link>
           <Link to="/initiatives" onClick={toggleMenu}><div className="text-lg font-medium" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Initiatives</div></Link>
           <Link to="/affiliates" onClick={toggleMenu}><div className="text-lg font-medium" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Affiliates</div></Link>
-          <Link to="/contact" onClick={toggleMenu}><div className="text-lg font-medium" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Contact</div></Link>
+
         </div>
     </div>
   );
