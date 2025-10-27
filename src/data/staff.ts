@@ -18,18 +18,21 @@ export const staffData: Person[] = [
     name: "Casey Wall",
     role: "PhD Student | Research Assistant",
     photo: "/AILab/images/team/casey-wall.jpg",
+    url: "https://www.linkedin.com/in/casey-wall-47181024a/",
     memberKey: "casey-wall"
   },
   {
     name: "David Cortes",
     role: "PhD Student | Research Assistant",
     photo: "/AILab/images/team/david-cortes.jpg",
+    url: "https://www.linkedin.com/in/david-neun-ai-robotics/",
     memberKey: "david-cortes"
   },
   {
     name: "Priyam Pandey",
     role: "PhD Student | Research Assistant",
     photo: "/AILab/images/team/priyam-pandey.jpg",
+    url: "https://www.linkedin.com/in/priyam-pandey-09b134142/",
     memberKey: "priyam-pandey"
   }
 ];

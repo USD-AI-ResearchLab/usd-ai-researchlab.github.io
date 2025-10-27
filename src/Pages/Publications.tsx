@@ -67,12 +67,15 @@ const Publications: React.FC = () => {
   return (
     <div className="pt-20 min-h-screen bg-white">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-thin text-gray-800 mb-2">Publications</h1>
+        <h1 className="text-5xl md:text-6xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>
+          Publications
+        </h1>
+        <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
         <p className="text-gray-600 mb-12 font-thin">Research papers, books, and publications from the USD AI Research Lab</p>
         
         {/* Research Papers Section */}
         <div className="max-w-4xl mx-auto mb-16">
-          <h2 className="text-2xl font-thin text-gray-800 mb-8 flex items-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-8 flex items-center">
             <svg className="w-6 h-6 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
@@ -80,18 +83,18 @@ const Publications: React.FC = () => {
           </h2>
           <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1">
             {publications.map((publication, index) => (
-              <div key={index} className="bg-white rounded-lg p-6">
-                <h3 className="text-xl font-thin text-gray-800 mb-3 leading-tight">
+              <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-semibold text-gray-800 mb-3 leading-tight">
                   {publication.title}
                 </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed font-thin">
+                <p className="text-gray-600 mb-4 leading-relaxed">
                   {publication.description}
                 </p>
                 <div className="flex gap-4">
                   {publication.paperUrl && (
                     <a
                       href={publication.paperUrl}
-                      className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-thin"
+                      className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-medium"
                     >
                       <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -102,7 +105,7 @@ const Publications: React.FC = () => {
                   {publication.codeUrl && (
                     <a
                       href={publication.codeUrl}
-                      className="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition-colors text-sm font-thin"
+                      className="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition-colors text-sm font-medium"
                     >
                       <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -118,7 +121,7 @@ const Publications: React.FC = () => {
 
         {/* Books Section */}
         <div className="max-w-4xl mx-auto mb-16">
-          <h2 className="text-2xl font-thin text-gray-800 mb-8 flex items-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-8 flex items-center">
             <svg className="w-6 h-6 mr-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
@@ -126,27 +129,27 @@ const Publications: React.FC = () => {
           </h2>
           <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1">
             {books.map((book, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 border-l-4 border-green-500">
-                <h3 className="text-xl font-thin text-gray-800 mb-2 leading-tight">
+              <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border-l-4 border-green-500">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2 leading-tight">
                   {book.title}
                 </h3>
-                <p className="text-sm text-gray-500 mb-3 font-thin">
+                <p className="text-sm text-gray-500 mb-3 font-medium">
                   by {book.authors}
                 </p>
                 {book.publisher && book.year && (
-                  <p className="text-sm text-gray-500 mb-3 font-thin">
+                  <p className="text-sm text-gray-500 mb-3">
                     {book.publisher} • {book.year}
                     {book.isbn && ` • ISBN: ${book.isbn}`}
                   </p>
                 )}
-                <p className="text-gray-600 mb-4 leading-relaxed font-thin">
+                <p className="text-gray-600 mb-4 leading-relaxed">
                   {book.description}
                 </p>
                 <div className="flex gap-4">
                   {book.amazonUrl && (
                     <a
                       href={book.amazonUrl}
-                      className="inline-flex items-center px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors text-sm font-thin"
+                      className="inline-flex items-center px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors text-sm font-medium"
                     >
                       <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -157,7 +160,7 @@ const Publications: React.FC = () => {
                   {book.publisherUrl && (
                     <a
                       href={book.publisherUrl}
-                      className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors text-sm font-thin"
+                      className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors text-sm font-medium"
                     >
                       <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -172,7 +175,7 @@ const Publications: React.FC = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <p className="text-gray-500 text-sm font-thin">
+          <p className="text-gray-500 text-sm">
             For more publications, visit our research portal at{' '}
             <a 
               href="https://www.ai-research-lab.org/publication" 
