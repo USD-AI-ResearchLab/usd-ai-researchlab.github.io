@@ -1,59 +1,26 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import PersonCard from '../../components/PersonCard';
 import { facultyData } from '../../data/faculty';
 
 const Faculty: React.FC = () => {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
-
-  const staggerChildren = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const cardVariants = {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 }
-  };
-
   return (
-    <div className="pt-20 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <motion.div 
-        className="container mx-auto px-4 py-12"
-        initial="initial"
-        animate="animate"
-        variants={staggerChildren}
-      >
+    <div className="pt-20 min-h-screen bg-white">
+      <div className="container mx-auto px-4 py-12">
         {/* Header */}
-        <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-5xl md:text-6xl font-bold mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>
+        <div className="text-left mb-16">
+          <h1 className="text-5xl md:text-6xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>
             Faculty
           </h1>
           <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
-                    <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl leading-relaxed font-thin">
             Meet our distinguished faculty and research staff leading the AI Research Lab at the University of South Dakota.
           </p>
-        </motion.div>
+        </div>
 
         {/* Faculty Grid */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-          variants={staggerChildren}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {facultyData.map((person, index) => (
-            <motion.div
-              key={`${person.name}-${index}`}
-              variants={cardVariants}
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
-            >
+            <div key={`${person.name}-${index}`}>
               <PersonCard
                 name={person.name}
                 role={person.role}
@@ -61,10 +28,10 @@ const Faculty: React.FC = () => {
                 url={person.url}
                 memberKey={person.memberKey}
               />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 };
