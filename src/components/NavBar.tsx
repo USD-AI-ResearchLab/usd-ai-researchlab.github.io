@@ -111,13 +111,13 @@ const NavBar: React.FC = () => {
             </Link>
           </div>
         </li>
-        <Link to="/resources">
+        <Link to="/publications">
           <li className={`font-medium transition-colors duration-200 relative group ${
-            location.pathname === '/resources' ? '' : 'text-gray-700'
-          }`} style={{ color: location.pathname === '/resources' ? 'var(--logo-red, #C53030)' : undefined }}>
-            Resources
+            location.pathname === '/publications' ? '' : 'text-gray-700'
+          }`} style={{ color: location.pathname === '/publications' ? 'var(--logo-red, #C53030)' : undefined }}>
+            Publications
             <span className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${
-              location.pathname === '/resources' ? 'w-full' : 'w-0 group-hover:w-full'
+              location.pathname === '/publications' ? 'w-full' : 'w-0 group-hover:w-full'
             }`} style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></span>
           </li>
         </Link>
@@ -173,7 +173,7 @@ const NavBar: React.FC = () => {
               </div>
             )}
           </div>
-          <Link to="/resources" onClick={toggleMenu}><div className="text-lg font-medium" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Resources</div></Link>
+          <Link to="/publications" onClick={toggleMenu}><div className="text-lg font-medium" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Publications</div></Link>
           <Link to="/initiatives" onClick={toggleMenu}><div className="text-lg font-medium" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Initiatives</div></Link>
           <Link to="/affiliates" onClick={toggleMenu}><div className="text-lg font-medium" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Affiliates</div></Link>
 

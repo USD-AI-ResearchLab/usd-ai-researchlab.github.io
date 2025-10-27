@@ -7,7 +7,7 @@ import People from "./Pages/People";
 import Faculty from "./Pages/PeoplePage/Faculty";
 import Staff from "./Pages/PeoplePage/Staff";
 import Students from "./Pages/PeoplePage/Students";
-import Resources from "./Pages/Resources";
+import Publications from "./Pages/Publications";
 import Initiatives from "./Pages/Initiatives";
 import Affiliates from "./Pages/Affiliates";
 import Contact from "./Pages/Contact";
@@ -25,7 +25,7 @@ const App: React.FC = () => {
           <Route path="/faculty" element={<Faculty />} />
           <Route path="/staff" element={<Staff />} />
           <Route path="/students" element={<Students />} />
-          <Route path="/resources" element={<Resources />} />
+          <Route path="/publications" element={<Publications />} />
           <Route path="/initiatives" element={<Initiatives />} />
           <Route path="/affiliates" element={<Affiliates />} />
           <Route path="/contact" element={<Contact />} />
