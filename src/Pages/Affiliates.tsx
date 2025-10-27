@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../components/Footer';
 
 const Affiliates: React.FC = () => {
   return (
@@ -6,6 +7,7 @@ const Affiliates: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-xl text-gray-800 mb-8">Affiliates</h1>
       </div>
+      <Footer />
     </div>
   );
 };

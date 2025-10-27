@@ -1,17 +1,17 @@
 import React from 'react';
 
-// Updated footer with LinkedIn only and correct email - CACHE BUST v2
+// Updated footer with thin fonts and LinkedIn + email content
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12 mt-16">
+    <footer className="bg-white text-gray-700 py-12 mt-16 border-t border-gray-200">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Logo and Description */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">
-              AI Research Lab
+            <h3 className="text-xl font-thin text-gray-800">
+              USD AI Research Lab
             </h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-gray-600 text-sm leading-relaxed font-thin">
               The Coyote's AI powerhouse on Sustainable innovation from the heart of Rushmore State.
             </p>
           </div>
@@ -20,11 +20,11 @@ const Footer: React.FC = () => {
           <div className="space-y-6">
             {/* Content Text */}
             <div className="space-y-4">
-              <p className="text-gray-300 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed font-thin">
                 Follow us on LinkedIn. For general inquiries, reach us by email. For technical assistance or questions, please contact{' '}
                 <a 
                   href="mailto:usd.airesearch.lab@gmail.com"
-                  className="text-red-400 hover:text-red-300 transition-colors duration-200"
+                  className="text-red-500 hover:text-red-600 transition-colors duration-200 font-thin"
                 >
                   usd.airesearch.lab@gmail.com
                 </a>.
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
                 href="https://www.linkedin.com/company/kc-ai/posts/?feedView=all"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-blue-500 transition-colors duration-200"
+                className="text-gray-600 hover:text-blue-500 transition-colors duration-200"
                 title="LinkedIn"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -49,8 +49,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400 text-sm">
+        <div className="border-t border-gray-200 mt-8 pt-8 text-center">
+          <p className="text-gray-500 text-sm font-thin">
             © UC Regents 2025.
           </p>
         </div>

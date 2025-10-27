@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Footer from '../components/Footer';
 
 const About: React.FC = () => {
   const fadeInUp = {
@@ -235,6 +236,7 @@ const About: React.FC = () => {
           </div>
         </motion.div>
       </motion.div>
+      <Footer />
     </div>
   );
 };
