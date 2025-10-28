@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Footer from '../components/Footer';
-import { PUBLICATIONS, BOOKS } from '../data/publications';
+import { PUBLICATIONS } from '../data/publications';
 
 const Publications: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -19,16 +19,32 @@ const Publications: React.FC = () => {
     </svg>
   );
 
-  // Books data with cover images - using placeholder for now
-  const bookListing = BOOKS.map((book, index) => ({
-    href: book.publisherUrl || "#",
-    title: book.title,
-    authors: book.authors,
-    publisher: book.publisher,
-    year: book.year,
-    // Generate placeholder color based on index
-    color: `hsl(${(index * 40) % 360}, 60%, 70%)`
-  }));
+  // Books data with actual cover images - same as GitHub repository
+  const bookListing = [
+    { href: "https://kc-santosh.org/", src: "/images/books/book3.png" },
+    { href: "https://link.springer.com/book/10.1007/978-981-97-2720-9", src: "/images/books/book-crackML.png" },
+    { href: "https://link.springer.com/book/9789819974412", src: "/images/books/book5.png" },
+    { href: "https://link.springer.com/book/10.1007/978-981-19-3935-8", src: "/images/books/book2.png" },
+    { href: "https://link.springer.com/book/9789811667671", src: "/images/books/book-ai-ml-healthcare.png" },
+    { href: "https://www.elsevier.com/books/deep-learning-models-for-medical-imaging/santosh/978-0-12-823504-1", src: "/images/books/book-dl-medical-imaging2.png" },
+    { href: "https://link.springer.com/book/10.1007%2F978-981-13-2339-3", src: "/images/books/book-coverS2017.png" },
+    { href: "https://www.springer.com/gp/book/9789811596810", src: "/images/books/book-covid1.png" },
+    { href: "https://www.springer.com/gp/book/9789811565717", src: "/images/books/book-covid2.jpg" },
+    { href: "https://www.taylorfrancis.com/books/e/9780429029417", src: "/images/books/book-MedImag.jpg" },
+    { href: "https://www.taylorfrancis.com/books/document-processing-using-machine-learning-sk-md-obaidullah-kc-santosh-teresa-gon%C3%A7alves-nibaran-das-kaushik-roy/e/10.1201/9780429277573", src: "/images/books/book-doc.jpg" },
+    { href: "https://link.springer.com/book/10.1007/978-3-031-27762-7", src: "/images/books/book6.png" },
+    { href: "https://link.springer.com/book/10.1007/978-3-031-27609-5", src: "/images/books/book7.png" },
+    { href: "https://link.springer.com/book/10.1007/978-3-031-23599-3", src: "/images/books/book8.png" },
+    { href: "https://ieeexplore.ieee.org/xpl/conhome/9866947/proceeding", src: "/images/books/book1.png" },
+    { href: "https://link.springer.com/book/10.1007/978-3-031-07005-1", src: "/images/books/book8.png" },
+    { href: "https://ieeexplore.ieee.org/xpl/conhome/9169740/proceeding", src: "/images/books/cbms2020-proceedings.png" },
+    { href: "https://link.springer.com/book/10.1007/978-981-16-0507-9#volumes", src: "/images/books/rtip2r-2020-1.png" },
+    { href: "https://link.springer.com/book/10.1007/978-981-16-0507-9#volumes", src: "/images/books/rtip2r-2020-2.png" },
+    { href: "https://rd.springer.com/book/10.1007/978-981-13-9181-1", src: "/images/books/part1.png" },
+    { href: "https://rd.springer.com/book/10.1007/978-981-13-9184-2", src: "/images/books/part2.png" },
+    { href: "https://rd.springer.com/book/10.1007/978-981-13-9187-3", src: "/images/books/part3.png" },
+    { href: "https://link.springer.com/book/10.1007/978-981-10-4859-3", src: "/images/books/book8.png" },
+  ];
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -176,28 +192,13 @@ const Publications: React.FC = () => {
                       rel="noopener noreferrer"
                       className="block"
                     >
-                      <div 
-                        className="w-[150px] h-[200px] relative border border-gray-200 rounded-lg shadow-md flex flex-col justify-between p-3"
-                        style={{ backgroundColor: book.color }}
-                      >
-                        <div>
-                          <h3 className="text-xs font-thin text-gray-800 leading-tight mb-2 overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>
-                            {book.title}
-                          </h3>
-                          <p className="text-xs text-gray-600 font-thin mb-1">
-                            {book.authors}
-                          </p>
-                          {book.publisher && (
-                            <p className="text-xs text-gray-600 font-thin">
-                              {book.publisher}
-                            </p>
-                          )}
-                        </div>
-                        {book.year && (
-                          <p className="text-xs text-gray-700 font-thin mt-auto">
-                            {book.year}
-                          </p>
-                        )}
+                      <div className="w-[150px] h-[200px] relative">
+                        <img
+                          src={book.src}
+                          alt="Book cover"
+                          className="w-full h-full object-contain mix-blend-multiply"
+                          style={{ objectFit: 'contain' }}
+                        />
                       </div>
                     </a>
                   </div>

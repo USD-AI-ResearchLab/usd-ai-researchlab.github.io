@@ -75,12 +75,12 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, memberK
         </div>
         
         {/* Name */}
-        <h3 className="text-lg font-thin mb-3 line-clamp-2 leading-tight" style={{ color: 'var(--logo-red, #C53030)' }}>{name}</h3>
+        <h3 className="text-lg font-semibold mb-3 line-clamp-2 leading-tight" style={{ color: 'var(--logo-red, #C53030)' }}>{name}</h3>
       </div>
       
       {/* Role */}
       <div className="mt-auto">
-        <p className="text-sm font-thin text-gray-800 line-clamp-3 leading-relaxed">
+        <p className="text-sm font-medium text-gray-800 line-clamp-3 leading-relaxed">
           {role}
         </p>
       </div>
