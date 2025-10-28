@@ -3,7 +3,10 @@ import Footer from '../components/Footer';
 
 interface Publication {
   title: string;
+  authors?: string;
   description: string;
+  venue?: string;
+  year?: string;
   paperUrl?: string;
   codeUrl?: string;
 }
@@ -22,45 +25,121 @@ interface Book {
 const Publications: React.FC = () => {
   const publications: Publication[] = [
     {
-      title: "DeepWhaleNet: Climate Change‑aware FFT‑based Deep Neural Network for Passive Acoustic Monitoring",
-      description: "FFT‑based DNN for passive acoustic whale‑call detection with climate‑aware considerations; built for UPAM workflows.",
-      paperUrl: "#",
+      title: "Non-Uniform Illumination Attack for Fooling Convolutional Neural Networks",
+      authors: "Akshay Jain, Shiv Ram Dubey, Satish Kumar Singh, KC Santosh, Bidyut Baran Chaudhuri",
+      description: "Convolutional Neural Networks (CNNs) have made remarkable strides; however, they remain susceptible to vulnerabilities, particularly in the face of minor image perturbations. This study introduces a novel Non-Uniform Illumination (NUI) attack technique, where images are subtly altered using varying NUI masks. Extensive experiments are conducted on widely-accepted datasets including CIFAR10, TinyImageNet, and CalTech256, focusing on image classification with 12 different NUI attack models.",
+      venue: "Pattern Recognition Journal",
+      year: "2025",
+      paperUrl: "https://www.ai-research-lab.org/paper/67db27caa299b9e333775f2e",
       codeUrl: "#"
     },
     {
-      title: "Non‑Uniform Illumination Attack for Fooling Convolutional Neural Networks",
-      description: "NUI masks degrade CNNs; simple defense via NUI‑augmented training across CIFAR‑10, TinyImageNet, Caltech‑256.",
-      paperUrl: "#",
+      title: "Advances and Challenges in Meta-Learning: A Technical Review",
+      authors: "Anna Vettoruzzo, Mohamed-Rafik Bouguelia, Joaquin Vanschoren, Thorsteinn Rögnvaldsson, KC Santosh",
+      description: "Meta-learning empowers learning systems with the ability to acquire knowledge from multiple tasks, enabling faster adaptation and generalization to new tasks. This review provides a comprehensive technical overview of meta-learning, emphasizing its importance in real-world applications where data may be scarce or expensive to obtain.",
+      venue: "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      year: "2024",
+      paperUrl: "https://www.ai-research-lab.org/paper/67b7cba6c883bbe0626025f9",
       codeUrl: "#"
     },
     {
-      title: "SegFast‑V2: Semantic image segmentation with fewer parameters",
-      description: "Compact encoder‑decoder with kernel factorization & depthwise deconvs; CPU‑friendly yet competitive.",
-      paperUrl: "#",
+      title: "Advances in Deep Learning for Tuberculosis Screening using Chest X‑rays: The Last 5 Years Review",
+      authors: "KC Santosh, Siva Allu, Sivaramakrishnan Rajaraman, Sameer Antani",
+      description: "There has been an explosive growth in research over the last decade exploring machine learning techniques for analyzing chest X-ray (CXR) images for screening cardiopulmonary abnormalities. We review the research studies published over the last five years (2016-2021) and systematically review 54 peer-reviewed research articles.",
+      venue: "Journal of Medical Systems, Springer",
+      year: "2023",
+      paperUrl: "https://www.ai-research-lab.org/paper/67bca50f4a13bcb220dac457",
+      codeUrl: "#"
+    },
+    {
+      title: "Guest Editorial Multimodal Learning in Medical Imaging Informatics",
+      authors: "KC Santosh, Sameer Antani",
+      description: "The papers in this special section focus on multimodal learning in medical imaging informatics. Enormous amounts of health-related data are produced daily, and the practice of modern medicine increasingly relies on data from multiple sources to guide better care.",
+      venue: "IEEE Journal of Biomedical and Health Informatics",
+      year: "2023",
+      paperUrl: "https://www.ai-research-lab.org/paper/67b7ccc25a3833f684b80d76",
+      codeUrl: "#"
+    },
+    {
+      title: "Cervical cancerous cell classification: opposition‑based harmony search for deep feature selection",
+      authors: "Nibaran Das, Bodhisatwa Mandal, KC Santosh, Linlin Shen, Sukanta Chakraborty",
+      description: "Over 500K (per year) cervical cancer cases are reported with a high mortality rate (6–9%). We propose a tool that classifies cervical cancer cases from Pap smear cytology images using deep features. The proposed tool constitutes a Convolutional Neural Network (CNN) and a metaheuristic evolutionary algorithm called Opposition-based Harmony Search Algorithm (O-bHSA) for deep feature selection.",
+      venue: "Soft Computing, Springer",
+      year: "2024",
+      paperUrl: "https://www.ai-research-lab.org/paper/67ce1e887185217817c985b4",
+      codeUrl: "#"
+    },
+    {
+      title: "SecureFed: federated learning empowered medical imaging technique to analyze lung abnormalities in chest X‑rays",
+      authors: "Aaisha Makkar, KC Santosh",
+      description: "Machine learning is an effective and accurate technique to diagnose COVID-19 infections using image data, and chest X-Ray (CXR) is no exception. We proposed SecureFed—a secure aggregation method—which ensures fairness and robustness in federated learning scenarios for medical imaging applications.",
+      venue: "Neural Computing and Applications, Springer",
+      year: "2024",
+      paperUrl: "https://www.ai-research-lab.org/paper/67ce1e0ec9109ace1bbebeee",
       codeUrl: "#"
     }
   ];
 
   const books: Book[] = [
     {
-      title: "Introduction to Artificial Intelligence and Machine Learning",
-      authors: "USD AI Research Lab Faculty",
-      description: "A comprehensive guide to AI and ML fundamentals, covering neural networks, deep learning, and practical applications in research and industry.",
-      publisher: "Academic Press",
-      year: "2024",
-      isbn: "978-0-123456-78-9",
-      amazonUrl: "#",
-      publisherUrl: "#"
+      title: "Deep Learning Models for Medical Imaging",
+      authors: "KC Santosh, Sameer Antani",
+      description: "This book covers recent advances in deep learning approaches for medical imaging including CNN architectures, transfer learning, and domain adaptation. It provides comprehensive coverage of deep learning applications in radiology, pathology, and other medical imaging domains.",
+      publisher: "Elsevier",
+      year: "2021",
+      isbn: "978-0-12-823504-1",
+      amazonUrl: "https://www.elsevier.com/books/deep-learning-models-for-medical-imaging/santosh/978-0-12-823504-1",
+      publisherUrl: "https://www.elsevier.com/books/deep-learning-models-for-medical-imaging/santosh/978-0-12-823504-1"
     },
     {
-      title: "Computer Vision and Image Processing: Modern Approaches",
-      authors: "Dr. KC Santosh, Dr. Nand Yadav",
-      description: "Advanced techniques in computer vision, image segmentation, and deep learning applications for medical imaging and autonomous systems.",
+      title: "Recent Trends in Image Processing and Pattern Recognition",
+      authors: "KC Santosh, Ravindra S. Hegadi",
+      description: "This book presents recent advances in image processing and pattern recognition techniques. It covers topics including deep learning for computer vision, medical image analysis, document analysis, and biometric recognition systems.",
       publisher: "Springer",
-      year: "2023",
-      isbn: "978-3-031-12345-6",
-      amazonUrl: "#",
-      publisherUrl: "#"
+      year: "2022",
+      isbn: "978-981-19-3935-8",
+      amazonUrl: "https://link.springer.com/book/10.1007/978-981-19-3935-8",
+      publisherUrl: "https://link.springer.com/book/10.1007/978-981-19-3935-8"
+    },
+    {
+      title: "Document Analysis and Text Recognition: Benchmarking State-of-the-Art Systems",
+      authors: "KC Santosh, Laurent Wendling",
+      description: "A comprehensive guide to document analysis and text recognition systems, providing benchmarking methodologies and state-of-the-art approaches for OCR, document layout analysis, and handwritten text recognition.",
+      publisher: "Springer",
+      year: "2020",
+      isbn: "978-981-15-9658-1",
+      amazonUrl: "https://www.springer.com/gp/book/9789811596810",
+      publisherUrl: "https://www.springer.com/gp/book/9789811596810"
+    },
+    {
+      title: "Intelligent Systems and Pattern Recognition: Challenges and Opportunities",
+      authors: "KC Santosh, Nibaran Das, Krishanu Maity",
+      description: "This book explores intelligent systems and pattern recognition with focus on machine learning algorithms, deep neural networks, and their applications in various domains including healthcare, security, and automation.",
+      publisher: "Springer",
+      year: "2021",
+      isbn: "978-981-16-6767-1",
+      amazonUrl: "https://link.springer.com/book/9789811667671",
+      publisherUrl: "https://link.springer.com/book/9789811667671"
+    },
+    {
+      title: "Medical Image Processing: Advanced Fuzzy Set Theoretic Techniques",
+      authors: "Tamalika Chaira, KC Santosh",
+      description: "Advanced techniques in medical image processing using fuzzy set theory. The book covers fuzzy image enhancement, segmentation, classification, and their applications in medical diagnosis and treatment planning.",
+      publisher: "CRC Press",
+      year: "2019",
+      isbn: "978-0-429-02941-7",
+      amazonUrl: "https://www.taylorfrancis.com/books/e/9780429029417",
+      publisherUrl: "https://www.taylorfrancis.com/books/e/9780429029417"
+    },
+    {
+      title: "Advances in Pattern Recognition and Artificial Intelligence",
+      authors: "KC Santosh, Ravindra S. Hegadi, Umapada Pal",
+      description: "Recent developments in pattern recognition and artificial intelligence covering machine learning, computer vision, natural language processing, and their interdisciplinary applications in real-world scenarios.",
+      publisher: "Springer",
+      year: "2024",
+      isbn: "978-981-97-2720-9",
+      amazonUrl: "https://link.springer.com/book/10.1007/978-981-97-2720-9",
+      publisherUrl: "https://link.springer.com/book/10.1007/978-981-97-2720-9"
     }
   ];
 
@@ -71,45 +150,51 @@ const Publications: React.FC = () => {
           Publications
         </h1>
         <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
-        <p className="text-gray-600 mb-12 font-thin">Research papers, books, and publications from the USD AI Research Lab</p>
+        <p className="text-gray-600 mb-12 font-thin text-lg">Research papers, books, and publications from the USD AI Research Lab</p>
         
         {/* Research Papers Section */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <h2 className="text-2xl font-bold text-gray-800 mb-8 flex items-center">
-            <svg className="w-6 h-6 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
+        <div className="max-w-6xl mx-auto mb-16">
+          <h2 className="text-3xl font-thin text-gray-800 mb-8" style={{ color: 'var(--logo-red, #C53030)' }}>
             Research Papers
           </h2>
           <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1">
             {publications.map((publication, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3 leading-tight">
+              <div key={index} className="bg-white p-8 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                <h3 className="text-xl font-thin text-gray-800 mb-2 leading-tight">
                   {publication.title}
                 </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                {publication.authors && (
+                  <p className="text-sm text-gray-500 mb-2 font-thin">
+                    Authors: {publication.authors}
+                  </p>
+                )}
+                {publication.venue && publication.year && (
+                  <p className="text-sm text-gray-500 mb-4 font-thin">
+                    Venue: {publication.venue} ({publication.year})
+                  </p>
+                )}
+                <p className="text-gray-600 mb-6 leading-relaxed font-thin">
                   {publication.description}
                 </p>
                 <div className="flex gap-4">
                   {publication.paperUrl && (
                     <a
                       href={publication.paperUrl}
-                      className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-medium"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-6 py-2 text-white rounded-md hover:opacity-90 transition-opacity text-sm font-thin"
+                      style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
                     >
-                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                      Paper
+                      Preview Paper
                     </a>
                   )}
-                  {publication.codeUrl && (
+                  {publication.codeUrl && publication.codeUrl !== "#" && (
                     <a
                       href={publication.codeUrl}
-                      className="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition-colors text-sm font-medium"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-6 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition-colors text-sm font-thin"
                     >
-                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                      </svg>
                       Code
                     </a>
                   )}
@@ -120,52 +205,37 @@ const Publications: React.FC = () => {
         </div>
 
         {/* Books Section */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <h2 className="text-2xl font-bold text-gray-800 mb-8 flex items-center">
-            <svg className="w-6 h-6 mr-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
+        <div className="max-w-6xl mx-auto mb-16">
+          <h2 className="text-3xl font-thin text-gray-800 mb-8" style={{ color: 'var(--logo-red, #C53030)' }}>
             Books
           </h2>
-          <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {books.map((book, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border-l-4 border-green-500">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 leading-tight">
+              <div key={index} className="bg-white p-6 hover:bg-gray-50 transition-colors border border-gray-100 rounded-lg">
+                <h3 className="text-lg font-thin text-gray-800 mb-2 leading-tight">
                   {book.title}
                 </h3>
-                <p className="text-sm text-gray-500 mb-3 font-medium">
+                <p className="text-sm text-gray-500 mb-3 font-thin">
                   by {book.authors}
                 </p>
                 {book.publisher && book.year && (
-                  <p className="text-sm text-gray-500 mb-3">
+                  <p className="text-sm text-gray-500 mb-3 font-thin">
                     {book.publisher} • {book.year}
-                    {book.isbn && ` • ISBN: ${book.isbn}`}
                   </p>
                 )}
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-gray-600 mb-4 leading-relaxed font-thin text-sm">
                   {book.description}
                 </p>
-                <div className="flex gap-4">
-                  {book.amazonUrl && (
-                    <a
-                      href={book.amazonUrl}
-                      className="inline-flex items-center px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors text-sm font-medium"
-                    >
-                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                      </svg>
-                      Amazon
-                    </a>
-                  )}
+                <div className="flex gap-2 flex-wrap">
                   {book.publisherUrl && (
                     <a
                       href={book.publisherUrl}
-                      className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors text-sm font-medium"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 text-white rounded-md hover:opacity-90 transition-opacity text-xs font-thin"
+                      style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
                     >
-                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                      </svg>
-                      Publisher
+                      View Book
                     </a>
                   )}
                 </div>
