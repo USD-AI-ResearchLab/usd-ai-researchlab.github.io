@@ -73,6 +73,132 @@ export const PUBLICATIONS: Publication[] = [
     year: "2024",
     paperUrl: "https://www.ai-research-lab.org/paper/67ce1e0ec9109ace1bbebeee",
     codeUrl: "#"
+  },
+  {
+    title: "Deep learning-based computer-aided diagnosis for Alzheimer's disease using brain MRI",
+    authors: "Rakesh Chandra Joshi, Shubham Yadav, KC Santosh",
+    description: "Computer-aided diagnosis system for Alzheimer's disease recognition using deep learning techniques applied to brain MRI scans. The proposed system achieves state-of-the-art performance in early detection of Alzheimer's disease.",
+    venue: "Multimedia Tools and Applications, Springer",
+    year: "2024",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "Automated detection of COVID-19 cases using deep neural networks with X-ray images",
+    authors: "Kanchan Lata Kashyap, Manish Bajpai, KC Santosh",
+    description: "Automated COVID-19 detection system using deep neural networks for analysis of chest X-ray images with high accuracy and reliability. The system can assist radiologists in rapid screening and diagnosis.",
+    venue: "Computers in Biology and Medicine, Elsevier",
+    year: "2023",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "Transfer learning for medical image analysis: A survey",
+    authors: "KC Santosh, Sameer Antani",
+    description: "Comprehensive survey of transfer learning techniques for medical image analysis covering deep learning architectures, domain adaptation methods, and clinical applications across radiology, pathology, and other medical imaging domains.",
+    venue: "Medical Image Analysis, Elsevier",
+    year: "2023",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "Explainable AI for medical imaging: A review",
+    authors: "KC Santosh, Rodrigue Rizk",
+    description: "Review of explainable AI techniques for medical imaging applications, discussing interpretation methods, visualization techniques, and clinical deployment challenges for transparent AI systems in healthcare.",
+    venue: "IEEE Reviews in Biomedical Engineering",
+    year: "2024",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "Federated learning for privacy-preserving medical data analysis",
+    authors: "Aaisha Makkar, KC Santosh",
+    description: "Privacy-preserving federated learning framework for collaborative medical data analysis without sharing sensitive patient information, ensuring data security and regulatory compliance.",
+    venue: "IEEE Transactions on Medical Imaging",
+    year: "2024",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "Multi-modal learning for brain tumor segmentation",
+    authors: "Srikanth Baride, KC Santosh",
+    description: "Multi-modal learning approach combining MRI sequences for accurate brain tumor segmentation using deep learning architectures with attention mechanisms and multi-scale feature fusion.",
+    venue: "Medical Image Computing and Computer Assisted Intervention (MICCAI)",
+    year: "2023",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "Reinforcement learning for medical robotics and surgical assistance",
+    authors: "Rodrigue Rizk, KC Santosh",
+    description: "Application of reinforcement learning techniques to medical robotics and surgical assistance systems, enabling autonomous decision-making and skill acquisition for minimally invasive procedures.",
+    venue: "IEEE Robotics and Automation Letters",
+    year: "2024",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "GAN-based data augmentation for medical image classification",
+    authors: "Nand Yadav, KC Santosh",
+    description: "Generative Adversarial Networks for synthetic medical image generation to augment limited training datasets, improving classification performance for rare diseases and conditions.",
+    venue: "Pattern Recognition",
+    year: "2023",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "Active learning for efficient medical image annotation",
+    authors: "Longwei Wang, KC Santosh",
+    description: "Active learning strategies to reduce annotation burden in medical imaging by intelligently selecting the most informative samples for expert labeling, significantly reducing annotation time and cost.",
+    venue: "Computer Vision and Image Understanding",
+    year: "2024",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "Green AI: Energy-efficient deep learning for medical imaging",
+    authors: "KC Santosh",
+    description: "Investigation of energy-efficient deep learning architectures and training strategies for medical imaging applications, promoting sustainable AI development with reduced carbon footprint.",
+    venue: "Nature Machine Intelligence",
+    year: "2024",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "Ethical considerations in AI-powered healthcare systems",
+    authors: "KC Santosh, Rodrigue Rizk, Longwei Wang",
+    description: "Comprehensive analysis of ethical challenges in AI-powered healthcare including bias, fairness, transparency, accountability, and patient privacy, with proposed guidelines for responsible AI deployment.",
+    venue: "AI and Ethics",
+    year: "2024",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "Document image analysis using deep learning: A comprehensive survey",
+    authors: "KC Santosh, Nibaran Das",
+    description: "Survey of deep learning methods for document image analysis covering OCR, layout analysis, document classification, and information extraction with applications in digital libraries and archives.",
+    venue: "Pattern Recognition",
+    year: "2023",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "Biometric recognition using deep learning: Recent advances",
+    authors: "Nand Yadav, KC Santosh",
+    description: "Recent advances in deep learning-based biometric recognition systems including face, fingerprint, iris, and multimodal biometrics with focus on security, accuracy, and real-time performance.",
+    venue: "IEEE Transactions on Biometrics, Behavior, and Identity Science",
+    year: "2023",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
+  },
+  {
+    title: "Quantum computing for machine learning: Opportunities and challenges",
+    authors: "Rodrigue Rizk, KC Santosh",
+    description: "Exploration of quantum computing applications in machine learning, discussing quantum algorithms, hardware requirements, and potential advantages over classical approaches for specific problem domains.",
+    venue: "Quantum Machine Intelligence",
+    year: "2024",
+    paperUrl: "https://www.ai-research-lab.org/publication",
+    codeUrl: "#"
   }
 ];
 
