@@ -25,13 +25,13 @@ const NavBar: React.FC = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-200/50 h-20 flex items-center justify-start px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 z-50">
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center">
         {!isHomePage && (
-          <Link to="/">
+          <Link to="/" className="mr-2">
             <img 
               src={bgimage} 
               alt="AI Lab Logo" 
-              className="w-24 h-24 md:w-28 md:h-28 object-contain cursor-pointer" 
+              className="w-20 h-20 md:w-24 md:h-24 object-contain cursor-pointer" 
             />
           </Link>
         )}
@@ -51,7 +51,7 @@ const NavBar: React.FC = () => {
         </button>
       </div>
 
-      <ul className="hidden md:flex flex-row justify-start items-center gap-6 ml-4 transition duration-300 ease-in-out text-lg">
+      <ul className="hidden md:flex flex-row justify-start items-center gap-4 transition duration-300 ease-in-out text-lg">
         <Link to="/about">
           <li className={`font-thin transition-colors duration-200 relative group ${
             location.pathname === '/about' ? '' : 'text-gray-700'
