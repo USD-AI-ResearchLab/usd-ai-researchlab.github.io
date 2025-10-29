@@ -24,7 +24,7 @@ const NavBar: React.FC = () => {
   const isHomePage = location.pathname === '/' || location.pathname === '/home';
 
   return (
-    <div className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-200/50 h-20 flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 z-50">
+    <div className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-200/50 h-20 flex items-center justify-start px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 z-50">
       <div className="flex items-center space-x-2">
         {!isHomePage && (
           <Link to="/">
@@ -37,7 +37,7 @@ const NavBar: React.FC = () => {
         )}
       </div>
 
-      <div className="md:hidden">
+      <div className="md:hidden ml-auto">
         <button onClick={toggleMenu} className="text-3xl text-gray-700 focus:outline-none">
           {isOpen ? (
             <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -51,7 +51,7 @@ const NavBar: React.FC = () => {
         </button>
       </div>
 
-      <ul className="hidden md:flex flex-row justify-between items-center gap-8 transition duration-300 ease-in-out text-lg">
+      <ul className="hidden md:flex flex-row justify-start items-center gap-8 ml-8 transition duration-300 ease-in-out text-lg">
         <Link to="/about">
           <li className={`font-thin transition-colors duration-200 relative group ${
             location.pathname === '/about' ? '' : 'text-gray-700'
