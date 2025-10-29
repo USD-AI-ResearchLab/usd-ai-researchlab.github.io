@@ -25,6 +25,3 @@ dist-ssr
 
 # Vite dev dependencies cache
 .vite/
-
-# Don't commit the root index.html to avoid conflicts with GitHub Pages
-/index.html
