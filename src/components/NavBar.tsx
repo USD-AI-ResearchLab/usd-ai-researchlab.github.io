@@ -144,8 +144,8 @@ const NavBar: React.FC = () => {
 
       </ul>
 
-      <div className={`fixed top-20 right-0 w-64 min-h-screen bg-white/90 backdrop-blur-2xl flex flex-col items-start justify-start gap-6 pt-8 px-6 pb-8 md:hidden transition-all duration-500 ease-in-out shadow-2xl overflow-y-auto z-40 ${
-        isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+      <div className={`fixed top-20 left-0 w-64 min-h-screen bg-white/90 backdrop-blur-2xl flex flex-col items-start justify-start gap-6 pt-8 px-6 pb-8 md:hidden transition-all duration-500 ease-in-out shadow-2xl overflow-y-auto z-40 ${
+        isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}>
           <Link to="/about" onClick={toggleMenu}><div className="text-lg font-thin" style={{ color: 'inherit' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>About</div></Link>
           <div className="w-full">
