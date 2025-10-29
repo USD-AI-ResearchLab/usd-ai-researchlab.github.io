@@ -51,7 +51,7 @@ const NavBar: React.FC = () => {
         </button>
       </div>
 
-      <ul className="hidden md:flex flex-row justify-start items-center gap-8 ml-8 transition duration-300 ease-in-out text-lg">
+      <ul className="hidden md:flex flex-row justify-start items-center gap-6 ml-4 transition duration-300 ease-in-out text-lg">
         <Link to="/about">
           <li className={`font-thin transition-colors duration-200 relative group ${
             location.pathname === '/about' ? '' : 'text-gray-700'
