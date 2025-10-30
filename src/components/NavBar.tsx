@@ -146,14 +146,14 @@ const NavBar: React.FC = () => {
         </div>
       </div>
 
-      <div className={`fixed top-20 left-0 w-64 min-h-screen bg-white/90 backdrop-blur-2xl flex flex-col items-start justify-start gap-6 pt-8 px-6 pb-8 md:hidden transition-all duration-500 ease-in-out shadow-2xl overflow-y-auto z-40 ${
+      <div className={`fixed top-20 left-0 w-64 min-h-screen bg-white/90 backdrop-blur-2xl flex flex-col items-start justify-start gap-6 pt-8 px-2 pb-8 md:hidden transition-all duration-500 ease-in-out shadow-2xl overflow-y-auto z-40 ${
         isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}>
-          <Link to="/about" onClick={toggleMenu}><div className="text-lg font-thin" style={{ color: 'inherit' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>About</div></Link>
+          <Link to="/about" onClick={toggleMenu}><div className="text-lg font-thin text-left w-full pl-2" style={{ color: 'inherit' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>About</div></Link>
           <div className="w-full">
             <button 
               onClick={toggleMobilePeople}
-              className="text-lg font-thin text-gray-700 flex items-center justify-between w-full text-left"
+              className="text-lg font-thin text-gray-700 flex items-center justify-between w-full text-left pl-2"
             >
               People
               <svg
@@ -168,16 +168,17 @@ const NavBar: React.FC = () => {
               </svg>
             </button>
             {isMobilePeopleOpen && (
-              <div className="ml-4 space-y-4">
-                <Link to="/faculty" onClick={toggleMenu}><div className="text-base font-thin py-1" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Faculty</div></Link>
-                <Link to="/staff" onClick={toggleMenu}><div className="text-base font-thin py-1" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>PhD Students</div></Link>
-                <Link to="/students" onClick={toggleMenu}><div className="text-base font-thin py-1" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Masters Students</div></Link>
+              <div className="ml-2 space-y-4 mt-2">
+                <Link to="/faculty" onClick={toggleMenu}><div className="text-base font-thin py-1 pl-2" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Faculty</div></Link>
+                <Link to="/staff" onClick={toggleMenu}><div className="text-base font-thin py-1 pl-2" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>PhD Students</div></Link>
+                <Link to="/students" onClick={toggleMenu}><div className="text-base font-thin py-1 pl-2" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Masters Students</div></Link>
               </div>
             )}
           </div>
-          <Link to="/publications" onClick={toggleMenu}><div className="text-lg font-thin" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Publications</div></Link>
-          <Link to="/initiatives" onClick={toggleMenu}><div className="text-lg font-thin" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Initiatives</div></Link>
-          <Link to="/affiliates" onClick={toggleMenu}><div className="text-lg font-thin" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Affiliates</div></Link>
+          <Link to="/publications" onClick={toggleMenu}><div className="text-lg font-thin pl-2 text-left" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Publications</div></Link>
+          <Link to="/initiatives" onClick={toggleMenu}><div className="text-lg font-thin pl-2 text-left" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Initiatives</div></Link>
+          <Link to="/affiliates" onClick={toggleMenu}><div className="text-lg font-thin pl-2 text-left" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Affiliates</div></Link>
+          <Link to="/contact" onClick={toggleMenu}><div className="text-lg font-thin pl-2 text-left" onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>Contact</div></Link>
         </div>
     </>
   );
