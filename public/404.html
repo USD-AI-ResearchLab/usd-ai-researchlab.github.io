@@ -44,6 +44,45 @@
       /* Make sure list itself doesn't center text */
       nav, nav ul { text-align: left !important; }
     </style>
+    
+    <!-- LEFT-ALIGN NAV & MOBILE DRAWER -->
+    <style>
+    /* Desktop/top nav → left */
+    header nav, .navbar, .site-nav, .top-nav, nav .nav, nav .navbar-nav, nav ul {
+      display: flex !important;
+      justify-content: flex-start !important;
+    }
+    .navbar-nav { margin-left: 0 !important; margin-right: auto !important; }
+    .ml-auto, .ms-auto, .justify-end, .justify-right { margin-left: 0 !important; }
+
+    /* Mobile overlay/drawer → left (scoped so it won't break other layouts) */
+    @media (max-width: 1024px) {
+      .fixed.top-0.left-0,
+      [class~="fixed"][class~="top-0"][class~="left-0"] {
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+      }
+      /* If the drawer was anchored to the right, move it left */
+      .fixed.right-0 { left: 0 !important; right: auto !important; }
+
+      /* Make the drawer contents left-aligned */
+      .fixed.top-0.left-0 .container,
+      .fixed.top-0.left-0 nav,
+      .fixed.top-0.left-0 ul {
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        text-align: left !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+      }
+
+      /* Cancel common centering utilities inside the drawer only */
+      .fixed.top-0.left-0 .mx-auto { margin-left: 0 !important; margin-right: auto !important; }
+      .fixed.top-0.left-0 .justify-center { justify-content: flex-start !important; }
+      .fixed.top-0.left-0 .items-center { align-items: flex-start !important; }
+      .fixed.top-0.left-0 .text-center { text-align: left !important; }
+    }
+    </style>
   </head>
   <body>
     <script>
