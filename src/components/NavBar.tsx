@@ -38,8 +38,8 @@ const NavBar: React.FC = () => {
           </Link>
         )}
         
-        {/* Navigation items */}
-        <ul className="hidden md:flex flex-row justify-start items-center gap-6 transition duration-300 ease-in-out text-lg">
+        {/* Navigation items - visible on screens 640px and up */}
+        <ul className="hidden sm:flex flex-row justify-start items-center gap-6 transition duration-300 ease-in-out text-lg">
           <Link to="/about">
             <li className={`font-thin transition-colors duration-200 relative group ${
               location.pathname === '/about' ? '' : 'text-gray-700'
@@ -131,7 +131,7 @@ const NavBar: React.FC = () => {
           </Link>
         </ul>
 
-        <div className="md:hidden absolute right-4">
+        <div className="sm:hidden absolute right-4">
           <button onClick={toggleMenu} className="text-3xl text-gray-700 focus:outline-none">
             {isOpen ? (
               <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -146,7 +146,7 @@ const NavBar: React.FC = () => {
         </div>
       </div>
 
-      <div className={`fixed top-20 left-0 w-64 min-h-screen bg-white/90 backdrop-blur-2xl flex flex-col items-end justify-start gap-6 pt-8 pl-6 pr-1 pb-8 md:hidden transition-all duration-500 ease-in-out shadow-2xl overflow-y-auto z-40 ${
+      <div className={`fixed top-20 left-0 w-64 min-h-screen bg-white/90 backdrop-blur-2xl flex flex-col items-end justify-start gap-6 pt-8 pl-6 pr-1 pb-8 sm:hidden transition-all duration-500 ease-in-out shadow-2xl overflow-y-auto z-40 ${
         isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}>
           <Link to="/about" onClick={toggleMenu}><div className="text-lg font-thin" style={{ color: 'inherit' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>About</div></Link>
