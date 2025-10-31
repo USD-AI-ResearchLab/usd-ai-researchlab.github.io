@@ -27,7 +27,19 @@ const NavBar: React.FC = () => {
     <>
       <div className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-200/50 h-20 flex items-center justify-start px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 z-50">
         
-        <ul className="hidden md:flex flex-row justify-start items-center gap-3 transition duration-300 ease-in-out text-lg">
+        {/* Logo first on the left */}
+        {!isHomePage && (
+          <Link to="/" className="mr-8">
+            <img 
+              src={bgimage} 
+              alt="AI Lab Logo" 
+              className="w-16 h-16 md:w-20 md:h-20 object-contain cursor-pointer" 
+            />
+          </Link>
+        )}
+        
+        {/* Navigation items */}
+        <ul className="hidden md:flex flex-row justify-start items-center gap-6 transition duration-300 ease-in-out text-lg">
           <Link to="/about">
             <li className={`font-thin transition-colors duration-200 relative group ${
               location.pathname === '/about' ? '' : 'text-gray-700'
@@ -118,18 +130,6 @@ const NavBar: React.FC = () => {
             </li>
           </Link>
         </ul>
-
-        <div className="flex items-center ml-auto">
-          {!isHomePage && (
-            <Link to="/">
-              <img 
-                src={bgimage} 
-                alt="AI Lab Logo" 
-                className="w-16 h-16 md:w-20 md:h-20 object-contain cursor-pointer" 
-              />
-            </Link>
-          )}
-        </div>
 
         <div className="md:hidden absolute right-4">
           <button onClick={toggleMenu} className="text-3xl text-gray-700 focus:outline-none">
