@@ -17,14 +17,32 @@
       }
       code, pre, kbd, samp { font-family: var(--mono-font) !important; }
       
-      /* Left-align navigation */
-      nav, .navbar, .navigation, [class*="nav"] {
+      /* Force nav items to the LEFT on all frameworks */
+      header nav, .navbar, .site-nav, .top-nav, nav .nav, nav .navbar-nav, nav ul {
+        display: flex !important;
         justify-content: flex-start !important;
       }
-      .ml-auto, .ms-auto, [class*="ml-auto"], [class*="ms-auto"] {
+
+      /* Cancel right-push margins (Tailwind/Bootstrap/utilities) */
+      .ml-auto, .ms-auto, .justify-end, .justify-right, .text-right, .float-right {
         margin-left: 0 !important;
-        margin-inline-start: 0 !important;
+        margin-right: 0 !important;
+        float: none !important;
+        text-align: left !important;
       }
+
+      /* Bootstrap-specific: move navbar links group to left */
+      .navbar-nav {
+        margin-left: 0 !important;
+        margin-right: auto !important;  /* pushes rest to the right, keeps links left */
+      }
+
+      /* Tailwind-specific utilities often seen on nav containers */
+      .md\:ml-auto, .lg\:ml-auto { margin-left: 0 !important; }
+      .justify-end { justify-content: flex-start !important; }
+
+      /* Make sure list itself doesn't center text */
+      nav, nav ul { text-align: left !important; }
     </style>
   </head>
   <body>
