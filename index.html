@@ -20,74 +20,73 @@
       }
       code, pre, kbd, samp { font-family: var(--mono-font) !important; }
       
-      /* Force nav items to the LEFT on all frameworks */
+      /* Force nav items to the RIGHT side on all frameworks */
       header nav, .navbar, .site-nav, .top-nav, nav .nav, nav .navbar-nav, nav ul {
         display: flex !important;
-        justify-content: flex-start !important;
+        justify-content: flex-end !important;
+        margin-left: auto !important;
       }
 
-      /* Cancel right-push margins (Tailwind/Bootstrap/utilities) */
+      /* Cancel left-push margins and force right alignment */
       .ml-auto, .ms-auto, .justify-end, .justify-right, .text-right, .float-right {
-        margin-left: 0 !important;
+        margin-left: auto !important;
         margin-right: 0 !important;
-        float: none !important;
-        text-align: left !important;
+        float: right !important;
+        text-align: right !important;
       }
 
-      /* Bootstrap-specific: move navbar links group to left */
+      /* Bootstrap-specific: move navbar links group to right */
       .navbar-nav {
-        margin-left: 0 !important;
-        margin-right: auto !important;  /* pushes rest to the right, keeps links left */
+        margin-left: auto !important;
+        margin-right: 0 !important;  /* pushes links to the right */
       }
 
-      /* Tailwind-specific utilities often seen on nav containers */
-      .md\:ml-auto, .lg\:ml-auto { margin-left: 0 !important; }
-      .justify-end { justify-content: flex-start !important; }
+      /* Tailwind-specific utilities to force right alignment */
+      .md\:ml-auto, .lg\:ml-auto { margin-left: auto !important; }
+      .justify-end { justify-content: flex-end !important; }
 
-      /* Make sure list itself doesn't center text */
-      nav, nav ul { text-align: left !important; }
+      /* Make sure list itself aligns right */
+      nav, nav ul { text-align: right !important; }
     </style>
     
-    <!-- LEFT-ALIGN NAV & MOBILE DRAWER -->
+    <!-- RIGHT-ALIGN NAV & MOBILE DRAWER -->
     <style>
-    /* Desktop/top nav → left */
+    /* Desktop/top nav → right */
     header nav, .navbar, .site-nav, .top-nav, nav .nav, nav .navbar-nav, nav ul {
       display: flex !important;
-      justify-content: flex-start !important;
+      justify-content: flex-end !important;
+      margin-left: auto !important;
     }
-    .navbar-nav { margin-left: 0 !important; margin-right: auto !important; }
-    .ml-auto, .ms-auto, .justify-end, .justify-right { margin-left: 0 !important; }
+    .navbar-nav { margin-left: auto !important; margin-right: 0 !important; }
+    .ml-auto, .ms-auto, .justify-end, .justify-right { margin-left: auto !important; }
 
-    /* Mobile overlay/drawer → left (scoped so it won't break other layouts) */
+    /* Mobile overlay/drawer → right alignment */
     @media (max-width: 1024px) {
       .fixed.top-0.left-0,
       [class~="fixed"][class~="top-0"][class~="left-0"] {
-        justify-content: flex-start !important;
-        align-items: flex-start !important;
+        justify-content: flex-end !important;
+        align-items: flex-end !important;
       }
-      /* If the drawer was anchored to the right, move it left */
-      .fixed.right-0 { left: 0 !important; right: auto !important; }
 
-      /* Make the drawer contents left-aligned */
+      /* Make the drawer contents right-aligned */
       .fixed.top-0.left-0 .container,
       .fixed.top-0.left-0 nav,
       .fixed.top-0.left-0 ul {
-        margin-left: 0 !important;
-        margin-right: auto !important;
-        text-align: left !important;
-        justify-content: flex-start !important;
-        align-items: flex-start !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        text-align: right !important;
+        justify-content: flex-end !important;
+        align-items: flex-end !important;
       }
 
-      /* Cancel common centering utilities inside the drawer only */
-      .fixed.top-0.left-0 .mx-auto { margin-left: 0 !important; margin-right: auto !important; }
-      .fixed.top-0.left-0 .justify-center { justify-content: flex-start !important; }
-      .fixed.top-0.left-0 .items-center { align-items: flex-start !important; }
-      .fixed.top-0.left-0 .text-center { text-align: left !important; }
+      /* Force right alignment utilities inside the drawer */
+      .fixed.top-0.left-0 .mx-auto { margin-left: auto !important; margin-right: 0 !important; }
+      .fixed.top-0.left-0 .justify-center { justify-content: flex-end !important; }
+      .fixed.top-0.left-0 .items-center { align-items: flex-end !important; }
+      .fixed.top-0.left-0 .text-center { text-align: right !important; }
     }
     </style>
-    <script type="module" crossorigin src="./assets/index-DVrqWggT.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Df9fKft2.css">
+    <script type="module" src="/src/main.tsx"></script>
   </head>
   <body>
     <div id="root"></div>

@@ -10,22 +10,24 @@ const Home: React.FC = () => {
       <div className="flex-1 flex items-center justify-center">
         <div className="container mx-auto px-4 py-20">
           <div className="text-center max-w-6xl mx-auto">
-            {/* Logo */}
-            <div className="mb-16">
+            {/* Logo - Centered */}
+            <div className="mb-16 flex justify-center">
               <img 
                 src={bgimage} 
                 alt="AI Lab Logo" 
-                className="mx-auto w-full max-w-none" 
+                className="mx-auto" 
                 style={{ 
-                  width: 'min(90vw, 1500px)', 
+                  width: 'min(90vw, 1200px)', 
                   height: 'auto',
-                  maxHeight: '60vh'
+                  maxHeight: '50vh'
                 }}
               />
             </div>
             
-            {/* Hero Title */}
-            <HeroTitle />
+            {/* Hero Title - Centered */}
+            <div className="flex justify-center">
+              <HeroTitle />
+            </div>
           </div>
         </div>
       </div>
