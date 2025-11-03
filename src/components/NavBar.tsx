@@ -21,8 +21,6 @@ const NavBar: React.FC = () => {
                         location.pathname === '/staff' || 
                         location.pathname === '/students';
 
-  const isHomePage = location.pathname === '/' || location.pathname === '/home';
-
   return (
     <>
       <div className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-200/50 h-20 flex items-center justify-between px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 z-50">
@@ -125,16 +123,14 @@ const NavBar: React.FC = () => {
 
         {/* Right side: Logo and Mobile menu button */}
         <div className="flex items-center gap-4">
-          {/* Logo on the right */}
-          {!isHomePage && (
-            <Link to="/" className="hidden sm:block">
-              <img 
-                src={bgimage} 
-                alt="AI Lab Logo" 
-                className="w-16 h-16 md:w-20 md:h-20 object-contain cursor-pointer" 
-              />
-            </Link>
-          )}
+          {/* Logo on the right - always visible */}
+          <Link to="/" className="hidden sm:block">
+            <img 
+              src={bgimage} 
+              alt="AI Lab Logo" 
+              className="w-16 h-16 md:w-20 md:h-20 object-contain cursor-pointer" 
+            />
+          </Link>
 
           {/* Mobile menu button */}
           <div className="sm:hidden">
@@ -157,6 +153,15 @@ const NavBar: React.FC = () => {
       <div className={`fixed top-20 left-0 w-64 min-h-screen bg-white/90 backdrop-blur-2xl flex flex-col items-start justify-start gap-6 pt-8 pl-6 pr-1 pb-8 sm:hidden transition-all duration-500 ease-in-out shadow-2xl overflow-y-auto z-40 ${
         isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}>
+          {/* Logo in mobile menu */}
+          <Link to="/" onClick={toggleMenu} className="mb-4">
+            <img 
+              src={bgimage} 
+              alt="AI Lab Logo" 
+              className="w-16 h-16 object-contain cursor-pointer" 
+            />
+          </Link>
+          
           <Link to="/about" onClick={toggleMenu}><div className="text-lg font-thin" style={{ color: 'inherit' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--logo-red, #C53030)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'inherit'}>About</div></Link>
           <div className="w-full">
             <button 
