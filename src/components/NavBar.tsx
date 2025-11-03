@@ -1,25 +1,14 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import bgimage from "../assets/logo.svg";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isMobilePeopleOpen, setIsMobilePeopleOpen] = useState<boolean>(false);
-  const location = useLocation();
 
   const toggleMenu = (): void => {
     setIsOpen((prev) => !prev);
   };
-
-  const toggleMobilePeople = (): void => {
-    setIsMobilePeopleOpen((prev) => !prev);
-  };
-
-  const isPeopleActive = location.pathname === '/people' || 
-                        location.pathname === '/faculty' || 
-                        location.pathname === '/staff' || 
-                        location.pathname === '/students';
 
   return (
     <>
