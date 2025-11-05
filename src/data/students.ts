@@ -2,6 +2,31 @@ import { Person } from './faculty';
 
 export const studentsData: Person[] = [
   {
+    name: "David Cortes",
+    role: "PhD Student | Computer Science",
+    memberKey: "david-cortes"
+  },
+  {
+    name: "Casey Wall",
+    role: "PhD Student | Computer Science",
+    memberKey: "casey-wall"
+  },
+  {
+    name: "Nickolas Rasmussen",
+    role: "PhD Student | Computer Science",
+    memberKey: "nickolas-rasmussen"
+  },
+  {
+    name: "Priyam Pandey",
+    role: "PhD Student | Computer Science",
+    memberKey: "priyam-pandey"
+  },
+  {
+    name: "Moinak Bose",
+    role: "PhD Student | Computer Science",
+    memberKey: "moinak-bose"
+  },
+  {
     name: "Sony Reddy Gurram",
     role: "MSc. Computer Science | Teaching Assistant",
     photo: "/AILab/images/team/sony-reddy-gurram.jpg",
