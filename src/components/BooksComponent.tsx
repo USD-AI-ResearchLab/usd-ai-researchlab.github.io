@@ -263,8 +263,8 @@ const BooksComponent: React.FC = () => {
                       style={{ 
                         imageRendering: 'pixelated',
                         transform: 'scale3d(1.01, 1.01, 1)',
-                        filter: 'contrast(1.4) saturate(1.5) brightness(1.1) blur(0px)',
-                        WebkitFilter: 'contrast(1.4) saturate(1.5) brightness(1.1) blur(0px)',
+                        filter: 'contrast(1.1) saturate(0.9) brightness(0.95) blur(0px)',
+                        WebkitFilter: 'contrast(1.1) saturate(0.9) brightness(0.95) blur(0px)',
                         minWidth: '160px',
                         minHeight: '220px'
                       }}
@@ -408,9 +408,9 @@ const BooksComponent: React.FC = () => {
           perspective: 1000px !important;
           -webkit-transform-style: preserve-3d !important;
           transform-style: preserve-3d !important;
-          /* MAXIMUM CONTRAST ENHANCEMENT */
-          filter: contrast(1.5) saturate(1.6) brightness(1.15) blur(0px) sepia(0%) hue-rotate(0deg) !important;
-          -webkit-filter: contrast(1.5) saturate(1.6) brightness(1.15) blur(0px) !important;
+          /* MAXIMUM CONTRAST ENHANCEMENT - REDUCED BRIGHTNESS */
+          filter: contrast(1.2) saturate(0.95) brightness(0.9) blur(0px) sepia(0%) hue-rotate(0deg) !important;
+          -webkit-filter: contrast(1.2) saturate(0.95) brightness(0.9) blur(0px) !important;
           /* FORCE CRISP RENDERING */
           will-change: transform, filter !important;
           contain: layout style paint !important;
@@ -440,22 +440,22 @@ const BooksComponent: React.FC = () => {
           flex-shrink: 0 !important;
         }
         
-        /* ULTRA HIGH DPI DISPLAYS - EXTREME SHARPENING */
+        /* ULTRA HIGH DPI DISPLAYS - NATURAL COLORS */
         @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
           .book-cover {
             image-rendering: -webkit-optimize-contrast !important;
             image-rendering: optimize-contrast !important;
-            filter: contrast(1.6) saturate(1.7) brightness(1.2) blur(0px) !important;
+            filter: contrast(1.15) saturate(0.9) brightness(0.85) blur(0px) !important;
             -webkit-transform: scale3d(1.025, 1.025, 1) !important;
             transform: scale3d(1.025, 1.025, 1) !important;
           }
         }
         
-        /* 4K+ DISPLAYS - MAXIMUM PIXELATION */
+        /* 4K+ DISPLAYS - CRISP BUT NATURAL */
         @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
           .book-cover {
             image-rendering: pixelated !important;
-            filter: contrast(1.7) saturate(1.8) brightness(1.25) blur(0px) !important;
+            filter: contrast(1.25) saturate(0.85) brightness(0.8) blur(0px) !important;
             -webkit-transform: scale3d(1.03, 1.03, 1) !important;
             transform: scale3d(1.03, 1.03, 1) !important;
           }
