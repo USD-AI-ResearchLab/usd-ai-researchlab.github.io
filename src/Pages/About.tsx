@@ -32,125 +32,83 @@ const About: React.FC = () => {
           </h1>
           <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
           <p className="text-xl text-gray-600 leading-relaxed font-thin">
-            Pioneering the future of artificial intelligence through innovation, education, and collaboration
+            Welcome to the USD AI Research Lab!
           </p>
         </motion.div>
 
-        {/* Mission Section */}
+        {/* Main Content Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin text-gray-800 mb-8">Mission</h2>
           <p className="text-lg text-gray-700 leading-relaxed mb-6 font-thin">
-            The AI Club is dedicated to fostering a vibrant community of artificial intelligence enthusiasts, 
-            researchers, and practitioners. We strive to bridge the gap between theoretical knowledge and 
-            practical applications in the rapidly evolving field of AI.
+            We are excited to have you explore our work, where we push the boundaries of foundational AI and machine learning while embracing sustainable AI solutions.
           </p>
-          <p className="text-lg text-gray-700 leading-relaxed mb-8 font-thin">
-            Through cutting-edge research, hands-on workshops, and collaborative projects, we empower our 
-            members to become leaders in the AI revolution, contributing to solutions that benefit society 
-            and drive technological progress.
-          </p>
-          <h3 className="text-2xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>Our Vision</h3>
-          <p className="text-lg text-gray-700 leading-relaxed font-thin">
-            To be the premier platform for AI innovation and education, 
-            creating a future where artificial intelligence enhances human potential.
-          </p>
-        </motion.div>
-
-        {/* Values Section */}
-        <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin text-gray-800 mb-8">Values</h2>
           
-          <div className="mb-8">
-            <h3 className="text-xl font-thin text-gray-800 mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>Innovation</h3>
-            <p className="text-gray-600 font-thin leading-relaxed">
-              Pushing the boundaries of what's possible with AI through creative problem-solving and cutting-edge research.
-            </p>
-          </div>
-
-          <div className="mb-8">
-            <h3 className="text-xl font-thin text-gray-800 mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>Collaboration</h3>
-            <p className="text-gray-600 font-thin leading-relaxed">
-              Building a supportive community where diverse perspectives come together to solve complex challenges.
-            </p>
-          </div>
-
-          <div className="mb-8">
-            <h3 className="text-xl font-thin text-gray-800 mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>Education</h3>
-            <p className="text-gray-600 font-thin leading-relaxed">
-              Democratizing AI knowledge through accessible learning opportunities and hands-on experiences.
-            </p>
-          </div>
+          <p className="text-lg text-gray-700 leading-relaxed mb-6 font-thin">
+            Our research spans green computing, active learning, and scalable as well as robust AI solutions, ensuring efficiency while saying no to carbon footprint.
+          </p>
+          
+          <p className="text-lg text-gray-700 leading-relaxed mb-6 font-thin">
+            We specialize in areas such as pattern recognition, computer vision, image processing, data mining, and big data analytics. Our interdisciplinary work impacts domains including healthcare informatics, medical imaging, document analysis, biometrics, forensics, speech processing, and the Internet of Things.
+          </p>
+          
+          <p className="text-lg text-gray-700 leading-relaxed mb-8 font-thin">
+            Join us as we drive AI innovation with sustainability at its core!
+          </p>
         </motion.div>
 
-        {/* What We Do Section */}
+        {/* Research Areas Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin text-gray-800 mb-8">What We Do</h2>
+          <h2 className="text-3xl font-thin text-gray-800 mb-8">Research Areas</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-thin text-gray-800 mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>Research & Development</h3>
+              <h3 className="text-xl font-thin text-gray-800 mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>Sustainable AI & Green Computing</h3>
               <p className="text-gray-600 font-thin leading-relaxed">
-                Conducting groundbreaking research in machine learning, deep learning, and AI applications.
+                Developing energy-efficient AI solutions with minimal carbon footprint.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-thin text-gray-800 mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>Workshops & Training</h3>
+              <h3 className="text-xl font-thin text-gray-800 mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>Pattern Recognition & Computer Vision</h3>
               <p className="text-gray-600 font-thin leading-relaxed">
-                Hosting interactive workshops, seminars, and training sessions for all skill levels.
+                Advancing visual understanding and automated pattern detection systems.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-thin text-gray-800 mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>Industry Partnerships</h3>
+              <h3 className="text-xl font-thin text-gray-800 mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>Data Mining & Big Data Analytics</h3>
               <p className="text-gray-600 font-thin leading-relaxed">
-                Collaborating with leading tech companies and research institutions worldwide.
+                Extracting meaningful insights from large-scale datasets using advanced analytics.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-thin text-gray-800 mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>Student Projects</h3>
+              <h3 className="text-xl font-thin text-gray-800 mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>Healthcare Informatics & Medical Imaging</h3>
               <p className="text-gray-600 font-thin leading-relaxed">
-                Mentoring innovative student projects and providing resources for implementation.
+                Applying AI to improve healthcare outcomes through intelligent medical systems.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-thin text-gray-800 mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>Community Events</h3>
+              <h3 className="text-xl font-thin text-gray-800 mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>Active Learning & Scalable AI</h3>
               <p className="text-gray-600 font-thin leading-relaxed">
-                Organizing hackathons, competitions, and networking events to foster collaboration.
+                Creating adaptive learning systems that scale efficiently with minimal supervision.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-thin text-gray-800 mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>Open Source Contributions</h3>
+              <h3 className="text-xl font-thin text-gray-800 mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>Biometrics & Forensics</h3>
               <p className="text-gray-600 font-thin leading-relaxed">
-                Contributing to open-source AI projects and making knowledge accessible to all.
+                Developing secure identification systems and forensic analysis tools.
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* Impact Section */}
-        <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin text-gray-800 mb-8">Impact</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <div className="text-3xl font-thin mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>500+ Active Members</div>
-              <div className="text-3xl font-thin mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>50+ Research Projects</div>
-            </div>
-            <div>
-              <div className="text-3xl font-thin mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>25+ Industry Partners</div>
-              <div className="text-3xl font-thin mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>100+ Events Hosted</div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Join Us Section */}
+        {/* Mission Section */}
         <motion.div className="text-center mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>Ready to Shape the Future?</h2>
+          <h2 className="text-3xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>Our Mission</h2>
           <p className="text-xl text-gray-600 font-thin leading-relaxed">
-            Join our community of AI innovators and be part of the next technological revolution.
+            Driving AI innovation with sustainability at its core, pushing the boundaries of foundational AI and machine learning while ensuring efficiency and environmental responsibility.
           </p>
         </motion.div>
       </motion.div>
