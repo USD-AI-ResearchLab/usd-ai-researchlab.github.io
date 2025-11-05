@@ -1,5 +1,0 @@
-<svg width="150" height="200" xmlns="http://www.w3.org/2000/svg">
-  <rect width="150" height="200" fill="#4F46E5" rx="8"/>
-  <text x="75" y="100" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Book Cover</text>
-  <text x="75" y="170" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">KC Santosh</text>
-</svg>

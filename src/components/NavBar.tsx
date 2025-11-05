@@ -1,14 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import bgimage from "../assets/logo.svg";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isPeopleDropdownOpen, setIsPeopleDropdownOpen] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = (): void => {
     setIsOpen((prev) => !prev);
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsPeopleDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -48,6 +64,106 @@ const NavBar: React.FC = () => {
               About
             </div>
           </Link>
+
+          {/* People Dropdown */}
+          <div 
+            ref={dropdownRef} 
+            style={{ position: 'relative' }}
+            onMouseEnter={() => setIsPeopleDropdownOpen(true)}
+            onMouseLeave={() => setIsPeopleDropdownOpen(false)}
+          >
+            <div style={{
+              fontSize: '16px',
+              fontWeight: 300,
+              color: '#374151',
+              transition: 'color 0.2s',
+              cursor: 'pointer',
+              userSelect: 'none'
+            }}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#dc2626'}
+            onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
+            >
+              People
+            </div>
+            
+            {/* Dropdown Menu */}
+            {isPeopleDropdownOpen && (
+              <div style={{
+                position: 'absolute',
+                top: '100%',
+                left: 0,
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(16px)',
+                borderRadius: '6px',
+                padding: '4px 0',
+                minWidth: '180px',
+                zIndex: 1000,
+                marginTop: '4px',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
+              }}>
+                <Link to="/faculty" style={{ textDecoration: 'none' }}>
+                  <div style={{
+                    padding: '6px 12px',
+                    fontSize: '14px',
+                    fontWeight: 300,
+                    color: '#374151',
+                    transition: 'all 0.2s'
+                  }}
+                  onMouseOver={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.1)';
+                    (e.target as HTMLElement).style.color = '#dc2626';
+                  }}
+                  onMouseOut={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                    (e.target as HTMLElement).style.color = '#374151';
+                  }}
+                  >
+                    Faculty
+                  </div>
+                </Link>
+                <Link to="/phd-students" style={{ textDecoration: 'none' }}>
+                  <div style={{
+                    padding: '6px 12px',
+                    fontSize: '14px',
+                    fontWeight: 300,
+                    color: '#374151',
+                    transition: 'all 0.2s'
+                  }}
+                  onMouseOver={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.1)';
+                    (e.target as HTMLElement).style.color = '#dc2626';
+                  }}
+                  onMouseOut={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                    (e.target as HTMLElement).style.color = '#374151';
+                  }}
+                  >
+                    PhD Students
+                  </div>
+                </Link>
+                <Link to="/masters-students" style={{ textDecoration: 'none' }}>
+                  <div style={{
+                    padding: '6px 12px',
+                    fontSize: '14px',
+                    fontWeight: 300,
+                    color: '#374151',
+                    transition: 'all 0.2s'
+                  }}
+                  onMouseOver={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.1)';
+                    (e.target as HTMLElement).style.color = '#dc2626';
+                  }}
+                  onMouseOut={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                    (e.target as HTMLElement).style.color = '#374151';
+                  }}
+                  >
+                    Masters Students
+                  </div>
+                </Link>
+              </div>
+            )}
+          </div>
 
           <Link to="/publications" style={{ textDecoration: 'none' }}>
             <div style={{
@@ -138,6 +254,24 @@ const NavBar: React.FC = () => {
         <Link to="/about" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">About</div>
         </Link>
+        
+        {/* Mobile People Menu */}
+        <div>
+          <Link to="/people" onClick={toggleMenu}>
+            <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">People</div>
+          </Link>
+          <div className="ml-4 mt-1 space-y-1">
+            <Link to="/faculty" onClick={toggleMenu}>
+              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">Faculty</div>
+            </Link>
+            <Link to="/phd-students" onClick={toggleMenu}>
+              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">PhD Students</div>
+            </Link>
+            <Link to="/masters-students" onClick={toggleMenu}>
+              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">Masters Students</div>
+            </Link>
+          </div>
+        </div>
         
         <Link to="/publications" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Publications</div>

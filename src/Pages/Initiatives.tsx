@@ -124,28 +124,19 @@ const Initiatives: React.FC = () => {
   ];
 
   return (
-    <div className="pt-20 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="pt-20 min-h-screen bg-white">
       <motion.div 
-        className="container mx-auto px-4 py-12"
+        className="container mx-auto px-4 py-12 max-w-4xl"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
-        {/* Hero Section */}
-        <motion.div className="text-center mb-16" variants={fadeInUp}>
+        {/* Header Section */}
+        <motion.div className="text-left mb-16" variants={fadeInUp}>
           <h1 className="text-5xl md:text-6xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>
-            7th Artificial Intelligence Symposium
+            Initiatives
           </h1>
-          <div className="w-24 h-1 mx-auto mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
-          <h2 className="text-3xl md:text-4xl font-thin text-gray-800 mb-4">
-            June 26–27, 2025
-          </h2>
-          <p className="text-lg text-gray-600 font-thin mb-8 max-w-4xl mx-auto leading-relaxed">
-            Join us for the University of South Dakota's 7th Annual Artificial Intelligence Symposium—formerly known as the Data Harnessing Symposium (2018–2019)—sponsored by IEEE and held in conjunction with the inaugural South Dakota Biomedical Computation Consortium (SDBCC).
-          </p>
-          <p className="text-lg text-gray-600 font-thin mb-8 max-w-4xl mx-auto leading-relaxed">
-            This premier event brings together thought leaders from academia, industry, and government to explore the forefront of artificial intelligence, data engineering, quantum computing, cyber threats, risk management, sustainable agriculture, healthcare, and biomedical computing.
-          </p>
+          <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
         </motion.div>
 
         {/* Stats Section */}

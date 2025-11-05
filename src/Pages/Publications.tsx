@@ -98,12 +98,23 @@ const Publications: React.FC = () => {
           display: none;
         }
       `}</style>
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-5xl md:text-6xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>
-          Publications
-        </h1>
-        <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
-        <p className="text-gray-600 mb-12 font-thin text-lg">Research papers, books, and publications from the USD AI Research Lab</p>
+      <div 
+        className="container mx-auto px-4 py-12 max-w-4xl"
+      >
+        {/* Header Section */}
+        <div className="text-left mb-16">
+          <h1 className="text-5xl md:text-6xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>
+            Publications
+          </h1>
+          <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
+        </div>
+
+        {/* Content Section */}
+        <div className="mb-16">
+          <p className="text-lg text-gray-700 leading-relaxed mb-8 font-thin">
+            Start like this - Research papers, books, and publications from the USD AI Research Lab
+          </p>
+        </div>
         
         {/* Research Papers Section */}
         <div className="max-w-6xl mx-auto mb-16">

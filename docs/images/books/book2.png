@@ -1,9 +1,0 @@
-<svg width="150" height="200" xmlns="http://www.w3.org/2000/svg">
-  <rect width="150" height="200" fill="#10B981" rx="8"/>
-  <text x="75" y="40" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Recent Trends in</text>
-  <text x="75" y="55" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Image Processing</text>
-  <text x="75" y="70" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">and Pattern</text>
-  <text x="75" y="85" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Recognition</text>
-  <text x="75" y="170" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">KC Santosh</text>
-  <text x="75" y="185" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Springer</text>
-</svg>

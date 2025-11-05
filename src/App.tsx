@@ -7,6 +7,8 @@ import People from "./Pages/People";
 import Faculty from "./Pages/PeoplePage/Faculty";
 import Staff from "./Pages/PeoplePage/Staff";
 import Students from "./Pages/PeoplePage/Students";
+import PhDStudents from "./Pages/PeoplePage/PhDStudents";
+import MastersStudents from "./Pages/PeoplePage/MastersStudents";
 import Publications from "./Pages/Publications";
 import Initiatives from "./Pages/Initiatives";
 import Affiliates from "./Pages/Affiliates";
@@ -25,6 +27,8 @@ const App: React.FC = () => {
           <Route path="/faculty" element={<Faculty />} />
           <Route path="/staff" element={<Staff />} />
           <Route path="/students" element={<Students />} />
+          <Route path="/phd-students" element={<PhDStudents />} />
+          <Route path="/masters-students" element={<MastersStudents />} />
           <Route path="/publications" element={<Publications />} />
           <Route path="/initiatives" element={<Initiatives />} />
           <Route path="/affiliates" element={<Affiliates />} />

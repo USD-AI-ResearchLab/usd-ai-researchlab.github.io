@@ -13,78 +13,14 @@
       :root{
         --ui-font: 'Ubuntu', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
         --mono-font: 'Ubuntu Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        --logo-red: #C53030;
+        --logo-red-light: #E53E3E;
       }
       html, body, p, span, div, li, a, button, input, select, textarea, table, tr, td, th,
       h1, h2, h3, h4, h5, h6, small, label, nav, footer, header, section, article, aside {
         font-family: var(--ui-font) !important;
       }
       code, pre, kbd, samp { font-family: var(--mono-font) !important; }
-      
-      /* Force nav items to the RIGHT side on all frameworks */
-      header nav, .navbar, .site-nav, .top-nav, nav .nav, nav .navbar-nav, nav ul {
-        display: flex !important;
-        justify-content: flex-end !important;
-        margin-left: auto !important;
-      }
-
-      /* Cancel left-push margins and force right alignment */
-      .ml-auto, .ms-auto, .justify-end, .justify-right, .text-right, .float-right {
-        margin-left: auto !important;
-        margin-right: 0 !important;
-        float: right !important;
-        text-align: right !important;
-      }
-
-      /* Bootstrap-specific: move navbar links group to right */
-      .navbar-nav {
-        margin-left: auto !important;
-        margin-right: 0 !important;  /* pushes links to the right */
-      }
-
-      /* Tailwind-specific utilities to force right alignment */
-      .md\:ml-auto, .lg\:ml-auto { margin-left: auto !important; }
-      .justify-end { justify-content: flex-end !important; }
-
-      /* Make sure list itself aligns right */
-      nav, nav ul { text-align: right !important; }
-    </style>
-    
-    <!-- RIGHT-ALIGN NAV & MOBILE DRAWER -->
-    <style>
-    /* Desktop/top nav → right */
-    header nav, .navbar, .site-nav, .top-nav, nav .nav, nav .navbar-nav, nav ul {
-      display: flex !important;
-      justify-content: flex-end !important;
-      margin-left: auto !important;
-    }
-    .navbar-nav { margin-left: auto !important; margin-right: 0 !important; }
-    .ml-auto, .ms-auto, .justify-end, .justify-right { margin-left: auto !important; }
-
-    /* Mobile overlay/drawer → right alignment */
-    @media (max-width: 1024px) {
-      .fixed.top-0.left-0,
-      [class~="fixed"][class~="top-0"][class~="left-0"] {
-        justify-content: flex-end !important;
-        align-items: flex-end !important;
-      }
-
-      /* Make the drawer contents right-aligned */
-      .fixed.top-0.left-0 .container,
-      .fixed.top-0.left-0 nav,
-      .fixed.top-0.left-0 ul {
-        margin-left: auto !important;
-        margin-right: 0 !important;
-        text-align: right !important;
-        justify-content: flex-end !important;
-        align-items: flex-end !important;
-      }
-
-      /* Force right alignment utilities inside the drawer */
-      .fixed.top-0.left-0 .mx-auto { margin-left: auto !important; margin-right: 0 !important; }
-      .fixed.top-0.left-0 .justify-center { justify-content: flex-end !important; }
-      .fixed.top-0.left-0 .items-center { align-items: flex-end !important; }
-      .fixed.top-0.left-0 .text-center { text-align: right !important; }
-    }
     </style>
     <script type="module" src="/src/main.tsx"></script>
   </head>
