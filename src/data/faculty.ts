@@ -46,6 +46,6 @@ export const facultyData: Person[] = [
     role: "PostDoc, Department of Computer Science, USD | Member, AI Research Lab",
     photo: profileImage5,
     memberKey: "nand-yadav",
-    url: "https://in.linkedin.com/in/nand-yadav-891883262"
+    url: "https://www.linkedin.com/in/nand-k-yadav-891883262/"
   }
 ];
