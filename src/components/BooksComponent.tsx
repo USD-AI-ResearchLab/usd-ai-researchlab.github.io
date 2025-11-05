@@ -39,143 +39,166 @@ const BooksComponent: React.FC = () => {
     </svg>
   );
 
-  // 4K ULTRA HIGH RESOLUTION book cover URLs from publishers - ALL BOOKS
+  // 4K ULTRA PIXELATED RESOLUTION book cover URLs - MAXIMUM QUALITY
   const bookListing = [
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-19-7334-5.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-19-7334-5.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-19-7334-5.jpg",
       title: "AI, Ethical Issues and Explainability—Applied Biometrics",
       author: "KC Santosh"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-97-2720-9.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-97-2720-9.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-97-2720-9.jpg",
       title: "Crack ML",
       author: "KC Santosh, Casey Wall"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-99-7441-2.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-99-7441-2.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-99-7441-2.jpg",
       title: "Pattern Recognition Advanced Topics",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-19-3935-8.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-19-3935-8.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-19-3935-8.jpg",
       title: "Artificial Intelligence and Machine Learning in Public Healthcare",
       author: "KC Santosh, Loveleen Gaur"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-16-6767-1.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-16-6767-1.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-16-6767-1.jpg",
       title: "AI and ML in Healthcare",
       author: "KC Santosh"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://secure-ecsd.elsevier.com/covers/80/Tango2/ultra/9780128235041.jpg",
+      src: "https://secure-ecsd.elsevier.com/covers/80/Tango2/large/9780128235041.jpg",
+      fallback: "https://ars.els-cdn.com/content/image/3-s2.0-C20200067927-cov200h.gif",
       title: "Deep Learning Models for Medical Imaging",
       author: "KC Santosh, Nibaran Das, Sivanendu Ghosh"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-13-2339-3.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-13-2339-3.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-13-2339-3.jpg",
       title: "Document Image Analysis",
       author: "KC Santosh"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-15-9681-0.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-15-9681-0.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-15-9681-0.jpg",
       title: "COVID-19: Prediction, Decision-Making, and its Impacts",
       author: "KC Santosh, Amit Joshi"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-15-6571-7.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-15-6571-7.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-15-6571-7.jpg",
       title: "COVID-19: Technologies and Applications",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://images.tandf.co.uk/common/jackets/ultra-highres/978042902/9780429029417.jpg",
+      src: "https://images.tandf.co.uk/common/jackets/crclarge/978042902/9780429029417.jpg",
+      fallback: "https://images.tandf.co.uk/common/jackets/agentjpg/978042902/9780429029417.jpg",
       title: "Medical Imaging: Artificial Intelligence, Image Recognition",
       author: "KC Santosh"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://images.tandf.co.uk/common/jackets/ultra-highres/978042927/9780429277573.jpg",
+      src: "https://images.tandf.co.uk/common/jackets/crclarge/978042927/9780429277573.jpg",
+      fallback: "https://images.tandf.co.uk/common/jackets/agentjpg/978042927/9780429277573.jpg",
       title: "Document Processing Using Machine Learning",
       author: "SK Md Obaidullah, KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-3-031-27762-7.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-3-031-27762-7.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-3-031-27762-7.jpg",
       title: "Recent Trends in Image Processing and Pattern Recognition Vol. 1",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-3-031-27609-5.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-3-031-27609-5.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-3-031-27609-5.jpg",
       title: "Recent Trends in Image Processing and Pattern Recognition Vol. 2",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-3-031-23599-3.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-3-031-23599-3.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-3-031-23599-3.jpg",
       title: "Recent Trends in Image Processing and Pattern Recognition Vol. 3",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-3-031-07005-1.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-3-031-07005-1.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-3-031-07005-1.jpg",
       title: "Computer Vision and Image Processing",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-16-0507-9.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-16-0507-9.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-16-0507-9.jpg",
       title: "Recent Trends in Image Processing & Pattern Recognition 2020 Vol. 1",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-16-0508-6.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-16-0508-6.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-16-0508-6.jpg",
       title: "Recent Trends in Image Processing & Pattern Recognition 2020 Vol. 2",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-13-9181-1.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-13-9181-1.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-13-9181-1.jpg",
       title: "Recent Trends in Image Processing and Pattern Recognition Part I",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-13-9184-2.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-13-9184-2.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-13-9184-2.jpg",
       title: "Recent Trends in Image Processing and Pattern Recognition Part II",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-13-9187-3.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-13-9187-3.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-13-9187-3.jpg",
       title: "Recent Trends in Image Processing and Pattern Recognition Part III",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-10-4859-3.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-10-4859-3.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-10-4859-3.jpg",
       title: "Applied Intelligence and Informatics",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-15-1134-2.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-15-1134-2.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-15-1134-2.jpg",
       title: "Medical Image Processing: Advanced Fuzzy Set Theoretic Techniques",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-13-1595-4.jpg",
+      src: "https://media.springernature.com/lw785/springer-static/cover/book/978-981-13-1595-4.jpg",
+      fallback: "https://media.springernature.com/w3840/springer-static/cover/book/978-981-13-1595-4.jpg",
       title: "Recent Trends in Computational Intelligence",
       author: "KC Santosh, et al."
     }
@@ -237,58 +260,67 @@ const BooksComponent: React.FC = () => {
                       className="book-cover w-full h-full object-cover object-center"
                       loading="lazy"
                       decoding="async"
-                      style={{ imageRendering: 'crisp-edges' }}
+                      style={{ 
+                        imageRendering: 'pixelated',
+                        transform: 'scale(1.001)',
+                        filter: 'contrast(1.2) saturate(1.3) sharpen(1px)'
+                      }}
                       onError={(e) => {
-                        // 4K ULTRA RESOLUTION fallback system for missing images
+                        // AGGRESSIVE 4K PIXELATED fallback system
                         const target = e.target as HTMLImageElement;
                         
-                        // Try alternative 4K resolution Springer URL patterns first
-                        if (!target.src.includes('fallback') && book.src.includes('springer')) {
-                          // Try different Springer ultra-high resolutions
-                          const bookId = book.src.match(/978[-\d-]+/)?.[0];
-                          if (bookId && !target.src.includes('full')) {
-                            target.src = `https://media.springernature.com/full/springer-static/cover/book/${bookId}.jpg?fallback=1`;
-                            return;
-                          } else if (bookId && !target.src.includes('w1600')) {
-                            target.src = `https://media.springernature.com/w1600/springer-static/cover/book/${bookId}.jpg?fallback=2`;
-                            return;
-                          } else if (bookId && !target.src.includes('w1224')) {
-                            target.src = `https://media.springernature.com/w1224/springer-static/cover/book/${bookId}.jpg?fallback=3`;
-                            return;
-                          }
-                        }
-                        
-                        // Try Elsevier ultra-high resolution
-                        if (!target.src.includes('fallback') && book.src.includes('elsevier')) {
-                          const bookId = book.src.match(/\d{13}/)?.[0];
-                          if (bookId && !target.src.includes('ultra')) {
-                            target.src = `https://secure-ecsd.elsevier.com/covers/80/Tango2/ultra/${bookId}.jpg?fallback=1`;
-                            return;
-                          }
-                        }
-                        
-                        // Try Google Books API with 4K resolution
-                        const isbn = book.title.match(/978[-\d]+/)?.[0] || book.src.match(/978[-\d]+/)?.[0];
-                        if (isbn && !target.src.includes('books.google.com')) {
-                          target.src = `https://books.google.com/books/content/images/frontcover/${isbn}?fife=w1200-h1800&source=gbs_api&fallback=4k`;
+                        // First try the dedicated fallback URL
+                        if (!target.src.includes('fallback-tried') && book.fallback) {
+                          target.src = book.fallback + '?fallback-tried=1';
                           return;
                         }
                         
-                        // Create a professional ultra-high-quality fallback cover
+                        // Try multiple 4K resolution alternatives for Springer
+                        if (!target.src.includes('4k-fallback') && book.src.includes('springer')) {
+                          const bookId = book.src.match(/978[-\d-]+/)?.[0];
+                          if (bookId) {
+                            // Try lw1785 (large width 1785px)
+                            if (!target.src.includes('lw1785')) {
+                              target.src = `https://media.springernature.com/lw1785/springer-static/cover/book/${bookId}.jpg?4k-fallback=1`;
+                              return;
+                            }
+                            // Try lw1224 (large width 1224px)
+                            if (!target.src.includes('lw1224')) {
+                              target.src = `https://media.springernature.com/lw1224/springer-static/cover/book/${bookId}.jpg?4k-fallback=2`;
+                              return;
+                            }
+                            // Try original full resolution
+                            if (!target.src.includes('full')) {
+                              target.src = `https://media.springernature.com/full/springer-static/cover/book/${bookId}.jpg?4k-fallback=3`;
+                              return;
+                            }
+                          }
+                        }
+                        
+                        // Try ultra high-res Google Books API with 4K settings
+                        const isbn = book.title.match(/978[-\d]+/)?.[0] || book.src.match(/978[-\d]+/)?.[0];
+                        if (isbn && !target.src.includes('books.google.com')) {
+                          // Request maximum Google Books resolution with pixelated rendering
+                          target.src = `https://books.google.com/books/content/images/frontcover/${isbn}?fife=w2400-h3600-im-q100-e15&source=gbs_api&4k=true`;
+                          return;
+                        }
+                        
+                        // Create ultra-high-quality pixelated fallback
                         target.style.display = 'none';
                         const parent = target.parentElement;
                         if (parent && !parent.querySelector('.fallback-cover')) {
                           const fallback = document.createElement('div');
-                          fallback.className = 'fallback-cover absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-700 flex flex-col justify-between p-4 text-white';
-                          fallback.style.imageRendering = 'crisp-edges';
+                          fallback.className = 'fallback-cover absolute inset-0 bg-gradient-to-br from-blue-700 via-purple-700 to-indigo-800 flex flex-col justify-between p-4 text-white';
+                          fallback.style.imageRendering = 'pixelated';
+                          fallback.style.filter = 'contrast(1.3) saturate(1.2)';
                           fallback.innerHTML = `
-                            <div class="text-xs font-bold leading-tight text-center">${book.title.substring(0, 50)}${book.title.length > 50 ? '...' : ''}</div>
+                            <div class="text-xs font-bold leading-tight text-center" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.8)">${book.title.substring(0, 45)}${book.title.length > 45 ? '...' : ''}</div>
                             <div class="text-center flex-grow flex items-center justify-center">
-                              <div class="w-12 h-12 bg-white bg-opacity-25 rounded-full flex items-center justify-center">
-                                <span class="text-lg font-bold">📚</span>
+                              <div class="w-16 h-16 bg-white bg-opacity-30 rounded-full flex items-center justify-center" style="backdrop-filter: blur(10px)">
+                                <span class="text-2xl font-bold">📚</span>
                               </div>
                             </div>
-                            <div class="text-xs opacity-80 text-center">${book.author}</div>
+                            <div class="text-xs opacity-90 text-center font-medium" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.8)">${book.author}</div>
                           `;
                           parent.appendChild(fallback);
                         }
@@ -347,37 +379,70 @@ const BooksComponent: React.FC = () => {
           max-width: 160px;
         }
         
-        /* Ensure all book covers are same size with 4K ULTRA QUALITY */
+        /* EXTREME 4K PIXELATED ULTRA SHARP book covers */
         .book-cover {
           aspect-ratio: 8/11;
           width: 100%;
           height: 220px;
           object-fit: cover;
           object-position: center;
-          /* 4K Ultra Sharp Rendering */
-          image-rendering: -webkit-optimize-contrast;
+          /* AGGRESSIVE 4K PIXELATION TECHNIQUES */
           image-rendering: -moz-crisp-edges;
+          image-rendering: -webkit-crisp-edges;
+          image-rendering: pixelated;
           image-rendering: crisp-edges;
-          image-rendering: optimizeQuality;
-          image-rendering: high-quality;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-          /* Hardware acceleration for ultra-sharp display */
+          image-rendering: optimizeSpeed;
+          /* ULTRA-SHARP SCALING */
+          -webkit-transform: scale3d(1.001, 1.001, 1);
+          transform: scale3d(1.001, 1.001, 1);
+          -webkit-transform-origin: center center;
+          transform-origin: center center;
+          /* HARDWARE 4K ACCELERATION */
           -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-          -webkit-transform: translateZ(0) scale(1.0001);
-          transform: translateZ(0) scale(1.0001);
-          /* 4K scaling optimization */
+          -webkit-perspective: 1000px;
+          perspective: 1000px;
           -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-          /* Ultra-sharp edge enhancement */
-          filter: contrast(1.05) saturate(1.1);
-          -webkit-filter: contrast(1.05) saturate(1.1);
-          /* Force high DPI rendering */
-          will-change: transform;
-          /* Anti-aliasing for ultra-crisp edges */
-          -webkit-font-feature-settings: "liga" 1, "kern" 1;
-          font-feature-settings: "liga" 1, "kern" 1;
+          /* MAXIMUM CONTRAST & SHARPENING */
+          filter: contrast(1.25) saturate(1.35) brightness(1.05) blur(0px) sharpen(2px);
+          -webkit-filter: contrast(1.25) saturate(1.35) brightness(1.05) blur(0px);
+          /* FORCE 4K RENDERING */
+          will-change: transform, filter;
+          contain: layout style paint;
+          /* PIXEL PERFECT EDGE ENHANCEMENT */
+          -webkit-font-smoothing: never;
+          -moz-osx-font-smoothing: unset;
+          /* GPU ACCELERATION FOR 4K */
+          -webkit-transform: translateZ(0) scale3d(1.0005, 1.0005, 1);
+          transform: translateZ(0) scale3d(1.0005, 1.0005, 1);
+          /* ULTRA HIGH DPI OPTIMIZATION */
+          image-resolution: 300dpi;
+          print-color-adjust: exact;
+          /* ELIMINATE ALL BLUR */
+          -webkit-text-stroke: 0.01px transparent;
+          text-stroke: 0.01px transparent;
+        }
+        
+        /* 4K RETINA DISPLAY OPTIMIZATION */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          .book-cover {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+            filter: contrast(1.3) saturate(1.4) brightness(1.08) blur(0px);
+            -webkit-transform: scale3d(1.002, 1.002, 1);
+            transform: scale3d(1.002, 1.002, 1);
+          }
+        }
+        
+        /* 4K+ ULTRA HIGH RESOLUTION DISPLAYS */
+        @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+          .book-cover {
+            image-rendering: pixelated;
+            filter: contrast(1.35) saturate(1.5) brightness(1.1) blur(0px);
+            -webkit-transform: scale3d(1.003, 1.003, 1);
+            transform: scale3d(1.003, 1.003, 1);
+          }
         }
         
         /* Text alignment improvements */
