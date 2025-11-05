@@ -28,17 +28,13 @@ const About: React.FC = () => {
         {/* Header Section */}
         <motion.div className="text-left mb-16" variants={fadeInUp}>
           <h1 className="text-5xl md:text-6xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>
-            About
+            Welcome to the USD AI Research Lab!
           </h1>
           <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
         </motion.div>
 
         {/* Main Content Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
-          <p className="text-lg text-gray-700 leading-relaxed mb-6 font-thin">
-            Welcome to the USD AI Research Lab!
-          </p>
-          
           <p className="text-lg text-gray-700 leading-relaxed mb-6 font-thin">
             We are excited to have you explore our work, where we push the boundaries of foundational AI and machine learning while embracing sustainable AI solutions.
           </p>
