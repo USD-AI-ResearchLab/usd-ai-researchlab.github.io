@@ -4,7 +4,7 @@ import PersonCard from '../../components/PersonCard';
 import Footer from '../../components/Footer';
 import { studentsData } from '../../data/students';
 
-const MastersStudents: React.FC = () => {
+const PhDStudents: React.FC = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -19,32 +19,34 @@ const MastersStudents: React.FC = () => {
     }
   };
 
-  // Filter for Masters students - looking for M.S., MSc, Masters, or similar terms
-  const mastersStudents = studentsData.filter(student => 
+  // Filter for PhD students - looking for PhD, Doctoral, or similar terms
+  const phdStudents = studentsData.filter(student => 
     student.role && (
-      student.role.toLowerCase().includes('m.s.') ||
-      student.role.toLowerCase().includes('ms ') ||
-      student.role.toLowerCase().includes('msc') ||
-      student.role.toLowerCase().includes('masters') ||
-      student.role.toLowerCase().includes('master of')
+      student.role.toLowerCase().includes('phd') ||
+      student.role.toLowerCase().includes('ph.d') ||
+      student.role.toLowerCase().includes('doctoral') ||
+      student.role.toLowerCase().includes('doctorate')
     )
   );
 
   return (
-    <div className="min-h-screen bg-gray-50" style={{ fontFamily: 'Ubuntu, sans-serif' }}>
-      <div className="container mx-auto px-6 py-16">
+    <div className="pt-20 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="container mx-auto px-4 py-12">
         <motion.div
-          className="text-center mb-16"
+          className="text-left mb-16"
           initial="initial"
           animate="animate"
           variants={fadeInUp}
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
-            Masters Students
+          <h1 
+            className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4" 
+            style={{ color: 'var(--logo-red, #C53030) !important' }}
+          >
+            PhD Students
           </h1>
-          <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our Masters students are developing expertise in artificial intelligence through rigorous coursework and research projects.
+          <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
+          <p className="text-xl text-gray-600 max-w-3xl" style={{ textAlign: 'left' }}>
+            Meet our PhD students who are advancing the frontiers of artificial intelligence through cutting-edge research and innovation.
           </p>
         </motion.div>
 
@@ -54,8 +56,8 @@ const MastersStudents: React.FC = () => {
           animate="animate"
           variants={staggerChildren}
         >
-          {mastersStudents.length > 0 ? (
-            mastersStudents.map((student, index) => (
+          {phdStudents.length > 0 ? (
+            phdStudents.map((student, index) => (
               <motion.div key={index} variants={fadeInUp}>
                 <PersonCard 
                   name={student.name}
@@ -69,7 +71,7 @@ const MastersStudents: React.FC = () => {
           ) : (
             <motion.div className="col-span-full text-center py-12" variants={fadeInUp}>
               <p className="text-lg text-gray-600">
-                Masters student information will be updated soon.
+                PhD student information will be updated soon.
               </p>
             </motion.div>
           )}
@@ -80,4 +82,5 @@ const MastersStudents: React.FC = () => {
   );
 };
 
-export default MastersStudents;
+export default PhDStudents;
+// Force cache invalidation

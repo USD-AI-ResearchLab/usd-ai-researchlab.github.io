@@ -8,6 +8,11 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  server: {
+    fs: {
+      allow: ['..']
+    }
+  },
   build: {
     target: 'es2015',
     outDir: 'dist',
