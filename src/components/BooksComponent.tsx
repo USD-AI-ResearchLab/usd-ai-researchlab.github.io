@@ -11,7 +11,7 @@ const BooksComponent: React.FC = () => {
     const interval = setInterval(() => {
       if (scrollContainerRef.current) {
         const container = scrollContainerRef.current;
-        const scrollAmount = 220; // Width of one book + gap
+        const scrollAmount = 200; // Adjusted for new layout
         
         if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
           // Reset to beginning
@@ -183,7 +183,7 @@ const BooksComponent: React.FC = () => {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 220; // Increased for larger books
+      const scrollAmount = 200; // Adjusted for new layout
       const currentScroll = scrollContainerRef.current.scrollLeft;
       const targetScroll = direction === 'left' 
         ? currentScroll - scrollAmount 
@@ -207,7 +207,7 @@ const BooksComponent: React.FC = () => {
         </h1>
         
         <div 
-          className="relative" 
+          className="books-carousel relative" 
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -221,81 +221,64 @@ const BooksComponent: React.FC = () => {
 
           <div 
             ref={scrollContainerRef}
-            className="flex overflow-x-auto gap-4 px-8 py-0 scroll-smooth hide-scrollbar"
+            className="flex overflow-x-auto gap-6 px-12 py-4 scroll-smooth hide-scrollbar items-center"
           >
             {bookListing.map((book, index) => (
               <div 
                 key={index}
-                className="flex-shrink-0 transition-transform hover:scale-105 h-[320px] flex items-center"
+                className="book-card flex-shrink-0 transition-all duration-300 hover:scale-105 flex flex-col items-center"
               >
                 <a 
                   href={book.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block"
+                  className="block group w-full"
                 >
-                  <div className="w-[180px] h-[240px] relative overflow-hidden rounded-lg shadow-lg border-2 border-gray-200">
+                  <div className="w-full h-[220px] relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-300 bg-white">
                     <img
                       src={book.src}
                       alt={book.title}
-                      className="w-full h-full object-cover"
+                      className="book-cover w-full h-full object-cover object-center"
+                      loading="lazy"
                       onError={(e) => {
                         // Enhanced fallback system for missing images
                         const target = e.target as HTMLImageElement;
-                        const isbn = book.title.match(/978[-\d]+/)?.[0];
                         
-                        // Try alternative Springer URL patterns
-                        if (!target.src.includes('google') && !target.src.includes('fallback')) {
-                          if (book.src.includes('springer')) {
-                            // Try different Springer resolutions
-                            const bookId = book.src.match(/978[-\d]+/)?.[0];
-                            if (bookId) {
-                              target.src = `https://media.springernature.com/full/springer-static/cover/book/${bookId}.jpg`;
-                              target.src = target.src + '?fallback=1';
-                              return;
-                            }
-                          } else if (book.src.includes('elsevier')) {
-                            // Try Elsevier alternative
-                            const bookId = book.src.match(/\d{13}/)?.[0];
-                            if (bookId) {
-                              target.src = `https://secure-ecsd.elsevier.com/covers/80/Tango2/large/${bookId}.jpg`;
-                              return;
-                            }
-                          }
-                          
-                          // Try Google Books API
-                          if (isbn) {
-                            target.src = `https://books.google.com/books/content/images/frontcover/${isbn}?fife=w400-h600&source=gbs_api`;
+                        // Try alternative Springer URL patterns first
+                        if (!target.src.includes('fallback') && book.src.includes('springer')) {
+                          // Try standard resolution instead of w612
+                          const bookId = book.src.match(/978[-\d-]+/)?.[0];
+                          if (bookId && !target.src.includes('w306')) {
+                            target.src = `https://media.springernature.com/w306/springer-static/cover/book/${bookId}.jpg?fallback=1`;
                             return;
                           }
                         }
                         
-                        // Final styled fallback
+                        // Create a nice fallback cover
                         target.style.display = 'none';
                         const parent = target.parentElement;
                         if (parent && !parent.querySelector('.fallback-cover')) {
                           const fallback = document.createElement('div');
-                          fallback.className = 'fallback-cover absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-700 flex flex-col justify-between p-4 text-white';
+                          fallback.className = 'fallback-cover absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-700 flex flex-col justify-between p-4 text-white';
                           fallback.innerHTML = `
-                            <div class="text-sm font-bold leading-tight">${book.title.substring(0, 60)}${book.title.length > 60 ? '...' : ''}</div>
-                            <div class="text-center">
-                              <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full mx-auto mb-3 flex items-center justify-center">
-                                <span class="text-lg font-bold">AI</span>
+                            <div class="text-xs font-bold leading-tight text-center">${book.title.substring(0, 50)}${book.title.length > 50 ? '...' : ''}</div>
+                            <div class="text-center flex-grow flex items-center justify-center">
+                              <div class="w-12 h-12 bg-white bg-opacity-25 rounded-full flex items-center justify-center">
+                                <span class="text-lg font-bold">📚</span>
                               </div>
-                              <div class="text-xs opacity-80">${book.author}</div>
-                              <div class="text-xs opacity-60 mt-1">Research Publication</div>
                             </div>
+                            <div class="text-xs opacity-80 text-center">${book.author}</div>
                           `;
                           parent.appendChild(fallback);
                         }
                       }}
                     />
                   </div>
-                  <div className="text-center mt-2">
-                    <p className="text-sm font-medium text-gray-800 leading-tight" style={{ fontSize: '0.75rem' }}>
+                  <div className="mt-3 text-center w-full">
+                    <p className="book-title text-xs font-semibold text-gray-800 leading-tight line-clamp-2 mb-1">
                       {book.title}
                     </p>
-                    <p className="text-xs text-gray-600 mt-1">
+                    <p className="book-author text-xs text-gray-600">
                       {book.author}
                     </p>
                   </div>
@@ -327,6 +310,48 @@ const BooksComponent: React.FC = () => {
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
+        }
+        
+        /* Books container alignment */
+        .books-carousel {
+          min-height: 300px;
+          display: flex;
+          align-items: center;
+        }
+        
+        /* Book card consistent sizing */
+        .book-card {
+          width: 160px;
+          min-width: 160px;
+          max-width: 160px;
+        }
+        
+        /* Ensure all book covers are same size */
+        .book-cover {
+          aspect-ratio: 8/11;
+          width: 100%;
+          height: 220px;
+          object-fit: cover;
+          object-position: center;
+        }
+        
+        /* Text alignment improvements */
+        .book-title {
+          height: 2.5rem;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+        
+        .book-author {
+          height: 1.5rem;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
         }
       `}</style>
     </div>
