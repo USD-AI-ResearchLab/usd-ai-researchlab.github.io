@@ -47,7 +47,7 @@ const People: React.FC = () => {
         {/* Faculty Section */}
         <motion.div className="mb-20" variants={fadeInUp}>
           <h2 className="text-3xl md:text-4xl font-thin mb-8" style={{ color: 'var(--logo-red, #C53030)' }}>
-            Faculty & Research Staff ({facultyData.length} members)
+            Faculty & Research Staff
           </h2>
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
