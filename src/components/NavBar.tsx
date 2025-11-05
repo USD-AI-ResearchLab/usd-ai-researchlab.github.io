@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import bgimage from "../assets/logo.svg";
 
@@ -7,6 +7,10 @@ const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isPeopleDropdownOpen, setIsPeopleDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  
+  // Check if current page is home page
+  const isHomePage = location.pathname === '/' || location.pathname === '';
 
   const toggleMenu = (): void => {
     setIsOpen((prev) => !prev);
@@ -208,6 +212,22 @@ const NavBar: React.FC = () => {
           </Link>
         </div>
 
+        {/* LOGO - RIGHT SIDE (Hidden on home page) */}
+        {!isHomePage && (
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <img 
+              src={bgimage} 
+              alt="AI Lab Logo" 
+              style={{
+                width: '60px',
+                height: '60px',
+                objectFit: 'contain',
+                cursor: 'pointer'
+              }}
+            />
+          </Link>
+        )}
+
         {/* MOBILE MENU BUTTON */}
         <button 
           onClick={toggleMenu} 
@@ -228,14 +248,16 @@ const NavBar: React.FC = () => {
       <div className={`fixed top-20 left-0 w-64 min-h-screen bg-white/95 backdrop-blur-xl flex flex-col items-start justify-start gap-6 pt-8 pl-6 pr-4 pb-8 sm:hidden transition-all duration-300 ease-in-out shadow-xl overflow-y-auto z-40 ${
         isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}>
-        {/* Logo in mobile menu */}
-        <Link to="/" onClick={toggleMenu} className="mb-4">
-          <img 
-            src={bgimage} 
-            alt="AI Lab Logo" 
-            className="w-16 h-16 object-contain cursor-pointer" 
-          />
-        </Link>
+        {/* Logo in mobile menu - Hidden on home page */}
+        {!isHomePage && (
+          <Link to="/" onClick={toggleMenu} className="mb-4">
+            <img 
+              src={bgimage} 
+              alt="AI Lab Logo" 
+              className="w-16 h-16 object-contain cursor-pointer" 
+            />
+          </Link>
+        )}
         
         <Link to="/about" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">About</div>
