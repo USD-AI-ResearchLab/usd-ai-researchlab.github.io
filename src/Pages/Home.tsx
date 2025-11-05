@@ -17,9 +17,9 @@ const Home: React.FC = () => {
                 alt="AI Lab Logo" 
                 className="mx-auto" 
                 style={{ 
-                  width: 'min(90vw, 1200px)', 
+                  width: 'min(95vw, 1400px)', 
                   height: 'auto',
-                  maxHeight: '50vh'
+                  maxHeight: '60vh'
                 }}
               />
             </div>

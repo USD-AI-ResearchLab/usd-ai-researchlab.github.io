@@ -208,20 +208,6 @@ const NavBar: React.FC = () => {
           </Link>
         </div>
 
-        {/* LOGO - RIGHT SIDE */}
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <img 
-            src={bgimage} 
-            alt="AI Lab Logo" 
-            style={{
-              width: '80px',
-              height: '80px',
-              objectFit: 'contain',
-              cursor: 'pointer'
-            }}
-          />
-        </Link>
-
         {/* MOBILE MENU BUTTON */}
         <button 
           onClick={toggleMenu} 
