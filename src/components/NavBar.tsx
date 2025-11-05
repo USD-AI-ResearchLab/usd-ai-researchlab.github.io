@@ -50,7 +50,7 @@ const NavBar: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           gap: '32px'
-        }}>
+        }} className="flex">
           <Link to="/about" style={{ textDecoration: 'none' }}>
             <div style={{
               fontSize: '16px',
@@ -226,13 +226,13 @@ const NavBar: React.FC = () => {
         <button 
           onClick={toggleMenu} 
           style={{
-            display: 'none',
             background: 'none',
             border: 'none',
             fontSize: '24px',
             color: '#374151',
             cursor: 'pointer'
           }}
+          className="block sm:hidden"
         >
           {isOpen ? '✕' : '☰'}
         </button>
