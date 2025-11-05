@@ -4,27 +4,32 @@ export const studentsData: Person[] = [
   {
     name: "David Cortes",
     role: "PhD Student | Computer Science",
-    memberKey: "david-cortes"
+    memberKey: "david-cortes",
+    url: "https://www.linkedin.com/in/david-neun-ai-robotics/"
   },
   {
     name: "Casey Wall",
     role: "PhD Student | Computer Science",
-    memberKey: "casey-wall"
+    memberKey: "casey-wall",
+    url: "https://www.linkedin.com/in/casey-wall-47181024a/"
   },
   {
     name: "Nickolas Rasmussen",
     role: "PhD Student | Computer Science",
-    memberKey: "nickolas-rasmussen"
+    memberKey: "nickolas-rasmussen",
+    url: "https://www.linkedin.com/in/nicholas-rasmussen-022902174/"
   },
   {
     name: "Priyam Pandey",
     role: "PhD Student | Computer Science",
-    memberKey: "priyam-pandey"
+    memberKey: "priyam-pandey",
+    url: "https://www.linkedin.com/in/priyam-pandey-09b134142/"
   },
   {
     name: "Moinak Bose",
     role: "PhD Student | Computer Science",
-    memberKey: "moinak-bose"
+    memberKey: "moinak-bose",
+    url: "https://www.linkedin.com/in/moinak-bose-mdastudent/"
   },
   {
     name: "Sony Reddy Gurram",

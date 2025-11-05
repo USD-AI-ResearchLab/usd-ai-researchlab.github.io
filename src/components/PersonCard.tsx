@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLinkedInImages, getTeamMemberImageUrl } from '../hooks/useLinkedInImages';
 
 interface PersonCardProps {
   name: string;
@@ -9,9 +8,7 @@ interface PersonCardProps {
   memberKey?: string; // Added to identify team members for LinkedIn images
 }
 
-const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, memberKey }) => {
-  const { images: linkedInImages } = useLinkedInImages();
-  
+const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url }) => {
   const initials = name
     .split(' ')
     .map(word => word.charAt(0))
@@ -19,18 +16,8 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, memberK
     .toUpperCase()
     .slice(0, 2);
 
-  // Get the best available image URL - prioritize local images
-  const imageUrl = photo || (memberKey 
-    ? getTeamMemberImageUrl(memberKey, linkedInImages)
-    : undefined);
-
-  // Debug logging
-  console.log(`🎭 PersonCard for ${name}:`, {
-    memberKey,
-    linkedInImages,
-    photo,
-    finalImageUrl: imageUrl
-  });
+  // Get the best available image URL - prioritize local images, skip LinkedIn for students without photos
+  const imageUrl = photo; // Only use provided photos, don't fetch LinkedIn images for new students
 
   const CardContent = () => (
     <div className="person-card bg-white rounded-xl shadow-lg p-6 text-center h-full flex flex-col items-center justify-between border-2 border-transparent hover:border-red-100">
