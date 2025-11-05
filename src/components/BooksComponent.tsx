@@ -202,10 +202,6 @@ const BooksComponent: React.FC = () => {
   return (
     <div className="flex gap-4 my-8">
       <div className="bg-white border rounded-lg border-gray-200 p-5 w-full">
-        <h1 className="text-3xl text-red-500 my-2" style={{ fontFamily: 'Ubuntu, sans-serif', fontWeight: '600' }}>
-          Books
-        </h1>
-        
         <div 
           className="books-carousel relative" 
           onMouseEnter={handleMouseEnter}
