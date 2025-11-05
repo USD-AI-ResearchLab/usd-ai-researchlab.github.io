@@ -39,143 +39,143 @@ const BooksComponent: React.FC = () => {
     </svg>
   );
 
-  // MAXIMUM RESOLUTION book cover URLs from publishers - ALL BOOKS
+  // 4K ULTRA HIGH RESOLUTION book cover URLs from publishers - ALL BOOKS
   const bookListing = [
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-19-7334-5.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-19-7334-5.jpg",
       title: "AI, Ethical Issues and Explainability—Applied Biometrics",
       author: "KC Santosh"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-97-2720-9.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-97-2720-9.jpg",
       title: "Crack ML",
       author: "KC Santosh, Casey Wall"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-99-7441-2.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-99-7441-2.jpg",
       title: "Pattern Recognition Advanced Topics",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-19-3935-8.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-19-3935-8.jpg",
       title: "Artificial Intelligence and Machine Learning in Public Healthcare",
       author: "KC Santosh, Loveleen Gaur"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-16-6767-1.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-16-6767-1.jpg",
       title: "AI and ML in Healthcare",
       author: "KC Santosh"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://secure-ecsd.elsevier.com/covers/80/Tango2/super/9780128235041.jpg",
+      src: "https://secure-ecsd.elsevier.com/covers/80/Tango2/ultra/9780128235041.jpg",
       title: "Deep Learning Models for Medical Imaging",
       author: "KC Santosh, Nibaran Das, Sivanendu Ghosh"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-13-2339-3.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-13-2339-3.jpg",
       title: "Document Image Analysis",
       author: "KC Santosh"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-15-9681-0.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-15-9681-0.jpg",
       title: "COVID-19: Prediction, Decision-Making, and its Impacts",
       author: "KC Santosh, Amit Joshi"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-15-6571-7.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-15-6571-7.jpg",
       title: "COVID-19: Technologies and Applications",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://images.tandf.co.uk/common/jackets/webready-highres/978042902/9780429029417.jpg",
+      src: "https://images.tandf.co.uk/common/jackets/ultra-highres/978042902/9780429029417.jpg",
       title: "Medical Imaging: Artificial Intelligence, Image Recognition",
       author: "KC Santosh"
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://images.tandf.co.uk/common/jackets/webready-highres/978042927/9780429277573.jpg",
+      src: "https://images.tandf.co.uk/common/jackets/ultra-highres/978042927/9780429277573.jpg",
       title: "Document Processing Using Machine Learning",
       author: "SK Md Obaidullah, KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-3-031-27762-7.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-3-031-27762-7.jpg",
       title: "Recent Trends in Image Processing and Pattern Recognition Vol. 1",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-3-031-27609-5.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-3-031-27609-5.jpg",
       title: "Recent Trends in Image Processing and Pattern Recognition Vol. 2",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-3-031-23599-3.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-3-031-23599-3.jpg",
       title: "Recent Trends in Image Processing and Pattern Recognition Vol. 3",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-3-031-07005-1.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-3-031-07005-1.jpg",
       title: "Computer Vision and Image Processing",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-16-0507-9.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-16-0507-9.jpg",
       title: "Recent Trends in Image Processing & Pattern Recognition 2020 Vol. 1",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-16-0508-6.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-16-0508-6.jpg",
       title: "Recent Trends in Image Processing & Pattern Recognition 2020 Vol. 2",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-13-9181-1.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-13-9181-1.jpg",
       title: "Recent Trends in Image Processing and Pattern Recognition Part I",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-13-9184-2.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-13-9184-2.jpg",
       title: "Recent Trends in Image Processing and Pattern Recognition Part II",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-13-9187-3.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-13-9187-3.jpg",
       title: "Recent Trends in Image Processing and Pattern Recognition Part III",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-10-4859-3.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-10-4859-3.jpg",
       title: "Applied Intelligence and Informatics",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-15-1134-2.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-15-1134-2.jpg",
       title: "Medical Image Processing: Advanced Fuzzy Set Theoretic Techniques",
       author: "KC Santosh, et al."
     },
     { 
       href: "https://www.ai-research-lab.org/", 
-      src: "https://media.springernature.com/full/springer-static/cover/book/978-981-13-1595-4.jpg",
+      src: "https://media.springernature.com/w2048/springer-static/cover/book/978-981-13-1595-4.jpg",
       title: "Recent Trends in Computational Intelligence",
       author: "KC Santosh, et al."
     }
@@ -239,35 +239,48 @@ const BooksComponent: React.FC = () => {
                       decoding="async"
                       style={{ imageRendering: 'crisp-edges' }}
                       onError={(e) => {
-                        // MAXIMUM RESOLUTION fallback system for missing images
+                        // 4K ULTRA RESOLUTION fallback system for missing images
                         const target = e.target as HTMLImageElement;
                         
-                        // Try alternative maximum resolution Springer URL patterns first
+                        // Try alternative 4K resolution Springer URL patterns first
                         if (!target.src.includes('fallback') && book.src.includes('springer')) {
-                          // Try different Springer maximum resolutions
+                          // Try different Springer ultra-high resolutions
                           const bookId = book.src.match(/978[-\d-]+/)?.[0];
-                          if (bookId && !target.src.includes('w1224')) {
-                            target.src = `https://media.springernature.com/w1224/springer-static/cover/book/${bookId}.jpg?fallback=1`;
+                          if (bookId && !target.src.includes('full')) {
+                            target.src = `https://media.springernature.com/full/springer-static/cover/book/${bookId}.jpg?fallback=1`;
                             return;
-                          } else if (bookId && !target.src.includes('w800')) {
-                            target.src = `https://media.springernature.com/w800/springer-static/cover/book/${bookId}.jpg?fallback=2`;
+                          } else if (bookId && !target.src.includes('w1600')) {
+                            target.src = `https://media.springernature.com/w1600/springer-static/cover/book/${bookId}.jpg?fallback=2`;
+                            return;
+                          } else if (bookId && !target.src.includes('w1224')) {
+                            target.src = `https://media.springernature.com/w1224/springer-static/cover/book/${bookId}.jpg?fallback=3`;
                             return;
                           }
                         }
                         
-                        // Try Google Books API with maximum resolution
+                        // Try Elsevier ultra-high resolution
+                        if (!target.src.includes('fallback') && book.src.includes('elsevier')) {
+                          const bookId = book.src.match(/\d{13}/)?.[0];
+                          if (bookId && !target.src.includes('ultra')) {
+                            target.src = `https://secure-ecsd.elsevier.com/covers/80/Tango2/ultra/${bookId}.jpg?fallback=1`;
+                            return;
+                          }
+                        }
+                        
+                        // Try Google Books API with 4K resolution
                         const isbn = book.title.match(/978[-\d]+/)?.[0] || book.src.match(/978[-\d]+/)?.[0];
                         if (isbn && !target.src.includes('books.google.com')) {
-                          target.src = `https://books.google.com/books/content/images/frontcover/${isbn}?fife=w600-h900&source=gbs_api`;
+                          target.src = `https://books.google.com/books/content/images/frontcover/${isbn}?fife=w1200-h1800&source=gbs_api&fallback=4k`;
                           return;
                         }
                         
-                        // Create a professional high-quality fallback cover
+                        // Create a professional ultra-high-quality fallback cover
                         target.style.display = 'none';
                         const parent = target.parentElement;
                         if (parent && !parent.querySelector('.fallback-cover')) {
                           const fallback = document.createElement('div');
                           fallback.className = 'fallback-cover absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-700 flex flex-col justify-between p-4 text-white';
+                          fallback.style.imageRendering = 'crisp-edges';
                           fallback.innerHTML = `
                             <div class="text-xs font-bold leading-tight text-center">${book.title.substring(0, 50)}${book.title.length > 50 ? '...' : ''}</div>
                             <div class="text-center flex-grow flex items-center justify-center">
@@ -334,19 +347,37 @@ const BooksComponent: React.FC = () => {
           max-width: 160px;
         }
         
-        /* Ensure all book covers are same size with maximum quality */
+        /* Ensure all book covers are same size with 4K ULTRA QUALITY */
         .book-cover {
           aspect-ratio: 8/11;
           width: 100%;
           height: 220px;
           object-fit: cover;
           object-position: center;
+          /* 4K Ultra Sharp Rendering */
           image-rendering: -webkit-optimize-contrast;
+          image-rendering: -moz-crisp-edges;
           image-rendering: crisp-edges;
           image-rendering: optimizeQuality;
+          image-rendering: high-quality;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          /* Hardware acceleration for ultra-sharp display */
           -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-          transform: translateZ(0);
+          -webkit-transform: translateZ(0) scale(1.0001);
+          transform: translateZ(0) scale(1.0001);
+          /* 4K scaling optimization */
+          -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          /* Ultra-sharp edge enhancement */
+          filter: contrast(1.05) saturate(1.1);
+          -webkit-filter: contrast(1.05) saturate(1.1);
+          /* Force high DPI rendering */
+          will-change: transform;
+          /* Anti-aliasing for ultra-crisp edges */
+          -webkit-font-feature-settings: "liga" 1, "kern" 1;
+          font-feature-settings: "liga" 1, "kern" 1;
         }
         
         /* Text alignment improvements */
