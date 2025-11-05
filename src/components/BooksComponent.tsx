@@ -261,11 +261,9 @@ const BooksComponent: React.FC = () => {
                       loading="lazy"
                       decoding="async"
                       style={{ 
-                        imageRendering: '-moz-crisp-edges',
-                        imageRendering: '-webkit-crisp-edges', 
                         imageRendering: 'pixelated',
                         transform: 'scale3d(1.01, 1.01, 1)',
-                        filter: 'contrast(1.4) saturate(1.5) brightness(1.1) blur(0px) unsharp-mask(amount=1.5)',
+                        filter: 'contrast(1.4) saturate(1.5) brightness(1.1) blur(0px)',
                         WebkitFilter: 'contrast(1.4) saturate(1.5) brightness(1.1) blur(0px)',
                         minWidth: '160px',
                         minHeight: '220px'
