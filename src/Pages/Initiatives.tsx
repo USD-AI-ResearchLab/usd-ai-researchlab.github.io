@@ -290,15 +290,14 @@ const Initiatives: React.FC = () => {
               </div>
             </div>
             <div className="text-center mt-6">
-              <a 
-                href="https://www.ai-research-lab.org/resources/AI%20Symposium%20Agenda%20_%20Final.pdf" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 text-white rounded-md hover:opacity-90 transition-opacity font-thin"
+              <button 
+                className="inline-flex items-center px-6 py-3 text-white rounded-md hover:opacity-90 transition-opacity font-thin opacity-50 cursor-not-allowed"
                 style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
+                disabled
+                title="PDF schedule will be available soon"
               >
-                📥 Download Full Schedule (PDF)
-              </a>
+                📥 Download Full Schedule (PDF) - Coming Soon
+              </button>
             </div>
           </div>
         </motion.div>

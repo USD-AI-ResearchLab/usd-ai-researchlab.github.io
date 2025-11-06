@@ -176,14 +176,9 @@ const AiSymposium2025: React.FC = () => {
 
           <p className="text-lg leading-relaxed text-justify mb-4">
             Join us for the University of South Dakota's 7th Annual{" "}
-            <a
-              href="https://www.ai-research-lab.org/events/ai-symposium/2025"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold underline"
-            >
+            <span className="font-bold text-red-700">
               Artificial Intelligence Symposium
-            </a>
+            </span>
             —formerly known as the Data Harnessing Symposium (2018–2019)—sponsored by
             IEEE and held in conjunction with the inaugural{" "}
             <a
