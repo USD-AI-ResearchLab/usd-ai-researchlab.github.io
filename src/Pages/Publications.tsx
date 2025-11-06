@@ -84,20 +84,6 @@ const Publications: React.FC = () => {
           
           <BooksComponent />
         </div>
-        
-        <div className="mt-16 text-center">
-          <p className="text-gray-500 text-sm">
-            For more publications, visit our research portal at{' '}
-            <a 
-              href="https://www.ai-research-lab.org/publication" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
-            >
-              ai-research-lab.org/publication
-            </a>
-          </p>
-        </div>
       </div>
       <Footer />
     </div>

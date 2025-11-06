@@ -32,10 +32,19 @@ export const PUBLICATIONS: Publication[] = [
   {
     title: "Advances and Challenges in Meta-Learning: A Technical Review",
     authors: "Anna Vettoruzzo, Mohamed-Rafik Bouguelia, Joaquin Vanschoren, Thorsteinn Rögnvaldsson, KC Santosh",
-    description: "Meta-learning empowers learning systems with the ability to acquire knowledge from multiple tasks, enabling faster adaptation and generalization to new tasks. This review provides a comprehensive technical overview of meta-learning, emphasizing its importance in real-world applications where data may be scarce or expensive to obtain.",
+    description: "Meta-learning empowers learning systems with the ability to acquire knowledge from multiple tasks, enabling faster adaptation and generalization to new tasks. This review provides a comprehensive technical overview of meta-learning, emphasizing its importance in real-world applications where data may be scarce or expensive to obtain. The article covers state-of-the-art meta-learning approaches and explores the relationship between meta-learning and multi-task learning, transfer learning, domain adaptation and generalization.",
     venue: "IEEE Transactions on Pattern Analysis and Machine Intelligence",
     year: "2024",
     paperUrl: "https://www.ai-research-lab.org/paper/67b7cba6c883bbe0626025f9",
+    codeUrl: "#"
+  },
+  {
+    title: "Cervical cancerous cell classification: opposition‑based harmony search for deep feature selection", 
+    authors: "Nibaran Das, Bodhisatwa Mandal, KC Santosh, Linlin Shen, Sukanta Chakraborty",
+    description: "Over 500K (per year) cervical cancer cases are reported with a high mortality rate (6–9%). We propose a tool that classifies cervical cancer cases from Pap smear cytology images using deep features. The proposed tool constitutes a Convolutional Neural Network (CNN) and a metaheuristic evolutionary algorithm called Opposition-based Harmony Search Algorithm (O-bHSA) for deep feature selection. These features are classified using standard classifiers: SVM, MLP, and KNN.",
+    venue: "Medical & Biological Engineering & Computing",
+    year: "2024",
+    paperUrl: "https://www.ai-research-lab.org/paper/67ce1e887185217817c985b4",
     codeUrl: "#"
   },
   {
@@ -54,15 +63,6 @@ export const PUBLICATIONS: Publication[] = [
     venue: "IEEE Journal of Biomedical and Health Informatics",
     year: "2023",
     paperUrl: "https://www.ai-research-lab.org/paper/67b7ccc25a3833f684b80d76",
-    codeUrl: "#"
-  },
-  {
-    title: "Cervical cancerous cell classification: opposition‑based harmony search for deep feature selection",
-    authors: "Nibaran Das, Bodhisatwa Mandal, KC Santosh, Linlin Shen, Sukanta Chakraborty",
-    description: "Over 500K (per year) cervical cancer cases are reported with a high mortality rate (6–9%). We propose a tool that classifies cervical cancer cases from Pap smear cytology images using deep features. The proposed tool constitutes a Convolutional Neural Network (CNN) and a metaheuristic evolutionary algorithm called Opposition-based Harmony Search Algorithm (O-bHSA) for deep feature selection.",
-    venue: "Soft Computing, Springer",
-    year: "2024",
-    paperUrl: "https://www.ai-research-lab.org/paper/67ce1e887185217817c985b4",
     codeUrl: "#"
   },
   {
