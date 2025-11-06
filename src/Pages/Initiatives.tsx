@@ -76,14 +76,14 @@ const SpecificYearSymposium: React.FC = () => {
     >
       <div className="mx-auto px-4 sm:px-6 py-6 max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-7xl">
         {/* Back to Homepage */}
-        <Link to="/" className="flex items-center text-red-500 font-bold gap-2 mb-4">
+        <Link to="/" className="flex items-center font-bold gap-2 mb-4" style={{ color: '#C53030' }}>
           ← Back to Homepage
         </Link>
 
         {/* Symposium Navbar */}
         <div className="flex justify-center py-4 px-6 bg-white mb-8 rounded-lg">
           <div className="text-center">
-            <h1 className="text-3xl sm:text-5xl font-bold text-red-700 leading-tight" style={{ fontFamily: 'Ubuntu, sans-serif' }}>
+            <h1 className="text-3xl sm:text-5xl font-bold leading-tight" style={{ fontFamily: 'Ubuntu, sans-serif', color: '#C53030' }}>
               7<sup className="text-xl align-top">th</sup> Artificial Intelligence Symposium*
             </h1>
             <p className="text-lg sm:text-xl text-gray-800 mt-1 font-semibold">
@@ -103,8 +103,8 @@ const SpecificYearSymposium: React.FC = () => {
         {/* Combined "Download" + "Welcome" Card */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           {/* Download heading */}
-          <div className="border-l-4 border-red-500 pl-4 mb-6">
-            <h1 className="text-3xl md:text-4xl text-red-700 font-bold" style={{ fontFamily: 'Ubuntu, sans-serif' }}>
+          <div className="border-l-4 pl-4 mb-6" style={{ borderColor: '#C53030' }}>
+            <h1 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: 'Ubuntu, sans-serif', color: '#C53030' }}>
               Download your certificate of participation
             </h1>
           </div>
@@ -124,8 +124,8 @@ const SpecificYearSymposium: React.FC = () => {
           </p>
 
           {/* Welcome heading (with extra top margin) */}
-          <div className="border-l-4 border-red-500 pl-4 mt-8 mb-6">
-            <h1 className="text-3xl md:text-4xl text-red-700 font-bold" style={{ fontFamily: 'Ubuntu, sans-serif' }}>
+          <div className="border-l-4 pl-4 mt-8 mb-6" style={{ borderColor: '#C53030' }}>
+            <h1 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: 'Ubuntu, sans-serif', color: '#C53030' }}>
               Welcome to 7th Artificial Intelligence Symposium {new Date().getFullYear()}
             </h1>
           </div>
@@ -171,8 +171,8 @@ const SpecificYearSymposium: React.FC = () => {
           </h2>
           <div className="flex flex-col md:flex-row md:items-center mb-6">
             <div className="flex items-start md:w-1/2">
-              <div className="bg-red-100 p-2 rounded-full mr-3">
-                <span className="h-6 w-6 mx-auto text-red-500">📍</span>
+              <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
+                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}>📍</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Location</h3>
@@ -187,8 +187,8 @@ const SpecificYearSymposium: React.FC = () => {
             </div>
 
             <div className="flex items-start md:w-1/2 mt-4 md:mt-0">
-              <div className="bg-red-100 p-2 rounded-full mr-3">
-                <span className="h-6 w-6 mx-auto text-red-500">📅</span>
+              <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
+                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}>📅</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Date and time</h3>
@@ -214,7 +214,7 @@ const SpecificYearSymposium: React.FC = () => {
         {/* Sponsors Section */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            <span className="inline-block mr-2 text-red-500">🏆</span>
+            <span className="inline-block mr-2" style={{ color: '#C53030' }}>🏆</span>
             Our Sponsors
           </h2>
 
@@ -223,9 +223,13 @@ const SpecificYearSymposium: React.FC = () => {
             <button
               className={`py-2 px-4 font-medium ${
                 activeTab === "current"
-                  ? "border-b-2 border-red-500 text-red-600"
+                  ? "border-b-2 text-white"
                   : "text-gray-600"
               }`}
+              style={{ 
+                borderColor: activeTab === "current" ? '#C53030' : 'transparent',
+                color: activeTab === "current" ? '#C53030' : ''
+              }}
               onClick={() => setActiveTab("current")}
             >
               Current Sponsors
@@ -233,9 +237,13 @@ const SpecificYearSymposium: React.FC = () => {
             <button
               className={`py-2 px-4 font-medium ${
                 activeTab === "become"
-                  ? "border-b-2 border-red-500 text-red-600"
+                  ? "border-b-2 text-white"
                   : "text-gray-600"
               }`}
+              style={{ 
+                borderColor: activeTab === "become" ? '#C53030' : 'transparent',
+                color: activeTab === "become" ? '#C53030' : ''
+              }}
               onClick={() => setActiveTab("become")}
             >
               Become a Sponsor
@@ -375,9 +383,9 @@ const SpecificYearSymposium: React.FC = () => {
           {/* Become a Sponsor Content */}
           {activeTab === "become" && (
             <div>
-              <div className="bg-red-50 p-4 rounded-lg mb-6">
+              <div className="p-4 rounded-lg mb-6" style={{ backgroundColor: '#f8f3f3' }}>
                 <div className="flex items-start">
-                  <span className="text-red-500 h-6 w-6 mr-3 mt-1">💼</span>
+                  <span className="h-6 w-6 mr-3 mt-1" style={{ color: '#C53030' }}>💼</span>
                   <div>
                     <h3 className="font-medium text-gray-800">
                       Why Sponsor the AI Symposium?
@@ -499,8 +507,8 @@ const SpecificYearSymposium: React.FC = () => {
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">Why Attend</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="flex items-start">
-              <div className="bg-red-100 p-2 rounded-full mr-3">
-                <span className="text-red-500 h-6 w-6">✅</span>
+              <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>✅</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Collaborate</h3>
@@ -513,8 +521,8 @@ const SpecificYearSymposium: React.FC = () => {
             </div>
 
             <div className="flex items-start">
-              <div className="bg-red-100 p-2 rounded-full mr-3">
-                <span className="text-red-500 h-6 w-6">🎓</span>
+              <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>🎓</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Learn</h3>
@@ -526,8 +534,8 @@ const SpecificYearSymposium: React.FC = () => {
             </div>
 
             <div className="flex items-start">
-              <div className="bg-red-100 p-2 rounded-full mr-3">
-                <span className="text-red-500 h-6 w-6">👥</span>
+              <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>👥</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Connect</h3>
@@ -539,8 +547,8 @@ const SpecificYearSymposium: React.FC = () => {
             </div>
 
             <div className="flex items-start">
-              <div className="bg-red-100 p-2 rounded-full mr-3">
-                <span className="text-red-500 h-6 w-6">🔍</span>
+              <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>🔍</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Discover</h3>
@@ -557,7 +565,10 @@ const SpecificYearSymposium: React.FC = () => {
         {showGoToTop && (
           <button
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 bg-red-500 hover:bg-red-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50"
+            className="fixed bottom-8 right-8 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50"
+            style={{ backgroundColor: '#C53030' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#A02727'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#C53030'}
             aria-label="Go to top"
           >
             ↑

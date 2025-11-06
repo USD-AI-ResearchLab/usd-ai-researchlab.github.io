@@ -62,13 +62,13 @@ const Speakers: React.FC = () => {
 
       {/* Keynote Speakers */}
       <div className="mb-8">
-        <h3 className="text-xl font-semibold text-red-700 mb-4">Keynote Speakers</h3>
+        <h3 className="text-xl font-semibold mb-4" style={{ color: '#C53030' }}>Keynote Speakers</h3>
         <div className="grid md:grid-cols-2 gap-6">
           {keynoteSpeekers.map((speaker, index) => (
             <div key={index} className="border border-gray-200 rounded-lg p-4">
               <div className="flex items-start justify-between mb-2">
                 <h4 className="font-bold text-gray-800">{speaker.name}</h4>
-                <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">
+                <span className="text-xs px-2 py-1 rounded" style={{ backgroundColor: '#f8f3f3', color: '#C53030' }}>
                   {speaker.day}
                 </span>
               </div>
@@ -82,7 +82,7 @@ const Speakers: React.FC = () => {
 
       {/* Blitz Talk Speakers */}
       <div className="mb-8">
-        <h3 className="text-xl font-semibold text-red-700 mb-4">Blitz Talk Speakers</h3>
+        <h3 className="text-xl font-semibold mb-4" style={{ color: '#C53030' }}>Blitz Talk Speakers</h3>
         <div className="grid md:grid-cols-2 gap-4">
           {blitzSpeakers.map((speaker, index) => (
             <div key={index} className="border border-gray-200 rounded-lg p-4">
@@ -97,7 +97,7 @@ const Speakers: React.FC = () => {
 
       {/* Workshop Speakers */}
       <div>
-        <h3 className="text-xl font-semibold text-red-700 mb-4">Workshop Speakers</h3>
+        <h3 className="text-xl font-semibold mb-4" style={{ color: '#C53030' }}>Workshop Speakers</h3>
         <div className="border border-gray-200 rounded-lg p-4">
           <h4 className="font-bold text-gray-800 mb-2">Collins Aerospace Team</h4>
           <div className="mb-3">

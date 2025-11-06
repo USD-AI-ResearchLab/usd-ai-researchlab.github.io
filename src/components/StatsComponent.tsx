@@ -46,10 +46,11 @@ const StatsComponent: React.FC<StatsComponentProps> = ({ stats }) => {
       {stats.map((stat, index) => (
         <div 
           key={index} 
-          className="text-center p-4 bg-gradient-to-br from-red-50 to-red-100 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+          className="text-center p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+          style={{ background: 'linear-gradient(to bottom right, #f8f3f3, #f1e8e8)' }}
         >
           <div className="text-3xl mb-2">{stat.icon}</div>
-          <div className="text-3xl font-bold text-red-600 mb-1">
+          <div className="text-3xl font-bold mb-1" style={{ color: '#C53030' }}>
             {counts[index].toLocaleString()}+
           </div>
           <div className="text-gray-600 font-medium text-sm">

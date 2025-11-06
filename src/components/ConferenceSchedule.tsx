@@ -54,7 +54,10 @@ const ConferenceSchedule: React.FC = () => {
         </h2>
         <button
           onClick={() => setIsScheduleOpen(!isScheduleOpen)}
-          className="text-red-600 hover:text-red-800 font-medium"
+          className="font-medium"
+          style={{ color: '#C53030' }}
+          onMouseEnter={(e) => e.currentTarget.style.color = '#A02727'}
+          onMouseLeave={(e) => e.currentTarget.style.color = '#C53030'}
         >
           {isScheduleOpen ? "Hide Schedule" : "Show Schedule"}
         </button>
@@ -67,9 +70,13 @@ const ConferenceSchedule: React.FC = () => {
             <button
               className={`py-2 px-4 font-medium ${
                 activeDay === "day1"
-                  ? "border-b-2 border-red-500 text-red-600"
+                  ? "border-b-2 text-white"
                   : "text-gray-600"
               }`}
+              style={{ 
+                borderColor: activeDay === "day1" ? '#C53030' : 'transparent',
+                color: activeDay === "day1" ? '#C53030' : ''
+              }}
               onClick={() => setActiveDay("day1")}
             >
               Day 1: {dates.day1}
@@ -77,9 +84,13 @@ const ConferenceSchedule: React.FC = () => {
             <button
               className={`py-2 px-4 font-medium ${
                 activeDay === "day2"
-                  ? "border-b-2 border-red-500 text-red-600"
+                  ? "border-b-2 text-white"
                   : "text-gray-600"
               }`}
+              style={{ 
+                borderColor: activeDay === "day2" ? '#C53030' : 'transparent',
+                color: activeDay === "day2" ? '#C53030' : ''
+              }}
               onClick={() => setActiveDay("day2")}
             >
               Day 2: {dates.day2}
@@ -111,7 +122,8 @@ const ConferenceSchedule: React.FC = () => {
           <div className="mt-6 text-center">
             <a
               href="/resources/AI_Symposium_Agenda_Final.pdf"
-              className="text-red-600 underline font-medium"
+              className="underline font-medium"
+              style={{ color: '#C53030' }}
               download
             >
               📥 Download Full Schedule (PDF)

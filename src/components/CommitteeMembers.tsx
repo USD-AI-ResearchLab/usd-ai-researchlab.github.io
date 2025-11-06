@@ -61,7 +61,7 @@ const CommitteeMembers: React.FC = () => {
               className="w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors"
             >
               <h3 className="font-semibold text-gray-800">{section}</h3>
-              <span className="text-red-500">
+              <span style={{ color: '#C53030' }}>
                 {expandedSections[section] ? "▲" : "▼"}
               </span>
             </button>
@@ -71,7 +71,7 @@ const CommitteeMembers: React.FC = () => {
                 <ul className="space-y-2">
                   {members.map((member, index) => (
                     <li key={index} className="text-gray-700 flex items-start">
-                      <span className="text-red-500 mr-2">•</span>
+                      <span className="mr-2" style={{ color: '#C53030' }}>•</span>
                       <span>{member}</span>
                     </li>
                   ))}
@@ -82,7 +82,7 @@ const CommitteeMembers: React.FC = () => {
         ))}
       </div>
 
-      <div className="mt-6 p-4 bg-red-50 rounded-lg">
+      <div className="mt-6 p-4 rounded-lg" style={{ backgroundColor: '#f8f3f3' }}>
         <p className="text-sm text-gray-600">
           <span className="font-semibold">Note:</span> Committee member list is subject to updates. 
           For the most current information, please contact the organizing committee.
