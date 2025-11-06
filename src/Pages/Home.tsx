@@ -2,7 +2,6 @@ import React from 'react';
 import bgimage from "../assets/logo.svg";
 import HeroTitle from "../components/HeroTitle";
 import Footer from "../components/Footer";
-import BooksComponent from "../components/BooksComponent";
 
 const Home: React.FC = () => {
   return (
@@ -31,11 +30,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-      
-      {/* Books Section */}
-      <div className="container mx-auto px-4 py-8">
-        <BooksComponent />
       </div>
       
       <Footer />

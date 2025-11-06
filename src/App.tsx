@@ -11,6 +11,7 @@ import PhDStudents from "./Pages/PeoplePage/PhDStudents_new";
 import MastersStudents from "./Pages/PeoplePage/MastersStudents_new";
 import Publications from "./Pages/Publications";
 import Initiatives from "./Pages/Initiatives";
+import AISymposium2025 from "./Pages/AISymposium2025";
 import Affiliates from "./Pages/Affiliates";
 import Contact from "./Pages/Contact";
 
@@ -31,6 +32,7 @@ const App: React.FC = () => {
           <Route path="/masters-students" element={<MastersStudents />} />
           <Route path="/publications" element={<Publications />} />
           <Route path="/initiatives" element={<Initiatives />} />
+          <Route path="/events/ai-symposium/2025" element={<AISymposium2025 />} />
           <Route path="/affiliates" element={<Affiliates />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

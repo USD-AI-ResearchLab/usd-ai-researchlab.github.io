@@ -6,9 +6,11 @@ interface PersonCardProps {
   photo?: string;
   url?: string;
   memberKey?: string; // Added to identify team members for LinkedIn images
+  scholarUrl?: string; // Google Scholar profile
+  dblpUrl?: string; // DBLP profile
 }
 
-const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url }) => {
+const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, scholarUrl, dblpUrl }) => {
   const initials = name
     .split(' ')
     .map(word => word.charAt(0))
@@ -67,9 +69,40 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url }) => {
       
       {/* Role */}
       <div className="mt-auto">
-        <p className="text-sm font-medium text-gray-800 line-clamp-3 leading-relaxed">
+        <p className="text-sm font-medium text-gray-800 line-clamp-3 leading-relaxed mb-3">
           {role}
         </p>
+        
+        {/* Academic Links - After Role */}
+        {(scholarUrl || dblpUrl) && (
+          <div className="flex gap-2 justify-center items-center text-sm">
+            {scholarUrl && (
+              <a 
+                href={scholarUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Google Scholar
+              </a>
+            )}
+            {scholarUrl && dblpUrl && (
+              <span className="text-gray-400">|</span>
+            )}
+            {dblpUrl && (
+              <a 
+                href={dblpUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-orange-600 hover:text-orange-800 hover:underline transition-colors duration-200"
+                onClick={(e) => e.stopPropagation()}
+              >
+                DBLP
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

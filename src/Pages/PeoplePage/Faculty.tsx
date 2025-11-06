@@ -61,6 +61,8 @@ const Faculty: React.FC = () => {
                 photo={person.photo}
                 url={person.url}
                 memberKey={person.memberKey}
+                scholarUrl={person.scholarUrl}
+                dblpUrl={person.dblpUrl}
               />
             </motion.div>
           ))}

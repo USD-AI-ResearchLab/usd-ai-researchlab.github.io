@@ -4,6 +4,8 @@ export interface Person {
   photo?: string;
   url?: string;
   memberKey?: string; // For LinkedIn image matching
+  scholarUrl?: string; // Google Scholar profile
+  dblpUrl?: string; // DBLP profile
 }
 
 // Local faculty photos - stored in public/faculty folder for direct access
@@ -19,33 +21,43 @@ export const facultyData: Person[] = [
     role: "Professor (AI) & Chair, Department of Computer Science, USD | Founding Director, AI Research Lab",
     photo: profileImage1,
     memberKey: "kc-santosh",
-    url: "https://kc-santosh.org/"
+    url: "https://kc-santosh.org/",
+    scholarUrl: "https://scholar.google.com/citations?hl=en&user=luPx18QAAAAJ",
+    dblpUrl: "https://dblp.org/pers/c/C%3D%3ASantosh_K%3D"
   },
   {
     name: "Dr. Rodrigue Rizk",
     role: "Assistant Professor, Department of Computer Science, USD | Vice-Director, Engineering",
     photo: profileImage2,
     memberKey: "rodrigue-rizk",
-    url: "https://www.linkedin.com/in/rodrigue-rizk"
+    url: "https://www.linkedin.com/in/rodrigue-rizk",
+    scholarUrl: "https://scholar.google.com/citations?hl=en&user=CZkCb5QAAAAJ",
+    dblpUrl: "https://dblp.org/pid/244/7657.html"
   },
   {
     name: "Dr. Longwei Wang",
     role: "Assistant Professor, Department of Computer Science, USD | Vice-Director, Research",
     photo: profileImage3,
-    memberKey: "longwei-wang"
+    memberKey: "longwei-wang",
+    scholarUrl: "https://scholar.google.com/citations?hl=en&user=nRGDT_sAAAAJ",
+    dblpUrl: "https://dblp.org/pid/150/5640"
   },
   {
     name: "Dr. Srikanth Baride",
     role: "PostDoc, Department of Computer Science, USD | Member, AI Research Lab",
     photo: profileImage4,
     memberKey: "srikanth-baride",
-    url: "https://www.linkedin.com/in/srikanth-baride"
+    url: "https://www.linkedin.com/in/srikanth-baride",
+    scholarUrl: "https://scholar.google.com/citations?hl=en&user=Sy_2zJcAAAAJ",
+    dblpUrl: "https://dblp.org/pid/93/9638"
   },
   {
     name: "Dr. Nand K Yadav",
     role: "PostDoc, Department of Computer Science, USD | Member, AI Research Lab",
     photo: profileImage5,
     memberKey: "nand-yadav",
-    url: "https://www.linkedin.com/in/nand-k-yadav-891883262/"
+    url: "https://www.linkedin.com/in/nand-k-yadav-891883262/",
+    scholarUrl: "https://scholar.google.com/citations?hl=en&user=MYuCzcsAAAAJ",
+    dblpUrl: "https://dblp.org/pid/43/6134"
   }
 ];

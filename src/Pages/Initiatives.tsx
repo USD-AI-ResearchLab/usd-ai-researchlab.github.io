@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
+import AISymposiumBanner from '../components/AISymposiumBanner';
 
 const Initiatives: React.FC = () => {
   const fadeInUp = {
@@ -137,6 +139,59 @@ const Initiatives: React.FC = () => {
             Initiatives
           </h1>
           <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
+          <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
+            Explore our flagship events and ongoing initiatives that drive innovation in artificial intelligence research and education.
+          </p>
+        </motion.div>
+
+        {/* AI Symposium Banner */}
+        <motion.div variants={fadeInUp}>
+          <AISymposiumBanner />
+        </motion.div>
+
+        {/* AI Symposium 2025 Details Section */}
+        <motion.div className="mb-16" variants={fadeInUp}>
+          <div className="bg-white rounded-lg shadow-md p-8">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-thin text-gray-800 mb-4">🎯 Artificial Intelligence Symposium 2025</h2>
+              <p className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">
+                Join us for the University of South Dakota's 7th Annual AI Symposium, bringing together thought leaders 
+                from academia, industry, and government to explore the forefront of artificial intelligence, biomedical computing, 
+                and emerging technologies.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="text-center">
+                <h3 className="text-xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>🗓️ Event Information</h3>
+                <div className="space-y-2 text-gray-700">
+                  <p><strong>Date:</strong> June 26-27, 2025</p>
+                  <p><strong>Location:</strong> USD Sioux Falls, Avera Hall</p>
+                  <p><strong>Format:</strong> Hybrid (In-person & Virtual)</p>
+                  <p><strong>Cost:</strong> FREE (Registration Required)</p>
+                </div>
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>🎯 What to Expect</h3>
+                <div className="space-y-2 text-gray-700">
+                  <p>• Keynote speakers from MIT, NIST, Harvard</p>
+                  <p>• Industry workshops (Microsoft, Collins Aerospace)</p>
+                  <p>• Biomedical AI panel discussions</p>
+                  <p>• Networking with 500+ attendees</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <Link 
+                to="/events/ai-symposium/2025"
+                className="inline-block px-8 py-3 text-white rounded-md hover:opacity-90 transition-opacity font-medium text-lg"
+                style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
+              >
+                View Full Symposium Details →
+              </Link>
+            </div>
+          </div>
         </motion.div>
 
         {/* Stats Section */}
