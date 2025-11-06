@@ -42,161 +42,161 @@ const BooksComponent: React.FC = () => {
   // ABSOLUTE MAXIMUM RESOLUTION - ANTI-BLUR STRATEGY
   const bookListing = [
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-19-7334-5", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-19-7334-5.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-19-7334-5/1.pdf",
       title: "AI, Ethical Issues and Explainability—Applied Biometrics",
       author: "KC Santosh"
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-97-2720-9", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-97-2720-9.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-97-2720-9/1.pdf",
       title: "Crack ML",
       author: "KC Santosh, Casey Wall"
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-99-7441-2", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-99-7441-2.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-99-7441-2/1.pdf",
       title: "Pattern Recognition Advanced Topics",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-19-3935-8", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-19-3935-8.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-19-3935-8/1.pdf",
       title: "Artificial Intelligence and Machine Learning in Public Healthcare",
       author: "KC Santosh, Loveleen Gaur"
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/9789811667671", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-16-6767-1.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-16-6767-1/1.pdf",
       title: "AI and ML in Healthcare",
       author: "KC Santosh"
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://www.elsevier.com/books/deep-learning-models-for-medical-imaging/santosh/978-0-12-823504-1", 
       src: "https://images.elsevier.com/cover/books/9780128235041.jpg",
       fallback: "https://secure-ecsd.elsevier.com/covers/80/Tango2/large/9780128235041.jpg",
       title: "Deep Learning Models for Medical Imaging",
       author: "KC Santosh, Nibaran Das, Sivanendu Ghosh"
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-13-2339-3", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-13-2339-3.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-13-2339-3/1.pdf",
       title: "Document Image Analysis",
       author: "KC Santosh"
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-15-9681-0", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-15-9681-0.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-15-9681-0/1.pdf",
       title: "COVID-19: Prediction, Decision-Making, and its Impacts",
       author: "KC Santosh, Amit Joshi"
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-15-6571-7", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-15-6571-7.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-15-6571-7/1.pdf",
       title: "COVID-19: Technologies and Applications",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://www.taylorfrancis.com/books/e/9780429029417", 
       src: "https://www.taylorfrancis.com/books/9780429029417/cover/9780429029417.jpg",
       fallback: "https://images.tandf.co.uk/common/jackets/amazon/978042902/9780429029417.jpg",
       title: "Medical Imaging: Artificial Intelligence, Image Recognition",
       author: "KC Santosh"
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://www.taylorfrancis.com/books/document-processing-using-machine-learning-sk-md-obaidullah-kc-santosh-teresa-gon%C3%A7alves-nibaran-das-kaushik-roy/e/10.1201/9780429277573", 
       src: "https://www.taylorfrancis.com/books/9780429277573/cover/9780429277573.jpg",
       fallback: "https://images.tandf.co.uk/common/jackets/amazon/978042927/9780429277573.jpg",
       title: "Document Processing Using Machine Learning",
       author: "SK Md Obaidullah, KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-3-031-27762-7", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-3-031-27762-7.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-3-031-27762-7/1.pdf",
       title: "Recent Trends in Image Processing and Pattern Recognition Vol. 1",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-3-031-27609-5", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-3-031-27609-5.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-3-031-27609-5/1.pdf",
       title: "Recent Trends in Image Processing and Pattern Recognition Vol. 2",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-3-031-23599-3", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-3-031-23599-3.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-3-031-23599-3/1.pdf",
       title: "Recent Trends in Image Processing and Pattern Recognition Vol. 3",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-3-031-07005-1", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-3-031-07005-1.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-3-031-07005-1/1.pdf",
       title: "Computer Vision and Image Processing",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-16-0507-9#volumes", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-16-0507-9.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-16-0507-9/1.pdf",
       title: "Recent Trends in Image Processing & Pattern Recognition 2020 Vol. 1",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-16-0508-6", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-16-0508-6.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-16-0508-6/1.pdf",
       title: "Recent Trends in Image Processing & Pattern Recognition 2020 Vol. 2",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://rd.springer.com/book/10.1007/978-981-13-9181-1", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-13-9181-1.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-13-9181-1/1.pdf",
       title: "Recent Trends in Image Processing and Pattern Recognition Part I",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-13-9184-2", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-13-9184-2.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-13-9184-2/1.pdf",
       title: "Recent Trends in Image Processing and Pattern Recognition Part II",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-13-9187-3", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-13-9187-3.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-13-9187-3/1.pdf",
       title: "Recent Trends in Image Processing and Pattern Recognition Part III",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-10-4859-3", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-10-4859-3.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-10-4859-3/1.pdf",
       title: "Applied Intelligence and Informatics",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-15-1134-2", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-15-1134-2.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-15-1134-2/1.pdf",
       title: "Medical Image Processing: Advanced Fuzzy Set Theoretic Techniques",
       author: "KC Santosh, et al."
     },
     { 
-      href: "https://www.ai-research-lab.org/", 
+      href: "https://link.springer.com/book/10.1007/978-981-13-1595-4", 
       src: "https://media.springernature.com/original/springer-static/cover/book/978-981-13-1595-4.jpg",
       fallback: "https://link.springer.com/content/pdf/bfm:978-981-13-1595-4/1.pdf",
       title: "Recent Trends in Computational Intelligence",
