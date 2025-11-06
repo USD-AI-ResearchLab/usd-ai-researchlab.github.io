@@ -309,7 +309,7 @@ const AnimatedAIBanner: React.FC = () => {
         <text
           x="600"
           y="120"
-          fontFamily="Arial, sans-serif"
+          fontFamily="Ubuntu, sans-serif"
           fontWeight="bold"
           fontSize="50"
           textAnchor="middle"
@@ -328,7 +328,7 @@ const AnimatedAIBanner: React.FC = () => {
         <text
           x="600"
           y="200"
-          fontFamily="Arial, sans-serif"
+          fontFamily="Ubuntu, sans-serif"
           fontWeight="bold"
           fontSize="70"
           textAnchor="middle"
@@ -354,7 +354,7 @@ const AnimatedAIBanner: React.FC = () => {
         <text
           x="600"
           y="250"
-          fontFamily="Arial, sans-serif"
+          fontFamily="Ubuntu, sans-serif"
           fontWeight="bold"
           fontSize="25"
           textAnchor="middle"

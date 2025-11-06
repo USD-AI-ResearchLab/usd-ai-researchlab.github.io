@@ -71,6 +71,7 @@ const SpecificYearSymposium: React.FC = () => {
       style={{
         backgroundImage: "url('/images/pattern.svg')",
         backgroundAttachment: "fixed",
+        fontFamily: 'Ubuntu, sans-serif'
       }}
     >
       <div className="mx-auto px-4 sm:px-6 py-6 max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-7xl">
@@ -82,7 +83,7 @@ const SpecificYearSymposium: React.FC = () => {
         {/* Symposium Navbar */}
         <div className="flex justify-center py-4 px-6 bg-white mb-8 rounded-lg">
           <div className="text-center">
-            <h1 className="text-3xl sm:text-5xl font-bold text-red-700 leading-tight" style={{ fontFamily: 'Yanone Kaffeesatz, sans-serif' }}>
+            <h1 className="text-3xl sm:text-5xl font-bold text-red-700 leading-tight" style={{ fontFamily: 'Ubuntu, sans-serif' }}>
               7<sup className="text-xl align-top">th</sup> Artificial Intelligence Symposium*
             </h1>
             <p className="text-lg sm:text-xl text-gray-800 mt-1 font-semibold">
@@ -103,7 +104,7 @@ const SpecificYearSymposium: React.FC = () => {
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           {/* Download heading */}
           <div className="border-l-4 border-red-500 pl-4 mb-6">
-            <h1 className="text-3xl md:text-4xl text-red-700 font-bold" style={{ fontFamily: 'Yanone Kaffeesatz, sans-serif' }}>
+            <h1 className="text-3xl md:text-4xl text-red-700 font-bold" style={{ fontFamily: 'Ubuntu, sans-serif' }}>
               Download your certificate of participation
             </h1>
           </div>
@@ -124,7 +125,7 @@ const SpecificYearSymposium: React.FC = () => {
 
           {/* Welcome heading (with extra top margin) */}
           <div className="border-l-4 border-red-500 pl-4 mt-8 mb-6">
-            <h1 className="text-3xl md:text-4xl text-red-700 font-bold" style={{ fontFamily: 'Yanone Kaffeesatz, sans-serif' }}>
+            <h1 className="text-3xl md:text-4xl text-red-700 font-bold" style={{ fontFamily: 'Ubuntu, sans-serif' }}>
               Welcome to 7th Artificial Intelligence Symposium {new Date().getFullYear()}
             </h1>
           </div>
