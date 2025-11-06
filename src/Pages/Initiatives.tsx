@@ -1,385 +1,572 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+// cSpell: disable
+
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Footer from '../components/Footer';
-import AISymposiumBanner from '../components/AISymposiumBanner';
+import AnimatedAIBanner from '../components/AnimatedAIBanner';
+import StatsComponent from '../components/StatsComponent';
+import RegistrationInfo from '../components/RegistrationInfo';
+import ConferenceSchedule from '../components/ConferenceSchedule';
+import CommitteeMembers from '../components/CommitteeMembers';
+import Speakers from '../components/Speakers';
 
-const Initiatives: React.FC = () => {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
+const SpecificYearSymposium: React.FC = () => {
+  const [showGoToTop, setShowGoToTop] = useState(false);
+  const [activeTab, setActiveTab] = useState("current");
 
-  const staggerChildren = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
+  // Control the visibility of the "Go to Top" button
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowGoToTop(true);
+      } else {
+        setShowGoToTop(false);
       }
-    }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
-  const speakers = [
-    { name: "George Awad", role: "Computer Scientist/Project Leader, National Institute of Standards and Technology (NIST)" },
-    { name: "Pete Doucette", role: "Director, EROS Center" },
-    { name: "Joseph J. Schueder", role: "Senior Technical Fellow, Collins Aerospace" },
-    { name: "Joseph Engler", role: "Chief AI Scientist, Collins Aerospace" },
-    { name: "Chris Reuter", role: "Sr. Principal AI Engineer, Collins Aerospace" },
-    { name: "Gopi Challagolla", role: "Software Engineer, Microsoft" },
-    { name: "Kinchel C. Doerner", role: "Director, SD EPSCoR" },
-    { name: "Carson Merkwan", role: "Director of Business Development, Direct Companies" },
-    { name: "Eric Freer", role: "Representative, Sterling" },
-    { name: "Dan Klosterman", role: "Representative, Edge Team" },
-    { name: "Rajesh Kavasseri", role: "South Dakota State University (SDSU)" },
-    { name: "David Zeng", role: "Dakota State University (DSU)" },
-    { name: "Douglas Lauffenburger", role: "Full Professor and Founding Chair, Dept of Biological Engineering, MIT" },
-    { name: "Kaifu Chen", role: "Associate Professor, Harvard Med School / Boston Children's Hospital" },
-    { name: "Yinglong Miao", role: "Associate Professor, University of North Carolina Chapel Hill" },
-    { name: "Kara McCormick", role: "Executive Director, South Dakota Biotech" },
-    { name: "Sujit Sakpal", role: "Avera" },
-    { name: "KC Santosh", role: "University of South Dakota / SDBCC" },
-    { name: "William Chen", role: "University of South Dakota / SDBCC" },
-    { name: "Jeffrey S. McGough", role: "South Dakota School of Mines and Technology / SDBCC" }
+  const symposiumStats = [
+    { number: 300, label: "Expected Attendees", icon: "👥" },
+    { number: 50, label: "Expert Speakers", icon: "🎤" },
+    { number: 2, label: "Conference Days", icon: "📅" },
+    { number: 25, label: "Industry Partners", icon: "🤝" }
   ];
 
-  const schedule = [
+  // Sponsorship tier information
+  const sponsorshipTiers = [
     {
-      time: "8:30 AM - 9:00 AM",
-      title: "Registration & Breakfast Networking",
-      description: "Check-in, coffee, and light breakfast"
+      tier: "Platinum",
+      cost: "$3,000",
     },
     {
-      time: "9:00 AM – 9:30 AM",
-      title: "Opening Remarks",
-      description: "Speakers: President (USD), Vice-President (Academic Affairs), Vice-President (Office of Research), Dean (College of Arts & Sciences), Chair (Department of Computer Science)"
+      tier: "Gold",
+      cost: "$2,000",
     },
     {
-      time: "9:30 AM - 10:30 AM",
-      title: "Keynote Address",
-      description: "NIST GenAI: Text-to-Text Evaluation - Dr. George Awad, Computer Scientist/Project Leader, NIST"
+      tier: "Silver",
+      cost: "$1,000",
     },
     {
-      time: "10:30 AM - 10:45 AM",
-      title: "Break / Networking",
-      description: "-"
+      tier: "Bronze",
+      cost: "$500",
     },
-    {
-      time: "10:45 AM - 11:30 AM",
-      title: "Blitz Talk",
-      description: "AI: Now and Zen - Dr. Pete Doucette, Director, EROS Center"
-    },
-    {
-      time: "11:30 AM - 12:15 PM",
-      title: "Workshop",
-      description: "Speakers: Joseph J Schueder (Senior Technical Fellow), Joseph Engler (Chief AI Scientist), Chris Reuter (Sr. Principal AI Engineer), Collins Aerospace"
-    },
-    {
-      time: "12:15 PM - 2:00 PM",
-      title: "Lunch",
-      description: "Buffet + Networking Lounge"
-    },
-    {
-      time: "2:00 PM – 2:45 PM",
-      title: "Workshop",
-      description: "AI in the Workplace: Productivity & Creativity – Navigating the New Era of Work with Artificial Intelligence - Gopi Challagolla, Microsoft"
-    },
-    {
-      time: "2:45 PM - 4:00 PM",
-      title: "Panel: AI and Workforce Development in South Dakota",
-      description: "Panelists: Kinchel C. Doerner (SD EPSCoR), Carson Merkwan (Direct Companies), Joseph Engler (Collins Aerospace), Eric Freer (Sterling), Dan Klosterman (Edge Team), Rajesh Kavasseri (SDSU), David Zeng (DSU); Moderator: Jose Lira (Vermillion Unplugged)"
-    },
-    {
-      time: "4:00 PM - 5:00 PM",
-      title: "Evening Reception",
-      description: "Light hors d'oeuvres, social hour, and sponsor booths"
-    }
-  ];
-
-  const stats = [
-    { number: "7th", label: "Annual Symposium" },
-    { number: "50+", label: "Expert Speakers" },
-    { number: "2", label: "Days of Excellence" },
-    { number: "500+", label: "Expected Attendees" }
-  ];
-
-  const whyAttend = [
-    {
-      title: "Collaborate",
-      description: "Work with experts to brainstorm solutions in healthcare, cybersecurity, quantum computing, agriculture and risk management.",
-      icon: "🤝"
-    },
-    {
-      title: "Learn",
-      description: "Gain insights from established AI professionals through engaging symposium sessions.",
-      icon: "📚"
-    },
-    {
-      title: "Connect",
-      description: "Build valuable connections with like-minded individuals both in-person and virtually.",
-      icon: "🌐"
-    },
-    {
-      title: "Discover",
-      description: "Learn about the latest advancements in AI and how they can impact your field.",
-      icon: "🔍"
-    }
   ];
 
   return (
-    <div className="pt-20 min-h-screen bg-white">
-      <motion.div 
-        className="container mx-auto px-4 py-12 max-w-4xl"
-        initial="initial"
-        animate="animate"
-        variants={staggerChildren}
-      >
-        {/* Header Section */}
-        <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030) !important' }}>
-            Initiatives
-          </h1>
-          <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
-          <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
-            Explore our flagship events and ongoing initiatives that drive innovation in artificial intelligence research and education.
+    <div 
+      className="bg-gray-100 min-h-screen"
+      style={{
+        backgroundImage: "url('/images/pattern.svg')",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div className="mx-auto px-4 sm:px-6 py-6 max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-7xl">
+        {/* Back to Homepage */}
+        <Link to="/" className="flex items-center text-red-500 font-bold gap-2 mb-4">
+          ← Back to Homepage
+        </Link>
+
+        {/* Symposium Navbar */}
+        <div className="flex justify-center py-4 px-6 bg-white mb-8 rounded-lg">
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-5xl font-bold text-red-700 leading-tight" style={{ fontFamily: 'Yanone Kaffeesatz, sans-serif' }}>
+              7<sup className="text-xl align-top">th</sup> Artificial Intelligence Symposium*
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-800 mt-1 font-semibold">
+              June 26–27, 2025
+            </p>
+            <p className="text-sm sm:text-base text-gray-500 italic mt-1">
+              * Formerly known as the Data Harnessing Symposium (held in 2018 and 2019)
+            </p>
+          </div>
+        </div>
+
+        {/* Animated AI Symposium Banner */}
+        <div className="mb-8">
+          <AnimatedAIBanner />
+        </div>
+
+        {/* Combined "Download" + "Welcome" Card */}
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          {/* Download heading */}
+          <div className="border-l-4 border-red-500 pl-4 mb-6">
+            <h1 className="text-3xl md:text-4xl text-red-700 font-bold" style={{ fontFamily: 'Yanone Kaffeesatz, sans-serif' }}>
+              Download your certificate of participation
+            </h1>
+          </div>
+
+          <p className="text-lg leading-relaxed text-justify mb-4">
+            Thank you for participating in the event! To receive your Certificate of
+            Participation, please complete the form at the following link:{" "}
+            <a
+              href="https://forms.office.com/r/deink2VGxh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold underline"
+            >
+              https://forms.office.com/r/deink2VGxh
+            </a>
+            . Once submitted, your certificate will be sent to you automatically via email.
           </p>
-        </motion.div>
 
-        {/* AI Symposium Banner */}
-        <motion.div variants={fadeInUp}>
-          <AISymposiumBanner />
-        </motion.div>
+          {/* Welcome heading (with extra top margin) */}
+          <div className="border-l-4 border-red-500 pl-4 mt-8 mb-6">
+            <h1 className="text-3xl md:text-4xl text-red-700 font-bold" style={{ fontFamily: 'Yanone Kaffeesatz, sans-serif' }}>
+              Welcome to 7th Artificial Intelligence Symposium {new Date().getFullYear()}
+            </h1>
+          </div>
 
-        {/* AI Symposium 2025 Details Section */}
-        <motion.div className="mb-16" variants={fadeInUp}>
-          <div className="bg-white rounded-lg shadow-md p-8">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-thin text-gray-800 mb-4">🎯 Artificial Intelligence Symposium 2025</h2>
-              <p className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">
-                Join us for the University of South Dakota's 7th Annual AI Symposium, bringing together thought leaders 
-                from academia, industry, and government to explore the forefront of artificial intelligence, biomedical computing, 
-                and emerging technologies.
+          <p className="text-lg leading-relaxed text-justify mb-4">
+            Join us for the University of South Dakota's 7th Annual{" "}
+            <a
+              href="https://www.ai-research-lab.org/events/ai-symposium/2025"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold underline"
+            >
+              Artificial Intelligence Symposium
+            </a>
+            —formerly known as the Data Harnessing Symposium (2018–2019)—sponsored by
+            IEEE and held in conjunction with the inaugural{" "}
+            <a
+              href="https://sd-bcc.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold underline"
+            >
+              South Dakota Biomedical Computation Consortium (SDBCC)
+            </a>
+            .
+          </p>
+
+          <p className="text-lg leading-relaxed text-justify">
+            This premier event brings together thought leaders from academia, industry,
+            and government to explore the forefront of artificial intelligence, data
+            engineering, quantum computing, cyber threats, risk management, sustainable
+            agriculture, healthcare, and biomedical computing.
+          </p>
+        </div>
+
+        {/* Known for Excellence - Stats Component */}
+        <StatsComponent stats={symposiumStats} />
+
+        {/* Location Information */}
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            Event Details
+          </h2>
+          <div className="flex flex-col md:flex-row md:items-center mb-6">
+            <div className="flex items-start md:w-1/2">
+              <div className="bg-red-100 p-2 rounded-full mr-3">
+                <span className="h-6 w-6 mx-auto text-red-500">📍</span>
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-800">Location</h3>
+                <p className="text-gray-600">
+                  USD Sioux Falls <br /> Avera Hall <br /> 4801 N. Career Ave. <br /> Sioux Falls, SD 57107 
+                </p>
+                <p className="text-gray-600">
+                  <strong>OR</strong> <br /> Zoom (link will be provided through
+                  registration)
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start md:w-1/2 mt-4 md:mt-0">
+              <div className="bg-red-100 p-2 rounded-full mr-3">
+                <span className="h-6 w-6 mx-auto text-red-500">📅</span>
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-800">Date and time</h3>
+                <p className="text-gray-600">
+                  June 26 - 27, {new Date().getFullYear()}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <RegistrationInfo />
+
+        {/* Featured Speakers */}
+        <Speakers />
+
+        {/* Conference Schedule */}
+        <ConferenceSchedule />
+
+        {/* Committee Members */}
+        <CommitteeMembers />
+
+        {/* Sponsors Section */}
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <span className="inline-block mr-2 text-red-500">🏆</span>
+            Our Sponsors
+          </h2>
+
+          {/* Sponsors Tab Navigation */}
+          <div className="flex border-b mb-6">
+            <button
+              className={`py-2 px-4 font-medium ${
+                activeTab === "current"
+                  ? "border-b-2 border-red-500 text-red-600"
+                  : "text-gray-600"
+              }`}
+              onClick={() => setActiveTab("current")}
+            >
+              Current Sponsors
+            </button>
+            <button
+              className={`py-2 px-4 font-medium ${
+                activeTab === "become"
+                  ? "border-b-2 border-red-500 text-red-600"
+                  : "text-gray-600"
+              }`}
+              onClick={() => setActiveTab("become")}
+            >
+              Become a Sponsor
+            </button>
+          </div>
+
+          {/* Current Sponsors Content */}
+          {activeTab === "current" && (
+            <div>
+              <p className="text-gray-600 mb-6">
+                We&apos;re grateful to the following organizations for their
+                support of the AI Symposium {new Date().getFullYear()}. Their
+                partnership enables us to provide world-class content and
+                experiences for our attendees.
               </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="text-center">
-                <h3 className="text-xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>🗓️ Event Information</h3>
-                <div className="space-y-2 text-gray-700">
-                  <p><strong>Date:</strong> June 26-27, 2025</p>
-                  <p><strong>Location:</strong> USD Sioux Falls, Avera Hall</p>
-                  <p><strong>Format:</strong> Hybrid (In-person & Virtual)</p>
-                  <p><strong>Cost:</strong> FREE (Registration Required)</p>
+
+              <div className="flex flex-wrap justify-center gap-4 mb-6">
+                {/* Bronze Sponsor */}
+                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[200px]">
+                  <div className="py-2 px-3 font-semibold text-white bg-yellow-700 text-center text-sm">
+                    Bronze Sponsors
+                  </div>
+                  <div className="bg-gray-50 p-2 flex items-center justify-center h-24">
+                    <img 
+                      src="/images/sponsor/Area.svg" 
+                      alt="Area Direct Companies" 
+                      className="max-h-12 object-contain"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                        ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
+                      }}
+                    />
+                    <span className="text-gray-500 fallback" style={{ display: 'none' }}>Area Direct Companies</span>
+                  </div>
+                </div>
+
+                {/* Silver Sponsors */}
+                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[240px]">
+                  <div className="py-2 px-3 font-semibold text-white bg-gray-400 text-center text-sm">
+                    Silver Sponsors
+                  </div>
+                  <div className="bg-gray-50 p-2 flex justify-around items-center h-24">
+                    <div className="flex items-center">
+                      <img 
+                        src="/images/sponsor/Sterling.svg" 
+                        alt="Sterling" 
+                        className="max-h-12 object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                          ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
+                        }}
+                      />
+                      <span className="text-gray-500 fallback" style={{ display: 'none' }}>Sterling</span>
+                    </div>
+                    <div className="flex items-center">
+                      <img 
+                        src="/images/sponsor/ieee_usa.svg" 
+                        alt="IEEE USA" 
+                        className="max-h-12 object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                          ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
+                        }}
+                      />
+                      <span className="text-gray-500 fallback" style={{ display: 'none' }}>IEEE USA</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Gold Sponsor */}
+                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[200px]">
+                  <div className="py-2 px-3 font-semibold text-white bg-yellow-500 text-center text-sm">
+                    Gold Sponsors
+                  </div>
+                  <div className="bg-gray-50 p-2 flex items-center justify-center h-24">
+                    <img 
+                      src="/images/sponsor/dakota.svg" 
+                      alt="Dakota" 
+                      className="max-h-12 object-contain"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                        ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
+                      }}
+                    />
+                    <span className="text-gray-500 fallback" style={{ display: 'none' }}>Dakota</span>
+                  </div>
+                </div>
+
+                {/* Partners */}
+                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[260px]">
+                  <div className="py-2 px-3 font-semibold text-white bg-gray-700 text-center text-sm">
+                    Partners
+                  </div>
+                  <div className="bg-gray-50 px-2 py-1 flex items-center justify-center gap-2 h-24">
+                    <div className="flex items-center">
+                      <img 
+                        src="/images/sponsor/IEEE.svg" 
+                        alt="IEEE" 
+                        className="h-10 object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                          ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
+                        }}
+                      />
+                      <span className="text-gray-500 fallback text-xs" style={{ display: 'none' }}>IEEE</span>
+                    </div>
+                    <div className="flex items-center">
+                      <img 
+                        src="/images/sponsor/logo.svg" 
+                        alt="USD Logo" 
+                        className="h-10 object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                          ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
+                        }}
+                      />
+                      <span className="text-gray-500 fallback text-xs" style={{ display: 'none' }}>USD</span>
+                    </div>
+                    <div className="flex items-center">
+                      <img 
+                        src="/images/sponsor/SD-BCC.svg" 
+                        alt="SD BCC" 
+                        className="h-10 object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                          ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
+                        }}
+                      />
+                      <span className="text-gray-500 fallback text-xs" style={{ display: 'none' }}>SD-BCC</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="text-center">
-                <h3 className="text-xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>🎯 What to Expect</h3>
-                <div className="space-y-2 text-gray-700">
-                  <p>• Keynote speakers from MIT, NIST, Harvard</p>
-                  <p>• Industry workshops (Microsoft, Collins Aerospace)</p>
-                  <p>• Biomedical AI panel discussions</p>
-                  <p>• Networking with 500+ attendees</p>
+            </div>
+          )}
+
+          {/* Become a Sponsor Content */}
+          {activeTab === "become" && (
+            <div>
+              <div className="bg-red-50 p-4 rounded-lg mb-6">
+                <div className="flex items-start">
+                  <span className="text-red-500 h-6 w-6 mr-3 mt-1">💼</span>
+                  <div>
+                    <h3 className="font-medium text-gray-800">
+                      Why Sponsor the AI Symposium?
+                    </h3>
+                    <p className="text-gray-600">
+                      Join us as a sponsor and position your organization at the
+                      forefront of AI innovation. Gain visibility with academia,
+                      industry leaders, and government officials while
+                      demonstrating your commitment to advancing artificial
+                      intelligence research and applications.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="text-center">
-              <Link 
-                to="/events/ai-symposium/2025"
-                className="inline-block px-8 py-3 text-white rounded-md hover:opacity-90 transition-opacity font-medium text-lg"
-                style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
-              >
-                View Full Symposium Details →
-              </Link>
-            </div>
-          </div>
-        </motion.div>
 
-        {/* Stats Section */}
-        <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin text-center text-gray-800 mb-8">Known for Excellence</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="text-4xl font-thin mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 font-thin">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Event Details */}
-        <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin text-gray-800 mb-8 text-center">Event Details</h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>📍 Location</h3>
-              <div className="text-gray-700 font-thin leading-relaxed">
-                <p className="mb-2"><strong>USD Sioux Falls</strong></p>
-                <p className="mb-2">Avera Hall</p>
-                <p className="mb-2">4801 N. Career Ave.</p>
-                <p className="mb-4">Sioux Falls, SD 57107</p>
-                <p className="text-sm text-gray-600">OR</p>
-                <p className="text-sm text-gray-600">Zoom (link will be provided through registration)</p>
-              </div>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>📅 Date and Time</h3>
-              <p className="text-xl font-thin text-gray-700 mb-4">June 26 - 27, 2025</p>
-              <h3 className="text-2xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>📝 Registration</h3>
-              <p className="text-gray-600 font-thin mb-4">This event is free, but registration is required to attend.</p>
-              <a 
-                href="https://events.vtools.ieee.org/event/register/487885" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-block px-6 py-3 text-white rounded-md hover:opacity-90 transition-opacity font-thin"
-                style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
-              >
-                Register Now
-              </a>
-              <p className="text-sm text-gray-600 mt-2">🎓 Sign up, attend, and receive a certificate of participation immediately after the event!</p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Speakers Section */}
-        <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin text-gray-800 mb-8 text-center">🎤 Speakers</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {speakers.map((speaker, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <h3 className="text-lg font-thin mb-2" style={{ color: 'var(--logo-red, #C53030)' }}>
-                  {speaker.name}
-                </h3>
-                <p className="text-gray-600 font-thin text-sm">{speaker.role}</p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <p className="text-gray-600 font-thin text-lg">… more coming soon.</p>
-          </div>
-        </motion.div>
-
-        {/* Schedule Section */}
-        <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin text-gray-800 mb-8 text-center">Conference Schedule</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="bg-gray-50 px-6 py-4 border-b">
-                <h3 className="text-xl font-thin" style={{ color: 'var(--logo-red, #C53030)' }}>
-                  Thursday, June 26, 2025
-                </h3>
-              </div>
-              <div className="divide-y divide-gray-200">
-                {schedule.map((item, index) => (
-                  <div key={index} className="px-6 py-4 hover:bg-gray-50 transition-colors">
-                    <div className="flex flex-col md:flex-row md:items-center gap-4">
-                      <div className="text-sm font-thin text-gray-600 md:w-48 flex-shrink-0">
-                        {item.time}
-                      </div>
-                      <div className="flex-grow">
-                        <h4 className="text-lg font-thin mb-1" style={{ color: 'var(--logo-red, #C53030)' }}>
-                          {item.title}
-                        </h4>
-                        <p className="text-gray-600 font-thin text-sm">{item.description}</p>
-                      </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                Sponsorship Opportunities
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                {sponsorshipTiers.map((tier, index) => (
+                  <div
+                    key={index}
+                    className="border rounded-lg overflow-hidden"
+                  >
+                    <div
+                      className={`
+                      p-4 font-semibold text-white
+                      ${
+                        tier.tier === "Platinum"
+                          ? "bg-gray-700"
+                          : tier.tier === "Gold"
+                          ? "bg-yellow-500"
+                          : tier.tier === "Silver"
+                          ? "bg-gray-400"
+                          : "bg-yellow-700"
+                      }`}
+                    >
+                      {tier.tier} Sponsorship - {tier.cost}
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="text-center mt-6">
-              <button 
-                className="inline-flex items-center px-6 py-3 text-white rounded-md hover:opacity-90 transition-opacity font-thin opacity-50 cursor-not-allowed"
-                style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
-                disabled
-                title="PDF schedule will be available soon"
-              >
-                📥 Download Full Schedule (PDF) - Coming Soon
-              </button>
-            </div>
-          </div>
-        </motion.div>
 
-        {/* Why Attend Section */}
-        <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin text-gray-800 mb-8 text-center">Why Attend</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyAttend.map((item, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
-                <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="text-xl font-thin mb-3" style={{ color: 'var(--logo-red, #C53030)' }}>
-                  {item.title}
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                  💼 Ready to Sponsor?
                 </h3>
-                <p className="text-gray-600 font-thin text-sm leading-relaxed">{item.description}</p>
+                <p className="text-gray-600 mb-4">
+                  For more information about sponsorship opportunities or to become a sponsor, please contact our sponsorship team:
+                </p>
+                <div className="space-y-2">
+                  <p className="flex items-center text-gray-700">
+                    📧 <span className="ml-2">rodrigue.rizk@usd.edu and kc.santosh@usd.edu</span>
+                  </p>
+                  <p className="flex items-center text-gray-700">
+                    📞 <span className="ml-2">(605) 658-6841</span>
+                  </p>
+                </div>
               </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Committee Members */}
-        <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin text-gray-800 mb-8 text-center">Committee Members</h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>Organizing Committee</h3>
-              <ul className="space-y-2 text-gray-600 font-thin text-sm">
-                <li>• KC Santosh, Chair & Professor, University of South Dakota (Founding Chair, AI Symposium & Co-Chair, SDBCC)</li>
-                <li>• William CW Chen, Assist. Professor, University of South Dakota (Chair, SDBCC)</li>
-                <li>• Jeffrey McGough, Head & Professor, South Dakota School of Mines (Co-Chair, SDBCC)</li>
-                <li>• Rodrigue Rizk, Assist. Professor/Grad Coord, University of South Dakota (Co-Chair, AI Symposium)</li>
-                <li>• Robert Burke, Conference Committee Chair, IEEE Region 4</li>
-              </ul>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>Advisory Board Members</h3>
-              <ul className="space-y-2 text-gray-600 font-thin text-sm">
-                <li>• Sheila Gestring, President, University of South Dakota</li>
-                <li>• Jay Perry, Vice President, University of South Dakota – Sioux Falls</li>
-                <li>• Dan Engebretson, Vice President, Research & Sponsored Programs, University of South Dakota</li>
-                <li>• Kurt Hackemer, Vice President for Academic Affairs & Provost, University of South Dakota</li>
-                <li>• John Dudley, Dean, College of Arts & Science, University of South Dakota</li>
-                <li>• Tim Ridgway, Vice President of Health Affairs and Dean of the Sanford School of Medicine, University of South Dakota</li>
-                <li>• William Mayhan, Dean, Biomedical Sciences, University of South Dakota</li>
-              </ul>
-            </div>
-          </div>
-        </motion.div>
+          )}
+        </div>
 
         {/* Past Events */}
-        <motion.div className="mb-16 text-center" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin text-gray-800 mb-8">Past Events</h2>
-          <p className="text-gray-600 font-thin mb-6">Learn more about our past Artificial Intelligence Symposiums.</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://www.usd.edu/Academics/Colleges-and-Schools/college-of-arts-sciences/computer-science/Artificial-Intelligence-Symposium" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-white rounded-md shadow hover:shadow-md transition-shadow text-sm font-thin text-gray-700 hover:text-red-600">AI Symposium 2024</a>
-            <a href="https://www.usd.edu/academics/colleges-and-schools/college-of-arts-sciences/south-dakotan-arts-and-sciences/usd-to-host-third-annual-ai-symposium" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-white rounded-md shadow hover:shadow-md transition-shadow text-sm font-thin text-gray-700 hover:text-red-600">AI Symposium 2023</a>
-            <a href="https://www.usd.edu/academics/colleges-and-schools/college-of-arts-sciences/south-dakotan-arts-and-sciences/usd-to-host-artificial-intelligence-symposium-march-22" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-white rounded-md shadow hover:shadow-md transition-shadow text-sm font-thin text-gray-700 hover:text-red-600">AI Symposium 2022</a>
-            <a href="https://www.usd.edu/the-south-dakotan/usd-to-host-first-ai-symposium-march-16-18" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-white rounded-md shadow hover:shadow-md transition-shadow text-sm font-thin text-gray-700 hover:text-red-600">AI Symposium 2021</a>
-          </div>
-        </motion.div>
-
-        {/* Certificate Information */}
-        <motion.div className="bg-white p-8 rounded-lg shadow-md text-center" variants={fadeInUp}>
-          <h2 className="text-3xl font-thin text-gray-800 mb-6">Download your certificate of participation</h2>
-          <p className="text-gray-600 font-thin mb-6 leading-relaxed">
-            Thank you for participating in the event! To receive your Certificate of Participation, please complete the form at the following link. Once submitted, your certificate will be sent to you automatically via email.
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            Past Events
+          </h2>
+          <p className="text-gray-700 mb-4">
+            Learn more about our past Artificial Intelligence Symposiums.
           </p>
-          <a 
-            href="https://forms.office.com/r/deink2VGxh" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-3 text-white rounded-md hover:opacity-90 transition-opacity font-thin"
-            style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
-          >
-            Get Certificate
-          </a>
-        </motion.div>
 
-      </motion.div>
+          <div className="space-y-2">
+            <a
+              target="_blank"
+              href="https://www.usd.edu/Academics/Colleges-and-Schools/college-of-arts-sciences/computer-science/Artificial-Intelligence-Symposium"
+              className="block py-2 px-4 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors"
+              rel="noopener noreferrer"
+            >
+              <div className="flex items-center text-gray-800 font-medium">
+                → AI Symposium 2024
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.usd.edu/academics/colleges-and-schools/college-of-arts-sciences/south-dakotan-arts-and-sciences/usd-to-host-third-annual-ai-symposium"
+              className="block py-2 px-4 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors"
+              rel="noopener noreferrer"
+            >
+              <div className="flex items-center text-gray-800 font-medium">
+                → AI Symposium 2023
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.usd.edu/academics/colleges-and-schools/college-of-arts-sciences/south-dakotan-arts-and-sciences/usd-to-host-artificial-intelligence-symposium-march-22"
+              className="block py-2 px-4 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors"
+              rel="noopener noreferrer"
+            >
+              <div className="flex items-center text-gray-800 font-medium">
+                → AI Symposium 2022
+              </div>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.usd.edu/the-south-dakotan/usd-to-host-first-ai-symposium-march-16-18"
+              className="block py-2 px-4 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors"
+              rel="noopener noreferrer"
+            >
+              <div className="flex items-center text-gray-800 font-medium">
+                → AI Symposium 2021
+              </div>
+            </a>
+          </div>
+        </div>
+
+        {/* Key Benefits */}
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Why Attend</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="flex items-start">
+              <div className="bg-red-100 p-2 rounded-full mr-3">
+                <span className="text-red-500 h-6 w-6">✅</span>
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-800">Collaborate</h3>
+                <p className="text-gray-600">
+                  Work with experts to brainstorm solutions in healthcare,
+                  cybersecurity, quantum computing, agriculture and risk
+                  management.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              <div className="bg-red-100 p-2 rounded-full mr-3">
+                <span className="text-red-500 h-6 w-6">🎓</span>
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-800">Learn</h3>
+                <p className="text-gray-600">
+                  Gain insights from established AI professionals through
+                  engaging symposium sessions.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              <div className="bg-red-100 p-2 rounded-full mr-3">
+                <span className="text-red-500 h-6 w-6">👥</span>
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-800">Connect</h3>
+                <p className="text-gray-600">
+                  Build valuable connections with like-minded individuals both
+                  in-person and virtually.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              <div className="bg-red-100 p-2 rounded-full mr-3">
+                <span className="text-red-500 h-6 w-6">🔍</span>
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-800">Discover</h3>
+                <p className="text-gray-600">
+                  Learn about the latest advancements in AI and how they can
+                  impact your field.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Go to Top Button */}
+        {showGoToTop && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 bg-red-500 hover:bg-red-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50"
+            aria-label="Go to top"
+          >
+            ↑
+          </button>
+        )}
+      </div>
+      
       <Footer />
     </div>
   );
 };
 
-export default Initiatives;
+export default SpecificYearSymposium;
