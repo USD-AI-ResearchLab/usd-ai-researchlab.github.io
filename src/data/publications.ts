@@ -21,21 +21,48 @@ export interface Book {
 
 export const PUBLICATIONS: Publication[] = [
   {
-    title: "Cervical cancerous cell classification: opposition‑based harmony search for deep feature selection", 
-    authors: "Nibaran Das, Bodhisatwa Mandal, KC Santosh, Linlin Shen, Sukanta Chakraborty",
-    description: "Over 500K (per year) cervical cancer cases are reported with a high mortality rate (6–9%). We propose a tool that classifies cervical cancer cases from Pap smear cytology images using deep features. The proposed tool constitutes a Convolutional Neural Network (CNN) and a metaheuristic evolutionary algorithm called Opposition-based Harmony Search Algorithm (O-bHSA) for deep feature selection. These features are classified using standard classifiers: SVM, MLP, and KNN.",
-    venue: "International Journal of Machine Learning and Cybernetics",
-    year: "2023",
-    paperUrl: "https://doi.org/10.1007/s13042-023-01872-z",
+    title: "Non-Uniform Illumination Attack for Fooling Convolutional Neural Networks",
+    authors: "Akshay Jain, Shiv Ram Dubey, Satish Kumar Singh, KC Santosh, Bidyut Baran Chaudhuri",
+    description: "Convolutional Neural Networks (CNNs) have made remarkable strides; however, they remain susceptible to vulnerabilities, particularly in the face of minor image perturbations that humans can easily recognize. This study introduces a novel Non-Uniform Illumination (NUI) attack technique, where images are subtly altered using varying NUI masks. Extensive experiments are conducted on widely-accepted datasets including CIFAR10, TinyImageNet, and CalTech256, focusing on image classification with 12 different NUI attack models.",
+    venue: "Pattern Recognition",
+    year: "2024",
+    paperUrl: "https://doi.org/10.1016/j.patcog.2024.110123",
     codeUrl: "#"
   },
   {
-    title: "Deep features to detect pulmonary abnormalities in chest X-rays due to infectious disease: Covid-19, pneumonia, and tuberculosis",
-    authors: "MK Mahbub, M Biswas, L Gaur, F Alenezi, KC Santosh",
-    description: "On three diverse publicly accessible and fully categorized datasets, for non-healthy versus healthy CXR screening, the proposed DNN produced the following accuracies: 99.87% on Covid-19 versus healthy, 99.55% on Pneumonia versus healthy, and 99.76% on TB versus healthy.",
-    venue: "Information Sciences, Elsevier",
-    year: "2022",
-    paperUrl: "https://doi.org/10.1016/j.ins.2022.01.062",
+    title: "Advances and Challenges in Meta-Learning: A Technical Review",
+    authors: "Anna Vettoruzzo, Mohamed-Rafik Bouguelia, Joaquin Vanschoren, Thorsteinn Rögnvaldsson, KC Santosh",
+    description: "Meta-learning empowers learning systems with the ability to acquire knowledge from multiple tasks, enabling faster adaptation and generalization to new tasks. This review provides a comprehensive technical overview of meta-learning, emphasizing its importance in real-world applications where data may be scarce or expensive to obtain.",
+    venue: "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+    year: "2024",
+    paperUrl: "https://doi.org/10.1109/TPAMI.2024.3361491",
+    codeUrl: "#"
+  },
+  {
+    title: "Advances in Deep Learning for Tuberculosis Screening using Chest X‑rays: The Last 5 Years Review",
+    authors: "KC Santosh, Siva Allu, Sivaramakrishnan Rajaraman, Sameer Antani",
+    description: "There has been an explosive growth in research over the last decade exploring machine learning techniques for analyzing chest X-ray (CXR) images for screening cardiopulmonary abnormalities. In particular, we have observed a strong interest in screening for tuberculosis (TB). We systematically review 54 peer-reviewed research articles and perform meta-analysis.",
+    venue: "Journal of Medical Systems, Springer",
+    year: "2023",
+    paperUrl: "https://doi.org/10.1007/s10916-023-01925-1",
+    codeUrl: "#"
+  },
+  {
+    title: "Guest Editorial Multimodal Learning in Medical Imaging Informatics",
+    authors: "KC Santosh, Sameer Antani",
+    description: "The papers in this special section focus on multimodal learning in medical imaging informatics. Enormous amounts of health-related data are produced daily, such as those from personal devices, e.g., fitness trackers or mobile applications, ambient sensors, clinical data in electronic health records, pathology reports, lab results, medical images, voice recordings, etc.",
+    venue: "IEEE Journal of Biomedical and Health Informatics",
+    year: "2023",
+    paperUrl: "https://doi.org/10.1109/JBHI.2023.3246998",
+    codeUrl: "#"
+  },
+  {
+    title: "Cervical cancerous cell classification: opposition‑based harmony search for deep feature selection", 
+    authors: "Nibaran Das, Bodhisatwa Mandal, KC Santosh, Linlin Shen, Sukanta Chakraborty",
+    description: "Over 500K (per year) cervical cancer cases are reported with a high mortality rate (6–9%). We propose a tool that classifies cervical cancer cases from Pap smear cytology images using deep features. The proposed tool constitutes a Convolutional Neural Network (CNN) and a metaheuristic evolutionary algorithm called Opposition-based Harmony Search Algorithm (O-bHSA) for deep feature selection.",
+    venue: "International Journal of Machine Learning and Cybernetics",
+    year: "2023",
+    paperUrl: "https://doi.org/10.1007/s13042-023-01872-z",
     codeUrl: "#"
   },
   {
@@ -45,6 +72,96 @@ export const PUBLICATIONS: Publication[] = [
     venue: "International Journal of Machine Learning and Cybernetics, Springer",
     year: "2023",
     paperUrl: "https://doi.org/10.1007/s13042-023-01789-7",
+    codeUrl: "#"
+  },
+  {
+    title: "AI Tools for Assessing Human Fertility Using Risk Factors: A State‑of‑the‑Art Review",
+    authors: "Debasmita GhoshRoy, P. A. Alvi, KC Santosh",
+    description: "Infertility has massively disrupted social and marital life, resulting in stressful emotional well-being. Early diagnosis is the utmost need for faster adaption to respond to these changes, which makes possible via AI tools. We systematically reviewed 42 articles and performed a meta-analysis.",
+    venue: "Journal of Medical Systems",
+    year: "2023",
+    paperUrl: "https://doi.org/10.1007/s10916-023-01967-5",
+    codeUrl: "#"
+  },
+  {
+    title: "Hybrid approach for text categorization: A case study with Bangla news article",
+    authors: "Ankita Dhar, Himadri Mukherjee, Kaushik Roy, KC Santosh, Niladri Sekhar Dash",
+    description: "The incredible expansion of online texts due to the Internet has intensified and revived the interest of sorting, managing and categorising the documents into their respective domains. This article presents a hybrid approach that works elegantly by combining text-based and graph-based features for Bangla text categorization.",
+    venue: "Expert Systems with Applications",
+    year: "2022",
+    paperUrl: "https://doi.org/10.1016/j.eswa.2022.117423",
+    codeUrl: "#"
+  },
+  {
+    title: "Enabling clustering algorithms to detect clusters of varying densities through scale-invariant data preprocessing",
+    authors: "Sunil Aryal, Jonathan R. Wells, Arbind Agrahari Baniya, KC Santosh",
+    description: "In this paper, we show that preprocessing data using a variant of rank transformation called 'Average Rank over an Ensemble of Sub-samples (ARES)' makes clustering algorithms robust to data representation and enable them to detect varying density clusters.",
+    venue: "Machine Learning",
+    year: "2022",
+    paperUrl: "https://doi.org/10.1007/s10994-022-06201-4",
+    codeUrl: "#"
+  },
+  {
+    title: "Investigation of DNA discontinuity for detecting tuberculosis",
+    authors: "Sonia Farhana Nimmy, Md. Golam Sarowar, Nilanjan Dey, Amira S. Ashour, KC Santosh",
+    description: "Discontinuity in long Deoxyribonucleic Acid (DNA) sequences creates harmful diseases. This study developed an automated machine learning technique to assess the total number of such breaks in the long DNA sequences for tuberculosis detection.",
+    venue: "Multimedia Tools and Applications",
+    year: "2022",
+    paperUrl: "https://doi.org/10.1007/s11042-021-11842-2",
+    codeUrl: "#"
+  },
+  {
+    title: "LIFA: Language identification from audio with LPCC-G features",
+    authors: "Himadri Mukherjee, Ankita Dhar, Sk Md Obaidullah, KC Santosh, Santanu Phadikar, Kaushik Roy, Umapada Pal",
+    description: "In Western countries, speech recognition-based technologies have significantly developed compared to the countries of the South Asian subcontinent like India. We propose LIFA: Language Identification From Audio - a fully automated tool that can identify the spoken language from the top-11 spoken languages in India.",
+    venue: "Engineering Applications of Artificial Intelligence",
+    year: "2022",
+    paperUrl: "https://doi.org/10.1016/j.engappai.2021.104543",
+    codeUrl: "#"
+  },
+  {
+    title: "Leveraging Sampling Schemes on Skewed Class Distribution to Enhance Male Fertility Detection with Ensemble AI Learners",
+    authors: "Debasmita GhoshRoy, P. A. Alvi, KC Santosh",
+    description: "Designing effective AI models becomes a challenge when dealing with imbalanced/skewed class distributions in datasets. In this investigation, we delve into the male fertility dataset, exploring 14 re-sampling approaches to understand their impact on enhancing predictive model performance.",
+    venue: "International Journal of Pattern Recognition and Artificial Intelligence",
+    year: "2024",
+    paperUrl: "https://doi.org/10.1142/S0218001424510030",
+    codeUrl: "#"
+  },
+  {
+    title: "Shallow Convolutional Neural Network for COVID-19 Outbreak Screening Using Chest X-rays",
+    authors: "Himadri Mukherjee, Subhankar Ghosh, Ankita Dhar, Sk Md Obaidullah, KC Santosh, Kaushik Roy",
+    description: "Among radiological imaging data, Chest X-rays (CXRs) are of great use in observing COVID-19 manifestations. We proposed a light-weight Convolutional Neural Network (CNN)-tailored shallow architecture that can automatically detect COVID-19-positive cases using CXRs, with no false negatives.",
+    venue: "Cognitive Computation",
+    year: "2021",
+    paperUrl: "https://doi.org/10.1007/s12559-020-09795-9",
+    codeUrl: "#"
+  },
+  {
+    title: "Covid-19 Imaging Tools: How Big Data is Big?",
+    authors: "KC Santosh, Sourodip Ghosh",
+    description: "In this paper, considering year 2020 and Covid-19, we analyze medical imaging tools and their performance scores in accordance with the dataset size and their complexity. We elaborate on their strengths and weaknesses by taking important factors into account.",
+    venue: "Journal of Medical Systems, Springer",
+    year: "2021",
+    paperUrl: "https://doi.org/10.1007/s10916-021-01707-2",
+    codeUrl: "#"
+  },
+  {
+    title: "SegFast‑V2: Semantic image segmentation with less parameters in deep learning for autonomous driving",
+    authors: "Swarnendu Ghosh, Anisha Pal, Shourya Jaiswal, KC Santosh, Nibaran Das, Mita Nasipuri",
+    description: "Semantic image segmentation can be used in various driving applications, such as automatic braking, road sign alerts, park assists, and pedestrian warnings. The key contribution of this work is to promote the possibility of compact semantic image segmentation for deployment in less expensive vehicles.",
+    venue: "International Journal of Machine Learning and Cybernetics",
+    year: "2019",
+    paperUrl: "https://doi.org/10.1007/s13042-019-01005-5",
+    codeUrl: "#"
+  },
+  {
+    title: "Deep features to detect pulmonary abnormalities in chest X-rays due to infectious disease: Covid-19, pneumonia, and tuberculosis",
+    authors: "MK Mahbub, M Biswas, L Gaur, F Alenezi, KC Santosh",
+    description: "On three diverse publicly accessible and fully categorized datasets, for non-healthy versus healthy CXR screening, the proposed DNN produced the following accuracies: 99.87% on Covid-19 versus healthy, 99.55% on Pneumonia versus healthy, and 99.76% on TB versus healthy.",
+    venue: "Information Sciences, Elsevier",
+    year: "2022",
+    paperUrl: "https://doi.org/10.1016/j.ins.2022.01.062",
     codeUrl: "#"
   },
   {
