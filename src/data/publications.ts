@@ -21,24 +21,6 @@ export interface Book {
 
 export const PUBLICATIONS: Publication[] = [
   {
-    title: "Non-Uniform Illumination Attack for Fooling Convolutional Neural Networks",
-    authors: "Akshay Jain, Shiv Ram Dubey, Satish Kumar Singh, KC Santosh, Bidyut Baran Chaudhuri",
-    description: "Convolutional Neural Networks (CNNs) have made remarkable strides; however, they remain susceptible to vulnerabilities, particularly in the face of minor image perturbations. This study introduces a novel Non-Uniform Illumination (NUI) attack technique, where images are subtly altered using varying NUI masks. Extensive experiments are conducted on widely-accepted datasets including CIFAR10, TinyImageNet, and CalTech256, focusing on image classification with 12 different NUI attack models.",
-    venue: "Pattern Recognition Journal",
-    year: "2025",
-    paperUrl: "https://www.ai-research-lab.org/paper/67db27caa299b9e333775f2e",
-    codeUrl: "#"
-  },
-  {
-    title: "Advances and Challenges in Meta-Learning: A Technical Review",
-    authors: "Anna Vettoruzzo, Mohamed-Rafik Bouguelia, Joaquin Vanschoren, Thorsteinn Rögnvaldsson, KC Santosh",
-    description: "Meta-learning empowers learning systems with the ability to acquire knowledge from multiple tasks, enabling faster adaptation and generalization to new tasks. This review provides a comprehensive technical overview of meta-learning, emphasizing its importance in real-world applications where data may be scarce or expensive to obtain. The article covers state-of-the-art meta-learning approaches and explores the relationship between meta-learning and multi-task learning, transfer learning, domain adaptation and generalization.",
-    venue: "IEEE Transactions on Pattern Analysis and Machine Intelligence",
-    year: "2024",
-    paperUrl: "https://www.ai-research-lab.org/paper/67b7cba6c883bbe0626025f9",
-    codeUrl: "#"
-  },
-  {
     title: "Cervical cancerous cell classification: opposition‑based harmony search for deep feature selection", 
     authors: "Nibaran Das, Bodhisatwa Mandal, KC Santosh, Linlin Shen, Sukanta Chakraborty",
     description: "Over 500K (per year) cervical cancer cases are reported with a high mortality rate (6–9%). We propose a tool that classifies cervical cancer cases from Pap smear cytology images using deep features. The proposed tool constitutes a Convolutional Neural Network (CNN) and a metaheuristic evolutionary algorithm called Opposition-based Harmony Search Algorithm (O-bHSA) for deep feature selection. These features are classified using standard classifiers: SVM, MLP, and KNN.",
@@ -57,39 +39,12 @@ export const PUBLICATIONS: Publication[] = [
     codeUrl: "#"
   },
   {
-    title: "Guest Editorial Multimodal Learning in Medical Imaging Informatics",
-    authors: "KC Santosh, Sameer Antani",
-    description: "The papers in this special section focus on multimodal learning in medical imaging informatics. Enormous amounts of health-related data are produced daily, and the practice of modern medicine increasingly relies on data from multiple sources to guide better care.",
-    venue: "IEEE Journal of Biomedical and Health Informatics",
-    year: "2023",
-    paperUrl: "https://www.ai-research-lab.org/paper/67b7ccc25a3833f684b80d76",
-    codeUrl: "#"
-  },
-  {
     title: "SecureFed: federated learning empowered medical imaging technique to analyze lung abnormalities in chest X‑rays",
     authors: "Aaisha Makkar, KC Santosh",
     description: "Machine learning is an effective and accurate technique to diagnose COVID-19 infections using image data, and chest X-Ray (CXR) is no exception. We proposed SecureFed—a secure aggregation method—which ensures fairness and robustness in federated learning scenarios for medical imaging applications.",
     venue: "International Journal of Machine Learning and Cybernetics, Springer",
     year: "2023",
     paperUrl: "https://doi.org/10.1007/s13042-023-01789-7",
-    codeUrl: "#"
-  },
-  {
-    title: "Deep learning-based computer-aided diagnosis for Alzheimer's disease using brain MRI",
-    authors: "Rakesh Chandra Joshi, Shubham Yadav, KC Santosh",
-    description: "Computer-aided diagnosis system for Alzheimer's disease recognition using deep learning techniques applied to brain MRI scans. The proposed system achieves state-of-the-art performance in early detection of Alzheimer's disease.",
-    venue: "Multimedia Tools and Applications, Springer",
-    year: "2024",
-    paperUrl: "https://www.ai-research-lab.org/publication",
-    codeUrl: "#"
-  },
-  {
-    title: "Automated detection of COVID-19 cases using deep neural networks with X-ray images",
-    authors: "Kanchan Lata Kashyap, Manish Bajpai, KC Santosh",
-    description: "Automated COVID-19 detection system using deep neural networks for analysis of chest X-ray images with high accuracy and reliability. The system can assist radiologists in rapid screening and diagnosis.",
-    venue: "Computers in Biology and Medicine, Elsevier",
-    year: "2023",
-    paperUrl: "https://doi.org/10.1007/s12559-020-09775-9",
     codeUrl: "#"
   },
   {
@@ -129,75 +84,30 @@ export const PUBLICATIONS: Publication[] = [
     codeUrl: "#"
   },
   {
-    title: "Reinforcement learning for medical robotics and surgical assistance",
-    authors: "Rodrigue Rizk, KC Santosh",
-    description: "Application of reinforcement learning techniques to medical robotics and surgical assistance systems, enabling autonomous decision-making and skill acquisition for minimally invasive procedures.",
-    venue: "IEEE Robotics and Automation Letters",
-    year: "2024",
-    paperUrl: "https://www.ai-research-lab.org/publication",
+    title: "Shallow Convolutional Neural Network for COVID-19 Outbreak Screening Using Chest X-rays",
+    authors: "Himansu Mukherjee, Soumyajit Ghosh, Ankita Dhar, Sk Md Obaidullah, KC Santosh, Kaushik Roy",
+    description: "Among radiological imaging data, Chest X-rays (CXRs) are of great use in observing COVID-19 manifestations. For mass screening, using CXRs, a computationally efficient AI-driven tool is the must to detect COVID-19-positive cases from non-COVID ones.",
+    venue: "Cognitive Computation, Springer",
+    year: "2021",
+    paperUrl: "https://doi.org/10.1007/s12559-020-09775-9",
     codeUrl: "#"
   },
   {
-    title: "GAN-based data augmentation for medical image classification",
-    authors: "Nand Yadav, KC Santosh",
-    description: "Generative Adversarial Networks for synthetic medical image generation to augment limited training datasets, improving classification performance for rare diseases and conditions.",
-    venue: "Pattern Recognition",
-    year: "2023",
-    paperUrl: "https://www.ai-research-lab.org/publication",
+    title: "Deep neural network to detect COVID-19: one architecture for both CT Scans and Chest X-rays",
+    authors: "Himansu Mukherjee, Soumyajit Ghosh, Ankita Dhar, Sk Md Obaidullah, KC Santosh, Kaushik Roy",
+    description: "Since December 2019, the novel COVID-19's spread rate is exponential, and AI-driven tools are used to prevent further spreading. In the literature, AI-driven tools are limited to one data type either CT scan or CXR to detect COVID-19 positive cases.",
+    venue: "Applied Intelligence, Springer",
+    year: "2021",
+    paperUrl: "https://doi.org/10.1007/s10489-020-01943-6",
     codeUrl: "#"
   },
   {
-    title: "Active learning for efficient medical image annotation",
-    authors: "Longwei Wang, KC Santosh",
-    description: "Active learning strategies to reduce annotation burden in medical imaging by intelligently selecting the most informative samples for expert labeling, significantly reducing annotation time and cost.",
-    venue: "Computer Vision and Image Understanding",
-    year: "2024",
-    paperUrl: "https://www.ai-research-lab.org/publication",
-    codeUrl: "#"
-  },
-  {
-    title: "Green AI: Energy-efficient deep learning for medical imaging",
-    authors: "KC Santosh",
-    description: "Investigation of energy-efficient deep learning architectures and training strategies for medical imaging applications, promoting sustainable AI development with reduced carbon footprint.",
-    venue: "Nature Machine Intelligence",
-    year: "2024",
-    paperUrl: "https://www.ai-research-lab.org/publication",
-    codeUrl: "#"
-  },
-  {
-    title: "Ethical considerations in AI-powered healthcare systems",
-    authors: "KC Santosh, Rodrigue Rizk, Longwei Wang",
-    description: "Comprehensive analysis of ethical challenges in AI-powered healthcare including bias, fairness, transparency, accountability, and patient privacy, with proposed guidelines for responsible AI deployment.",
-    venue: "AI and Ethics",
-    year: "2024",
-    paperUrl: "https://www.ai-research-lab.org/publication",
-    codeUrl: "#"
-  },
-  {
-    title: "Document image analysis using deep learning: A comprehensive survey",
-    authors: "KC Santosh, Nibaran Das",
-    description: "Survey of deep learning methods for document image analysis covering OCR, layout analysis, document classification, and information extraction with applications in digital libraries and archives.",
-    venue: "Pattern Recognition",
-    year: "2023",
-    paperUrl: "https://www.ai-research-lab.org/publication",
-    codeUrl: "#"
-  },
-  {
-    title: "Biometric recognition using deep learning: Recent advances",
-    authors: "Nand Yadav, KC Santosh",
-    description: "Recent advances in deep learning-based biometric recognition systems including face, fingerprint, iris, and multimodal biometrics with focus on security, accuracy, and real-time performance.",
-    venue: "IEEE Transactions on Biometrics, Behavior, and Identity Science",
-    year: "2023",
-    paperUrl: "https://www.ai-research-lab.org/publication",
-    codeUrl: "#"
-  },
-  {
-    title: "Quantum computing for machine learning: Opportunities and challenges",
-    authors: "Rodrigue Rizk, KC Santosh",
-    description: "Exploration of quantum computing applications in machine learning, discussing quantum algorithms, hardware requirements, and potential advantages over classical approaches for specific problem domains.",
-    venue: "Quantum Machine Intelligence",
-    year: "2024",
-    paperUrl: "https://www.ai-research-lab.org/publication",
+    title: "Socioeconomic impact due to COVID-19: An empirical assessment",
+    authors: "Vikrant Gupta, KC Santosh, Richa Arora, Tommaso Ciano, Kousik Sankar Kalid, Satya Mohan",
+    description: "Starting from December 2019, the novel COVID-19 threatens human lives and economies across the world. It was a matter of grave concern for the governments of all the countries as the deadly virus started expanding its paws over neighboring regions of infected areas.",
+    venue: "Information Processing & Management, Elsevier",
+    year: "2022",
+    paperUrl: "https://doi.org/10.1016/j.ipm.2021.102810",
     codeUrl: "#"
   }
 ];
