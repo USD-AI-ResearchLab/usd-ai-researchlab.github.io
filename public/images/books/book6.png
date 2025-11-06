@@ -1,0 +1,8 @@
+<svg width="150" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="150" height="200" fill="#f8f9fa" stroke="#e9ecef" stroke-width="2"/>
+  <rect x="10" y="10" width="130" height="180" fill="white" stroke="#dee2e6" stroke-width="1"/>
+  <text x="75" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#495057">Book Cover</text>
+  <text x="75" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6c757d">Book 6</text>
+  <rect x="20" y="80" width="110" height="80" fill="#e9ecef" stroke="#adb5bd" stroke-width="1"/>
+  <text x="75" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#868e96">Image</text>
+</svg>
