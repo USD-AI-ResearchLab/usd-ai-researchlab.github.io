@@ -74,31 +74,82 @@ const People: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* Students Section */}
-        <motion.div className="mb-16" variants={fadeInUp}>
+        {/* PhD Students Section */}
+        <motion.div className="mb-20" variants={fadeInUp}>
           <h2 className="text-3xl md:text-4xl font-thin mb-8" style={{ color: 'var(--logo-red, #C53030)' }}>
-            Masters & PhD Students
+            PhD Students
           </h2>
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
             variants={staggerChildren}
           >
-            {studentsData.map((person, index) => (
-              <motion.div
-                key={`student-${person.name}-${index}`}
-                variants={cardVariants}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.2 }}
-              >
-                <PersonCard
-                  name={person.name}
-                  role={person.role}
-                  photo={person.photo}
-                  url={person.url}
-                  memberKey={person.memberKey}
-                />
-              </motion.div>
-            ))}
+            {studentsData
+              .filter(student => 
+                student.role && (
+                  student.role.toLowerCase().includes('phd') ||
+                  student.role.toLowerCase().includes('ph.d') ||
+                  student.role.toLowerCase().includes('doctoral') ||
+                  student.role.toLowerCase().includes('doctorate')
+                )
+              )
+              .map((person, index) => (
+                <motion.div
+                  key={`phd-${person.name}-${index}`}
+                  variants={cardVariants}
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <PersonCard
+                    name={person.name}
+                    role={person.role}
+                    photo={person.photo}
+                    url={person.url}
+                    memberKey={person.memberKey}
+                  />
+                </motion.div>
+              ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Masters Students Section */}
+        <motion.div className="mb-16" variants={fadeInUp}>
+          <h2 className="text-3xl md:text-4xl font-thin mb-8" style={{ color: 'var(--logo-red, #C53030)' }}>
+            Masters Students
+          </h2>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+            variants={staggerChildren}
+          >
+            {studentsData
+              .filter(student => 
+                student.role && (
+                  student.role.toLowerCase().includes('master') ||
+                  student.role.toLowerCase().includes('m.s.') ||
+                  student.role.toLowerCase().includes('ms ') ||
+                  student.role.toLowerCase().includes('graduate')
+                ) && !(
+                  student.role.toLowerCase().includes('phd') ||
+                  student.role.toLowerCase().includes('ph.d') ||
+                  student.role.toLowerCase().includes('doctoral') ||
+                  student.role.toLowerCase().includes('doctorate')
+                )
+              )
+              .map((person, index) => (
+                <motion.div
+                  key={`masters-${person.name}-${index}`}
+                  variants={cardVariants}
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <PersonCard
+                    name={person.name}
+                    role={person.role}
+                    photo={person.photo}
+                    url={person.url}
+                    memberKey={person.memberKey}
+                  />
+                </motion.div>
+              ))}
           </motion.div>
         </motion.div>
       </motion.div>
