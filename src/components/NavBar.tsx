@@ -72,6 +72,23 @@ const NavBar: React.FC = () => {
           alignItems: 'center',
           gap: '32px'
         }} className="flex">
+          
+          {/* LOGO - LEFT SIDE (Hidden on home page) */}
+          {!isHomePage && (
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <img 
+                src={bgimage} 
+                alt="AI Lab Logo" 
+                style={{
+                  width: '60px',
+                  height: '60px',
+                  objectFit: 'contain',
+                  cursor: 'pointer'
+                }}
+              />
+            </Link>
+          )}
+          
           <Link to="/about" style={{ textDecoration: 'none' }}>
             <div style={{
               fontSize: '16px',
@@ -236,22 +253,6 @@ const NavBar: React.FC = () => {
           </Link>
         </div>
 
-        {/* LOGO - RIGHT SIDE (Hidden on home page) */}
-        {!isHomePage && (
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <img 
-              src={bgimage} 
-              alt="AI Lab Logo" 
-              style={{
-                width: '60px',
-                height: '60px',
-                objectFit: 'contain',
-                cursor: 'pointer'
-              }}
-            />
-          </Link>
-        )}
-
         {/* MOBILE MENU BUTTON */}
         <button 
           onClick={toggleMenu} 
@@ -272,9 +273,10 @@ const NavBar: React.FC = () => {
       <div className={`fixed top-20 left-0 w-64 min-h-screen bg-white/95 backdrop-blur-xl flex flex-col items-start justify-start gap-6 pt-8 pl-6 pr-4 pb-8 sm:hidden transition-all duration-300 ease-in-out shadow-xl overflow-y-auto z-40 ${
         isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}>
-        {/* Logo in mobile menu - Hidden on home page */}
+        
+        {/* Logo in mobile menu - Hidden on home page - Positioned before About */}
         {!isHomePage && (
-          <Link to="/" onClick={toggleMenu} className="mb-4">
+          <Link to="/" onClick={toggleMenu} className="mb-2">
             <img 
               src={bgimage} 
               alt="AI Lab Logo" 
