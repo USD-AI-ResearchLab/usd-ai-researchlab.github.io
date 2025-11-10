@@ -6,8 +6,11 @@ import bgimage from "../assets/logo.svg";
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isPeopleDropdownOpen, setIsPeopleDropdownOpen] = useState<boolean>(false);
+  const [isInitiativesDropdownOpen, setIsInitiativesDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const initiativesDropdownRef = useRef<HTMLDivElement>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const initiativesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   
   // Check if current page is home page
@@ -23,6 +26,9 @@ const NavBar: React.FC = () => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsPeopleDropdownOpen(false);
       }
+      if (initiativesDropdownRef.current && !initiativesDropdownRef.current.contains(event.target as Node)) {
+        setIsInitiativesDropdownOpen(false);
+      }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
@@ -30,6 +36,9 @@ const NavBar: React.FC = () => {
       document.removeEventListener('mousedown', handleClickOutside);
       if (dropdownTimeoutRef.current) {
         clearTimeout(dropdownTimeoutRef.current);
+      }
+      if (initiativesTimeoutRef.current) {
+        clearTimeout(initiativesTimeoutRef.current);
       }
     };
   }, []);
@@ -45,6 +54,19 @@ const NavBar: React.FC = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setIsPeopleDropdownOpen(false);
     }, 200); // 200ms delay before closing
+  };
+
+  const handleInitiativesMouseEnter = () => {
+    if (initiativesTimeoutRef.current) {
+      clearTimeout(initiativesTimeoutRef.current);
+    }
+    setIsInitiativesDropdownOpen(true);
+  };
+
+  const handleInitiativesMouseLeave = () => {
+    initiativesTimeoutRef.current = setTimeout(() => {
+      setIsInitiativesDropdownOpen(false);
+    }, 200);
   };
 
   return (
@@ -224,19 +246,92 @@ const NavBar: React.FC = () => {
             </div>
           </Link>
 
-          <Link to="/initiatives" style={{ textDecoration: 'none' }}>
-            <div style={{
-              fontSize: '16px',
-              fontWeight: 300,
-              color: '#374151',
-              transition: 'color 0.2s'
-            }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#dc2626'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
-            >
-              Initiatives
+          {/* Initiatives Dropdown */}
+          <div 
+            ref={initiativesDropdownRef} 
+            style={{ position: 'relative' }}
+            onMouseEnter={handleInitiativesMouseEnter}
+            onMouseLeave={handleInitiativesMouseLeave}
+          >
+            <div style={{ textDecoration: 'none' }}>
+              <div style={{
+                fontSize: '16px',
+                fontWeight: 300,
+                color: '#374151',
+                transition: 'color 0.2s',
+                cursor: 'pointer',
+                userSelect: 'none'
+              }}
+              onMouseOver={(e) => (e.target as HTMLElement).style.color = '#dc2626'}
+              onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
+              >
+                Initiatives
+              </div>
             </div>
-          </Link>
+            
+            {/* Dropdown Menu */}
+            {isInitiativesDropdownOpen && (
+              <div 
+                style={{
+                  position: 'absolute',
+                  top: '100%',
+                  left: 0,
+                  backgroundColor: 'rgba(255, 255, 255, 0.98)',
+                  backdropFilter: 'blur(20px)',
+                  borderRadius: '8px',
+                  padding: '8px 0',
+                  minWidth: '200px',
+                  zIndex: 1000,
+                  marginTop: '8px',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                  border: '1px solid rgba(0, 0, 0, 0.05)'
+                }}
+                onMouseEnter={handleInitiativesMouseEnter}
+                onMouseLeave={handleInitiativesMouseLeave}
+              >
+                <Link to="/events/ai-symposium/2025" style={{ textDecoration: 'none' }}>
+                  <div style={{
+                    padding: '12px 16px',
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    color: '#374151',
+                    transition: 'all 0.2s'
+                  }}
+                  onMouseOver={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                    (e.target as HTMLElement).style.color = '#dc2626';
+                  }}
+                  onMouseOut={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                    (e.target as HTMLElement).style.color = '#374151';
+                  }}
+                  >
+                    AI Symposium
+                  </div>
+                </Link>
+                <Link to="/ai-club" style={{ textDecoration: 'none' }}>
+                  <div style={{
+                    padding: '12px 16px',
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    color: '#374151',
+                    transition: 'all 0.2s'
+                  }}
+                  onMouseOver={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                    (e.target as HTMLElement).style.color = '#dc2626';
+                  }}
+                  onMouseOut={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                    (e.target as HTMLElement).style.color = '#374151';
+                  }}
+                  >
+                    AI Club
+                  </div>
+                </Link>
+              </div>
+            )}
+          </div>
 
           <Link to="/affiliates" style={{ textDecoration: 'none' }}>
             <div style={{
@@ -311,9 +406,20 @@ const NavBar: React.FC = () => {
           <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Publications</div>
         </Link>
         
-        <Link to="/initiatives" onClick={toggleMenu}>
-          <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Initiatives</div>
-        </Link>
+        {/* Mobile Initiatives Menu */}
+        <div>
+          <div onClick={toggleMenu}>
+            <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors cursor-pointer">Initiatives</div>
+          </div>
+          <div className="ml-4 mt-1 space-y-1">
+            <Link to="/events/ai-symposium/2025" onClick={toggleMenu}>
+              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">AI Symposium</div>
+            </Link>
+            <Link to="/ai-club" onClick={toggleMenu}>
+              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">AI Club</div>
+            </Link>
+          </div>
+        </div>
         
         <Link to="/affiliates" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Affiliates</div>
