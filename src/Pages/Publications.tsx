@@ -37,19 +37,23 @@ const Publications: React.FC = () => {
         </div>
 
         {/* Research Papers Section */}
-        <div className="max-w-6xl mx-auto mb-16">
+        <div className="max-w-6xl mx-auto mb-16 relative">
           <h2 className="text-3xl font-thin text-gray-800 mb-8" style={{ color: 'var(--logo-red, #C53030)' }}>
             Research Papers
           </h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 relative">
             {PUBLICATIONS.map((publication, index) => {
               const isHovered = hoveredPublication === index;
               return (
                 <div
                   key={index}
-                  className={`bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500 ${
-                    isHovered ? 'md:col-span-2 lg:col-span-3 transform scale-105' : ''
+                  className={`bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 relative ${
+                    isHovered ? 'md:col-span-2 lg:col-span-3 z-20' : 'z-10'
                   }`}
+                  style={{
+                    transform: isHovered ? 'scale(1.02)' : 'scale(1)',
+                    transformOrigin: 'center top'
+                  }}
                   onMouseEnter={() => setHoveredPublication(index)}
                   onMouseLeave={() => setHoveredPublication(null)}
                 >
@@ -90,13 +94,13 @@ const Publications: React.FC = () => {
                     )}
 
                     {/* Expanded Content - Only when hovered */}
-                    <div className={`transition-all duration-500 ease-in-out ${
+                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${
                       isHovered 
-                        ? 'max-h-96 opacity-100 transform translate-y-0' 
-                        : 'max-h-0 opacity-0 overflow-hidden transform -translate-y-2'
+                        ? 'max-h-screen opacity-100 transform translate-y-0' 
+                        : 'max-h-0 opacity-0 transform -translate-y-2'
                     }`}>
                       {isHovered && (
-                        <div className="space-y-4 border-t border-gray-100 pt-4">
+                        <div className="space-y-4 border-t border-gray-100 pt-4 relative z-30">
                           <div>
                             <h4 className="text-sm font-medium text-gray-700 mb-2">Abstract:</h4>
                             <p className="text-gray-600 leading-relaxed text-sm font-light">
