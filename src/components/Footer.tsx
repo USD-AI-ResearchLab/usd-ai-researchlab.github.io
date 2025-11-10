@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="mt-4 pt-4 text-center">
           <p className="text-gray-500 text-lg font-thin">
-            @ USD AI RESEARCH LAB 2015
+            USD AI RESEARCH LAB 2015
           </p>
         </div>
       </div>
