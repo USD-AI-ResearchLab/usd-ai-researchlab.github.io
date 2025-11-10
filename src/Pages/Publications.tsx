@@ -8,16 +8,17 @@ const Publications: React.FC = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-white">
-      <div 
-        className="container mx-auto px-4 py-12 max-w-4xl"
-      >
+      <div className="w-full">
         {/* Header Section */}
-        <div className="text-left mb-16">
+        <div className="pl-4 mb-16">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030) !important' }}>
             Publications
           </h1>
           <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
         </div>
+      </div>
+      
+      <div className="container mx-auto px-4 py-0 max-w-4xl">
 
         {/* Content Section */}
         <div className="mb-16">

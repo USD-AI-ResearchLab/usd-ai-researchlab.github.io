@@ -26,14 +26,9 @@ const PhDStudents: React.FC = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <motion.div 
-        className="container mx-auto px-4 py-12"
-        initial="initial"
-        animate="animate"
-        variants={staggerChildren}
-      >
+      <div className="w-full">
         {/* Header */}
-        <motion.div className="text-left mb-16" variants={fadeInUp}>
+        <motion.div className="pl-4 mb-16" variants={fadeInUp}>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030) !important' }}>
             PhD Students
           </h1>
@@ -42,6 +37,14 @@ const PhDStudents: React.FC = () => {
             Our PhD students are conducting pioneering research in artificial intelligence, contributing to the advancement of the field.
           </p>
         </motion.div>
+      </div>
+
+      <motion.div 
+        className="container mx-auto px-4 py-0"
+        initial="initial"
+        animate="animate"
+        variants={staggerChildren}
+      >
 
         {/* PhD Students Grid */}
         <motion.div 
