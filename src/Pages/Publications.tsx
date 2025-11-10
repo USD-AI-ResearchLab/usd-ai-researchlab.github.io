@@ -1,10 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Footer from '../components/Footer';
 import BooksComponent from '../components/BooksComponent';
 import { PUBLICATIONS } from '../data/publications';
 
 const Publications: React.FC = () => {
   const [hoveredPublication, setHoveredPublication] = useState<number | null>(null);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = (index: number) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    setHoveredPublication(index);
+  };
+
+  const handleMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredPublication(null);
+    }, 150); // 150ms delay before hiding content
+  };
+
+  // Cleanup timeout on component unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="pt-20 min-h-screen bg-white">
@@ -47,9 +70,9 @@ const Publications: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200"
-                  onMouseEnter={() => setHoveredPublication(index)}
-                  onMouseLeave={() => setHoveredPublication(null)}
+                  className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <div className="p-6">
                     {/* Card Header - Always Visible */}
@@ -59,7 +82,7 @@ const Publications: React.FC = () => {
                       </h3>
                       <div className="flex-shrink-0">
                         <svg 
-                          className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+                          className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
                             isHovered ? 'rotate-180' : ''
                           }`}
                           fill="none" 
