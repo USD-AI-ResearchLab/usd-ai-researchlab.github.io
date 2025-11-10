@@ -7,7 +7,10 @@ const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isPeopleDropdownOpen, setIsPeopleDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+<<<<<<< HEAD
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+=======
+>>>>>>> origin/main
   const location = useLocation();
   
   // Check if current page is home page
@@ -28,6 +31,7 @@ const NavBar: React.FC = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+<<<<<<< HEAD
       if (dropdownTimeoutRef.current) {
         clearTimeout(dropdownTimeoutRef.current);
       }
@@ -47,6 +51,11 @@ const NavBar: React.FC = () => {
     }, 200); // 200ms delay before closing
   };
 
+=======
+    };
+  }, []);
+
+>>>>>>> origin/main
   return (
     <>
       {/* MAIN NAVBAR - Layout: Navigation Left, Logo Right */}
@@ -90,6 +99,7 @@ const NavBar: React.FC = () => {
           <div 
             ref={dropdownRef} 
             style={{ position: 'relative' }}
+<<<<<<< HEAD
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
@@ -134,11 +144,54 @@ const NavBar: React.FC = () => {
                     padding: '12px 16px',
                     fontSize: '15px',
                     fontWeight: 400,
+=======
+            onMouseEnter={() => setIsPeopleDropdownOpen(true)}
+            onMouseLeave={() => setIsPeopleDropdownOpen(false)}
+          >
+            <div style={{
+              fontSize: '16px',
+              fontWeight: 300,
+              color: '#374151',
+              transition: 'color 0.2s',
+              cursor: 'pointer',
+              userSelect: 'none'
+            }}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#dc2626'}
+            onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
+            >
+              People
+            </div>
+            
+            {/* Dropdown Menu */}
+            {isPeopleDropdownOpen && (
+              <div style={{
+                position: 'absolute',
+                top: '100%',
+                left: 0,
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                backdropFilter: 'blur(16px)',
+                borderRadius: '6px',
+                padding: '4px 0',
+                minWidth: '180px',
+                zIndex: 1000,
+                marginTop: '4px',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
+              }}>
+                <Link to="/faculty" style={{ textDecoration: 'none' }}>
+                  <div style={{
+                    padding: '6px 12px',
+                    fontSize: '14px',
+                    fontWeight: 300,
+>>>>>>> origin/main
                     color: '#374151',
                     transition: 'all 0.2s'
                   }}
                   onMouseOver={(e) => {
+<<<<<<< HEAD
                     (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+=======
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.1)';
+>>>>>>> origin/main
                     (e.target as HTMLElement).style.color = '#dc2626';
                   }}
                   onMouseOut={(e) => {
@@ -151,14 +204,24 @@ const NavBar: React.FC = () => {
                 </Link>
                 <Link to="/phd-students" style={{ textDecoration: 'none' }}>
                   <div style={{
+<<<<<<< HEAD
                     padding: '12px 16px',
                     fontSize: '15px',
                     fontWeight: 400,
+=======
+                    padding: '6px 12px',
+                    fontSize: '14px',
+                    fontWeight: 300,
+>>>>>>> origin/main
                     color: '#374151',
                     transition: 'all 0.2s'
                   }}
                   onMouseOver={(e) => {
+<<<<<<< HEAD
                     (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+=======
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.1)';
+>>>>>>> origin/main
                     (e.target as HTMLElement).style.color = '#dc2626';
                   }}
                   onMouseOut={(e) => {
@@ -171,14 +234,24 @@ const NavBar: React.FC = () => {
                 </Link>
                 <Link to="/masters-students" style={{ textDecoration: 'none' }}>
                   <div style={{
+<<<<<<< HEAD
                     padding: '12px 16px',
                     fontSize: '15px',
                     fontWeight: 400,
+=======
+                    padding: '6px 12px',
+                    fontSize: '14px',
+                    fontWeight: 300,
+>>>>>>> origin/main
                     color: '#374151',
                     transition: 'all 0.2s'
                   }}
                   onMouseOver={(e) => {
+<<<<<<< HEAD
                     (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+=======
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.1)';
+>>>>>>> origin/main
                     (e.target as HTMLElement).style.color = '#dc2626';
                   }}
                   onMouseOut={(e) => {
@@ -264,7 +337,11 @@ const NavBar: React.FC = () => {
           }}
           className="block sm:hidden"
         >
+<<<<<<< HEAD
           {isOpen ? 'Close' : 'Menu'}
+=======
+          {isOpen ? '✕' : '☰'}
+>>>>>>> origin/main
         </button>
       </div>
 
