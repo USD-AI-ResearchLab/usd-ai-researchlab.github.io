@@ -93,7 +93,7 @@ const NavBar: React.FC = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <Link to="/people" style={{ textDecoration: 'none' }}>
+            <div style={{ textDecoration: 'none' }}>
               <div style={{
                 fontSize: '16px',
                 fontWeight: 300,
@@ -107,7 +107,7 @@ const NavBar: React.FC = () => {
               >
                 People
               </div>
-            </Link>
+            </div>
             
             {/* Dropdown Menu */}
             {isPeopleDropdownOpen && (
@@ -289,9 +289,9 @@ const NavBar: React.FC = () => {
         
         {/* Mobile People Menu */}
         <div>
-          <Link to="/people" onClick={toggleMenu}>
-            <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">People</div>
-          </Link>
+          <div onClick={toggleMenu}>
+            <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors cursor-pointer">People</div>
+          </div>
           <div className="ml-4 mt-1 space-y-1">
             <Link to="/faculty" onClick={toggleMenu}>
               <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">Faculty</div>
