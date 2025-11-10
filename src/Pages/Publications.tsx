@@ -41,19 +41,13 @@ const Publications: React.FC = () => {
           <h2 className="text-3xl font-thin text-gray-800 mb-8" style={{ color: 'var(--logo-red, #C53030)' }}>
             Research Papers
           </h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 relative">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
             {PUBLICATIONS.map((publication, index) => {
               const isHovered = hoveredPublication === index;
               return (
                 <div
                   key={index}
-                  className={`bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 relative ${
-                    isHovered ? 'md:col-span-2 lg:col-span-3 z-20' : 'z-10'
-                  }`}
-                  style={{
-                    transform: isHovered ? 'scale(1.02)' : 'scale(1)',
-                    transformOrigin: 'center top'
-                  }}
+                  className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200"
                   onMouseEnter={() => setHoveredPublication(index)}
                   onMouseLeave={() => setHoveredPublication(null)}
                 >
@@ -65,7 +59,7 @@ const Publications: React.FC = () => {
                       </h3>
                       <div className="flex-shrink-0">
                         <svg 
-                          className={`w-5 h-5 text-gray-400 transform transition-transform duration-300 ${
+                          className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
                             isHovered ? 'rotate-180' : ''
                           }`}
                           fill="none" 
@@ -94,53 +88,47 @@ const Publications: React.FC = () => {
                     )}
 
                     {/* Expanded Content - Only when hovered */}
-                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${
-                      isHovered 
-                        ? 'max-h-screen opacity-100 transform translate-y-0' 
-                        : 'max-h-0 opacity-0 transform -translate-y-2'
-                    }`}>
-                      {isHovered && (
-                        <div className="space-y-4 border-t border-gray-100 pt-4 relative z-30">
-                          <div>
-                            <h4 className="text-sm font-medium text-gray-700 mb-2">Abstract:</h4>
-                            <p className="text-gray-600 leading-relaxed text-sm font-light">
-                              {publication.description}
-                            </p>
-                          </div>
-
-                          {/* Action Buttons */}
-                          <div className="flex gap-3 pt-2">
-                            {publication.paperUrl && (
-                              <a
-                                href={publication.paperUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center px-4 py-2 text-white rounded-md hover:opacity-90 transition-opacity text-sm font-medium"
-                                style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
-                              >
-                                <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                Read Paper
-                              </a>
-                            )}
-                            {publication.codeUrl && publication.codeUrl !== "#" && (
-                              <a
-                                href={publication.codeUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition-colors text-sm font-medium"
-                              >
-                                <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                                </svg>
-                                View Code
-                              </a>
-                            )}
-                          </div>
+                    {isHovered && (
+                      <div className="space-y-4 border-t border-gray-100 pt-4 mt-4">
+                        <div>
+                          <h4 className="text-sm font-medium text-gray-700 mb-2">Abstract:</h4>
+                          <p className="text-gray-600 leading-relaxed text-sm font-light">
+                            {publication.description}
+                          </p>
                         </div>
-                      )}
-                    </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex gap-3 pt-2">
+                          {publication.paperUrl && (
+                            <a
+                              href={publication.paperUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center px-4 py-2 text-white rounded-md hover:opacity-90 transition-opacity text-sm font-medium"
+                              style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
+                            >
+                              <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                              </svg>
+                              Read Paper
+                            </a>
+                          )}
+                          {publication.codeUrl && publication.codeUrl !== "#" && (
+                            <a
+                              href={publication.codeUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition-colors text-sm font-medium"
+                            >
+                              <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                              </svg>
+                              View Code
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Hover Hint */}
                     {!isHovered && (
