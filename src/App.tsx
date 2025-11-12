@@ -1,29 +1,41 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
-const TestHome: React.FC = () => {
-  return (
-    <div className="min-h-screen w-full bg-gray-50 p-8">
-      <h1 className="text-4xl font-bold text-center text-blue-600">
-        USD AI Research Lab - Test
-      </h1>
-      <p className="text-center mt-4 text-lg">
-        Website is working! This is a test page to verify deployment.
-      </p>
-      <div className="mt-8 text-center">
-        <p>If you can see this, the React app is loading correctly.</p>
-        <p className="mt-2">Faculty DBLP links have been updated.</p>
-      </div>
-    </div>
-  );
-};
+import NavBar from "./components/NavBar";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Faculty from "./Pages/PeoplePage/Faculty";
+import Staff from "./Pages/PeoplePage/Staff";
+import Students from "./Pages/PeoplePage/Students";
+import PhDStudents from "./Pages/PeoplePage/PhDStudents_new";
+import MastersStudents from "./Pages/PeoplePage/MastersStudents_new";
+import Publications from "./Pages/Publications";
+import Initiatives from "./Pages/Initiatives";
+import AISymposium2025 from "./Pages/AISymposium2025";
+import Affiliates from "./Pages/Affiliates";
+import Contact from "./Pages/Contact";
 
 const App: React.FC = () => {
   return (
-    <Routes>
-      <Route path="/" element={<TestHome />} />
-      <Route path="*" element={<TestHome />} />
-    </Routes>
+    <div className="min-h-screen w-full bg-gray-50">
+      <NavBar />
+      <main className="w-full">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/faculty" element={<Faculty />} />
+          <Route path="/staff" element={<Staff />} />
+          <Route path="/students" element={<Students />} />
+          <Route path="/phd-students" element={<PhDStudents />} />
+          <Route path="/masters-students" element={<MastersStudents />} />
+          <Route path="/publications" element={<Publications />} />
+          <Route path="/initiatives" element={<Initiatives />} />
+          <Route path="/events/ai-symposium/2025" element={<AISymposium2025 />} />
+          <Route path="/affiliates" element={<Affiliates />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+    </div>
   );
 }
 
