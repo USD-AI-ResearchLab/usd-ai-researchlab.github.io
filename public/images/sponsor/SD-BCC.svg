@@ -1,0 +1,6 @@
+<svg width="80" height="40" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="40" fill="#f3f4f6"/>
+  <text x="40" y="20" font-family="Arial" font-size="9" text-anchor="middle" fill="#6b7280">
+    SD-BCC
+  </text>
+</svg>
