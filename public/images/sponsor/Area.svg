@@ -1,6 +1,6 @@
-<svg width="120" height="40" xmlns="http://www.w3.org/2000/svg">
-  <rect width="120" height="40" fill="#f3f4f6"/>
-  <text x="60" y="25" font-family="Arial" font-size="10" text-anchor="middle" fill="#6b7280">
-    Area Direct
+<svg width="140" height="50" xmlns="http://www.w3.org/2000/svg">
+  <rect width="140" height="50" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="70" y="32" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6b7280">
+    AREA DIRECT COMPANIES
   </text>
 </svg>
