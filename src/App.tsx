@@ -1,43 +1,33 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
-// Simple test components to ensure the app loads
-const TestHome = () => (
-  <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-    <div className="text-center">
-      <h1 className="text-4xl font-bold text-gray-900 mb-4">USD AI Research Lab</h1>
-      <p className="text-xl text-gray-600">Welcome to our research laboratory</p>
-    </div>
-  </div>
-);
-
-const TestAbout = () => (
-  <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-    <div className="text-center">
-      <h1 className="text-4xl font-bold text-gray-900 mb-4">About Us</h1>
-      <p className="text-xl text-gray-600">Learn more about our research</p>
-    </div>
-  </div>
-);
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import People from "./Pages/People";
+import Publications from "./Pages/Publications";
+import Initiatives from "./Pages/Initiatives";
+import Contact from "./Pages/Contact";
+import Affiliates from "./Pages/Affiliates";
+import AISymposium2025 from "./Pages/AISymposium2025";
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen w-full bg-gray-50">
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <h1 className="text-xl font-semibold text-gray-900">USD AI Lab</h1>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen w-full">
+      <NavBar />
       <main className="w-full">
         <Routes>
-          <Route path="/" element={<TestHome />} />
-          <Route path="/about" element={<TestAbout />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/people" element={<People />} />
+          <Route path="/publications" element={<Publications />} />
+          <Route path="/initiatives" element={<Initiatives />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/affiliates" element={<Affiliates />} />
+          <Route path="/ai-symposium-2025" element={<AISymposium2025 />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }
