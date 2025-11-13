@@ -55,7 +55,6 @@ const Publications: React.FC = () => {
           <h2 className="text-3xl font-thin text-gray-800 mb-8" style={{ color: 'var(--logo-red, #C53030)' }}>
             Books
           </h2>
-          
           <BooksComponent />
         </div>
 

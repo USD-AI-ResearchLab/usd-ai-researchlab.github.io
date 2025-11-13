@@ -229,125 +229,240 @@ export const PUBLICATIONS: Publication[] = [
   }
 ];
 
-export const BOOKS: Book[] = [
+export interface BookWithImage extends Book {
+  imageUrl: string;
+}
+
+export const BOOKS: BookWithImage[] = [
   {
-    title: "Deep Learning Models for Medical Imaging",
-    authors: "KC Santosh, Sameer Antani",
-    description: "Deep learning approaches for medical imaging; CNNs, transfer learning, domain adaptation.",
-    publisher: "Elsevier",
-    year: "2021",
-    isbn: "978-0-12-823504-1",
-    amazonUrl: "https://www.elsevier.com/books/deep-learning-models-for-medical-imaging/santosh/978-0-12-823504-1",
-    publisherUrl: "https://www.elsevier.com/books/deep-learning-models-for-medical-imaging/santosh/978-0-12-823504-1"
+    title: "AI, Ethical Issues and Explainability—Applied Biometrics",
+    authors: "KC Santosh",
+    description: "Research on AI ethics, explainability, and biometric applications with focus on responsible AI development.",
+    publisher: "KC Santosh Personal",
+    year: "2024",
+    isbn: "",
+    amazonUrl: "https://kc-santosh.org/",
+    publisherUrl: "https://kc-santosh.org/",
+    imageUrl: "/images/books/book3.png"
   },
   {
-    title: "Recent Trends in Image Processing and Pattern Recognition",
-    authors: "KC Santosh, Ravindra S. Hegadi",
-    description: "Advances in CV, medical imaging, document analysis, biometrics.",
-    publisher: "Springer",
-    year: "2022",
-    isbn: "978-981-19-3935-8",
-    amazonUrl: "https://link.springer.com/book/10.1007/978-981-19-3935-8",
-    publisherUrl: "https://link.springer.com/book/10.1007/978-981-19-3935-8"
-  },
-  {
-    title: "Intelligent Systems and Pattern Recognition: Challenges and Opportunities",
-    authors: "KC Santosh, Nibaran Das, Krishanu Maity",
-    description: "ML/DL algorithms and applications across healthcare, security, automation.",
-    publisher: "Springer",
-    year: "2021",
-    isbn: "978-981-16-6767-1",
-    amazonUrl: "https://link.springer.com/book/9789811667671",
-    publisherUrl: "https://link.springer.com/book/9789811667671"
-  },
-  {
-    title: "Document Analysis and Text Recognition: Benchmarking State-of-the-Art Systems",
-    authors: "KC Santosh, Laurent Wendling",
-    description: "Benchmarking methodologies for OCR, layout analysis, handwritten text recognition.",
-    publisher: "Springer",
-    year: "2020",
-    isbn: "978-981-15-9658-1",
-    amazonUrl: "https://www.springer.com/gp/book/9789811596810",
-    publisherUrl: "https://www.springer.com/gp/book/9789811596810"
-  },
-  {
-    title: "Medical Image Processing: Advanced Fuzzy Set Theoretic Techniques",
-    authors: "Tamalika Chaira, KC Santosh",
-    description: "Fuzzy enhancement, segmentation, classification for medical imaging.",
-    publisher: "CRC Press",
-    year: "2019",
-    isbn: "978-0-429-02941-7",
-    amazonUrl: "https://www.taylorfrancis.com/books/e/9780429029417",
-    publisherUrl: "https://www.taylorfrancis.com/books/e/9780429029417"
-  },
-  {
-    title: "Document Processing Using Machine Learning",
-    authors: "SK Md Obaidullah, KC Santosh, Teresa Gonçalves, Nibaran Das, Kaushik Roy",
-    description: "ML for document processing (text recognition, classification, information extraction).",
-    publisher: "CRC Press",
-    year: "2020",
-    isbn: "978-0-429-27757-3",
-    amazonUrl: "https://www.taylorfrancis.com/books/document-processing-using-machine-learning-sk-md-obaidullah-kc-santosh-teresa-gon%C3%A7alves-nibaran-das-kaushik-roy/e/10.1201/9780429277573",
-    publisherUrl: "https://www.taylorfrancis.com/books/document-processing-using-machine-learning-sk-md-obaidullah-kc-santosh-teresa-gon%C3%A7alves-nibaran-das-kaushik-roy/e/10.1201/9780429277573"
-  },
-  {
-    title: "Recent Trends in Image Processing and Pattern Recognition (RTIP2R)",
-    authors: "KC Santosh, Ravindra S. Hegadi, Umapada Pal",
-    description: "Proceedings on image processing, pattern recognition, and AI.",
-    publisher: "Springer",
-    year: "2021",
-    isbn: "978-981-16-0507-9",
-    amazonUrl: "https://link.springer.com/book/10.1007/978-981-16-0507-9#volumes",
-    publisherUrl: "https://link.springer.com/book/10.1007/978-981-16-0507-9#volumes"
-  },
-  {
-    title: "Advances in Pattern Recognition and Artificial Intelligence",
-    authors: "KC Santosh, Ravindra S. Hegadi, Umapada Pal",
-    description: "Recent developments across PR & AI—methods and applications.",
+    title: "CrackML: Machine Learning for Materials Science",
+    authors: "KC Santosh, Casey Wall",
+    description: "Advanced machine learning techniques applied to materials science and crack detection in structural systems.",
     publisher: "Springer",
     year: "2024",
     isbn: "978-981-97-2720-9",
     amazonUrl: "https://link.springer.com/book/10.1007/978-981-97-2720-9",
-    publisherUrl: "https://link.springer.com/book/10.1007/978-981-97-2720-9"
+    publisherUrl: "https://link.springer.com/book/10.1007/978-981-97-2720-9",
+    imageUrl: "/images/books/book-crackML.png"
+  },
+  {
+    title: "Pattern Recognition and AI: Advanced Topics",
+    authors: "KC Santosh, et al.",
+    description: "Comprehensive coverage of advanced pattern recognition techniques and artificial intelligence applications.",
+    publisher: "Springer",
+    year: "2024",
+    isbn: "978-981-99-7441-2",
+    amazonUrl: "https://link.springer.com/book/9789819974412",
+    publisherUrl: "https://link.springer.com/book/9789819974412",
+    imageUrl: "/images/books/book5.png"
+  },
+  {
+    title: "Recent Trends in Image Processing and Pattern Recognition",
+    authors: "KC Santosh, Ravindra S. Hegadi",
+    description: "Latest advances in computer vision, medical imaging, document analysis, and biometric recognition systems.",
+    publisher: "Springer",
+    year: "2022",
+    isbn: "978-981-19-3935-8",
+    amazonUrl: "https://link.springer.com/book/10.1007/978-981-19-3935-8",
+    publisherUrl: "https://link.springer.com/book/10.1007/978-981-19-3935-8",
+    imageUrl: "/images/books/book2.png"
+  },
+  {
+    title: "AI and ML for Healthcare: Challenges and Opportunities",
+    authors: "KC Santosh, Nibaran Das, Krishanu Maity",
+    description: "Machine learning and deep learning algorithms for healthcare applications, security systems, and automation.",
+    publisher: "Springer",
+    year: "2021",
+    isbn: "978-981-16-6767-1",
+    amazonUrl: "https://link.springer.com/book/9789811667671",
+    publisherUrl: "https://link.springer.com/book/9789811667671",
+    imageUrl: "/images/books/book-ai-ml-healthcare.png"
+  },
+  {
+    title: "Deep Learning Models for Medical Imaging",
+    authors: "KC Santosh, Sameer Antani",
+    description: "Comprehensive guide to deep learning approaches for medical imaging including CNNs, transfer learning, and domain adaptation.",
+    publisher: "Elsevier",
+    year: "2021",
+    isbn: "978-0-12-823504-1",
+    amazonUrl: "https://www.elsevier.com/books/deep-learning-models-for-medical-imaging/santosh/978-0-12-823504-1",
+    publisherUrl: "https://www.elsevier.com/books/deep-learning-models-for-medical-imaging/santosh/978-0-12-823504-1",
+    imageUrl: "/images/books/book-dl-medical-imaging2.png"
+  },
+  {
+    title: "Document Image Analysis: Benchmarking State-of-the-Art Systems",
+    authors: "KC Santosh, Laurent Wendling",
+    description: "Benchmarking methodologies for OCR, layout analysis, handwritten text recognition, and document processing systems.",
+    publisher: "Springer",
+    year: "2017",
+    isbn: "978-981-13-2339-3",
+    amazonUrl: "https://link.springer.com/book/10.1007%2F978-981-13-2339-3",
+    publisherUrl: "https://link.springer.com/book/10.1007%2F978-981-13-2339-3",
+    imageUrl: "/images/books/book-coverS2017.png"
+  },
+  {
+    title: "COVID-19: Prediction, Decision-Making, and its Impacts",
+    authors: "KC Santosh, Amit Joshi",
+    description: "Analysis of COVID-19 prediction models, decision-making frameworks, and socioeconomic impacts using AI and data science.",
+    publisher: "Springer",
+    year: "2020",
+    isbn: "978-981-15-9681-0",
+    amazonUrl: "https://www.springer.com/gp/book/9789811596810",
+    publisherUrl: "https://www.springer.com/gp/book/9789811596810",
+    imageUrl: "/images/books/book-covid1.png"
+  },
+  {
+    title: "COVID-19: Technologies and Applications",
+    authors: "KC Santosh, Laurent Wendling",
+    description: "Technological solutions and applications for COVID-19 analysis, screening, and research methodologies.",
+    publisher: "Springer",
+    year: "2020",
+    isbn: "978-981-15-6571-7",
+    amazonUrl: "https://www.springer.com/gp/book/9789811565717",
+    publisherUrl: "https://www.springer.com/gp/book/9789811565717",
+    imageUrl: "/images/books/book-covid2.jpg"
+  },
+  {
+    title: "Medical Image Processing: Advanced Fuzzy Set Theoretic Techniques",
+    authors: "Tamalika Chaira, KC Santosh",
+    description: "Advanced fuzzy set techniques for medical image enhancement, segmentation, classification, and analysis.",
+    publisher: "CRC Press",
+    year: "2019",
+    isbn: "978-0-429-02941-7",
+    amazonUrl: "https://www.taylorfrancis.com/books/e/9780429029417",
+    publisherUrl: "https://www.taylorfrancis.com/books/e/9780429029417",
+    imageUrl: "/images/books/book-MedImag.jpg"
+  },
+  {
+    title: "Document Processing Using Machine Learning",
+    authors: "SK Md Obaidullah, KC Santosh, Teresa Gonçalves, Nibaran Das, Kaushik Roy",
+    description: "Machine learning approaches for document processing including text recognition, classification, and information extraction.",
+    publisher: "CRC Press",
+    year: "2020",
+    isbn: "978-0-429-27757-3",
+    amazonUrl: "https://www.taylorfrancis.com/books/document-processing-using-machine-learning-sk-md-obaidullah-kc-santosh-teresa-gon%C3%A7alves-nibaran-das-kaushik-roy/e/10.1201/9780429277573",
+    publisherUrl: "https://www.taylorfrancis.com/books/document-processing-using-machine-learning-sk-md-obaidullah-kc-santosh-teresa-gon%C3%A7alves-nibaran-das-kaushik-roy/e/10.1201/9780429277573",
+    imageUrl: "/images/books/book-doc.jpg"
+  },
+  {
+    title: "Recent Trends in Image Processing and Pattern Recognition Vol. 1",
+    authors: "KC Santosh, et al.",
+    description: "Advanced techniques in pattern recognition and machine learning applications across multiple domains.",
+    publisher: "Springer",
+    year: "2023",
+    isbn: "978-3-031-27762-7",
+    amazonUrl: "https://link.springer.com/book/10.1007/978-3-031-27762-7",
+    publisherUrl: "https://link.springer.com/book/10.1007/978-3-031-27762-7",
+    imageUrl: "/images/books/book6.png"
+  },
+  {
+    title: "Recent Trends in Image Processing and Pattern Recognition Vol. 2",
+    authors: "KC Santosh, et al.",
+    description: "Comprehensive coverage of machine learning applications and pattern recognition across various industries.",
+    publisher: "Springer",
+    year: "2023",
+    isbn: "978-3-031-27609-5",
+    amazonUrl: "https://link.springer.com/book/10.1007/978-3-031-27609-5",
+    publisherUrl: "https://link.springer.com/book/10.1007/978-3-031-27609-5",
+    imageUrl: "/images/books/book7.png"
+  },
+  {
+    title: "Recent Trends in Image Processing and Pattern Recognition Vol. 3",
+    authors: "KC Santosh, et al.",
+    description: "Latest developments in image processing, pattern recognition, and artificial intelligence methodologies.",
+    publisher: "Springer",
+    year: "2023",
+    isbn: "978-3-031-23599-3",
+    amazonUrl: "https://link.springer.com/book/10.1007/978-3-031-23599-3",
+    publisherUrl: "https://link.springer.com/book/10.1007/978-3-031-23599-3",
+    imageUrl: "/images/books/book8.png"
+  },
+  {
+    title: "IEEE Conference Proceedings on Computer Vision",
+    authors: "KC Santosh, et al.",
+    description: "Collection of IEEE proceedings on computer vision, machine learning, and pattern recognition.",
+    publisher: "IEEE",
+    year: "2022",
+    isbn: "978-1-5386-6947-0",
+    amazonUrl: "https://ieeexplore.ieee.org/xpl/conhome/9866947/proceeding",
+    publisherUrl: "https://ieeexplore.ieee.org/xpl/conhome/9866947/proceeding",
+    imageUrl: "/images/books/book1.png"
+  },
+  {
+    title: "IEEE CBMS 2020 Proceedings",
+    authors: "KC Santosh, et al.",
+    description: "Proceedings of the 33rd International Symposium on Computer-Based Medical Systems focusing on medical informatics.",
+    publisher: "IEEE",
+    year: "2020",
+    isbn: "978-1-7281-7350-4",
+    amazonUrl: "https://ieeexplore.ieee.org/xpl/conhome/9169740/proceeding",
+    publisherUrl: "https://ieeexplore.ieee.org/xpl/conhome/9169740/proceeding",
+    imageUrl: "/images/books/cbms2020-proceedings.png"
+  },
+  {
+    title: "Recent Trends in Image Processing & Pattern Recognition 2020 Vol. 1",
+    authors: "KC Santosh, Ravindra S. Hegadi, Umapada Pal",
+    description: "Conference proceedings covering latest research in image processing, pattern recognition, and artificial intelligence.",
+    publisher: "Springer",
+    year: "2021",
+    isbn: "978-981-16-0507-9",
+    amazonUrl: "https://link.springer.com/book/10.1007/978-981-16-0507-9#volumes",
+    publisherUrl: "https://link.springer.com/book/10.1007/978-981-16-0507-9#volumes",
+    imageUrl: "/images/books/rtip2r-2020-1.png"
+  },
+  {
+    title: "Recent Trends in Image Processing & Pattern Recognition 2020 Vol. 2",
+    authors: "KC Santosh, Ravindra S. Hegadi, Umapada Pal",
+    description: "Advanced research proceedings in image processing, machine learning, and pattern recognition applications.",
+    publisher: "Springer",
+    year: "2021",
+    isbn: "978-981-16-0508-6",
+    amazonUrl: "https://link.springer.com/book/10.1007/978-981-16-0507-9#volumes",
+    publisherUrl: "https://link.springer.com/book/10.1007/978-981-16-0507-9#volumes",
+    imageUrl: "/images/books/rtip2r-2020-2.png"
   },
   {
     title: "Recent Trends in Image Processing and Pattern Recognition (Part I)",
     authors: "KC Santosh, Ravindra S. Hegadi",
-    description: "Part I: theoretical foundations and applications.",
+    description: "Part I covering theoretical foundations and applications in image processing and pattern recognition.",
     publisher: "Springer",
     year: "2019",
     isbn: "978-981-13-9181-1",
     amazonUrl: "https://rd.springer.com/book/10.1007/978-981-13-9181-1",
-    publisherUrl: "https://rd.springer.com/book/10.1007/978-981-13-9181-1"
+    publisherUrl: "https://rd.springer.com/book/10.1007/978-981-13-9181-1",
+    imageUrl: "/images/books/part1.png"
   },
   {
     title: "Recent Trends in Image Processing and Pattern Recognition (Part II)",
     authors: "KC Santosh, Ravindra S. Hegadi",
-    description: "Part II: advanced applications and emerging trends.",
+    description: "Part II focusing on advanced applications and emerging trends in computer vision and machine learning.",
     publisher: "Springer",
     year: "2019",
     isbn: "978-981-13-9184-2",
     amazonUrl: "https://rd.springer.com/book/10.1007/978-981-13-9184-2",
-    publisherUrl: "https://rd.springer.com/book/10.1007/978-981-13-9184-2"
+    publisherUrl: "https://rd.springer.com/book/10.1007/978-981-13-9184-2",
+    imageUrl: "/images/books/part2.png"
   },
   {
     title: "Recent Trends in Image Processing and Pattern Recognition (Part III)",
     authors: "KC Santosh, Ravindra S. Hegadi",
-    description: "Part III: state‑of‑the‑art techniques; deep learning focus.",
+    description: "Part III covering state-of-the-art techniques with emphasis on deep learning and neural networks.",
     publisher: "Springer",
     year: "2019",
     isbn: "978-981-13-9187-3",
     amazonUrl: "https://rd.springer.com/book/10.1007/978-981-13-9187-3",
-    publisherUrl: "https://rd.springer.com/book/10.1007/978-981-13-9187-3"
-  },
-  {
-    title: "Computer Vision and Image Processing in Intelligent Systems and Multimedia Technologies",
-    authors: "KC Santosh, et al.",
-    description: "CV & image processing for intelligent systems/multimedia.",
-    publisher: "Springer",
-    year: "2018",
-    isbn: "978-981-10-4859-3",
-    amazonUrl: "https://link.springer.com/book/10.1007/978-981-10-4859-3",
-    publisherUrl: "https://link.springer.com/book/10.1007/978-981-10-4859-3"
+    publisherUrl: "https://rd.springer.com/book/10.1007/978-981-13-9187-3",
+    imageUrl: "/images/books/part3.png"
   }
 ];
