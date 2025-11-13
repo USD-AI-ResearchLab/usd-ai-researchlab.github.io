@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import PersonCard from '../../components/PersonCard';
-import Footer from '../../components/Footer';
 import { studentsData } from '../../data/students';
 
 const MastersStudents: React.FC = () => {
@@ -83,7 +82,6 @@ const MastersStudents: React.FC = () => {
             ))}
         </motion.div>
       </motion.div>
-      <Footer />
     </div>
   );
 };

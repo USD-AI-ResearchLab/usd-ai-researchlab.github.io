@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Footer from '../components/Footer';
 
 const Contact: React.FC = () => {
   const fadeInUp = {
@@ -40,7 +39,6 @@ const Contact: React.FC = () => {
           </p>
         </motion.div>
       </motion.div>
-      <Footer />
     </div>
   );
 };

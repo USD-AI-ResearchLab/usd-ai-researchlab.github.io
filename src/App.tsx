@@ -5,6 +5,9 @@ import Footer from "./components/Footer";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import People from "./Pages/People";
+import Faculty from "./Pages/PeoplePage/Faculty";
+import PhDStudents from "./Pages/PeoplePage/PhDStudents_new";
+import MastersStudents from "./Pages/PeoplePage/MastersStudents_new";
 import Publications from "./Pages/Publications";
 import Initiatives from "./Pages/Initiatives";
 import Contact from "./Pages/Contact";
@@ -20,11 +23,14 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/people" element={<People />} />
+          <Route path="/faculty" element={<Faculty />} />
+          <Route path="/phd-students" element={<PhDStudents />} />
+          <Route path="/masters-students" element={<MastersStudents />} />
           <Route path="/publications" element={<Publications />} />
           <Route path="/initiatives" element={<Initiatives />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/affiliates" element={<Affiliates />} />
-          <Route path="/ai-symposium-2025" element={<AISymposium2025 />} />
+          <Route path="/events/ai-symposium/2025" element={<AISymposium2025 />} />
         </Routes>
       </main>
       <Footer />

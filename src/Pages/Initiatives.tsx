@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Footer from '../components/Footer';
 import AnimatedAIBanner from '../components/AnimatedAIBanner';
 import StatsComponent from '../components/StatsComponent';
 import RegistrationInfo from '../components/RegistrationInfo';
@@ -575,8 +574,6 @@ const SpecificYearSymposium: React.FC = () => {
           </button>
         )}
       </div>
-      
-      <Footer />
     </div>
   );
 };

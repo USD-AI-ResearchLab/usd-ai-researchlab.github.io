@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Footer from '../components/Footer';
 import BooksComponent from '../components/BooksComponent';
 import { PUBLICATIONS } from '../data/publications';
 
@@ -165,7 +164,6 @@ const Publications: React.FC = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

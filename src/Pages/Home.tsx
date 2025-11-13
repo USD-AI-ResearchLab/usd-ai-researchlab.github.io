@@ -1,7 +1,6 @@
 import React from 'react';
 import bgimage from "../assets/logo.svg";
 import HeroTitle from "../components/HeroTitle";
-import Footer from "../components/Footer";
 
 const Home: React.FC = () => {
   return (
@@ -31,8 +30,6 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-      
-      <Footer />
     </div>
   );
 };
