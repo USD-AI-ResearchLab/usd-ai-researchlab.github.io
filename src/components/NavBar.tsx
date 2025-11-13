@@ -356,11 +356,60 @@ const NavBar: React.FC = () => {
             border: 'none',
             fontSize: '24px',
             color: '#374151',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            padding: '8px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '4px'
           }}
           className="block sm:hidden"
         >
-          {isOpen ? 'Close' : 'Menu'}
+          {isOpen ? (
+            // X icon when menu is open
+            <div style={{
+              width: '24px',
+              height: '24px',
+              position: 'relative',
+              transform: 'rotate(45deg)'
+            }}>
+              <div style={{
+                position: 'absolute',
+                width: '24px',
+                height: '2px',
+                backgroundColor: '#374151',
+                top: '11px'
+              }}></div>
+              <div style={{
+                position: 'absolute',
+                width: '24px',
+                height: '2px',
+                backgroundColor: '#374151',
+                top: '11px',
+                transform: 'rotate(90deg)'
+              }}></div>
+            </div>
+          ) : (
+            // Hamburger menu when closed
+            <>
+              <div style={{
+                width: '24px',
+                height: '2px',
+                backgroundColor: '#374151'
+              }}></div>
+              <div style={{
+                width: '24px',
+                height: '2px',
+                backgroundColor: '#374151'
+              }}></div>
+              <div style={{
+                width: '24px',
+                height: '2px',
+                backgroundColor: '#374151'
+              }}></div>
+            </>
+          )}
         </button>
       </div>
 
