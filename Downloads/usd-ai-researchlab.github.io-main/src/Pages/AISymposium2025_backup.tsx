@@ -175,6 +175,9 @@ const SPEAKER_DATA: Speaker[] = [
 ];
 
 const SPONSOR_TIERS: SponsorTier[] = [
+];
+
+const useIntersectionObserver = (
   elementId: string,
   options: IntersectionObserverInit = { threshold: 0.1, rootMargin: '50px' }
 ) => {

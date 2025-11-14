@@ -22,5 +22,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["src/**/*_backup.tsx", "src/**/*_old.tsx", "src/Pages/Conference.tsx", "src/Pages/Conferences.tsx"]
 }
