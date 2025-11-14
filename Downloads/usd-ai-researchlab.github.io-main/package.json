@@ -7,10 +7,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:gh-pages": "tsc -b && vite build --mode production",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview:gh-pages": "vite preview --host",
+    "predeploy": "npm run build:gh-pages",
+    "deploy": "gh-pages -d dist",
+    "clean": "rm -rf dist node_modules/.vite",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",

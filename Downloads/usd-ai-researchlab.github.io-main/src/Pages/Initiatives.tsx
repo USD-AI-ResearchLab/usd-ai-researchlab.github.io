@@ -1,5 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import AnimatedAIBanner from '../components/AnimatedAIBanner';
+import StatsComponent from '../components/StatsComponent';
+import RegistrationInfo from '../components/RegistrationInfo';
+import Speakers from '../components/Speakers';
+import ConferenceSchedule from '../components/ConferenceSchedule';
+import CommitteeMembers from '../components/CommitteeMembers';
 
 const Initiatives: React.FC = () => {
   const [showGoToTop, setShowGoToTop] = useState(false);
@@ -641,4 +648,4 @@ const Initiatives: React.FC = () => {
   );
 };
 
-export default SpecificYearSymposium;
+export default Initiatives;

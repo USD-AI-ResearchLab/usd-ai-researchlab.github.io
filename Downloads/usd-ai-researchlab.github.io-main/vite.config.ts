@@ -12,12 +12,32 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    sourcemap: false, // Disable sourcemaps for production
+    minify: 'esbuild', // Use esbuild for faster builds
+    target: 'es2015', // Better browser compatibility
     rollupOptions: {
       output: {
         assetFileNames: 'assets/[name]-[hash][extname]',
         chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js'
+        entryFileNames: 'assets/[name]-[hash].js',
+        // Optimize chunk splitting
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          ui: ['framer-motion', 'boxicons'],
+        }
       }
-    }
+    },
+    // Optimize build performance
+    chunkSizeWarningLimit: 1000,
+  },
+  // Optimize dev server
+  server: {
+    host: true,
+    port: 5173
+  },
+  // Optimize preview
+  preview: {
+    host: true,
+    port: 4173
   }
 });

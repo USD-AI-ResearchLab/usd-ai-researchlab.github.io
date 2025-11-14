@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
-Sitemap: https://debeshjha.github.io/MyWebPortfolio/sitemap.xml
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /.git/
+
+Sitemap: https://usd-ai-researchlab.github.io/sitemap.xml
