@@ -1,15 +1,7 @@
-// cSpell: disable
+import React from 'react';
+import { motion } from 'framer-motion';
 
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import AnimatedAIBanner from '../components/AnimatedAIBanner';
-import StatsComponent from '../components/StatsComponent';
-import RegistrationInfo from '../components/RegistrationInfo';
-import ConferenceSchedule from '../components/ConferenceSchedule';
-import CommitteeMembers from '../components/CommitteeMembers';
-import Speakers from '../components/Speakers';
-
-const SpecificYearSymposium: React.FC = () => {
+const Initiatives: React.FC = () => {
   const [showGoToTop, setShowGoToTop] = useState(false);
   const [activeTab, setActiveTab] = useState("current");
 
