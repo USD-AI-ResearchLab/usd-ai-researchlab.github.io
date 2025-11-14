@@ -17,9 +17,10 @@ export default defineConfig({
     target: 'es2015', // Better browser compatibility
     rollupOptions: {
       output: {
-        assetFileNames: 'assets/[name]-[hash][extname]',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js',
+        // Force new hashes to break cache
+        assetFileNames: 'assets/[name]-[hash]-v3[extname]',
+        chunkFileNames: 'assets/[name]-[hash]-v3.js',
+        entryFileNames: 'assets/[name]-[hash]-v3.js',
         // Optimize chunk splitting
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
