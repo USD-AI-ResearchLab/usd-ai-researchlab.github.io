@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AnimatedAIBanner from '../components/AnimatedAIBanner';
 import StatsComponent from '../components/StatsComponent';
