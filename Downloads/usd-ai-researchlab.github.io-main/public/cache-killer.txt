@@ -1,0 +1,4 @@
+FORCE_IMMEDIATE_REFRESH_NOW
+GitHub Pages CDN Cache Killer
+Timestamp: ${new Date().toISOString()}
+Random: ${Math.random().toString(36).substring(7)}
