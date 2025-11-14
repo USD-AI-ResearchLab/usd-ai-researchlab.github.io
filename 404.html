@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      :root{
+        --ui-font: 'Ubuntu', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+        --mono-font: 'Ubuntu Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+      }
+      html, body, p, span, div, li, a, button, input, select, textarea, table, tr, td, th,
+      h1, h2, h3, h4, h5, h6, small, label, nav, footer, header, section, article, aside {
+        font-family: var(--ui-font) !important;
+      }
+      code, pre, kbd, samp { font-family: var(--mono-font) !important; }
+      
+      /* Force nav items to the LEFT on all frameworks */
+      header nav, .navbar, .site-nav, .top-nav, nav .nav, nav .navbar-nav, nav ul {
+        display: flex !important;
+        justify-content: flex-start !important;
+      }
+
+      /* Cancel right-push margins (Tailwind/Bootstrap/utilities) */
+      .ml-auto, .ms-auto, .justify-end, .justify-right, .text-right, .float-right {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        float: none !important;
+        text-align: left !important;
+      }
+
+      /* Bootstrap-specific: move navbar links group to left */
+      .navbar-nav {
+        margin-left: 0 !important;
+        margin-right: auto !important;  /* pushes rest to the right, keeps links left */
+      }
+
+      /* Tailwind-specific utilities often seen on nav containers */
+      .md\:ml-auto, .lg\:ml-auto { margin-left: 0 !important; }
+      .justify-end { justify-content: flex-start !important; }
+
+      /* Make sure list itself doesn't center text */
+      nav, nav ul { text-align: left !important; }
+    </style>
+    
+    <!-- LEFT-ALIGN NAV & MOBILE DRAWER -->
+    <style>
+    /* Desktop/top nav → left */
+    header nav, .navbar, .site-nav, .top-nav, nav .nav, nav .navbar-nav, nav ul {
+      display: flex !important;
+      justify-content: flex-start !important;
+    }
+    .navbar-nav { margin-left: 0 !important; margin-right: auto !important; }
+    .ml-auto, .ms-auto, .justify-end, .justify-right { margin-left: 0 !important; }
+
+    /* Mobile overlay/drawer → left (scoped so it won't break other layouts) */
+    @media (max-width: 1024px) {
+      .fixed.top-0.left-0,
+      [class~="fixed"][class~="top-0"][class~="left-0"] {
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+      }
+      /* If the drawer was anchored to the right, move it left */
+      .fixed.right-0 { left: 0 !important; right: auto !important; }
+
+      /* Make the drawer contents left-aligned */
+      .fixed.top-0.left-0 .container,
+      .fixed.top-0.left-0 nav,
+      .fixed.top-0.left-0 ul {
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        text-align: left !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+      }
+
+      /* Cancel common centering utilities inside the drawer only */
+      .fixed.top-0.left-0 .mx-auto { margin-left: 0 !important; margin-right: auto !important; }
+      .fixed.top-0.left-0 .justify-center { justify-content: flex-start !important; }
+      .fixed.top-0.left-0 .items-center { align-items: flex-start !important; }
+      .fixed.top-0.left-0 .text-center { text-align: left !important; }
+    }
+    </style>
+  </head>
+  <body>
+    <script>
+      var pathSegmentsToKeep = 1;
+
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </body>
+</html>
