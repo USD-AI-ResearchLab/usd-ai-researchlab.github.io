@@ -1,0 +1,3 @@
+Cache buster timestamp: ${new Date().toISOString()}
+Force GitHub Pages refresh: ${new Date().getTime()}
+Deploy trigger: FORCE_REFRESH_NOW
