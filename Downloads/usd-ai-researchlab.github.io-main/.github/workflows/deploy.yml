@@ -46,7 +46,7 @@ jobs:
         run: rm -rf dist
       
       - name: Build for production
-        run: npm run build
+        run: npm run build:gh-pages
         env:
           CI: false
           NODE_ENV: production
