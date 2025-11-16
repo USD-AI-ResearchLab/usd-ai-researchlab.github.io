@@ -3,48 +3,19 @@ import react from '@vitejs/plugin-react-swc';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  base: '/',
-  publicDir: 'public',
+  base: './',
   plugins: [
     react(),
     tailwindcss(),
   ],
   build: {
     outDir: 'dist',
-    emptyOutDir: true,
-    sourcemap: false, // Disable sourcemaps for production
-    minify: 'esbuild', // Use esbuild for faster builds
-    target: 'es2015', // Better browser compatibility
     rollupOptions: {
       output: {
-        // Force new hashes to break cache
-        assetFileNames: (assetInfo) => {
-          const name = assetInfo.name || 'asset'
-          const info = name.split('.')
-          const ext = info[info.length - 1]
-          const timestamp = Date.now()
-          return `assets/[name]-[hash]-v4-${timestamp}.${ext}`
-        },
-        chunkFileNames: 'assets/[name]-[hash]-v3.js',
-        entryFileNames: 'assets/[name]-[hash]-v3.js',
-        // Optimize chunk splitting
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          ui: ['framer-motion', 'boxicons'],
-        }
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js'
       }
-    },
-    // Optimize build performance
-    chunkSizeWarningLimit: 1000,
-  },
-  // Optimize dev server
-  server: {
-    host: true,
-    port: 5173
-  },
-  // Optimize preview
-  preview: {
-    host: true,
-    port: 4173
+    }
   }
 });

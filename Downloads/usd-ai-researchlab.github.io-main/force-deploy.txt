@@ -1,4 +1,0 @@
-Force deployment at: Thu Nov 14 16:40:50 CST 2025
-Cache-busting timestamp: 1731622850000
-Reason: User reporting no changes visible on GitHub Pages
-Changes should include: Fixed Initiatives page + affiliate logos

@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// cSpell: disable
+
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import AnimatedAIBanner from '../components/AnimatedAIBanner';
 import StatsComponent from '../components/StatsComponent';
 import RegistrationInfo from '../components/RegistrationInfo';
-import Speakers from '../components/Speakers';
 import ConferenceSchedule from '../components/ConferenceSchedule';
 import CommitteeMembers from '../components/CommitteeMembers';
+import Speakers from '../components/Speakers';
 
-const Initiatives: React.FC = () => {
+const SpecificYearSymposium: React.FC = () => {
   const [showGoToTop, setShowGoToTop] = useState(false);
   const [activeTab, setActiveTab] = useState("current");
 
@@ -36,10 +38,10 @@ const Initiatives: React.FC = () => {
   };
 
   const symposiumStats = [
-    { number: 300, label: "Expected Attendees", icon: "users" },
-    { number: 50, label: "Expert Speakers", icon: "microphone" },
-    { number: 2, label: "Conference Days", icon: "calendar" },
-    { number: 25, label: "Industry Partners", icon: "handshake" }
+    { number: 300, label: "Expected Attendees", icon: "👥" },
+    { number: 50, label: "Expert Speakers", icon: "🎤" },
+    { number: 2, label: "Conference Days", icon: "📅" },
+    { number: 25, label: "Industry Partners", icon: "🤝" }
   ];
 
   // Sponsorship tier information
@@ -169,26 +171,7 @@ const Initiatives: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-center mb-6">
             <div className="flex items-start md:w-1/2">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <svg 
-                  className="h-6 w-6 mx-auto" 
-                  style={{ color: '#C53030' }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" 
-                  />
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" 
-                  />
-                </svg>
+                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}>📍</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Location</h3>
@@ -204,20 +187,7 @@ const Initiatives: React.FC = () => {
 
             <div className="flex items-start md:w-1/2 mt-4 md:mt-0">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <svg 
-                  className="h-6 w-6 mx-auto" 
-                  style={{ color: '#C53030' }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" 
-                  />
-                </svg>
+                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}>📅</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Date and time</h3>
@@ -243,20 +213,7 @@ const Initiatives: React.FC = () => {
         {/* Sponsors Section */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            <svg 
-              className="inline-block mr-2 h-6 w-6" 
-              style={{ color: '#C53030' }}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" 
-              />
-            </svg>
+            <span className="inline-block mr-2" style={{ color: '#C53030' }}>🏆</span>
             Our Sponsors
           </h2>
 
@@ -480,10 +437,10 @@ const Initiatives: React.FC = () => {
                 </p>
                 <div className="space-y-2">
                   <p className="flex items-center text-gray-700">
-                    Email: <span className="ml-2">rodrigue.rizk@usd.edu and kc.santosh@usd.edu</span>
+                    📧 <span className="ml-2">rodrigue.rizk@usd.edu and kc.santosh@usd.edu</span>
                   </p>
                   <p className="flex items-center text-gray-700">
-                    Phone: <span className="ml-2">(605) 658-6841</span>
+                    📞 <span className="ml-2">(605) 658-6841</span>
                   </p>
                 </div>
               </div>
@@ -577,20 +534,7 @@ const Initiatives: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <svg 
-                  className="h-6 w-6" 
-                  style={{ color: '#C53030' }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" 
-                  />
-                </svg>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>👥</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Connect</h3>
@@ -603,20 +547,7 @@ const Initiatives: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <svg 
-                  className="h-6 w-6" 
-                  style={{ color: '#C53030' }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
-                  />
-                </svg>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>🔍</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Discover</h3>
@@ -647,4 +578,4 @@ const Initiatives: React.FC = () => {
   );
 };
 
-export default Initiatives;
+export default SpecificYearSymposium;

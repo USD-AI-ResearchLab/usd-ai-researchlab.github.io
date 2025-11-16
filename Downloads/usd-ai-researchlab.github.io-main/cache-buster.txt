@@ -1,4 +1,0 @@
-Cache buster timestamp: 2025-11-14T22:45:00.000Z
-Force GitHub Pages refresh: 1731625500000
-Deploy trigger: FORCE_REFRESH_NOW_FINAL
-Manual trigger: IMMEDIATE_DEPLOYMENT_REQUIRED

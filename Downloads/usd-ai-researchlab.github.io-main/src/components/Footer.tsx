@@ -9,27 +9,32 @@ const Footer: React.FC = () => {
         <div className="space-y-6">
           {/* Content Text */}
           <div className="space-y-4">
-                      <p className="text-gray-600 text-lg leading-relaxed font-thin text-center">
-            Follow us on{' '}
-            <a
-              href="https://www.linkedin.com/company/kc-ai/posts/?feedView=all"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-thin transition-colors duration-200"
-              style={{ color: 'var(--logo-red, #C53030)' }}
-            >
-              LinkedIn
-            </a>
-            . For general inquiries or technical assistance, please contact{' '}
-            <a
-              href="mailto:usd.airesearch.lab@gmail.com"
-              className="font-thin transition-colors duration-200"
-              style={{ color: 'var(--logo-red, #C53030)' }}
-            >
-              usd.airesearch.lab@gmail.com
-            </a>
-            .
-          </p>
+            <p className="text-gray-600 text-lg leading-relaxed font-thin text-center">
+              Follow us on{' '}
+              <a 
+                href="https://www.linkedin.com/company/kc-ai/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-thin transition-colors duration-200"
+                style={{ color: 'var(--logo-red, #C53030)' }}
+              >
+                LinkedIn
+              </a>. For general inquiries, reach us by{' '}
+              <a 
+                href="mailto:usd.airesearch.lab@gmail.com"
+                className="font-thin transition-colors duration-200"
+                style={{ color: 'var(--logo-red, #C53030)' }}
+              >
+                email
+              </a>. For technical assistance or questions, please contact{' '}
+              <a 
+                href="mailto:usd.airesearch.lab@gmail.com"
+                className="font-thin transition-colors duration-200"
+                style={{ color: 'var(--logo-red, #C53030)' }}
+              >
+                usd.airesearch.lab@gmail.com
+              </a>.
+            </p>
           </div>
         </div>
 

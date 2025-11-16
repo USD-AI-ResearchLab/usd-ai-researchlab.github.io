@@ -1,6 +1,7 @@
 // cSpell: disable
 
 import React, { useState, useEffect } from "react";
+import Footer from '../components/Footer';
 import AnimatedAIBanner from '../components/AnimatedAIBanner';
 import StatsComponent from '../components/StatsComponent';
 import RegistrationInfo from '../components/RegistrationInfo';
@@ -37,10 +38,10 @@ const AISymposium2025: React.FC = () => {
   };
 
   const symposiumStats = [
-    { number: 500, label: "Annual Attendees", icon: "users" },
-    { number: 35, label: "Expert Speakers", icon: "microphone" },
-    { number: 7, label: "Years of Excellence", icon: "calendar" },
-    { number: 12, label: "Partner Organizations", icon: "handshake" }
+    { number: 300, label: "Expected Attendees", icon: "👥" },
+    { number: 50, label: "Expert Speakers", icon: "🎤" },
+    { number: 2, label: "Conference Days", icon: "📅" },
+    { number: 25, label: "Industry Partners", icon: "🤝" }
   ];
 
   // Sponsorship tier information
@@ -90,12 +91,12 @@ const AISymposium2025: React.FC = () => {
               </div>
             </div>
             <a
-              href="https://ai-website-eosin.vercel.app"
+              href="https://usd-ai-researchlab.github.io"
               className="text-sm text-gray-600 hover:text-red-600 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
-              ← Back to AI Research Lab Website
+              ← Back to Main Website
             </a>
           </div>
         </div>
@@ -155,7 +156,7 @@ const AISymposium2025: React.FC = () => {
           <p className="text-lg leading-relaxed text-justify mb-4">
             Join us for the University of South Dakota's 7th Annual{" "}
             <a
-              href="https://ai-website-eosin.vercel.app"
+              href="https://www.ai-research-lab.org/events/ai-symposium/2025"
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold underline"
@@ -194,26 +195,7 @@ const AISymposium2025: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-center mb-6">
             <div className="flex items-start md:w-1/2">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <svg 
-                  className="h-6 w-6 mx-auto" 
-                  style={{ color: '#C53030' }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" 
-                  />
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" 
-                  />
-                </svg>
+                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}>📍</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Location</h3>
@@ -229,20 +211,7 @@ const AISymposium2025: React.FC = () => {
 
             <div className="flex items-start md:w-1/2 mt-4 md:mt-0">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <svg 
-                  className="h-6 w-6 mx-auto" 
-                  style={{ color: '#C53030' }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" 
-                  />
-                </svg>
+                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}>📅</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Date and time</h3>
@@ -268,20 +237,7 @@ const AISymposium2025: React.FC = () => {
         {/* Sponsors Section */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            <svg 
-              className="inline-block mr-2 h-6 w-6" 
-              style={{ color: '#C53030' }}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" 
-              />
-            </svg>
+            <span className="inline-block mr-2" style={{ color: '#C53030' }}>🏆</span>
             Our Sponsors
           </h2>
 
@@ -328,36 +284,22 @@ const AISymposium2025: React.FC = () => {
               </p>
 
               <div className="flex flex-wrap justify-center gap-4 mb-6">
-                {/* Bronze Sponsors */}
-                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[240px]">
+                {/* Bronze Sponsor */}
+                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[200px]">
                   <div className="py-2 px-3 font-semibold text-white bg-yellow-700 text-center text-sm">
                     Bronze Sponsors
                   </div>
-                  <div className="bg-gray-50 p-2 flex justify-around items-center h-24">
-                    <div className="flex items-center">
-                      <img 
-                        src="/images/sponsor/Area.png" 
-                        alt="Area Direct Companies" 
-                        className="max-h-12 object-contain"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).style.display = 'none';
-                          ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
-                        }}
-                      />
-                      <span className="text-gray-500 fallback" style={{ display: 'none' }}>Area</span>
-                    </div>
-                    <div className="flex items-center">
-                      <img 
-                        src="/images/sponsor/direct.png" 
-                        alt="Direct Companies" 
-                        className="max-h-12 object-contain"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).style.display = 'none';
-                          ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
-                        }}
-                      />
-                      <span className="text-gray-500 fallback" style={{ display: 'none' }}>Direct</span>
-                    </div>
+                  <div className="bg-gray-50 p-2 flex items-center justify-center h-24">
+                    <img 
+                      src="/images/sponsor/Area.svg" 
+                      alt="Area Direct Companies" 
+                      className="max-h-12 object-contain"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                        ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
+                      }}
+                    />
+                    <span className="text-gray-500 fallback" style={{ display: 'none' }}>Area Direct Companies</span>
                   </div>
                 </div>
 
@@ -369,7 +311,7 @@ const AISymposium2025: React.FC = () => {
                   <div className="bg-gray-50 p-2 flex justify-around items-center h-24">
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/Sterling.png" 
+                        src="/images/sponsor/Sterling.svg" 
                         alt="Sterling" 
                         className="max-h-12 object-contain"
                         onError={(e) => {
@@ -381,7 +323,7 @@ const AISymposium2025: React.FC = () => {
                     </div>
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/ieee_usa.png" 
+                        src="/images/sponsor/ieee_usa.svg" 
                         alt="IEEE USA" 
                         className="max-h-12 object-contain"
                         onError={(e) => {
@@ -401,7 +343,7 @@ const AISymposium2025: React.FC = () => {
                   </div>
                   <div className="bg-gray-50 p-2 flex items-center justify-center h-24">
                     <img 
-                      src="/images/sponsor/dakota.png" 
+                      src="/images/sponsor/dakota.svg" 
                       alt="Dakota" 
                       className="max-h-12 object-contain"
                       onError={(e) => {
@@ -421,7 +363,7 @@ const AISymposium2025: React.FC = () => {
                   <div className="bg-gray-50 px-2 py-1 flex items-center justify-center gap-2 h-24">
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/IEEE.png" 
+                        src="/images/sponsor/IEEE.svg" 
                         alt="IEEE" 
                         className="h-10 object-contain"
                         onError={(e) => {
@@ -433,7 +375,7 @@ const AISymposium2025: React.FC = () => {
                     </div>
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/logo.png" 
+                        src="/images/sponsor/logo.svg" 
                         alt="USD Logo" 
                         className="h-10 object-contain"
                         onError={(e) => {
@@ -445,7 +387,7 @@ const AISymposium2025: React.FC = () => {
                     </div>
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/SD-BCC.png" 
+                        src="/images/sponsor/SD-BCC.svg" 
                         alt="SD BCC" 
                         className="h-10 object-contain"
                         onError={(e) => {
@@ -466,20 +408,7 @@ const AISymposium2025: React.FC = () => {
             <div>
               <div className="p-4 rounded-lg mb-6" style={{ backgroundColor: '#f8f3f3' }}>
                 <div className="flex items-start">
-                  <svg 
-                    className="h-6 w-6 mr-3 mt-1" 
-                    style={{ color: '#C53030' }}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6" 
-                    />
-                  </svg>
+                  <span className="h-6 w-6 mr-3 mt-1" style={{ color: '#C53030' }}>💼</span>
                   <div>
                     <h3 className="font-medium text-gray-800">
                       Why Sponsor the AI Symposium?
@@ -525,61 +454,17 @@ const AISymposium2025: React.FC = () => {
 
               <div className="bg-gray-50 p-6 rounded-lg">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                  <svg 
-                    className="h-6 w-6 mr-2" 
-                    style={{ color: '#C53030' }}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6" 
-                    />
-                  </svg>
-                  Ready to Sponsor?
+                  💼 Ready to Sponsor?
                 </h3>
                 <p className="text-gray-600 mb-4">
                   For more information about sponsorship opportunities or to become a sponsor, please contact our sponsorship team:
                 </p>
                 <div className="space-y-2">
                   <p className="flex items-center text-gray-700">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 mr-2"
-                      style={{ color: '#C53030' }}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
-                    <span>rodrigue.rizk@usd.edu and kc.santosh@usd.edu</span>
+                    📧 <span className="ml-2">rodrigue.rizk@usd.edu and kc.santosh@usd.edu</span>
                   </p>
                   <p className="flex items-center text-gray-700">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 mr-2"
-                      style={{ color: '#C53030' }}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
-                    </svg>
-                    <span>(605) 658-6841</span>
+                    📞 <span className="ml-2">(605) 658-6841</span>
                   </p>
                 </div>
               </div>
@@ -604,20 +489,7 @@ const AISymposium2025: React.FC = () => {
               rel="noopener noreferrer"
             >
               <div className="flex items-center text-gray-800 font-medium">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  style={{ color: '#C53030' }}
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                AI Symposium 2024
+                → AI Symposium 2024
               </div>
             </a>
             <a
@@ -627,20 +499,7 @@ const AISymposium2025: React.FC = () => {
               rel="noopener noreferrer"
             >
               <div className="flex items-center text-gray-800 font-medium">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  style={{ color: '#C53030' }}
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                AI Symposium 2023
+                → AI Symposium 2023
               </div>
             </a>
             <a
@@ -650,20 +509,7 @@ const AISymposium2025: React.FC = () => {
               rel="noopener noreferrer"
             >
               <div className="flex items-center text-gray-800 font-medium">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  style={{ color: '#C53030' }}
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                AI Symposium 2022
+                → AI Symposium 2022
               </div>
             </a>
             <a
@@ -673,20 +519,7 @@ const AISymposium2025: React.FC = () => {
               rel="noopener noreferrer"
             >
               <div className="flex items-center text-gray-800 font-medium">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  style={{ color: '#C53030' }}
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                AI Symposium 2021
+                → AI Symposium 2021
               </div>
             </a>
           </div>
@@ -698,20 +531,7 @@ const AISymposium2025: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <svg 
-                  className="h-6 w-6" 
-                  style={{ color: '#C53030' }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" 
-                  />
-                </svg>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>✅</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Collaborate</h3>
@@ -725,32 +545,7 @@ const AISymposium2025: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <svg 
-                  className="h-6 w-6" 
-                  style={{ color: '#C53030' }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M12 14l9-5-9-5-9 5 9 5z" 
-                  />
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" 
-                  />
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M12 14l9-5-9-5-9 5 9 5z" 
-                  />
-                </svg>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>🎓</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Learn</h3>
@@ -763,20 +558,7 @@ const AISymposium2025: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <svg 
-                  className="h-6 w-6" 
-                  style={{ color: '#C53030' }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" 
-                  />
-                </svg>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>👥</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Connect</h3>
@@ -789,20 +571,7 @@ const AISymposium2025: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <svg 
-                  className="h-6 w-6" 
-                  style={{ color: '#C53030' }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
-                  />
-                </svg>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>🔍</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Discover</h3>
@@ -829,6 +598,8 @@ const AISymposium2025: React.FC = () => {
           </button>
         )}
       </div>
+      
+      <Footer />
     </div>
   );
 };

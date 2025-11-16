@@ -30,7 +30,6 @@ const App: React.FC = () => {
           <Route path="/initiatives" element={<Initiatives />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/affiliates" element={<Affiliates />} />
-          <Route path="/events/ai-symposium" element={<AISymposium2025 />} />
           <Route path="/events/ai-symposium/2025" element={<AISymposium2025 />} />
         </Routes>
       </main>

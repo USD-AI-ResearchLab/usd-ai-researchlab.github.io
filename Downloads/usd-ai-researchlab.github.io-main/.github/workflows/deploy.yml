@@ -3,10 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-    paths-ignore:
-      - 'README.md'
-      - 'docs/**'
-      - '.gitignore'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -38,26 +34,12 @@ jobs:
           cache: 'npm'
       
       - name: Install dependencies
-        run: |
-          npm ci --legacy-peer-deps --offline --audit=false --progress=false
-          npm run clean || echo "Clean script not available"
+        run: npm ci
       
-      - name: Clear any previous builds
-        run: rm -rf dist
-      
-      - name: Build for production
-        run: npm run build:gh-pages
+      - name: Build
+        run: npm run build
         env:
           CI: false
-          NODE_ENV: production
-          GENERATE_SOURCEMAP: false
-      
-      - name: Verify build output
-        run: |
-          echo "Build output verification:"
-          ls -la dist/
-          echo "index.html size:"
-          wc -c dist/index.html
       
       - name: Setup Pages
         uses: actions/configure-pages@v4

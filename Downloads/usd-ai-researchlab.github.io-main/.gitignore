@@ -25,7 +25,3 @@ dist-ssr
 
 # Vite dev dependencies cache
 .vite/
-
-# Backup files
-*_backup.tsx
-*_old.tsx
