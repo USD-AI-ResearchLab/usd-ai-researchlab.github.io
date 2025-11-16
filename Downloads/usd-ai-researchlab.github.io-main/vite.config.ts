@@ -18,7 +18,13 @@ export default defineConfig({
     rollupOptions: {
       output: {
         // Force new hashes to break cache
-        assetFileNames: 'assets/[name]-[hash]-v3[extname]',
+        assetFileNames: (assetInfo) => {
+          const name = assetInfo.name || 'asset'
+          const info = name.split('.')
+          const ext = info[info.length - 1]
+          const timestamp = Date.now()
+          return `assets/[name]-[hash]-v4-${timestamp}.${ext}`
+        },
         chunkFileNames: 'assets/[name]-[hash]-v3.js',
         entryFileNames: 'assets/[name]-[hash]-v3.js',
         // Optimize chunk splitting

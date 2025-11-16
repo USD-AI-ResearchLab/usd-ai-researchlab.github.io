@@ -2,7 +2,7 @@
   "name": "AIClub",
   "homepage": "https://usd-ai-researchlab.github.io",
   "private": true,
-  "version": "3.0.1-FORCE-REFRESH",
+  "version": "4.0.0-COMPLETE-REBUILD",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,1 +1,1 @@
-EMERGENCY_CACHE_BYPASS_MANUAL_TRIGGER_${Math.random().toString(36).substring(7)}_${Date.now()}
+COMPLETE_GITHUB_PAGES_REBUILD_NOV16_2025_IMMEDIATE_UPDATE_${Math.random().toString(36).substring(7)}_${Date.now()}
