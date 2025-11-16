@@ -7,10 +7,13 @@ const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isPeopleDropdownOpen, setIsPeopleDropdownOpen] = useState<boolean>(false);
   const [isInitiativesDropdownOpen, setIsInitiativesDropdownOpen] = useState<boolean>(false);
+  const [isConferencesSubDropdownOpen, setIsConferencesSubDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const initiativesDropdownRef = useRef<HTMLDivElement>(null);
+  const conferencesSubDropdownRef = useRef<HTMLDivElement>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const initiativesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const conferencesSubTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   
   // Check if current page is home page
@@ -20,40 +23,17 @@ const NavBar: React.FC = () => {
     setIsOpen((prev) => !prev);
   };
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsPeopleDropdownOpen(false);
-      }
-      if (initiativesDropdownRef.current && !initiativesDropdownRef.current.contains(event.target as Node)) {
-        setIsInitiativesDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      if (dropdownTimeoutRef.current) {
-        clearTimeout(dropdownTimeoutRef.current);
-      }
-      if (initiativesTimeoutRef.current) {
-        clearTimeout(initiativesTimeoutRef.current);
-      }
-    };
-  }, []);
-
-  const handleMouseEnter = () => {
+  const handlePeopleMouseEnter = () => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
     }
     setIsPeopleDropdownOpen(true);
   };
 
-  const handleMouseLeave = () => {
+  const handlePeopleMouseLeave = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setIsPeopleDropdownOpen(false);
-    }, 200); // 200ms delay before closing
+    }, 200);
   };
 
   const handleInitiativesMouseEnter = () => {
@@ -68,6 +48,48 @@ const NavBar: React.FC = () => {
       setIsInitiativesDropdownOpen(false);
     }, 200);
   };
+
+  const handleConferencesSubMouseEnter = () => {
+    if (conferencesSubTimeoutRef.current) {
+      clearTimeout(conferencesSubTimeoutRef.current);
+    }
+    setIsConferencesSubDropdownOpen(true);
+  };
+
+  const handleConferencesSubMouseLeave = () => {
+    conferencesSubTimeoutRef.current = setTimeout(() => {
+      setIsConferencesSubDropdownOpen(false);
+    }, 200);
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsPeopleDropdownOpen(false);
+      }
+      if (initiativesDropdownRef.current && !initiativesDropdownRef.current.contains(event.target as Node)) {
+        setIsInitiativesDropdownOpen(false);
+      }
+      if (conferencesSubDropdownRef.current && !conferencesSubDropdownRef.current.contains(event.target as Node)) {
+        setIsConferencesSubDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+      if (initiativesTimeoutRef.current) {
+        clearTimeout(initiativesTimeoutRef.current);
+      }
+      if (conferencesSubTimeoutRef.current) {
+        clearTimeout(conferencesSubTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -129,8 +151,8 @@ const NavBar: React.FC = () => {
           <div 
             ref={dropdownRef} 
             style={{ position: 'relative' }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handlePeopleMouseEnter}
+            onMouseLeave={handlePeopleMouseLeave}
           >
             <div style={{ textDecoration: 'none' }}>
               <div style={{
@@ -165,8 +187,8 @@ const NavBar: React.FC = () => {
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
                   border: '1px solid rgba(0, 0, 0, 0.05)'
                 }}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                onMouseEnter={handlePeopleMouseEnter}
+                onMouseLeave={handlePeopleMouseLeave}
               >
                 <Link to="/faculty" style={{ textDecoration: 'none' }}>
                   <div style={{
@@ -329,6 +351,97 @@ const NavBar: React.FC = () => {
                     AI Club
                   </div>
                 </Link>
+                
+                {/* Conferences with sub-dropdown */}
+                <div 
+                  ref={conferencesSubDropdownRef}
+                  style={{ position: 'relative' }}
+                  onMouseEnter={handleConferencesSubMouseEnter}
+                  onMouseLeave={handleConferencesSubMouseLeave}
+                >
+                  <div style={{
+                    padding: '12px 16px',
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    color: '#374151',
+                    transition: 'all 0.2s',
+                    cursor: 'pointer'
+                  }}
+                  onMouseOver={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                    (e.target as HTMLElement).style.color = '#dc2626';
+                  }}
+                  onMouseOut={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                    (e.target as HTMLElement).style.color = '#374151';
+                  }}
+                  >
+                    Conferences
+                  </div>
+                  
+                  {/* Sub-dropdown for conferences */}
+                  {isConferencesSubDropdownOpen && (
+                    <div 
+                      style={{
+                        position: 'absolute',
+                        left: '100%',
+                        top: '0',
+                        backgroundColor: 'rgba(255, 255, 255, 0.98)',
+                        backdropFilter: 'blur(20px)',
+                        borderRadius: '8px',
+                        padding: '8px 0',
+                        minWidth: '160px',
+                        zIndex: 1001,
+                        marginLeft: '8px',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                        border: '1px solid rgba(0, 0, 0, 0.05)'
+                      }}
+                      onMouseEnter={handleConferencesSubMouseEnter}
+                      onMouseLeave={handleConferencesSubMouseLeave}
+                    >
+                      <a href="https://rtip2r-conference.org/2025/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                        <div style={{
+                          padding: '8px 16px',
+                          fontSize: '14px',
+                          fontWeight: 400,
+                          color: '#374151',
+                          transition: 'all 0.2s'
+                        }}
+                        onMouseOver={(e) => {
+                          (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                          (e.target as HTMLElement).style.color = '#dc2626';
+                        }}
+                        onMouseOut={(e) => {
+                          (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                          (e.target as HTMLElement).style.color = '#374151';
+                        }}
+                        >
+                          RTIP2R
+                        </div>
+                      </a>
+                      <a href="https://www.ieeesmc.org/cai-2026/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                        <div style={{
+                          padding: '8px 16px',
+                          fontSize: '14px',
+                          fontWeight: 400,
+                          color: '#374151',
+                          transition: 'all 0.2s'
+                        }}
+                        onMouseOver={(e) => {
+                          (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                          (e.target as HTMLElement).style.color = '#dc2626';
+                        }}
+                        onMouseOut={(e) => {
+                          (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                          (e.target as HTMLElement).style.color = '#374151';
+                        }}
+                        >
+                          CAI
+                        </div>
+                      </a>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>
@@ -467,6 +580,19 @@ const NavBar: React.FC = () => {
             <Link to="/ai-club" onClick={toggleMenu}>
               <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">AI Club</div>
             </Link>
+            
+            {/* Conferences subsection */}
+            <div className="mt-2">
+              <div className="text-sm font-medium text-gray-700 mb-1">Conferences</div>
+              <div className="ml-2 space-y-1">
+                <a href="https://rtip2r-conference.org/2025/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
+                  <div className="text-xs font-thin text-gray-500 hover:text-red-600 transition-colors">RTIP2R</div>
+                </a>
+                <a href="https://www.ieeesmc.org/cai-2026/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
+                  <div className="text-xs font-thin text-gray-500 hover:text-red-600 transition-colors">CAI</div>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         
