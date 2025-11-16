@@ -1,1 +1,1 @@
-EMERGENCY_CACHE_BYPASS_${Math.random().toString(36).substring(7)}_${Date.now()}
+EMERGENCY_CACHE_BYPASS_MANUAL_TRIGGER_${Math.random().toString(36).substring(7)}_${Date.now()}
