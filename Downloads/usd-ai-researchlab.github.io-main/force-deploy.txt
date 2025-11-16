@@ -1,0 +1,6 @@
+DEPLOY_VERIFICATION_20251116101800
+Navigation Updates: Conferences sub-dropdown in Initiatives
+Repository: USD-AI-ResearchLab/usd-ai-researchlab.github.io
+Branch: main
+Last Update: 2025-11-16 10:18:00
+Force Deploy Status: ACTIVE
