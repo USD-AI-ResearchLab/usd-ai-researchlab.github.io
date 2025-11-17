@@ -33,7 +33,7 @@ const AISymposiumBanner: React.FC = () => {
               </p>
             </div>
             <div className="hidden md:block">
-              <div className="text-6xl opacity-20">🤖</div>
+              <div className="text-6xl opacity-20 text-white font-bold">AI</div>
             </div>
           </div>
           

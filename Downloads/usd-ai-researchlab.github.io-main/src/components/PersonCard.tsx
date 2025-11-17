@@ -36,7 +36,7 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, scholar
                 objectPosition: 'center 25%'
               }}
               onLoad={() => {
-                console.log(`✅ Image loaded successfully for ${name}:`, imageUrl);
+                console.log(`Image loaded successfully for ${name}:`, imageUrl);
               }}
               onError={(e) => {
                 console.error(`❌ Image failed to load for ${name}:`, imageUrl);
