@@ -1,12 +1,12 @@
 // cSpell: disable
 
 import React, { useState, useEffect } from "react";
-import AnimatedAIBanner from '../components/AnimatedAIBanner';
 import StatsComponent from '../components/StatsComponent';
 import RegistrationInfo from '../components/RegistrationInfo';
 import ConferenceSchedule from '../components/ConferenceSchedule';
 import CommitteeMembers from '../components/CommitteeMembers';
 import Speakers from '../components/Speakers';
+import AnimatedAIBanner from '../components/AnimatedAIBanner';
 
 const AISymposium2025: React.FC = () => {
   const [showGoToTop, setShowGoToTop] = useState(false);
@@ -37,10 +37,10 @@ const AISymposium2025: React.FC = () => {
   };
 
   const symposiumStats = [
-    { number: 300, label: "Expected Attendees", icon: "" },
-    { number: 50, label: "Expert Speakers", icon: "" },
-    { number: 2, label: "Conference Days", icon: "" },
-    { number: 25, label: "Industry Partners", icon: "" }
+    { number: 500, label: "Expected Attendees", icon: "" },
+    { number: 35, label: "Expert Speakers", icon: "" },
+    { number: 7, label: "Conference Days", icon: "" },
+    { number: 12, label: "Industry Partners", icon: "" }
   ];
 
   // Sponsorship tier information
@@ -117,10 +117,8 @@ const AISymposium2025: React.FC = () => {
           </div>
         </div>
 
-        {/* Animated AI Symposium Banner */}
-        <div className="mb-8">
-          <AnimatedAIBanner />
-        </div>
+        {/* AI Symposium Banner */}
+        <AnimatedAIBanner />
 
         {/* Combined "Download" + "Welcome" Card */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
