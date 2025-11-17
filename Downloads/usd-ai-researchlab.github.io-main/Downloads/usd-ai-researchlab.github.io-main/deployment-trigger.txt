@@ -1,5 +1,0 @@
-Deployment triggered: 2025-11-16 10:15:00 - FORCE REBUILD
-Navigation updates: Added Conferences sub-dropdown to Initiatives
-Changes: RTIP2R and CAI conference links integrated
-Status: FORCING GITHUB PAGES CACHE REFRESH
-Build Status: LOCAL BUILD SUCCESSFUL - FORCING DEPLOYMENT
