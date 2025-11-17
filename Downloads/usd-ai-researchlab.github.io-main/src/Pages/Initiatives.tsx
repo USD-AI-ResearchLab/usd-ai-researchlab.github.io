@@ -436,7 +436,7 @@ const SpecificYearSymposium: React.FC = () => {
                 </p>
                 <div className="space-y-2">
                   <p className="flex items-center text-gray-700">
-                    📧 <span className="ml-2">rodrigue.rizk@usd.edu and kc.santosh@usd.edu</span>
+                    <span className="ml-2">rodrigue.rizk@usd.edu and kc.santosh@usd.edu</span>
                   </p>
                   <p className="flex items-center text-gray-700">
                     📞 <span className="ml-2">(605) 658-6841</span>

@@ -14,13 +14,13 @@ const People: React.FC = () => {
       title: "Faculty",
       description: "Distinguished faculty members leading cutting-edge research in AI and ML",
       link: "/faculty",
-      icon: "🎓"
+      icon: ""
     },
     {
       title: "PhD Students", 
       description: "Doctoral researchers advancing the frontiers of artificial intelligence",
       link: "/phd-students",
-      icon: "🔬"
+      icon: ""
     },
     {
       title: "Masters Students",
