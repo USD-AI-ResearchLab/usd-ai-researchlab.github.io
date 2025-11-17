@@ -28,7 +28,6 @@ const App: React.FC = () => {
           <Route path="/masters-students" element={<MastersStudents />} />
           <Route path="/publications" element={<Publications />} />
           <Route path="/initiatives" element={<Initiatives />} />
-          <Route path="/conferences" element={<div className="p-8"><h1 className="text-3xl font-bold text-center" style={{ color: '#C53030' }}>Conferences Page</h1><p className="text-center mt-4">This page is coming soon!</p></div>} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/affiliates" element={<Affiliates />} />
           <Route path="/events/ai-symposium/2025" element={<AISymposium2025 />} />

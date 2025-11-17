@@ -1,12 +1,13 @@
 // cSpell: disable
 
 import React, { useState, useEffect } from "react";
+import Footer from '../components/Footer';
+import AnimatedAIBanner from '../components/AnimatedAIBanner';
 import StatsComponent from '../components/StatsComponent';
 import RegistrationInfo from '../components/RegistrationInfo';
 import ConferenceSchedule from '../components/ConferenceSchedule';
 import CommitteeMembers from '../components/CommitteeMembers';
 import Speakers from '../components/Speakers';
-import AnimatedAIBanner from '../components/AnimatedAIBanner';
 
 const AISymposium2025: React.FC = () => {
   const [showGoToTop, setShowGoToTop] = useState(false);
@@ -37,10 +38,10 @@ const AISymposium2025: React.FC = () => {
   };
 
   const symposiumStats = [
-    { number: 500, label: "Expected Attendees", icon: "" },
-    { number: 35, label: "Expert Speakers", icon: "" },
-    { number: 7, label: "Conference Days", icon: "" },
-    { number: 12, label: "Industry Partners", icon: "" }
+    { number: 300, label: "Expected Attendees", icon: "👥" },
+    { number: 50, label: "Expert Speakers", icon: "🎤" },
+    { number: 2, label: "Conference Days", icon: "📅" },
+    { number: 25, label: "Industry Partners", icon: "🤝" }
   ];
 
   // Sponsorship tier information
@@ -117,8 +118,10 @@ const AISymposium2025: React.FC = () => {
           </div>
         </div>
 
-        {/* AI Symposium Banner */}
-        <AnimatedAIBanner />
+        {/* Animated AI Symposium Banner */}
+        <div className="mb-8">
+          <AnimatedAIBanner />
+        </div>
 
         {/* Combined "Download" + "Welcome" Card */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
@@ -153,7 +156,7 @@ const AISymposium2025: React.FC = () => {
           <p className="text-lg leading-relaxed text-justify mb-4">
             Join us for the University of South Dakota's 7th Annual{" "}
             <a
-              href="https://usd-ai-researchlab.github.io/events/ai-symposium/2025"
+              href="https://www.ai-research-lab.org/events/ai-symposium/2025"
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold underline"
@@ -192,7 +195,7 @@ const AISymposium2025: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-center mb-6">
             <div className="flex items-start md:w-1/2">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6 flex items-center justify-center text-xs font-bold" style={{ color: '#C53030' }}>📍</span>
+                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}>📍</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Location</h3>
@@ -208,7 +211,7 @@ const AISymposium2025: React.FC = () => {
 
             <div className="flex items-start md:w-1/2 mt-4 md:mt-0">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6 flex items-center justify-center text-xs font-bold" style={{ color: '#C53030' }}>📅</span>
+                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}>📅</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Date and time</h3>
@@ -234,6 +237,7 @@ const AISymposium2025: React.FC = () => {
         {/* Sponsors Section */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            <span className="inline-block mr-2" style={{ color: '#C53030' }}>🏆</span>
             Our Sponsors
           </h2>
 
@@ -287,7 +291,7 @@ const AISymposium2025: React.FC = () => {
                   </div>
                   <div className="bg-gray-50 p-2 flex items-center justify-center h-24">
                     <img 
-                      src="/images/sponsor/Area.png" 
+                      src="/images/sponsor/Area.svg" 
                       alt="Area Direct Companies" 
                       className="max-h-12 object-contain"
                       onError={(e) => {
@@ -307,7 +311,7 @@ const AISymposium2025: React.FC = () => {
                   <div className="bg-gray-50 p-2 flex justify-around items-center h-24">
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/Sterling.png" 
+                        src="/images/sponsor/Sterling.svg" 
                         alt="Sterling" 
                         className="max-h-12 object-contain"
                         onError={(e) => {
@@ -319,7 +323,7 @@ const AISymposium2025: React.FC = () => {
                     </div>
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/ieee_usa.png" 
+                        src="/images/sponsor/ieee_usa.svg" 
                         alt="IEEE USA" 
                         className="max-h-12 object-contain"
                         onError={(e) => {
@@ -339,7 +343,7 @@ const AISymposium2025: React.FC = () => {
                   </div>
                   <div className="bg-gray-50 p-2 flex items-center justify-center h-24">
                     <img 
-                      src="/images/sponsor/dakota.png" 
+                      src="/images/sponsor/dakota.svg" 
                       alt="Dakota" 
                       className="max-h-12 object-contain"
                       onError={(e) => {
@@ -359,7 +363,7 @@ const AISymposium2025: React.FC = () => {
                   <div className="bg-gray-50 px-2 py-1 flex items-center justify-center gap-2 h-24">
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/IEEE.png" 
+                        src="/images/sponsor/IEEE.svg" 
                         alt="IEEE" 
                         className="h-10 object-contain"
                         onError={(e) => {
@@ -371,7 +375,7 @@ const AISymposium2025: React.FC = () => {
                     </div>
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/logo.png" 
+                        src="/images/sponsor/logo.svg" 
                         alt="USD Logo" 
                         className="h-10 object-contain"
                         onError={(e) => {
@@ -383,7 +387,7 @@ const AISymposium2025: React.FC = () => {
                     </div>
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/SD-BCC.png" 
+                        src="/images/sponsor/SD-BCC.svg" 
                         alt="SD BCC" 
                         className="h-10 object-contain"
                         onError={(e) => {
@@ -404,7 +408,7 @@ const AISymposium2025: React.FC = () => {
             <div>
               <div className="p-4 rounded-lg mb-6" style={{ backgroundColor: '#f8f3f3' }}>
                 <div className="flex items-start">
-                  <span className="h-6 w-6 mr-3 mt-1 flex items-center justify-center text-sm font-bold" style={{ color: '#C53030' }}>💼</span>
+                  <span className="h-6 w-6 mr-3 mt-1" style={{ color: '#C53030' }}>💼</span>
                   <div>
                     <h3 className="font-medium text-gray-800">
                       Why Sponsor the AI Symposium?
@@ -450,17 +454,17 @@ const AISymposium2025: React.FC = () => {
 
               <div className="bg-gray-50 p-6 rounded-lg">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                  Ready to Sponsor?
+                  💼 Ready to Sponsor?
                 </h3>
                 <p className="text-gray-600 mb-4">
                   For more information about sponsorship opportunities or to become a sponsor, please contact our sponsorship team:
                 </p>
                 <div className="space-y-2">
                   <p className="flex items-center text-gray-700">
-                    Email: <span className="ml-2">rodrigue.rizk@usd.edu and kc.santosh@usd.edu</span>
+                    📧 <span className="ml-2">rodrigue.rizk@usd.edu and kc.santosh@usd.edu</span>
                   </p>
                   <p className="flex items-center text-gray-700">
-                    Phone: <span className="ml-2">(605) 658-6841</span>
+                    📞 <span className="ml-2">(605) 658-6841</span>
                   </p>
                 </div>
               </div>
@@ -527,7 +531,7 @@ const AISymposium2025: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6 flex items-center justify-center text-xs font-bold" style={{ color: '#C53030' }}>✓</span>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>✅</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Collaborate</h3>
@@ -541,7 +545,7 @@ const AISymposium2025: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6 flex items-center justify-center text-xs font-bold" style={{ color: '#C53030' }}>L</span>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>🎓</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Learn</h3>
@@ -554,7 +558,7 @@ const AISymposium2025: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6 flex items-center justify-center text-xs font-bold" style={{ color: '#C53030' }}>C</span>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>👥</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Connect</h3>
@@ -567,7 +571,7 @@ const AISymposium2025: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6 flex items-center justify-center text-xs font-bold" style={{ color: '#C53030' }}>D</span>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}>🔍</span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Discover</h3>
@@ -594,6 +598,8 @@ const AISymposium2025: React.FC = () => {
           </button>
         )}
       </div>
+      
+      <Footer />
     </div>
   );
 };

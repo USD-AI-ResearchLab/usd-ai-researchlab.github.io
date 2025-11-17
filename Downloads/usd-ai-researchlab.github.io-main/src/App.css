@@ -24,6 +24,14 @@ h1.heading-red {
   color: #C53030 !important;
 }
 
+.hover-red:hover {
+  color: var(--logo-red) !important;
+}
+
+.red-logo-filter {
+  filter: none;
+}
+
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

@@ -98,16 +98,11 @@ const NavBar: React.FC = () => {
           
           {/* LOGO - LEFT SIDE (Hidden on home page) */}
           {!isHomePage && (
-            <Link to="/" style={{ textDecoration: 'none' }}>
+            <Link to="/" className="no-underline">
               <img 
                 src={bgimage} 
                 alt="AI Lab Logo" 
-                style={{
-                  width: '60px',
-                  height: '60px',
-                  objectFit: 'contain',
-                  cursor: 'pointer'
-                }}
+                className="w-[60px] h-[60px] object-contain cursor-pointer"
               />
             </Link>
           )}
@@ -526,57 +521,57 @@ const NavBar: React.FC = () => {
         )}
         
         <Link to="/about" onClick={toggleMenu}>
-          <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">About</div>
+          <div className="text-lg font-thin text-gray-700 hover:text-red-700 transition-colors">About</div>
         </Link>
         
         {/* Mobile People Menu */}
         <div>
           <div onClick={toggleMenu}>
-            <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors cursor-pointer">People</div>
+            <div className="text-lg font-thin text-gray-700 hover-red transition-colors cursor-pointer">People</div>
           </div>
           <div className="ml-4 mt-1 space-y-1">
             <Link to="/faculty" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">Faculty</div>
+              <div className="text-sm font-thin text-gray-600 hover-red transition-colors">Faculty</div>
             </Link>
             <Link to="/phd-students" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">PhD Students</div>
+              <div className="text-sm font-thin text-gray-600 hover-red transition-colors">PhD Students</div>
             </Link>
             <Link to="/masters-students" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">Masters Students</div>
+              <div className="text-sm font-thin text-gray-600 hover-red transition-colors">Masters Students</div>
             </Link>
           </div>
         </div>
         
         <Link to="/publications" onClick={toggleMenu}>
-          <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Publications</div>
+          <div className="text-lg font-thin text-gray-700 hover-red transition-colors">Publications</div>
         </Link>
         
         {/* Mobile Initiatives Menu */}
         <div>
           <div onClick={toggleMenu}>
-            <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors cursor-pointer">Initiatives</div>
+            <div className="text-lg font-thin text-gray-700 hover-red transition-colors cursor-pointer">Initiatives</div>
           </div>
           <div className="ml-4 mt-1 space-y-1">
             <Link to="/events/ai-symposium/2025" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">AI Symposium</div>
+              <div className="text-sm font-thin text-gray-600 hover-red transition-colors">AI Symposium</div>
             </Link>
             <Link to="/ai-club" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">AI Club</div>
+              <div className="text-sm font-thin text-gray-600 hover-red transition-colors">AI Club</div>
             </Link>
             
             {/* Conferences in Mobile */}
             <div className="mt-3 mb-1 text-xs font-semibold text-gray-400 uppercase tracking-wide">Conferences</div>
             <a href="https://www.ieeesmc.org/cai-2026/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">CAI 2026</div>
+              <div className="text-sm font-thin text-gray-600 hover-red transition-colors">CAI 2026</div>
             </a>
             <a href="https://rtip2r-conference.org/2025/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">RTIP2R 2025</div>
+              <div className="text-sm font-thin text-gray-600 hover-red transition-colors">RTIP2R 2025</div>
             </a>
           </div>
         </div>
         
         <Link to="/affiliates" onClick={toggleMenu}>
-          <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Affiliates</div>
+          <div className="text-lg font-thin text-gray-700 hover-red transition-colors">Affiliates</div>
         </Link>
       </div>
     </>

@@ -77,7 +77,7 @@ const People: React.FC = () => {
                     {category.description}
                   </p>
                   <div className="mt-6 text-center">
-                    <span className="text-red-600 font-medium hover:text-red-800 transition-colors">
+                    <span className="font-medium transition-colors" style={{ color: 'var(--logo-red)' }}>
                       View {category.title} →
                     </span>
                   </div>
