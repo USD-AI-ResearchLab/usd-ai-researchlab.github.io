@@ -293,8 +293,8 @@ const AISymposium2025: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Partners */}
-                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[380px]">
+                {/* Industry Partners */}
+                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[200px]">
                   <div className="py-2 px-3 font-semibold text-white bg-gray-700 text-center text-sm">
                     Industry Partners
                   </div>
@@ -323,18 +323,15 @@ const AISymposium2025: React.FC = () => {
                       />
                       <span className="text-gray-500 fallback text-xs" style={{ display: 'none' }}>Sterling</span>
                     </div>
-                    <div className="flex items-center">
-                      <img 
-                        src="/images/sponsor/IEEE.png" 
-                        alt="IEEE" 
-                        className="h-10 object-contain"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).style.display = 'none';
-                          ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
-                        }}
-                      />
-                      <span className="text-gray-500 fallback text-xs" style={{ display: 'none' }}>IEEE</span>
-                    </div>
+                  </div>
+                </div>
+
+                {/* Academic Partners */}
+                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[200px]">
+                  <div className="py-2 px-3 font-semibold text-white bg-gray-600 text-center text-sm">
+                    Academic Partners
+                  </div>
+                  <div className="bg-gray-50 px-2 py-1 flex items-center justify-center gap-2 h-24">
                     <div className="flex items-center">
                       <img 
                         src="/images/sponsor/logo.png" 
