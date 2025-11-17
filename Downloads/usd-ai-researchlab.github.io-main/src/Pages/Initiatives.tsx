@@ -38,10 +38,10 @@ const SpecificYearSymposium: React.FC = () => {
   };
 
   const symposiumStats = [
-    { number: 300, label: "Expected Attendees", icon: "👥" },
-    { number: 50, label: "Expert Speakers", icon: "🎤" },
-    { number: 2, label: "Conference Days", icon: "📅" },
-    { number: 25, label: "Industry Partners", icon: "🤝" }
+    { number: 300, label: "Expected Attendees", icon: "" },
+    { number: 50, label: "Expert Speakers", icon: "" },
+    { number: 2, label: "Conference Days", icon: "" },
+    { number: 25, label: "Industry Partners", icon: "" }
   ];
 
   // Sponsorship tier information
@@ -132,7 +132,7 @@ const SpecificYearSymposium: React.FC = () => {
           <p className="text-lg leading-relaxed text-justify mb-4">
             Join us for the University of South Dakota's 7th Annual{" "}
             <a
-              href="https://www.ai-research-lab.org/events/ai-symposium/2025"
+              href="https://usd-ai-researchlab.github.io/events/ai-symposium/2025"
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold underline"
