@@ -58,6 +58,7 @@ const Affiliates: React.FC = () => {
                   <div className="flex justify-end space-x-4">
                     <img src="/images/sponsor/Area.png" alt="Area Companies" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
                     <img src="/images/sponsor/Sterling.png" alt="Sterling" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                    <img src="/images/sponsor/dakota.png" alt="Dakota State" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
                   </div>
                 </div>
                 {/* Timeline Dot */}
@@ -72,7 +73,6 @@ const Affiliates: React.FC = () => {
                   <h3 className="text-lg font-medium mb-3" style={{ color: 'var(--logo-red)' }}>Academic Partners</h3>
                   <div className="flex space-x-4">
                     <img src="/images/sponsor/SD-BCC.png" alt="South Dakota Biomedical Computing Collaborative" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                    <img src="/images/sponsor/dakota.png" alt="Dakota State" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
                   </div>
                 </div>
                 {/* Timeline Dot */}
