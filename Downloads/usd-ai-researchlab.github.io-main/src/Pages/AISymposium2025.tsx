@@ -1,7 +1,6 @@
 // cSpell: disable
 
 import React, { useState, useEffect } from "react";
-import Footer from '../components/Footer';
 import AnimatedAIBanner from '../components/AnimatedAIBanner';
 import StatsComponent from '../components/StatsComponent';
 import RegistrationInfo from '../components/RegistrationInfo';
@@ -38,10 +37,10 @@ const AISymposium2025: React.FC = () => {
   };
 
   const symposiumStats = [
-    { number: 300, label: "Expected Attendees", icon: "👥" },
-    { number: 50, label: "Expert Speakers", icon: "🎤" },
-    { number: 2, label: "Conference Days", icon: "📅" },
-    { number: 25, label: "Industry Partners", icon: "🤝" }
+    { number: 500, label: "Annual Attendees", icon: "" },
+    { number: 35, label: "Expert Speakers", icon: "" },
+    { number: 7, label: "Years of Excellence", icon: "" },
+    { number: 12, label: "Partner Organizations", icon: "" }
   ];
 
   // Sponsorship tier information
@@ -73,35 +72,6 @@ const AISymposium2025: React.FC = () => {
         fontFamily: 'Ubuntu, sans-serif'
       }}
     >
-      {/* Dedicated AI Symposium Header */}
-      <div className="bg-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <img 
-                src="/images/logo.svg" 
-                alt="USD AI Research Lab" 
-                className="h-16 w-16 object-contain mr-4"
-              />
-              <div>
-                <h1 className="text-2xl font-bold" style={{ color: '#C53030' }}>
-                  AI Symposium 2025
-                </h1>
-                <p className="text-gray-600">University of South Dakota</p>
-              </div>
-            </div>
-            <a
-              href="https://usd-ai-researchlab.github.io"
-              className="text-sm text-gray-600 hover:text-red-600 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ← Back to Main Website
-            </a>
-          </div>
-        </div>
-      </div>
-
       <div className="mx-auto px-4 sm:px-6 py-6 max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-7xl">
         {/* Symposium Navbar */}
         <div className="flex justify-center py-4 px-6 bg-white mb-8 rounded-lg">
@@ -195,7 +165,7 @@ const AISymposium2025: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-center mb-6">
             <div className="flex items-start md:w-1/2">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}>📍</span>
+                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}></span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Location</h3>
@@ -211,7 +181,7 @@ const AISymposium2025: React.FC = () => {
 
             <div className="flex items-start md:w-1/2 mt-4 md:mt-0">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}>📅</span>
+                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}></span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Date and time</h3>
@@ -237,7 +207,6 @@ const AISymposium2025: React.FC = () => {
         {/* Sponsors Section */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            <span className="inline-block mr-2" style={{ color: '#C53030' }}>🏆</span>
             Our Sponsors
           </h2>
 
@@ -291,7 +260,7 @@ const AISymposium2025: React.FC = () => {
                   </div>
                   <div className="bg-gray-50 p-2 flex items-center justify-center h-24">
                     <img 
-                      src="/images/sponsor/Area.svg" 
+                      src="/images/sponsor/Area.png" 
                       alt="Area Direct Companies" 
                       className="max-h-12 object-contain"
                       onError={(e) => {
@@ -304,26 +273,14 @@ const AISymposium2025: React.FC = () => {
                 </div>
 
                 {/* Silver Sponsors */}
-                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[240px]">
+                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[200px]">
                   <div className="py-2 px-3 font-semibold text-white bg-gray-400 text-center text-sm">
                     Silver Sponsors
                   </div>
                   <div className="bg-gray-50 p-2 flex justify-around items-center h-24">
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/Sterling.svg" 
-                        alt="Sterling" 
-                        className="max-h-12 object-contain"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).style.display = 'none';
-                          ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
-                        }}
-                      />
-                      <span className="text-gray-500 fallback" style={{ display: 'none' }}>Sterling</span>
-                    </div>
-                    <div className="flex items-center">
-                      <img 
-                        src="/images/sponsor/ieee_usa.svg" 
+                        src="/images/sponsor/ieee_usa.png" 
                         alt="IEEE USA" 
                         className="max-h-12 object-contain"
                         onError={(e) => {
@@ -336,34 +293,39 @@ const AISymposium2025: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Gold Sponsor */}
-                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[200px]">
-                  <div className="py-2 px-3 font-semibold text-white bg-yellow-500 text-center text-sm">
-                    Gold Sponsors
-                  </div>
-                  <div className="bg-gray-50 p-2 flex items-center justify-center h-24">
-                    <img 
-                      src="/images/sponsor/dakota.svg" 
-                      alt="Dakota" 
-                      className="max-h-12 object-contain"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none';
-                        ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
-                      }}
-                    />
-                    <span className="text-gray-500 fallback" style={{ display: 'none' }}>Dakota</span>
-                  </div>
-                </div>
-
                 {/* Partners */}
-                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[260px]">
+                <div className="rounded-lg overflow-hidden shadow bg-white flex flex-col w-[380px]">
                   <div className="py-2 px-3 font-semibold text-white bg-gray-700 text-center text-sm">
-                    Partners
+                    Industry Partners
                   </div>
                   <div className="bg-gray-50 px-2 py-1 flex items-center justify-center gap-2 h-24">
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/IEEE.svg" 
+                        src="/images/sponsor/Area.png" 
+                        alt="Area Companies" 
+                        className="h-10 object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                          ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
+                        }}
+                      />
+                      <span className="text-gray-500 fallback text-xs" style={{ display: 'none' }}>Area Companies</span>
+                    </div>
+                    <div className="flex items-center">
+                      <img 
+                        src="/images/sponsor/Sterling.png" 
+                        alt="Sterling" 
+                        className="h-10 object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                          ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
+                        }}
+                      />
+                      <span className="text-gray-500 fallback text-xs" style={{ display: 'none' }}>Sterling</span>
+                    </div>
+                    <div className="flex items-center">
+                      <img 
+                        src="/images/sponsor/IEEE.png" 
                         alt="IEEE" 
                         className="h-10 object-contain"
                         onError={(e) => {
@@ -375,7 +337,7 @@ const AISymposium2025: React.FC = () => {
                     </div>
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/logo.svg" 
+                        src="/images/sponsor/logo.png" 
                         alt="USD Logo" 
                         className="h-10 object-contain"
                         onError={(e) => {
@@ -387,7 +349,7 @@ const AISymposium2025: React.FC = () => {
                     </div>
                     <div className="flex items-center">
                       <img 
-                        src="/images/sponsor/SD-BCC.svg" 
+                        src="/images/sponsor/SD-BCC.png" 
                         alt="SD BCC" 
                         className="h-10 object-contain"
                         onError={(e) => {
@@ -396,6 +358,18 @@ const AISymposium2025: React.FC = () => {
                         }}
                       />
                       <span className="text-gray-500 fallback text-xs" style={{ display: 'none' }}>SD-BCC</span>
+                    </div>
+                    <div className="flex items-center">
+                      <img 
+                        src="/images/sponsor/dakota.png" 
+                        alt="Dakota State" 
+                        className="h-10 object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                          ((e.target as HTMLImageElement).parentElement?.querySelector('.fallback') as HTMLElement).style.display = 'block';
+                        }}
+                      />
+                      <span className="text-gray-500 fallback text-xs" style={{ display: 'none' }}>Dakota State</span>
                     </div>
                   </div>
                 </div>
@@ -408,7 +382,7 @@ const AISymposium2025: React.FC = () => {
             <div>
               <div className="p-4 rounded-lg mb-6" style={{ backgroundColor: '#f8f3f3' }}>
                 <div className="flex items-start">
-                  <span className="h-6 w-6 mr-3 mt-1" style={{ color: '#C53030' }}>💼</span>
+                  <span className="h-6 w-6 mr-3 mt-1" style={{ color: '#C53030' }}></span>
                   <div>
                     <h3 className="font-medium text-gray-800">
                       Why Sponsor the AI Symposium?
@@ -454,17 +428,17 @@ const AISymposium2025: React.FC = () => {
 
               <div className="bg-gray-50 p-6 rounded-lg">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                  💼 Ready to Sponsor?
+                  Ready to Sponsor?
                 </h3>
                 <p className="text-gray-600 mb-4">
                   For more information about sponsorship opportunities or to become a sponsor, please contact our sponsorship team:
                 </p>
                 <div className="space-y-2">
                   <p className="flex items-center text-gray-700">
-                    📧 <span className="ml-2">rodrigue.rizk@usd.edu and kc.santosh@usd.edu</span>
+                    <span className="ml-2">rodrigue.rizk@usd.edu and kc.santosh@usd.edu</span>
                   </p>
                   <p className="flex items-center text-gray-700">
-                    📞 <span className="ml-2">(605) 658-6841</span>
+                    <span className="ml-2">(605) 658-6841</span>
                   </p>
                 </div>
               </div>
@@ -531,7 +505,7 @@ const AISymposium2025: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6" style={{ color: '#C53030' }}>✅</span>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}></span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Collaborate</h3>
@@ -545,7 +519,7 @@ const AISymposium2025: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6" style={{ color: '#C53030' }}>🎓</span>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}></span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Learn</h3>
@@ -558,7 +532,7 @@ const AISymposium2025: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6" style={{ color: '#C53030' }}>👥</span>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}></span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Connect</h3>
@@ -571,7 +545,7 @@ const AISymposium2025: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6" style={{ color: '#C53030' }}>🔍</span>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}></span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Discover</h3>
@@ -598,8 +572,6 @@ const AISymposium2025: React.FC = () => {
           </button>
         )}
       </div>
-      
-      <Footer />
     </div>
   );
 };
