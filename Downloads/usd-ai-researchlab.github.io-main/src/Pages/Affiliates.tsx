@@ -26,15 +26,15 @@ const Affiliates: React.FC = () => {
       >
         {/* Header Section */}
         <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030) !important' }}>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4" style={{ color: '#C53030' }}>
             Affiliates
           </h1>
-          <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
+          <div className="w-24 h-1 mb-6" style={{ backgroundColor: '#C53030' }}></div>
         </motion.div>
 
         {/* Content Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
-          <p className="text-base text-gray-700 leading-relaxed mb-12 font-thin">
+          <p className="text-lg text-gray-700 leading-relaxed mb-12 font-thin">
             Our network of affiliates and collaborative partners who support our mission of advancing AI research and innovation.
           </p>
           
@@ -132,9 +132,9 @@ const Affiliates: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Partnership Information - WHITE BACKGROUND */}
-          <motion.div className="mt-16 rounded-lg p-8 bg-white border border-gray-200" variants={fadeInUp}>
-            <h2 className="text-2xl font-thin mb-6" style={{ color: 'var(--logo-red, #C53030)' }}>
+          {/* Partnership Information */}
+          <motion.div className="mt-16 rounded-lg p-8" style={{ backgroundColor: '#FFE8E8' }} variants={fadeInUp}>
+            <h2 className="text-2xl font-thin mb-6" style={{ color: '#C53030' }}>
               Partnership Opportunities
             </h2>
             <p className="text-gray-700 leading-relaxed mb-6 font-thin">
