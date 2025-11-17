@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import AnimatedAIBanner from '../components/AnimatedAIBanner';
 import StatsComponent from '../components/StatsComponent';
 import RegistrationInfo from '../components/RegistrationInfo';
 import ConferenceSchedule from '../components/ConferenceSchedule';
 import CommitteeMembers from '../components/CommitteeMembers';
 import Speakers from '../components/Speakers';
+import AnimatedAIBanner from '../components/AnimatedAIBanner';
 
 const SpecificYearSymposium: React.FC = () => {
   const [showGoToTop, setShowGoToTop] = useState(false);
