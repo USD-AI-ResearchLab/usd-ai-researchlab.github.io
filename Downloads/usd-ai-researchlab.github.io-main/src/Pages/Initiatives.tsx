@@ -73,7 +73,7 @@ const Initiatives: React.FC = () => {
 
         {/* Content Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
-          <p className="text-lg text-gray-700 leading-relaxed mb-12 font-thin">
+          <p className="text-base text-gray-700 leading-relaxed mb-12 font-thin">
             Our research initiatives span multiple domains, focusing on advancing AI applications in healthcare, cybersecurity, agriculture, and emerging technologies.
           </p>
           

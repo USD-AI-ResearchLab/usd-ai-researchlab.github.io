@@ -34,7 +34,7 @@ const Affiliates: React.FC = () => {
 
         {/* Content Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
-          <p className="text-lg text-gray-700 leading-relaxed mb-12 font-thin">
+          <p className="text-base text-gray-700 leading-relaxed mb-12 font-thin">
             Our network of affiliates and collaborative partners who support our mission of advancing AI research and innovation.
           </p>
           
