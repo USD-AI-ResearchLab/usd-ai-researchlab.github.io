@@ -343,10 +343,15 @@ const NavBar: React.FC = () => {
                     transition: 'all 0.2s',
                     position: 'relative'
                   }}
-                  onClick={() => setIsConferencesOpen(!isConferencesOpen)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsConferencesOpen(!isConferencesOpen);
+                  }}
                   onMouseOver={(e) => {
-                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
-                    (e.target as HTMLElement).style.color = '#dc2626';
+                    if (!isConferencesOpen) {
+                      (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                      (e.target as HTMLElement).style.color = '#dc2626';
+                    }
                   }}
                   onMouseOut={(e) => {
                     if (!isConferencesOpen) {
@@ -357,22 +362,25 @@ const NavBar: React.FC = () => {
                 >
                   Conferences
                   
-                  {/* Conference Items - Side Dropdown */}
+                  {/* Conference Items - Side Dropdown - Only show on click */}
                   {isConferencesOpen && (
-                    <div style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: '100%',
-                      backgroundColor: 'rgba(255, 255, 255, 0.98)',
-                      backdropFilter: 'blur(20px)',
-                      borderRadius: '8px',
-                      padding: '8px 0',
-                      minWidth: '180px',
-                      zIndex: 1001,
-                      marginLeft: '8px',
-                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-                      border: '1px solid rgba(0, 0, 0, 0.05)'
-                    }}>
+                    <div 
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: '100%',
+                        backgroundColor: 'rgba(255, 255, 255, 0.98)',
+                        backdropFilter: 'blur(20px)',
+                        borderRadius: '8px',
+                        padding: '8px 0',
+                        minWidth: '180px',
+                        zIndex: 1001,
+                        marginLeft: '8px',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                        border: '1px solid rgba(0, 0, 0, 0.05)'
+                      }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       <a href="https://www.ieeesmc.org/cai-2026/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                         <div style={{
                           padding: '12px 16px',
