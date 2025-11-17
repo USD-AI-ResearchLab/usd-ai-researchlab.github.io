@@ -1,0 +1,18 @@
+name: Manual Deploy Trigger
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual deployment'
+        required: false
+        default: 'Manual deployment trigger'
+
+jobs:
+  trigger-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger main deploy workflow
+        run: |
+          echo "Triggering deployment workflow..."
+          echo "Reason: ${{ github.event.inputs.reason }}"
