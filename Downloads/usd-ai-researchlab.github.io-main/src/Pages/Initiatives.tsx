@@ -38,10 +38,10 @@ const SpecificYearSymposium: React.FC = () => {
   };
 
   const symposiumStats = [
-    { number: 300, label: "Expected Attendees", icon: "👥" },
-    { number: 50, label: "Expert Speakers", icon: "🎤" },
-    { number: 2, label: "Conference Days", icon: "📅" },
-    { number: 25, label: "Industry Partners", icon: "🤝" }
+    { number: 500, label: "Annual Attendees", icon: "" },
+    { number: 35, label: "Expert Speakers", icon: "" },
+    { number: 7, label: "Years of Excellence", icon: "" },
+    { number: 12, label: "Partner Organizations", icon: "" }
   ];
 
   // Sponsorship tier information
@@ -171,7 +171,7 @@ const SpecificYearSymposium: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-center mb-6">
             <div className="flex items-start md:w-1/2">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}>📍</span>
+                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}></span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Location</h3>
@@ -187,7 +187,7 @@ const SpecificYearSymposium: React.FC = () => {
 
             <div className="flex items-start md:w-1/2 mt-4 md:mt-0">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}>📅</span>
+                <span className="h-6 w-6 mx-auto" style={{ color: '#C53030' }}></span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Date and time</h3>
@@ -213,7 +213,6 @@ const SpecificYearSymposium: React.FC = () => {
         {/* Sponsors Section */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            <span className="inline-block mr-2" style={{ color: '#C53030' }}>🏆</span>
             Our Sponsors
           </h2>
 
@@ -384,7 +383,7 @@ const SpecificYearSymposium: React.FC = () => {
             <div>
               <div className="p-4 rounded-lg mb-6" style={{ backgroundColor: '#f8f3f3' }}>
                 <div className="flex items-start">
-                  <span className="h-6 w-6 mr-3 mt-1" style={{ color: '#C53030' }}>💼</span>
+                  <span className="h-6 w-6 mr-3 mt-1" style={{ color: '#C53030' }}></span>
                   <div>
                     <h3 className="font-medium text-gray-800">
                       Why Sponsor the AI Symposium?
@@ -430,7 +429,7 @@ const SpecificYearSymposium: React.FC = () => {
 
               <div className="bg-gray-50 p-6 rounded-lg">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                  💼 Ready to Sponsor?
+                  Ready to Sponsor?
                 </h3>
                 <p className="text-gray-600 mb-4">
                   For more information about sponsorship opportunities or to become a sponsor, please contact our sponsorship team:
@@ -507,7 +506,7 @@ const SpecificYearSymposium: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-4">
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6" style={{ color: '#C53030' }}>✅</span>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}></span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Collaborate</h3>
@@ -521,7 +520,7 @@ const SpecificYearSymposium: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6" style={{ color: '#C53030' }}>🎓</span>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}></span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Learn</h3>
@@ -534,7 +533,7 @@ const SpecificYearSymposium: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6" style={{ color: '#C53030' }}>👥</span>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}></span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Connect</h3>
@@ -547,7 +546,7 @@ const SpecificYearSymposium: React.FC = () => {
 
             <div className="flex items-start">
               <div className="p-2 rounded-full mr-3" style={{ backgroundColor: '#f8f3f3' }}>
-                <span className="h-6 w-6" style={{ color: '#C53030' }}>🔍</span>
+                <span className="h-6 w-6" style={{ color: '#C53030' }}></span>
               </div>
               <div>
                 <h3 className="font-medium text-gray-800">Discover</h3>

@@ -42,22 +42,30 @@ const StatsComponent: React.FC<StatsComponentProps> = ({ stats }) => {
   }, [stats]);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8">
-      {stats.map((stat, index) => (
-        <div 
-          key={index} 
-          className="text-center p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-          style={{ background: 'linear-gradient(to bottom right, #f8f3f3, #f1e8e8)' }}
-        >
-          <div className="text-3xl mb-2">{stat.icon}</div>
-          <div className="text-3xl font-bold mb-1" style={{ color: '#C53030' }}>
-            {counts[index].toLocaleString()}+
+    <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
+      {/* Card Header */}
+            <div className="mb-8 text-left">
+        <h2 className="text-3xl font-bold text-black">
+          Known for Excellence
+        </h2>
+      </div>
+      
+      {/* Statistics Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8">
+        {stats.map((stat, index) => (
+          <div 
+            key={index} 
+            className="text-center p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow bg-white"
+          >
+            <div className="text-3xl font-bold mb-1" style={{ color: '#C53030' }}>
+              {counts[index].toLocaleString()}+
+            </div>
+            <div className="text-gray-600 font-medium text-sm">
+              {stat.label}
+            </div>
           </div>
-          <div className="text-gray-600 font-medium text-sm">
-            {stat.label}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

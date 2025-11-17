@@ -48,7 +48,7 @@ const RegistrationInfo: React.FC = () => {
             </a>
           </p>
           <p className="mb-4">
-            <strong>🎓 Sign up, attend, and receive a certificate of participation immediately after the event!</strong>
+            <strong>Sign up, attend, and receive a certificate of participation immediately after the event!</strong>
           </p>
         </div>
       )}

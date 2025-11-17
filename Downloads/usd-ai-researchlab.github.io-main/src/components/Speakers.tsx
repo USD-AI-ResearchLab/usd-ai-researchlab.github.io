@@ -57,7 +57,7 @@ const Speakers: React.FC = () => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-8">
       <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-        🎤 Featured Speakers
+        Featured Speakers
       </h2>
 
       {/* Keynote Speakers */}
@@ -100,11 +100,10 @@ const Speakers: React.FC = () => {
         <h3 className="text-xl font-semibold mb-4" style={{ color: '#C53030' }}>Workshop Speakers</h3>
         <div className="border border-gray-200 rounded-lg p-4">
           <h4 className="font-bold text-gray-800 mb-2">Collins Aerospace Team</h4>
-          <div className="mb-3">
+          <div className="mb-3 text-left">
             {workshopSpeakers[0].names.map((name, idx) => (
-              <div key={idx} className="flex justify-between text-sm mb-1">
-                <span className="font-medium">{name}</span>
-                <span className="text-gray-600">{workshopSpeakers[0].titles[idx]}</span>
+              <div key={idx} className="text-sm mb-1">
+                <span className="font-medium">{name}</span> <span className="text-gray-600">{workshopSpeakers[0].titles[idx]}</span>
               </div>
             ))}
           </div>
