@@ -7,6 +7,7 @@ const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isPeopleDropdownOpen, setIsPeopleDropdownOpen] = useState<boolean>(false);
   const [isInitiativesDropdownOpen, setIsInitiativesDropdownOpen] = useState<boolean>(false);
+  const [isConferencesOpen, setIsConferencesOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const initiativesDropdownRef = useRef<HTMLDivElement>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -329,6 +330,101 @@ const NavBar: React.FC = () => {
                     AI Club
                   </div>
                 </Link>
+                
+                {/* Conferences Section */}
+                <div 
+                  style={{
+                    padding: '12px 16px',
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    color: isConferencesOpen ? '#dc2626' : '#374151',
+                    backgroundColor: isConferencesOpen ? 'rgba(220, 38, 38, 0.08)' : 'transparent',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                    position: 'relative'
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsConferencesOpen(!isConferencesOpen);
+                  }}
+                  onMouseOver={(e) => {
+                    if (!isConferencesOpen) {
+                      (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                      (e.target as HTMLElement).style.color = '#dc2626';
+                    }
+                  }}
+                  onMouseOut={(e) => {
+                    if (!isConferencesOpen) {
+                      (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                      (e.target as HTMLElement).style.color = '#374151';
+                    }
+                  }}
+                >
+                  Conferences
+                  
+                  {/* Conference Items - Side Dropdown - Only show on click */}
+                  {isConferencesOpen && (
+                    <div 
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: '100%',
+                        backgroundColor: 'rgba(255, 255, 255, 0.98)',
+                        backdropFilter: 'blur(20px)',
+                        borderRadius: '8px',
+                        padding: '8px 0',
+                        minWidth: '180px',
+                        zIndex: 1001,
+                        marginLeft: '8px',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                        border: '1px solid rgba(0, 0, 0, 0.05)'
+                      }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <a href="https://www.ieeesmc.org/cai-2026/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                        <div style={{
+                          padding: '12px 16px',
+                          fontSize: '15px',
+                          fontWeight: 400,
+                          color: '#374151',
+                          transition: 'all 0.2s'
+                        }}
+                        onMouseOver={(e) => {
+                          (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                          (e.target as HTMLElement).style.color = '#dc2626';
+                        }}
+                        onMouseOut={(e) => {
+                          (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                          (e.target as HTMLElement).style.color = '#374151';
+                        }}
+                        >
+                          CAI 2026
+                        </div>
+                      </a>
+                      
+                      <a href="https://rtip2r-conference.org/2025/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                        <div style={{
+                          padding: '12px 16px',
+                          fontSize: '15px',
+                          fontWeight: 400,
+                          color: '#374151',
+                          transition: 'all 0.2s'
+                        }}
+                        onMouseOver={(e) => {
+                          (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                          (e.target as HTMLElement).style.color = '#dc2626';
+                        }}
+                        onMouseOut={(e) => {
+                          (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                          (e.target as HTMLElement).style.color = '#374151';
+                        }}
+                        >
+                          RTIP2R 2025
+                        </div>
+                      </a>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>
@@ -467,6 +563,15 @@ const NavBar: React.FC = () => {
             <Link to="/ai-club" onClick={toggleMenu}>
               <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">AI Club</div>
             </Link>
+            
+            {/* Conferences in Mobile */}
+            <div className="mt-3 mb-1 text-xs font-semibold text-gray-400 uppercase tracking-wide">Conferences</div>
+            <a href="https://www.ieeesmc.org/cai-2026/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
+              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">CAI 2026</div>
+            </a>
+            <a href="https://rtip2r-conference.org/2025/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
+              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">RTIP2R 2025</div>
+            </a>
           </div>
         </div>
         
