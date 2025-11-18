@@ -343,26 +343,12 @@ const NavBar: React.FC = () => {
                     transition: 'all 0.2s',
                     position: 'relative'
                   }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsConferencesOpen(!isConferencesOpen);
-                  }}
-                  onMouseOver={(e) => {
-                    if (!isConferencesOpen) {
-                      (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
-                      (e.target as HTMLElement).style.color = '#dc2626';
-                    }
-                  }}
-                  onMouseOut={(e) => {
-                    if (!isConferencesOpen) {
-                      (e.target as HTMLElement).style.backgroundColor = 'transparent';
-                      (e.target as HTMLElement).style.color = '#374151';
-                    }
-                  }}
+                  onMouseEnter={() => setIsConferencesOpen(true)}
+                  onMouseLeave={() => setIsConferencesOpen(false)}
                 >
                   Conferences
                   
-                  {/* Conference Items - Side Dropdown - Only show on click */}
+                  {/* Conference Items - Side Dropdown - Show on hover */}
                   {isConferencesOpen && (
                     <div 
                       style={{
@@ -398,7 +384,7 @@ const NavBar: React.FC = () => {
                           (e.target as HTMLElement).style.color = '#374151';
                         }}
                         >
-                          CAI 2026
+                          CAI
                         </div>
                       </a>
                       
@@ -419,7 +405,7 @@ const NavBar: React.FC = () => {
                           (e.target as HTMLElement).style.color = '#374151';
                         }}
                         >
-                          RTIP2R 2025
+                          RTIP2R
                         </div>
                       </a>
                     </div>
@@ -567,10 +553,10 @@ const NavBar: React.FC = () => {
             {/* Conferences in Mobile */}
             <div className="mt-3 mb-1 text-xs font-semibold text-gray-400 uppercase tracking-wide">Conferences</div>
             <a href="https://www.ieeesmc.org/cai-2026/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">CAI 2026</div>
+              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">CAI</div>
             </a>
             <a href="https://rtip2r-conference.org/2025/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">RTIP2R 2025</div>
+              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">RTIP2R</div>
             </a>
           </div>
         </div>
