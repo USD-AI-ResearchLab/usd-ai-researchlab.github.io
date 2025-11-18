@@ -29,6 +29,7 @@ const NavBar: React.FC = () => {
       }
       if (initiativesDropdownRef.current && !initiativesDropdownRef.current.contains(event.target as Node)) {
         setIsInitiativesDropdownOpen(false);
+        setIsConferencesOpen(false); // Also close conferences when clicking outside
       }
     };
 
