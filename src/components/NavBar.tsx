@@ -335,19 +335,24 @@ const NavBar: React.FC = () => {
                 {/* Conferences Section */}
                 <div 
                   style={{
-                    padding: '12px 16px',
-                    fontSize: '15px',
-                    fontWeight: 400,
-                    color: isConferencesOpen ? '#dc2626' : '#374151',
-                    backgroundColor: isConferencesOpen ? 'rgba(220, 38, 38, 0.08)' : 'transparent',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
                     position: 'relative'
                   }}
                   onMouseEnter={() => setIsConferencesOpen(true)}
                   onMouseLeave={() => setIsConferencesOpen(false)}
                 >
-                  Conferences
+                  <div
+                    style={{
+                      padding: '12px 16px',
+                      fontSize: '15px',
+                      fontWeight: 400,
+                      color: isConferencesOpen ? '#dc2626' : '#374151',
+                      backgroundColor: isConferencesOpen ? 'rgba(220, 38, 38, 0.08)' : 'transparent',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s'
+                    }}
+                  >
+                    Conferences
+                  </div>
                   
                   {/* Conference Items - Side Dropdown - Show on hover */}
                   {isConferencesOpen && (
@@ -355,14 +360,13 @@ const NavBar: React.FC = () => {
                       style={{
                         position: 'absolute',
                         top: 0,
-                        left: '100%',
+                        left: 'calc(100% - 4px)',
                         backgroundColor: 'rgba(255, 255, 255, 0.98)',
                         backdropFilter: 'blur(20px)',
                         borderRadius: '8px',
                         padding: '8px 0',
                         minWidth: '180px',
                         zIndex: 1001,
-                        marginLeft: '8px',
                         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
                         border: '1px solid rgba(0, 0, 0, 0.05)'
                       }}
