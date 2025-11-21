@@ -24,7 +24,7 @@ const MastersStudents: React.FC = () => {
   };
 
   return (
-    <div className="pt-20 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="pt-20 min-h-screen bg-white">
       <div className="w-full">
         {/* Header */}
         <motion.div className="pl-4 mb-16" variants={fadeInUp}>
@@ -32,7 +32,7 @@ const MastersStudents: React.FC = () => {
             Masters Students
           </h1>
           <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
-          <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
+          <p className="text-lg text-black max-w-3xl leading-relaxed font-thin">
             Our Masters students are developing expertise in artificial intelligence through rigorous coursework and research projects.
           </p>
         </motion.div>

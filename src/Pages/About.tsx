@@ -34,21 +34,73 @@ const About: React.FC = () => {
 
         {/* Main Content Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
-          <p className="text-lg text-gray-700 leading-relaxed mb-6 font-thin">
+          <p className="text-lg text-black leading-relaxed mb-6 font-thin">
             We are excited to have you explore our work, where we push the boundaries of foundational AI and machine learning while embracing sustainable AI solutions.
           </p>
           
-          <p className="text-lg text-gray-700 leading-relaxed mb-6 font-thin">
+          <p className="text-lg text-black leading-relaxed mb-6 font-thin">
             Our research spans green computing, active learning, and scalable as well as robust AI solutions, ensuring efficiency while saying no to carbon footprint.
           </p>
           
-          <p className="text-lg text-gray-700 leading-relaxed mb-6 font-thin">
+          <p className="text-lg text-black leading-relaxed mb-6 font-thin">
             We specialize in areas such as pattern recognition, computer vision, image processing, data mining, and big data analytics. Our interdisciplinary work impacts domains including healthcare informatics, medical imaging, document analysis, biometrics, forensics, speech processing, and the Internet of Things.
           </p>
           
-          <p className="text-lg text-gray-700 leading-relaxed mb-8 font-thin">
+          <p className="text-lg text-black leading-relaxed mb-8 font-thin">
             Join us as we drive AI innovation with sustainability at its core!
           </p>
+        </motion.div>
+
+        {/* News Section */}
+        <motion.div variants={fadeInUp}>
+          <div className="mb-8">
+            <h2 className="text-4xl font-bold text-gray-900 mb-2">News</h2>
+            <div className="w-20 h-1" style={{ backgroundColor: '#C53030' }}></div>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-md p-8">
+            <p className="text-lg text-black mb-6 font-thin">
+              We are part of highly ambitious projects:
+            </p>
+            
+            <div className="space-y-6">
+              {/* Project 1 */}
+              <div className="border-l-4 pl-6 py-2" style={{ borderColor: '#C53030' }}>
+                <h3 className="text-xl font-semibold text-black mb-2">
+                  South Dakota Biomedical Computation Collaborative
+                </h3>
+                <p className="text-black mb-2">
+                  <span className="font-medium" style={{ color: '#C53030' }}>Funding: $7.245M</span>
+                </p>
+                <a 
+                  href="https://sd-bcc.org/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 underline text-sm"
+                >
+                  Visit SD-BCC Website →
+                </a>
+              </div>
+
+              {/* Project 2 */}
+              <div className="border-l-4 pl-6 py-2" style={{ borderColor: '#C53030' }}>
+                <h3 className="text-xl font-semibold text-black mb-2">
+                  Research Infrastructure: CC* Campus Compute
+                </h3>
+                <p className="text-black mb-2">
+                  <span className="font-medium">NSF Award # 2346643</span> | <span className="font-medium" style={{ color: '#C53030' }}>Funding: $0.5M</span>
+                </p>
+                <a 
+                  href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2346643" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 underline text-sm"
+                >
+                  View NSF Award Details →
+                </a>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </div>
