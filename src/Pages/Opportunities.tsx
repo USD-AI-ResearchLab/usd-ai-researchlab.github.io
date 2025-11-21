@@ -75,7 +75,7 @@ const Opportunities: React.FC = () => {
           </div>
 
           {/* Contact Information */}
-          <motion.div variants={fadeInUp} className="mt-12 p-6 bg-gray-50 rounded-lg">
+          <motion.div variants={fadeInUp} className="mt-12 p-6 bg-white border border-gray-200 rounded-lg">
             <h3 className="text-xl font-light mb-4 text-gray-800">
               How to Apply
             </h3>
