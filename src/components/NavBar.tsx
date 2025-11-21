@@ -123,7 +123,7 @@ const NavBar: React.FC = () => {
             onMouseOver={(e) => (e.target as HTMLElement).style.color = '#dc2626'}
             onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
             >
-              About
+              Home
             </div>
           </Link>
 
@@ -420,6 +420,20 @@ const NavBar: React.FC = () => {
             )}
           </div>
 
+          <Link to="/opportunities" style={{ textDecoration: 'none' }}>
+            <div style={{
+              fontSize: '16px',
+              fontWeight: 300,
+              color: '#374151',
+              transition: 'color 0.2s'
+            }}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#dc2626'}
+            onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
+            >
+              Opportunities
+            </div>
+          </Link>
+
           <Link to="/affiliates" style={{ textDecoration: 'none' }}>
             <div style={{
               fontSize: '16px',
@@ -517,7 +531,7 @@ const NavBar: React.FC = () => {
         )}
         
         <Link to="/about" onClick={toggleMenu}>
-          <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">About</div>
+          <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Home</div>
         </Link>
         
         {/* Mobile People Menu */}
@@ -565,6 +579,10 @@ const NavBar: React.FC = () => {
             </a>
           </div>
         </div>
+        
+        <Link to="/opportunities" onClick={toggleMenu}>
+          <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Opportunities</div>
+        </Link>
         
         <Link to="/affiliates" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Affiliates</div>
