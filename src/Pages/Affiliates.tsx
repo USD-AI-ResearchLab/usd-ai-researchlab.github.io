@@ -98,7 +98,7 @@ const Affiliates: React.FC = () => {
         </motion.div>
 
         {/* Partnership Information */}
-        <motion.div className="bg-gray-50 rounded-lg p-8" variants={fadeInUp}>
+        <motion.div className="bg-white border border-gray-200 rounded-lg p-8" variants={fadeInUp}>
           <h3 className="text-xl font-semibold mb-4 text-gray-800">
             Partnership Opportunities
           </h3>
