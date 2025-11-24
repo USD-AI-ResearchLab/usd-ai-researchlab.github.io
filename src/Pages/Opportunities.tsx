@@ -34,41 +34,41 @@ const Opportunities: React.FC = () => {
 
         {/* Main Content Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-2xl font-light mb-6 text-gray-800">
+          <h2 className="text-2xl font-light mb-6 text-black">
             Join Our Research Lab
           </h2>
           
-          <p className="text-lg text-gray-700 leading-relaxed mb-6 font-thin">
+          <p className="text-lg text-black leading-relaxed mb-6 font-thin">
             We are always looking for passionate and motivated individuals to join our research team. Whether you're a prospective graduate student, undergraduate researcher, or collaborator, we welcome you to explore opportunities with us.
           </p>
           
           <div className="space-y-8 mt-10">
             {/* Graduate Students */}
             <motion.div variants={fadeInUp} className="border-l-4 border-red-600 pl-6">
-              <h3 className="text-xl font-light mb-3 text-gray-800">
+              <h3 className="text-xl font-light mb-3 text-black">
                 Graduate Students
               </h3>
-              <p className="text-base text-gray-700 leading-relaxed font-thin">
+              <p className="text-base text-black leading-relaxed font-thin">
                 We are actively recruiting PhD and Master's students interested in AI, machine learning, computer vision, and related fields. If you're passionate about cutting-edge research and innovation, we'd love to hear from you.
               </p>
             </motion.div>
 
             {/* Undergraduate Students */}
             <motion.div variants={fadeInUp} className="border-l-4 border-red-600 pl-6">
-              <h3 className="text-xl font-light mb-3 text-gray-800">
+              <h3 className="text-xl font-light mb-3 text-black">
                 Undergraduate Students
               </h3>
-              <p className="text-base text-gray-700 leading-relaxed font-thin">
+              <p className="text-base text-black leading-relaxed font-thin">
                 Undergraduate students can gain hands-on research experience through independent study projects, summer research programs, or senior capstone projects. This is a great opportunity to explore AI research and prepare for graduate studies.
               </p>
             </motion.div>
 
             {/* Visiting Scholars */}
             <motion.div variants={fadeInUp} className="border-l-4 border-red-600 pl-6">
-              <h3 className="text-xl font-light mb-3 text-gray-800">
+              <h3 className="text-xl font-light mb-3 text-black">
                 Visiting Scholars & Collaborators
               </h3>
-              <p className="text-base text-gray-700 leading-relaxed font-thin">
+              <p className="text-base text-black leading-relaxed font-thin">
                 We welcome visiting scholars and researchers for collaborative projects. If you're interested in working with our team, please reach out to discuss potential collaborations.
               </p>
             </motion.div>
@@ -76,13 +76,13 @@ const Opportunities: React.FC = () => {
 
           {/* Contact Information */}
           <motion.div variants={fadeInUp} className="mt-12 p-6 bg-white border border-gray-200 rounded-lg">
-            <h3 className="text-xl font-light mb-4 text-gray-800">
+            <h3 className="text-xl font-light mb-4 text-black">
               How to Apply
             </h3>
-            <p className="text-base text-gray-700 leading-relaxed font-thin mb-4">
+            <p className="text-base text-black leading-relaxed font-thin mb-4">
               Interested candidates should send their CV, research interests, and relevant materials to the lab director. Please include "Research Opportunity" in the subject line.
             </p>
-            <p className="text-base text-gray-700 leading-relaxed font-thin">
+            <p className="text-base text-black leading-relaxed font-thin">
               For more information, visit our <a href="#/contact" className="text-red-600 hover:text-red-700 underline">Contact page</a>.
             </p>
           </motion.div>
