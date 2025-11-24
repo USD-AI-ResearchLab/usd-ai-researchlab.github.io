@@ -65,7 +65,7 @@ const AISymposium2025: React.FC = () => {
 
   return (
     <div 
-      className="bg-gray-100 min-h-screen"
+      className="bg-white min-h-screen"
       style={{
         backgroundImage: "url('/images/pattern.svg')",
         backgroundAttachment: "fixed",
@@ -258,7 +258,7 @@ const AISymposium2025: React.FC = () => {
                   <div className="py-2 px-3 font-semibold text-white bg-yellow-700 text-center text-sm">
                     Bronze Sponsors
                   </div>
-                  <div className="bg-gray-50 p-2 flex items-center justify-center h-24">
+                  <div className="bg-white border border-gray-200 p-2 flex items-center justify-center h-24">
                     <img 
                       src="/images/sponsor/Area.png" 
                       alt="Area Direct Companies" 
@@ -277,7 +277,7 @@ const AISymposium2025: React.FC = () => {
                   <div className="py-2 px-3 font-semibold text-white bg-gray-400 text-center text-sm">
                     Silver Sponsors
                   </div>
-                  <div className="bg-gray-50 p-2 flex justify-around items-center h-24">
+                  <div className="bg-white border border-gray-200 p-2 flex justify-around items-center h-24">
                     <div className="flex items-center">
                       <img 
                         src="/images/sponsor/ieee_usa.png" 
@@ -298,7 +298,7 @@ const AISymposium2025: React.FC = () => {
                   <div className="py-2 px-3 font-semibold text-white bg-gray-700 text-center text-sm">
                     Industry Partners
                   </div>
-                  <div className="bg-gray-50 px-2 py-1 flex items-center justify-center gap-2 h-24">
+                  <div className="bg-white border border-gray-200 px-2 py-1 flex items-center justify-center gap-2 h-24">
                     <div className="flex items-center">
                       <img 
                         src="/images/sponsor/Area.png" 
@@ -426,7 +426,7 @@ const AISymposium2025: React.FC = () => {
                 ))}
               </div>
 
-              <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="bg-white border border-gray-200 p-6 rounded-lg">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
                   Ready to Sponsor?
                 </h3>
@@ -459,7 +459,7 @@ const AISymposium2025: React.FC = () => {
             <a
               target="_blank"
               href="https://www.usd.edu/Academics/Colleges-and-Schools/college-of-arts-sciences/computer-science/Artificial-Intelligence-Symposium"
-              className="block py-2 px-4 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors"
+              className="block py-2 px-4 bg-white border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
               rel="noopener noreferrer"
             >
               <div className="flex items-center text-gray-800 font-medium">
@@ -469,7 +469,7 @@ const AISymposium2025: React.FC = () => {
             <a
               target="_blank"
               href="https://www.usd.edu/academics/colleges-and-schools/college-of-arts-sciences/south-dakotan-arts-and-sciences/usd-to-host-third-annual-ai-symposium"
-              className="block py-2 px-4 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors"
+              className="block py-2 px-4 bg-white border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
               rel="noopener noreferrer"
             >
               <div className="flex items-center text-gray-800 font-medium">
@@ -479,7 +479,7 @@ const AISymposium2025: React.FC = () => {
             <a
               target="_blank"
               href="https://www.usd.edu/academics/colleges-and-schools/college-of-arts-sciences/south-dakotan-arts-and-sciences/usd-to-host-artificial-intelligence-symposium-march-22"
-              className="block py-2 px-4 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors"
+              className="block py-2 px-4 bg-white border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
               rel="noopener noreferrer"
             >
               <div className="flex items-center text-gray-800 font-medium">
@@ -489,7 +489,7 @@ const AISymposium2025: React.FC = () => {
             <a
               target="_blank"
               href="https://www.usd.edu/the-south-dakotan/usd-to-host-first-ai-symposium-march-16-18"
-              className="block py-2 px-4 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors"
+              className="block py-2 px-4 bg-white border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
               rel="noopener noreferrer"
             >
               <div className="flex items-center text-gray-800 font-medium">
