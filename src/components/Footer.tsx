@@ -9,38 +9,15 @@ const Footer: React.FC = () => {
         <div className="space-y-6">
           {/* Content Text */}
           <div className="space-y-4">
-            <p className="text-gray-600 text-lg leading-relaxed font-thin text-center">
-              Follow us on{' '}
-              <a 
-                href="https://www.linkedin.com/company/kc-ai/posts/?feedView=all"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-thin transition-colors duration-200"
-                style={{ color: 'var(--logo-red, #C53030)' }}
-              >
-                LinkedIn
-              </a>. For general inquiries, reach us by{' '}
-              <a 
-                href="mailto:usd.airesearch.lab@gmail.com"
-                className="font-thin transition-colors duration-200"
-                style={{ color: 'var(--logo-red, #C53030)' }}
-              >
-                email
-              </a>. For technical assistance or questions, please contact{' '}
-              <a 
-                href="mailto:usd.airesearch.lab@gmail.com"
-                className="font-thin transition-colors duration-200"
-                style={{ color: 'var(--logo-red, #C53030)' }}
-              >
-                usd.airesearch.lab@gmail.com
-              </a>.
+            <p className="text-gray-600 text-sm leading-relaxed font-thin text-center" style={{ fontFamily: 'Ubuntu, sans-serif' }}>
+              Follow us on <a href="https://www.linkedin.com/company/kc-ai/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="font-thin transition-colors duration-200" style={{ color: 'var(--logo-red, #C53030)', fontFamily: 'Ubuntu, sans-serif' }}>LinkedIn</a>. For general inquiries, reach us by <a href="mailto:usd.airesearch.lab@gmail.com" className="font-thin transition-colors duration-200" style={{ color: 'var(--logo-red, #C53030)', fontFamily: 'Ubuntu, sans-serif' }}>email</a>. For technical assistance or questions, please contact <a href="mailto:usd.airesearch.lab@gmail.com" className="font-thin transition-colors duration-200" style={{ color: 'var(--logo-red, #C53030)', fontFamily: 'Ubuntu, sans-serif' }}>usd.airesearch.lab@gmail.com</a>.
             </p>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="mt-4 pt-4 text-center">
-          <p className="text-gray-500 text-lg font-thin">
+          <p className="text-gray-500 text-xs font-thin" style={{ fontFamily: 'Ubuntu, sans-serif' }}>
             USD AI RESEARCH LAB 2015
           </p>
         </div>

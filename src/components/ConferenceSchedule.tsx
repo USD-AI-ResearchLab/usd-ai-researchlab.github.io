@@ -50,7 +50,7 @@ const ConferenceSchedule: React.FC = () => {
     <div className="bg-white rounded-lg shadow-md p-6 mb-8">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-2xl font-semibold text-gray-800">
-          📅 Conference Schedule
+          Conference Schedule
         </h2>
         <button
           onClick={() => setIsScheduleOpen(!isScheduleOpen)}

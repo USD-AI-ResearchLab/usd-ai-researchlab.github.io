@@ -50,7 +50,7 @@ const CommitteeMembers: React.FC = () => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-8">
       <h2 className="text-2xl font-semibold text-gray-800 mb-6">
-        👥 Committee Members
+        Committee Members
       </h2>
 
       <div className="space-y-4">
@@ -61,9 +61,6 @@ const CommitteeMembers: React.FC = () => {
               className="w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors"
             >
               <h3 className="font-semibold text-gray-800">{section}</h3>
-              <span style={{ color: '#C53030' }}>
-                {expandedSections[section] ? "▲" : "▼"}
-              </span>
             </button>
             
             {expandedSections[section] && (

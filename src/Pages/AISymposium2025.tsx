@@ -72,18 +72,18 @@ const AISymposium2025: React.FC = () => {
         fontFamily: 'Ubuntu, sans-serif'
       }}
     >
-      <div className="mx-auto px-4 sm:px-6 py-6 max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-7xl">
+      <div className="mx-auto px-4 sm:px-6 py-6 max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-7xl" style={{ paddingTop: '100px' }}>
         {/* Symposium Navbar */}
-        <div className="flex justify-center py-4 px-6 bg-white mb-8 rounded-lg">
+        <div className="flex justify-center py-6 px-6 bg-white mb-8 rounded-lg">
           <div className="text-center">
-            <h1 className="text-3xl sm:text-5xl font-bold leading-tight" style={{ fontFamily: 'Ubuntu, sans-serif', color: '#C53030' }}>
-              7<sup className="text-xl align-top">th</sup> Artificial Intelligence Symposium*
+            <h1 className="text-2xl sm:text-4xl font-bold leading-normal mb-2" style={{ fontFamily: 'Ubuntu, sans-serif', color: '#C53030' }}>
+              7th Artificial Intelligence Symposium
             </h1>
             <p className="text-lg sm:text-xl text-gray-800 mt-1 font-semibold">
               June 26–27, 2025
             </p>
             <p className="text-sm sm:text-base text-gray-500 italic mt-1">
-              * Formerly known as the Data Harnessing Symposium (held in 2018 and 2019)
+              Formerly known as the Data Harnessing Symposium (held in 2018 and 2019)
             </p>
           </div>
         </div>
@@ -380,7 +380,7 @@ const AISymposium2025: React.FC = () => {
           {/* Become a Sponsor Content */}
           {activeTab === "become" && (
             <div>
-              <div className="p-4 rounded-lg mb-6" style={{ backgroundColor: '#f8f3f3' }}>
+              <div className="p-4 rounded-lg mb-6" style={{ backgroundColor: 'white' }}>
                 <div className="flex items-start">
                   <span className="h-6 w-6 mr-3 mt-1" style={{ color: '#C53030' }}></span>
                   <div>
