@@ -19,17 +19,5 @@ export const staffData: Person[] = [
     role: "PhD Student | Research Assistant",
     photo: "/AILab/images/team/casey-wall.jpg",
     memberKey: "casey-wall"
-  },
-  {
-    name: "David Cortes",
-    role: "PhD Student | Research Assistant",
-    photo: "/AILab/images/team/david-cortes.jpg",
-    memberKey: "david-cortes"
-  },
-  {
-    name: "Priyam Pandey",
-    role: "PhD Student | Research Assistant",
-    photo: "/AILab/images/team/priyam-pandey.jpg",
-    memberKey: "priyam-pandey"
   }
 ];

@@ -12,7 +12,10 @@ const Alumni: React.FC = () => {
   };
 
   const categories = [
-    'All'
+    'All',
+    'PhD', 
+    'Masters',
+    'Postdoc'
   ];
 
   const letters = [
@@ -24,145 +27,439 @@ const Alumni: React.FC = () => {
   const alumni = [
     // PhD Alumni
     {
-      name: "Dr. John Smith",
+      name: "David Cortes",
       degree: "PhD",
-      year: "2023",
-      currentPosition: "Research Scientist at Google",
+      year: "2024",
+      currentPosition: "PhD Student | Computer Science",
       category: "Alumni"
     },
     {
-      name: "Dr. Emily Chen",
-      degree: "PhD", 
-      year: "2022",
-      currentPosition: "Assistant Professor at Stanford University",
-      category: "Alumni"
-    },
-    {
-      name: "Dr. Michael Johnson",
+      name: "Priyam Pandey",
       degree: "PhD",
-      year: "2021", 
-      currentPosition: "Senior Research Engineer at Microsoft",
-      category: "Alumni"
-    },
-    {
-      name: "Dr. Sarah Williams",
-      degree: "PhD",
-      year: "2020",
-      currentPosition: "Principal Data Scientist at Amazon",
-      category: "Alumni"
-    },
-    {
-      name: "Dr. David Brown",
-      degree: "PhD",
-      year: "2019",
-      currentPosition: "Research Director at Meta",
-      category: "Alumni"
-    },
-    {
-      name: "Dr. Lisa Davis",
-      degree: "PhD",
-      year: "2018",
-      currentPosition: "Lead AI Researcher at OpenAI",
-      category: "Alumni"
-    },
-    {
-      name: "Dr. Robert Wilson",
-      degree: "PhD",
-      year: "2017",
-      currentPosition: "Senior Machine Learning Engineer at Tesla",
-      category: "Alumni"
-    },
-    {
-      name: "Dr. Anna Martinez",
-      degree: "PhD",
-      year: "2016",
-      currentPosition: "Research Scientist at DeepMind",
+      year: "2024",
+      currentPosition: "PhD Student | Computer Science",
       category: "Alumni"
     },
 
     // Master's Alumni
     {
-      name: "James Anderson",
+      name: "Chenchaiah Mekalathu",
       degree: "Master's",
-      year: "2023", 
-      currentPosition: "Data Scientist at Microsoft",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
       category: "Alumni"
     },
     {
-      name: "Maria Rodriguez",
+      name: "Kanishka Parankusham",
       degree: "Master's",
-      year: "2023",
-      currentPosition: "Machine Learning Engineer at Google",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
       category: "Alumni"
     },
     {
-      name: "Kevin Lee",
+      name: "Neerajdattu Dudam",
       degree: "Master's",
-      year: "2022",
-      currentPosition: "Software Engineer at Apple",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
       category: "Alumni"
     },
     {
-      name: "Jennifer Taylor",
+      name: "Akshay Reddy",
       degree: "Master's",
-      year: "2022",
-      currentPosition: "Data Analyst at Netflix",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
       category: "Alumni"
     },
     {
-      name: "Christopher White",
+      name: "Mohammad Navid Nayyem",
       degree: "Master's",
-      year: "2021",
-      currentPosition: "Research Associate at IBM",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
       category: "Alumni"
     },
     {
-      name: "Ashley Thompson",
+      name: "KrishnaPhanindra Marupaka",
       degree: "Master's",
-      year: "2021",
-      currentPosition: "AI Specialist at Nvidia",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
       category: "Alumni"
     },
     {
-      name: "Daniel Garcia",
+      name: "Deepika Nuthalapati",
       degree: "Master's",
-      year: "2020",
-      currentPosition: "Senior Data Scientist at Uber",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
       category: "Alumni"
     },
     {
-      name: "Nicole Clark",
+      name: "Satya Mouli Dhangati",
       degree: "Master's",
-      year: "2020",
-      currentPosition: "Machine Learning Engineer at Spotify",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
       category: "Alumni"
     },
     {
-      name: "Ryan Adams",
+      name: "Sivani Maddepalli",
       degree: "Master's",
-      year: "2019",
-      currentPosition: "Product Manager at Facebook",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
       category: "Alumni"
     },
     {
-      name: "Stephanie Moore",
+      name: "Sainath Vaddi",
       degree: "Master's",
-      year: "2019",
-      currentPosition: "Data Science Manager at LinkedIn",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
       category: "Alumni"
     },
     {
-      name: "Brandon Hall",
+      name: "Sony Gurram",
       degree: "Master's",
-      year: "2018",
-      currentPosition: "Senior Software Engineer at Twitter",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
       category: "Alumni"
     },
     {
-      name: "Rachel Green",
+      name: "Aashish Ghimire",
       degree: "Master's",
-      year: "2018",
-      currentPosition: "Research Scientist at Adobe",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Sabin Adhikari",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Jayakumar Pujar",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Pooja Singh",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Anup Khanal",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Anushuya Baidya",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "MdAftabul Islam",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "AkhilReddy Mendu",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Anuska Pokharel",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Yslam Ismailov",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Hansakrish Kuttubaskar",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Praveen Paramsivam",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Abhishek Chaudhary",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "A Matthew Chacko",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "KalyanVikram Muppudoju",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Srijana Raut",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Suprim Nakarmi",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Gaurrav Subedi",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Rakshya Dahal",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Alisha Karna",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Aarati Dhungel",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Anup Dhakal",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Ronaj Pradhan",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Md Masum Rana",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Bipul Bhattarai",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Josh Henderson",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Siddhi Kiran Bajracharya",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Hugo Morvan",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Bichar Shrestha Gurung",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Bigyan Shrestha",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Raman Regmi",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Adedeji Waisu Yusuff",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Muntamir Mamun",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Rafia Sharmin Alice",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Casey Wall",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Nikita Shrestha",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Siva Allu",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Prakash Madai",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Shotadbi Roy",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Supriti Ghosh",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Bruce Stofft",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Afia Farjana",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Jahirul Islam",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Haidong Wang",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Alina Chu",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Airu Liu",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Fatema Tu Zohora",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "A Afaque",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Nikul Vyas",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Grad Student (G/RA)",
       category: "Alumni"
     }
   ];
@@ -170,7 +467,8 @@ const Alumni: React.FC = () => {
   const filteredAlumni = alumni.filter(person => {
     const categoryMatch = selectedCategory === 'All' || 
                          (selectedCategory === 'PhD' && person.degree === 'PhD') ||
-                         (selectedCategory === 'Masters' && person.degree === "Master's");
+                         (selectedCategory === 'Masters' && person.degree === "Master's") ||
+                         (selectedCategory === 'Postdoc' && person.degree === 'Postdoc');
     const letterMatch = selectedLetter === 'All' || person.name.charAt(0).toUpperCase() === selectedLetter;
     return categoryMatch && letterMatch;
   });
@@ -248,7 +546,7 @@ const Alumni: React.FC = () => {
 
         {/* Alumni Grid */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
           initial="initial" 
           animate="animate"
           variants={{
@@ -267,17 +565,26 @@ const Alumni: React.FC = () => {
                   initial: { opacity: 0, y: 30 },
                   animate: { opacity: 1, y: 0 }
                 }}
-                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 border"
-                style={{ borderColor: 'var(--logo-red, #C53030)', borderWidth: '1px' }}
+                className="person-card bg-white rounded-xl shadow-lg p-6 text-center h-full flex flex-col items-center justify-between border-2 border-transparent hover:border-logo-red block transition-transform duration-200 hover:scale-105"
               >
-                <h3 
-                  className="text-xl font-medium mb-2"
-                  style={{ color: 'var(--logo-red, #C53030)' }}
-                >
-                  {person.name}
-                </h3>
-                <p className="text-gray-600 mb-1">{person.degree} - {person.year}</p>
-                <p className="text-gray-700 text-sm">{person.currentPosition}</p>
+                <div className="flex flex-col items-center flex-1">
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-gray-100 shadow-lg bg-white">
+                    <div className="w-full h-full flex items-center justify-center text-white font-bold text-2xl bg-gradient-to-br from-red-600 to-red-500">
+                      {person.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3 line-clamp-2 leading-tight text-red-600">
+                    {person.name}
+                  </h3>
+                </div>
+                <div className="mt-auto">
+                  <p className="text-sm font-medium text-gray-800 line-clamp-3 leading-relaxed mb-3">
+                    {person.currentPosition}
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    {person.degree} - {person.year}
+                  </p>
+                </div>
               </motion.div>
             ))
           ) : (

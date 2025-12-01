@@ -2,12 +2,6 @@ import { Person } from './faculty';
 
 export const studentsData: Person[] = [
   {
-    name: "David Cortes",
-    role: "PhD Student | Computer Science",
-    memberKey: "david-cortes",
-    url: "https://www.linkedin.com/in/david-neun-ai-robotics/"
-  },
-  {
     name: "Casey Wall",
     role: "PhD Student | Computer Science",
     memberKey: "casey-wall",
@@ -18,12 +12,6 @@ export const studentsData: Person[] = [
     role: "PhD Student | Computer Science",
     memberKey: "nickolas-rasmussen",
     url: "https://www.linkedin.com/in/nicholas-rasmussen-022902174/"
-  },
-  {
-    name: "Priyam Pandey",
-    role: "PhD Student | Computer Science",
-    memberKey: "priyam-pandey",
-    url: "https://www.linkedin.com/in/priyam-pandey-09b134142/"
   },
   {
     name: "Moinak Bose",
