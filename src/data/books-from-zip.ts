@@ -4,7 +4,7 @@ export interface ZipBook {
 }
 
 export const ZIP_BOOKS: ZipBook[] = [
-  { href: "https://kc-santosh.org/", imageSrc: "/images/books/book3.png" },
+  { href: "https://usd-ai-researchlab.github.io/#/publications", imageSrc: "/images/books/book3.png" },
   { href: "https://link.springer.com/book/10.1007/978-981-97-2720-9", imageSrc: "/images/books/book-crackML.png" },
   { href: "https://link.springer.com/book/9789819974412", imageSrc: "/images/books/book5.png" },
   { href: "https://link.springer.com/book/10.1007/978-981-19-3935-8", imageSrc: "/images/books/book2.png" },
