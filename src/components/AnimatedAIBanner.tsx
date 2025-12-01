@@ -21,7 +21,7 @@ const AnimatedAIBanner: React.FC = () => {
             <stop offset="100%" stopColor="#b91c1c">
               <animate
                 attributeName="stop-color"
-                values="#b91c1c;#dc2626;#b91c1c"
+                values="#b91c1c;#C53030;#b91c1c"
                 dur="4s"
                 repeatCount="indefinite"
               />
@@ -56,7 +56,7 @@ const AnimatedAIBanner: React.FC = () => {
             patternUnits="userSpaceOnUse"
           >
             {/* Animated nodes with more visual interest */}
-            <circle cx="50" cy="50" r="4" fill="#f87171">
+            <circle cx="50" cy="50" r="4" fill="#C53030">
               <animate
                 attributeName="r"
                 values="4;8;4"
@@ -65,12 +65,12 @@ const AnimatedAIBanner: React.FC = () => {
               />
               <animate
                 attributeName="fill"
-                values="#f87171;#fef2f2;#f87171"
+                values="#C53030;#fef2f2;#C53030"
                 dur="3s"
                 repeatCount="indefinite"
               />
             </circle>
-            <circle cx="150" cy="80" r="4" fill="#f87171">
+            <circle cx="150" cy="80" r="4" fill="#C53030">
               <animate
                 attributeName="r"
                 values="4;8;4"
@@ -80,13 +80,13 @@ const AnimatedAIBanner: React.FC = () => {
               />
               <animate
                 attributeName="fill"
-                values="#f87171;#fef2f2;#f87171"
+                values="#C53030;#fef2f2;#C53030"
                 dur="3s"
                 begin="0.3s"
                 repeatCount="indefinite"
               />
             </circle>
-            <circle cx="250" cy="40" r="4" fill="#f87171">
+            <circle cx="250" cy="40" r="4" fill="#C53030">
               <animate
                 attributeName="r"
                 values="4;8;4"
@@ -96,13 +96,13 @@ const AnimatedAIBanner: React.FC = () => {
               />
               <animate
                 attributeName="fill"
-                values="#f87171;#fef2f2;#f87171"
+                values="#C53030;#fef2f2;#C53030"
                 dur="3s"
                 begin="0.6s"
                 repeatCount="indefinite"
               />
             </circle>
-            <circle cx="80" cy="170" r="4" fill="#f87171">
+            <circle cx="80" cy="170" r="4" fill="#C53030">
               <animate
                 attributeName="r"
                 values="4;8;4"
@@ -112,13 +112,13 @@ const AnimatedAIBanner: React.FC = () => {
               />
               <animate
                 attributeName="fill"
-                values="#f87171;#fef2f2;#f87171"
+                values="#C53030;#fef2f2;#C53030"
                 dur="3s"
                 begin="0.9s"
                 repeatCount="indefinite"
               />
             </circle>
-            <circle cx="200" cy="190" r="4" fill="#f87171">
+            <circle cx="200" cy="190" r="4" fill="#C53030">
               <animate
                 attributeName="r"
                 values="4;8;4"
@@ -128,13 +128,13 @@ const AnimatedAIBanner: React.FC = () => {
               />
               <animate
                 attributeName="fill"
-                values="#f87171;#fef2f2;#f87171"
+                values="#C53030;#fef2f2;#C53030"
                 dur="3s"
                 begin="1.2s"
                 repeatCount="indefinite"
               />
             </circle>
-            <circle cx="270" cy="140" r="4" fill="#f87171">
+            <circle cx="270" cy="140" r="4" fill="#C53030">
               <animate
                 attributeName="r"
                 values="4;8;4"
@@ -144,7 +144,7 @@ const AnimatedAIBanner: React.FC = () => {
               />
               <animate
                 attributeName="fill"
-                values="#f87171;#fef2f2;#f87171"
+                values="#C53030;#fef2f2;#C53030"
                 dur="3s"
                 begin="1.5s"
                 repeatCount="indefinite"
@@ -157,7 +157,7 @@ const AnimatedAIBanner: React.FC = () => {
               y1="50"
               x2="150"
               y2="80"
-              stroke="#f87171"
+              stroke="#C53030"
               strokeWidth="1"
               strokeOpacity="0.3"
             >
@@ -173,7 +173,7 @@ const AnimatedAIBanner: React.FC = () => {
               y1="80"
               x2="250"
               y2="40"
-              stroke="#f87171"
+              stroke="#C53030"
               strokeWidth="1"
               strokeOpacity="0.3"
             >
@@ -190,7 +190,7 @@ const AnimatedAIBanner: React.FC = () => {
               y1="170"
               x2="150"
               y2="80"
-              stroke="#f87171"
+              stroke="#C53030"
               strokeWidth="1"
               strokeOpacity="0.3"
             >
@@ -207,7 +207,7 @@ const AnimatedAIBanner: React.FC = () => {
               y1="190"
               x2="150"
               y2="80"
-              stroke="#f87171"
+              stroke="#C53030"
               strokeWidth="1"
               strokeOpacity="0.3"
             >
@@ -224,7 +224,7 @@ const AnimatedAIBanner: React.FC = () => {
               y1="140"
               x2="250"
               y2="40"
-              stroke="#f87171"
+              stroke="#C53030"
               strokeWidth="1"
               strokeOpacity="0.3"
             >
@@ -274,7 +274,7 @@ const AnimatedAIBanner: React.FC = () => {
         />
 
         {/* Enhanced glowing accent elements */}
-        <circle cx="950" cy="80" r="60" fill="#f87171" opacity="0.3">
+        <circle cx="950" cy="80" r="60" fill="#C53030" opacity="0.3">
           <animate
             attributeName="opacity"
             values="0.3;0.6;0.3"
@@ -288,7 +288,7 @@ const AnimatedAIBanner: React.FC = () => {
             repeatCount="indefinite"
           />
         </circle>
-        <circle cx="200" cy="220" r="80" fill="#f87171" opacity="0.3">
+        <circle cx="200" cy="220" r="80" fill="#C53030" opacity="0.3">
           <animate
             attributeName="opacity"
             values="0.3;0.6;0.3"
@@ -380,7 +380,7 @@ const AnimatedAIBanner: React.FC = () => {
         {/* Enhanced decorative circuit lines with particle effects */}
         <path
           d="M100,50 L300,50 L350,100 L700,100"
-          stroke="#f87171"
+          stroke="#C53030"
           strokeWidth="2"
           fill="none"
         >
@@ -399,7 +399,7 @@ const AnimatedAIBanner: React.FC = () => {
         </path>
         <path
           d="M1100,50 L900,50 L850,100 L700,100"
-          stroke="#f87171"
+          stroke="#C53030"
           strokeWidth="2"
           fill="none"
         >
@@ -420,7 +420,7 @@ const AnimatedAIBanner: React.FC = () => {
         </path>
         <path
           d="M100,250 L300,250 L350,200 L700,200"
-          stroke="#f87171"
+          stroke="#C53030"
           strokeWidth="2"
           fill="none"
         >
@@ -441,7 +441,7 @@ const AnimatedAIBanner: React.FC = () => {
         </path>
         <path
           d="M1100,250 L900,250 L850,200 L700,200"
-          stroke="#f87171"
+          stroke="#C53030"
           strokeWidth="2"
           fill="none"
         >

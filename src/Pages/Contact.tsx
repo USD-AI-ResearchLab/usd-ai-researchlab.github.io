@@ -49,13 +49,13 @@ const Contact: React.FC = () => {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <span className="text-gray-600 font-medium min-w-[80px]">Email:</span>
-                  <a href="mailto:kc.santosh@usd.edu" className="text-red-600 hover:text-red-700 underline">
+                  <a href="mailto:kc.santosh@usd.edu" className="text-logo-red underline">
                     kc.santosh@usd.edu
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-gray-600 font-medium min-w-[80px]">LinkedIn:</span>
-                  <a href="https://www.linkedin.com/in/kc-santosh/" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-700 underline">
+                  <a href="https://www.linkedin.com/in/kc-santosh/" target="_blank" rel="noopener noreferrer" className="text-logo-red underline">
                     linkedin.com/in/kc-santosh
                   </a>
                 </div>

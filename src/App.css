@@ -62,4 +62,92 @@ div.border-logo-red {
   border-color: #C53030 !important;
 }
 
+/* Override ALL red colors throughout the project with logo red */
+
+/* Text colors - all red variations */
+.text-red-50, .text-red-100, .text-red-200, .text-red-300, 
+.text-red-400, .text-red-500, .text-red-600, .text-red-700, 
+.text-red-800, .text-red-900 {
+  color: #C53030 !important;
+}
+
+/* Hover text colors */
+.hover\:text-red-50:hover, .hover\:text-red-100:hover, .hover\:text-red-200:hover,
+.hover\:text-red-300:hover, .hover\:text-red-400:hover, .hover\:text-red-500:hover,
+.hover\:text-red-600:hover, .hover\:text-red-700:hover, .hover\:text-red-800:hover,
+.hover\:text-red-900:hover {
+  color: #C53030 !important;
+}
+
+/* Background colors */
+.bg-red-50, .bg-red-100, .bg-red-200 {
+  background-color: rgba(197, 48, 48, 0.1) !important;
+}
+
+.bg-red-300, .bg-red-400 {
+  background-color: rgba(197, 48, 48, 0.3) !important;
+}
+
+.bg-red-500, .bg-red-600 {
+  background-color: #C53030 !important;
+}
+
+.bg-red-700, .bg-red-800, .bg-red-900 {
+  background-color: #C53030 !important;
+}
+
+/* Hover background colors */
+.hover\:bg-red-50:hover, .hover\:bg-red-100:hover {
+  background-color: rgba(197, 48, 48, 0.1) !important;
+}
+
+.hover\:bg-red-600:hover, .hover\:bg-red-700:hover {
+  background-color: #C53030 !important;
+}
+
+/* Border colors */
+.border-red-50, .border-red-100, .border-red-200, .border-red-300,
+.border-red-400, .border-red-500, .border-red-600, .border-red-700,
+.border-red-800, .border-red-900 {
+  border-color: #C53030 !important;
+}
+
+/* Hover border colors */
+.hover\:border-red-100:hover, .hover\:border-red-200:hover,
+.hover\:border-red-300:hover, .hover\:border-red-400:hover,
+.hover\:border-red-500:hover, .hover\:border-red-600:hover,
+.hover\:border-red-700:hover, .hover\:border-red-800:hover {
+  border-color: #C53030 !important;
+}
+
+/* Inline style overrides for any hardcoded red colors */
+[style*="color: red"], [style*="color: #dc2626"], [style*="color: #ef4444"],
+[style*="color: #f87171"], [style*="color: #fca5a5"], [style*="color: #dc143c"],
+[style*="color: rgb(220, 38, 38)"], [style*="color: rgb(239, 68, 68)"] {
+  color: #C53030 !important;
+}
+
+[style*="background-color: red"], [style*="background-color: #dc2626"],
+[style*="background-color: #ef4444"], [style*="background-color: rgba(220, 38, 38"] {
+  background-color: #C53030 !important;
+}
+
+[style*="border-color: red"], [style*="border-color: #dc2626"],
+[style*="border-color: #ef4444"] {
+  border-color: #C53030 !important;
+}
+
+/* Focus and active states */
+.focus\:text-red-600:focus, .focus\:text-red-700:focus {
+  color: #C53030 !important;
+}
+
+.focus\:border-red-600:focus, .focus\:border-red-700:focus {
+  border-color: #C53030 !important;
+}
+
+.active\:text-red-600:active, .active\:text-red-700:active {
+  color: #C53030 !important;
+}
+
 /* Force GitHub Pages rebuild */

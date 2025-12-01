@@ -120,7 +120,7 @@ const NavBar: React.FC = () => {
               color: '#374151',
               transition: 'color 0.2s'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#dc2626'}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
             onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
             >
               Home
@@ -143,7 +143,7 @@ const NavBar: React.FC = () => {
                 cursor: 'pointer',
                 userSelect: 'none'
               }}
-              onMouseOver={(e) => (e.target as HTMLElement).style.color = '#dc2626'}
+              onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
               onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
               >
                 People
@@ -180,7 +180,7 @@ const NavBar: React.FC = () => {
                   }}
                   onMouseOver={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
-                    (e.target as HTMLElement).style.color = '#dc2626';
+                    (e.target as HTMLElement).style.color = '#C53030';
                   }}
                   onMouseOut={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'transparent';
@@ -200,7 +200,7 @@ const NavBar: React.FC = () => {
                   }}
                   onMouseOver={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
-                    (e.target as HTMLElement).style.color = '#dc2626';
+                    (e.target as HTMLElement).style.color = '#C53030';
                   }}
                   onMouseOut={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'transparent';
@@ -220,7 +220,7 @@ const NavBar: React.FC = () => {
                   }}
                   onMouseOver={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
-                    (e.target as HTMLElement).style.color = '#dc2626';
+                    (e.target as HTMLElement).style.color = '#C53030';
                   }}
                   onMouseOut={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'transparent';
@@ -241,7 +241,7 @@ const NavBar: React.FC = () => {
               color: '#374151',
               transition: 'color 0.2s'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#dc2626'}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
             onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
             >
               Publications
@@ -264,7 +264,7 @@ const NavBar: React.FC = () => {
                 cursor: 'pointer',
                 userSelect: 'none'
               }}
-              onMouseOver={(e) => (e.target as HTMLElement).style.color = '#dc2626'}
+              onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
               onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
               >
                 Initiatives
@@ -301,7 +301,7 @@ const NavBar: React.FC = () => {
                   }}
                   onMouseOver={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
-                    (e.target as HTMLElement).style.color = '#dc2626';
+                    (e.target as HTMLElement).style.color = '#C53030';
                   }}
                   onMouseOut={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'transparent';
@@ -311,7 +311,7 @@ const NavBar: React.FC = () => {
                     AI Symposium
                   </div>
                 </Link>
-                <Link to="/ai-club" style={{ textDecoration: 'none' }}>
+                <a href="https://usdinvolved.usd.edu/organization/ai-club" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                   <div style={{
                     padding: '12px 16px',
                     fontSize: '15px',
@@ -321,7 +321,7 @@ const NavBar: React.FC = () => {
                   }}
                   onMouseOver={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
-                    (e.target as HTMLElement).style.color = '#dc2626';
+                    (e.target as HTMLElement).style.color = '#C53030';
                   }}
                   onMouseOut={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'transparent';
@@ -330,7 +330,7 @@ const NavBar: React.FC = () => {
                   >
                     AI Club
                   </div>
-                </Link>
+                </a>
                 
                 {/* Conferences Section */}
                 <div 
@@ -345,7 +345,7 @@ const NavBar: React.FC = () => {
                       padding: '12px 16px',
                       fontSize: '15px',
                       fontWeight: 400,
-                      color: isConferencesOpen ? '#dc2626' : '#374151',
+                      color: isConferencesOpen ? '#C53030' : '#374151',
                       backgroundColor: isConferencesOpen ? 'rgba(220, 38, 38, 0.08)' : 'transparent',
                       cursor: 'pointer',
                       transition: 'all 0.2s'
@@ -382,7 +382,7 @@ const NavBar: React.FC = () => {
                         }}
                         onMouseOver={(e) => {
                           (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
-                          (e.target as HTMLElement).style.color = '#dc2626';
+                          (e.target as HTMLElement).style.color = '#C53030';
                         }}
                         onMouseOut={(e) => {
                           (e.target as HTMLElement).style.backgroundColor = 'transparent';
@@ -403,7 +403,7 @@ const NavBar: React.FC = () => {
                         }}
                         onMouseOver={(e) => {
                           (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
-                          (e.target as HTMLElement).style.color = '#dc2626';
+                          (e.target as HTMLElement).style.color = '#C53030';
                         }}
                         onMouseOut={(e) => {
                           (e.target as HTMLElement).style.backgroundColor = 'transparent';
@@ -427,7 +427,7 @@ const NavBar: React.FC = () => {
               color: '#374151',
               transition: 'color 0.2s'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#dc2626'}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
             onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
             >
               Opportunities
@@ -441,7 +441,7 @@ const NavBar: React.FC = () => {
               color: '#374151',
               transition: 'color 0.2s'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#dc2626'}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
             onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
             >
               Affiliates
@@ -565,9 +565,9 @@ const NavBar: React.FC = () => {
             <Link to="/events/ai-symposium/2025" onClick={toggleMenu}>
               <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">AI Symposium</div>
             </Link>
-            <Link to="/ai-club" onClick={toggleMenu}>
+            <a href="https://usdinvolved.usd.edu/organization/ai-club" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
               <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">AI Club</div>
-            </Link>
+            </a>
             
             {/* Conferences in Mobile */}
             <div className="mt-3 mb-1 text-xs font-semibold text-gray-400 uppercase tracking-wide">Conferences</div>
