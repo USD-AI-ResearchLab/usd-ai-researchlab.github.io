@@ -5,12 +5,9 @@ import bgimage from "../assets/logo.svg";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isPeopleDropdownOpen, setIsPeopleDropdownOpen] = useState<boolean>(false);
   const [isInitiativesDropdownOpen, setIsInitiativesDropdownOpen] = useState<boolean>(false);
   const [isConferencesOpen, setIsConferencesOpen] = useState<boolean>(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const initiativesDropdownRef = useRef<HTMLDivElement>(null);
-  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const initiativesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   
@@ -24,9 +21,6 @@ const NavBar: React.FC = () => {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsPeopleDropdownOpen(false);
-      }
       if (initiativesDropdownRef.current && !initiativesDropdownRef.current.contains(event.target as Node)) {
         setIsInitiativesDropdownOpen(false);
         setIsConferencesOpen(false); // Also close conferences when clicking outside
@@ -36,27 +30,11 @@ const NavBar: React.FC = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      if (dropdownTimeoutRef.current) {
-        clearTimeout(dropdownTimeoutRef.current);
-      }
       if (initiativesTimeoutRef.current) {
         clearTimeout(initiativesTimeoutRef.current);
       }
     };
   }, []);
-
-  const handleMouseEnter = () => {
-    if (dropdownTimeoutRef.current) {
-      clearTimeout(dropdownTimeoutRef.current);
-    }
-    setIsPeopleDropdownOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
-      setIsPeopleDropdownOpen(false);
-    }, 200); // 200ms delay before closing
-  };
 
   const handleInitiativesMouseEnter = () => {
     if (initiativesTimeoutRef.current) {
