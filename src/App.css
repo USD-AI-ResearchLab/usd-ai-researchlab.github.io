@@ -31,3 +31,8 @@ h1.heading-red {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+.body-text-18 {
+  font-size: 18px;
+  font-family: 'Ubuntu', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+}
