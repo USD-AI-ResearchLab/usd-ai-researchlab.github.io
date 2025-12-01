@@ -134,10 +134,25 @@ const NavBar: React.FC = () => {
             </div>
           </Link>
 
-          {/* Initiatives Dropdown */}
+          {/* Initiatives Link */}
+          <Link to="/initiatives" style={{ textDecoration: 'none' }}>
+            <div style={{
+              fontSize: '16px',
+              fontWeight: 300,
+              color: '#374151',
+              transition: 'color 0.2s'
+            }}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
+            onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
+            >
+              Initiatives
+            </div>
+          </Link>
+
+          {/* Initiatives Dropdown (Hidden but keeping for reference) */}
           <div 
             ref={initiativesDropdownRef} 
-            style={{ position: 'relative' }}
+            style={{ position: 'relative', display: 'none' }}
             onMouseEnter={handleInitiativesMouseEnter}
             onMouseLeave={handleInitiativesMouseLeave}
           >
@@ -153,7 +168,7 @@ const NavBar: React.FC = () => {
               onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
               onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
               >
-                Initiatives
+                Initiatives (Dropdown)
               </div>
             </div>
             
@@ -424,14 +439,18 @@ const NavBar: React.FC = () => {
           <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">People</div>
         </Link>
         
+        <Link to="/initiatives" onClick={toggleMenu}>
+          <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Initiatives</div>
+        </Link>
+        
         <Link to="/publications" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Publications</div>
         </Link>
         
-        {/* Mobile Initiatives Menu */}
-        <div>
+        {/* Old Initiatives Dropdown (Hidden but kept for reference) */}
+        <div style={{ display: 'none' }}>
           <div onClick={toggleMenu}>
-            <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors cursor-pointer">Initiatives</div>
+            <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors cursor-pointer">Initiatives (Old Dropdown)</div>
           </div>
           <div className="ml-4 mt-1 space-y-1">
             <Link to="/events/ai-symposium/2025" onClick={toggleMenu}>
