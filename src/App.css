@@ -150,4 +150,13 @@ div.border-logo-red {
   color: #C53030 !important;
 }
 
+/* Custom background colors for red components */
+.bg-red-50-custom {
+  background-color: rgba(197, 48, 48, 0.05) !important;
+}
+
+.bg-red-100-custom {
+  background-color: rgba(197, 48, 48, 0.1) !important;
+}
+
 /* Force GitHub Pages rebuild */

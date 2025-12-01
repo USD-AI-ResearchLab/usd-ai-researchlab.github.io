@@ -18,10 +18,10 @@ const AnimatedAIBanner: React.FC = () => {
                 repeatCount="indefinite"
               />
             </stop>
-            <stop offset="100%" stopColor="#b91c1c">
+            <stop offset="100%" stopColor="#C53030">
               <animate
                 attributeName="stop-color"
-                values="#b91c1c;#C53030;#b91c1c"
+                values="#C53030;#C53030;#C53030"
                 dur="4s"
                 repeatCount="indefinite"
               />
@@ -45,7 +45,7 @@ const AnimatedAIBanner: React.FC = () => {
                 repeatCount="indefinite"
               />
             </stop>
-            <stop offset="100%" stopColor="#b91c1c" stopOpacity="0" />
+            <stop offset="100%" stopColor="#C53030" stopOpacity="0" />
           </radialGradient>
 
           {/* Enhanced node connection pattern */}

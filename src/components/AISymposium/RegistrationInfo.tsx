@@ -42,7 +42,7 @@ const RegistrationInfo: React.FC = () => {
               href="https://events.vtools.ieee.org/event/register/487885"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-red-600 underline hover:text-red-800"
+              className="text-logo-red underline hover:text-logo-red"
             >
               https://events.vtools.ieee.org/event/register/487885
             </a>

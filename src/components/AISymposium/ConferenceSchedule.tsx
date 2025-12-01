@@ -84,7 +84,7 @@ const ConferenceSchedule: React.FC = () => {
                 key={key}
                 className={`py-2 px-4 font-medium ${
                   activeDay === key
-                    ? "border-b-2 border-red-500 text-red-600"
+                    ? "border-b-2 border-red-500 text-logo-red"
                     : "text-gray-600"
                 }`}
                 onClick={() => setActiveDay(key)}
@@ -117,7 +117,7 @@ const ConferenceSchedule: React.FC = () => {
           <div className="mt-6 text-center">
             <a
               href="/resources/AI Symposium Agenda _ Final.pdf"
-              className="text-red-600 underline font-medium"
+              className="text-logo-red underline font-medium"
               download
             >
               📥 Download Full Schedule (PDF)

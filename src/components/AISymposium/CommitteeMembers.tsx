@@ -92,7 +92,7 @@ const CommitteeMembers: React.FC = () => {
         <div className="mt-4 border-t pt-4 space-y-6">
           {Object.entries(committeeData).map(([title, members], idx) => (
             <div key={idx}>
-              <h3 className="text-xl font-semibold text-red-600 mb-2">{title}</h3>
+              <h3 className="text-xl font-semibold text-logo-red mb-2">{title}</h3>
               <ul className="space-y-1 pl-4 list-disc text-gray-700 text-sm">
                 {members.map((member, memberIdx) => (
                   <li key={memberIdx}>{member}</li>

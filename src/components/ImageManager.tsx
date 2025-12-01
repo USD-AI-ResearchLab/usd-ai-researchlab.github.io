@@ -62,9 +62,9 @@ const ImageManager: React.FC = () => {
             <div className="text-2xl font-bold text-green-600">{totalCount - missingCount}</div>
             <div className="text-sm text-green-700">Images Available</div>
           </div>
-          <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-            <div className="text-2xl font-bold text-red-600">{missingCount}</div>
-            <div className="text-sm text-red-700">Missing Images</div>
+          <div className="bg-red-50-custom p-4 rounded-lg border border-logo-red">
+            <div className="text-2xl font-bold text-logo-red">{missingCount}</div>
+            <div className="text-sm text-logo-red">Missing Images</div>
           </div>
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
             <div className="text-2xl font-bold text-blue-600">{totalCount}</div>
@@ -101,7 +101,7 @@ const ImageManager: React.FC = () => {
             className={`p-4 rounded-lg border-2 ${
               status.exists 
                 ? 'bg-green-50 border-green-200' 
-                : 'bg-red-50 border-red-200'
+                : 'bg-red-50-custom border-logo-red'
             }`}
           >
             <div className="flex items-center justify-between">
@@ -114,7 +114,7 @@ const ImageManager: React.FC = () => {
                 <span className={`px-2 py-1 rounded text-xs font-medium ${
                   status.exists 
                     ? 'bg-green-100 text-green-800' 
-                    : 'bg-red-100 text-red-800'
+                    : 'bg-red-100-custom text-logo-red'
                 }`}>
                   {status.exists ? '✅ Available' : '❌ Missing'}
                 </span>

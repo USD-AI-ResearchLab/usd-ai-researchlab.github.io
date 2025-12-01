@@ -97,10 +97,10 @@ const StatsComponent: React.FC = () => {
           const IconComponent = stat.icon;
           return (
             <div key={index} className="text-center">
-              <div className="bg-red-100 p-3 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+              <div className="bg-red-100-custom p-3 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
                 <IconComponent />
               </div>
-              <div className="text-3xl font-bold text-red-600 mb-1">
+              <div className="text-3xl font-bold text-logo-red mb-1">
                 {isVisible ? <CountUp end={stat.value} /> : 0}
                 {stat.suffix}
               </div>

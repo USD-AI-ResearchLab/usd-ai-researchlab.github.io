@@ -179,7 +179,7 @@ const NavBar: React.FC = () => {
                     transition: 'all 0.2s'
                   }}
                   onMouseOver={(e) => {
-                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
                     (e.target as HTMLElement).style.color = '#C53030';
                   }}
                   onMouseOut={(e) => {
@@ -199,7 +199,7 @@ const NavBar: React.FC = () => {
                     transition: 'all 0.2s'
                   }}
                   onMouseOver={(e) => {
-                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
                     (e.target as HTMLElement).style.color = '#C53030';
                   }}
                   onMouseOut={(e) => {
@@ -219,7 +219,7 @@ const NavBar: React.FC = () => {
                     transition: 'all 0.2s'
                   }}
                   onMouseOver={(e) => {
-                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
                     (e.target as HTMLElement).style.color = '#C53030';
                   }}
                   onMouseOut={(e) => {
@@ -300,7 +300,7 @@ const NavBar: React.FC = () => {
                     transition: 'all 0.2s'
                   }}
                   onMouseOver={(e) => {
-                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
                     (e.target as HTMLElement).style.color = '#C53030';
                   }}
                   onMouseOut={(e) => {
@@ -320,7 +320,7 @@ const NavBar: React.FC = () => {
                     transition: 'all 0.2s'
                   }}
                   onMouseOver={(e) => {
-                    (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
                     (e.target as HTMLElement).style.color = '#C53030';
                   }}
                   onMouseOut={(e) => {
@@ -346,7 +346,7 @@ const NavBar: React.FC = () => {
                       fontSize: '15px',
                       fontWeight: 400,
                       color: isConferencesOpen ? '#C53030' : '#374151',
-                      backgroundColor: isConferencesOpen ? 'rgba(220, 38, 38, 0.08)' : 'transparent',
+                      backgroundColor: isConferencesOpen ? 'rgba(197, 48, 48, 0.08)' : 'transparent',
                       cursor: 'pointer',
                       transition: 'all 0.2s'
                     }}
@@ -381,7 +381,7 @@ const NavBar: React.FC = () => {
                           transition: 'all 0.2s'
                         }}
                         onMouseOver={(e) => {
-                          (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                          (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
                           (e.target as HTMLElement).style.color = '#C53030';
                         }}
                         onMouseOut={(e) => {
@@ -402,7 +402,7 @@ const NavBar: React.FC = () => {
                           transition: 'all 0.2s'
                         }}
                         onMouseOver={(e) => {
-                          (e.target as HTMLElement).style.backgroundColor = 'rgba(220, 38, 38, 0.08)';
+                          (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
                           (e.target as HTMLElement).style.color = '#C53030';
                         }}
                         onMouseOut={(e) => {
@@ -531,61 +531,61 @@ const NavBar: React.FC = () => {
         )}
         
         <Link to="/about" onClick={toggleMenu}>
-          <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Home</div>
+          <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Home</div>
         </Link>
         
         {/* Mobile People Menu */}
         <div>
           <div onClick={toggleMenu}>
-            <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors cursor-pointer">People</div>
+            <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors cursor-pointer">People</div>
           </div>
           <div className="ml-4 mt-1 space-y-1">
             <Link to="/faculty" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">Faculty</div>
+              <div className="text-sm font-thin text-gray-600 hover:text-logo-red transition-colors">Faculty</div>
             </Link>
             <Link to="/phd-students" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">PhD Students</div>
+              <div className="text-sm font-thin text-gray-600 hover:text-logo-red transition-colors">PhD Students</div>
             </Link>
             <Link to="/masters-students" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">Masters Students</div>
+              <div className="text-sm font-thin text-gray-600 hover:text-logo-red transition-colors">Masters Students</div>
             </Link>
           </div>
         </div>
         
         <Link to="/publications" onClick={toggleMenu}>
-          <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Publications</div>
+          <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Publications</div>
         </Link>
         
         {/* Mobile Initiatives Menu */}
         <div>
           <div onClick={toggleMenu}>
-            <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors cursor-pointer">Initiatives</div>
+            <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors cursor-pointer">Initiatives</div>
           </div>
           <div className="ml-4 mt-1 space-y-1">
             <Link to="/events/ai-symposium/2025" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">AI Symposium</div>
+              <div className="text-sm font-thin text-gray-600 hover:text-logo-red transition-colors">AI Symposium</div>
             </Link>
             <a href="https://usdinvolved.usd.edu/organization/ai-club" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">AI Club</div>
+              <div className="text-sm font-thin text-gray-600 hover:text-logo-red transition-colors">AI Club</div>
             </a>
             
             {/* Conferences in Mobile */}
             <div className="mt-3 mb-1 text-xs font-semibold text-gray-400 uppercase tracking-wide">Conferences</div>
             <a href="https://www.ieeesmc.org/cai-2026/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">CAI</div>
+              <div className="text-sm font-thin text-gray-600 hover:text-logo-red transition-colors">CAI</div>
             </a>
             <a href="https://rtip2r-conference.org/2025/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-red-600 transition-colors">RTIP2R</div>
+              <div className="text-sm font-thin text-gray-600 hover:text-logo-red transition-colors">RTIP2R</div>
             </a>
           </div>
         </div>
         
         <Link to="/opportunities" onClick={toggleMenu}>
-          <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Opportunities</div>
+          <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Opportunities</div>
         </Link>
         
         <Link to="/affiliates" onClick={toggleMenu}>
-          <div className="text-lg font-thin text-gray-700 hover:text-red-600 transition-colors">Affiliates</div>
+          <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Affiliates</div>
         </Link>
       </div>
     </>

@@ -38,7 +38,7 @@ const AISymposiumBanner: React.FC = () => {
           </div>
           
           <div className="flex items-center mt-4">
-            <span className="bg-white text-red-600 px-3 py-1 rounded-full text-sm font-semibold mr-3">
+            <span className="bg-white text-logo-red px-3 py-1 rounded-full text-sm font-semibold mr-3">
               FREE EVENT
             </span>
             <span className="text-sm opacity-80">
