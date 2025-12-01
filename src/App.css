@@ -47,4 +47,19 @@ h1.heading-red {
 
 .border-logo-red {
   border-color: #C53030 !important;
-}/* Force GitHub Pages rebuild */
+}
+
+/* More specific selectors to override Tailwind */
+a.text-logo-red {
+  color: #C53030 !important;
+}
+
+a.text-logo-red:hover {
+  color: #A02727 !important;
+}
+
+div.border-logo-red {
+  border-color: #C53030 !important;
+}
+
+/* Force GitHub Pages rebuild */
