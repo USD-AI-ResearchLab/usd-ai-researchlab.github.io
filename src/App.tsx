@@ -12,6 +12,7 @@ import Publications from "./Pages/Publications";
 import Initiatives from "./Pages/Initiatives";
 import Contact from "./Pages/Contact";
 import Affiliates from "./Pages/Affiliates";
+import Alumni from "./Pages/Alumni";
 import Opportunities from "./Pages/Opportunities";
 import AISymposium2025 from "./Pages/AISymposium2025";
 
@@ -32,6 +33,7 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/opportunities" element={<Opportunities />} />
           <Route path="/affiliates" element={<Affiliates />} />
+          <Route path="/alumni" element={<Alumni />} />
           <Route path="/events/ai-symposium/2025" element={<AISymposium2025 />} />
         </Routes>
       </main>

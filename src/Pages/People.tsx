@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const People: React.FC = () => {
+  const [activeCard, setActiveCard] = useState<number | null>(null);
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -12,41 +13,41 @@ const People: React.FC = () => {
   const categories = [
     {
       title: "Faculty",
-      description: "Distinguished faculty members leading cutting-edge research in AI and ML",
-      link: "/faculty",
-      icon: "🎓"
+      link: "/faculty"
     },
     {
       title: "PhD Students", 
-      description: "Doctoral researchers advancing the frontiers of artificial intelligence",
-      link: "/phd-students",
-      icon: "🔬"
+      link: "/phd-students"
     },
     {
-      title: "Masters Students",
-      description: "Graduate students contributing to innovative research projects", 
-      link: "/masters-students",
-      icon: "📚"
+      title: "Master's Students",
+      link: "/masters-students"
+    },
+    {
+      title: "Alumni",
+      link: "/alumni"
     }
   ];
 
   return (
-    <div className="pt-20 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="pt-20 min-h-screen bg-white">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <motion.div className="mb-16 text-center" variants={fadeInUp} initial="initial" animate="animate">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030)' }}>
+        <motion.div className="mb-16 text-left" variants={fadeInUp} initial="initial" animate="animate">
+          <h1 
+            className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4"
+            style={{ 
+              color: 'var(--logo-red, #C53030)' 
+            }}
+          >
             Our People
           </h1>
-          <div className="w-24 h-1 mx-auto mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Meet the brilliant minds behind our groundbreaking research in artificial intelligence and machine learning.
-          </p>
+          <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
         </motion.div>
 
-        {/* Categories Grid */}
+        {/* Categories Cards */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-4 gap-8 max-w-6xl mx-auto"
           initial="initial" 
           animate="animate"
           variants={{
@@ -64,24 +65,38 @@ const People: React.FC = () => {
                 initial: { opacity: 0, y: 30 },
                 animate: { opacity: 1, y: 0 }
               }}
-              whileHover={{ y: -5, scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
               <Link to={category.link} className="block">
-                <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                  <div className="text-4xl mb-4 text-center">{category.icon}</div>
-                  <h3 className="text-2xl font-semibold mb-4 text-center" style={{ color: 'var(--logo-red, #C53030)' }}>
-                    {category.title}
-                  </h3>
-                  <p className="text-gray-600 text-center leading-relaxed">
-                    {category.description}
-                  </p>
-                  <div className="mt-6 text-center">
-                    <span className="text-logo-red font-medium transition-colors">
-                      View {category.title} →
-                    </span>
+                <motion.div 
+                  className="rounded-lg p-8 hover:shadow-lg transition-all duration-300 text-center h-96 flex items-center justify-center border"
+                  style={{ 
+                    backgroundColor: activeCard === index ? 'var(--logo-red, #C53030)' : 'white',
+                    borderColor: 'var(--logo-red, #C53030)',
+                    borderWidth: '1px'
+                  }}
+                  whileHover={{ y: -2, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onTapStart={() => setActiveCard(index)}
+                  onTap={() => setTimeout(() => setActiveCard(null), 150)}
+                >
+                  <div className="text-left">
+                    <h3 
+                      className="text-2xl md:text-3xl font-thin mb-2"
+                      style={{ 
+                        color: activeCard === index ? 'white' : 'var(--logo-red, #C53030)'
+                      }}
+                    >
+                      {category.title}
+                    </h3>
+                    <div 
+                      className="w-16 h-0.5" 
+                      style={{ 
+                        backgroundColor: activeCard === index ? 'white' : 'var(--logo-red, #C53030)'
+                      }}
+                    ></div>
                   </div>
-                </div>
+                </motion.div>
               </Link>
             </motion.div>
           ))}
