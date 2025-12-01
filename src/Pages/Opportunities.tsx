@@ -44,7 +44,7 @@ const Opportunities: React.FC = () => {
             </p>
             
             <p className="body-text-18 text-black leading-relaxed font-thin">
-              Before applying, please review our recent <a href="#/publications" className="text-red-600 hover:text-red-700 underline">publications</a> to ensure that your research interests and background are strongly aligned with the group's current directions. Open positions will be listed below. Application review begins immediately and continues until all positions are filled.
+              Before applying, please review our recent <a href="#/publications" className="text-logo-red underline">publications</a> to ensure that your research interests and background are strongly aligned with the group's current directions. Open positions will be listed below. Application review begins immediately and continues until all positions are filled.
             </p>
             
             <p className="body-text-18 text-black leading-relaxed font-thin italic">
@@ -54,7 +54,7 @@ const Opportunities: React.FC = () => {
           
           <div className="space-y-8 mt-10">
             {/* PhD Students */}
-            <motion.div variants={fadeInUp} className="border-l-4 border-red-600 pl-6">
+            <motion.div variants={fadeInUp} className="border-l-4 border-logo-red pl-6">
               <h3 className="text-xl font-light mb-3 text-black">
                 PhD Students
               </h3>
@@ -67,7 +67,7 @@ const Opportunities: React.FC = () => {
               
               <div className="bg-white border border-gray-200 p-4 rounded-lg mt-4 mb-4">
                 <p className="body-text-18 text-black leading-relaxed font-thin mb-3">
-                  We have open positions for PhD students. Please send the application to <a href="mailto:kc.santosh@usd.edu" className="text-red-600 hover:text-red-700 underline">kc.santosh@usd.edu</a> with the subject line "PhD Application - USD AI Lab 2025":
+                  We have open positions for PhD students. Please send the application to <a href="mailto:usd.airesearch.lab@gmail.com" className="text-logo-red underline">usd.airesearch.lab@gmail.com</a> with the subject line "PhD Application - USD AI Lab 2025":
                 </p>
                 <ul className="list-disc list-inside body-text-18 text-black leading-relaxed font-thin space-y-1 ml-4">
                   <li>CV</li>
@@ -90,7 +90,7 @@ const Opportunities: React.FC = () => {
             </motion.div>
 
             {/* Postdoctoral Researchers */}
-            <motion.div variants={fadeInUp} className="border-l-4 border-red-600 pl-6">
+            <motion.div variants={fadeInUp} className="border-l-4 border-logo-red pl-6">
               <h3 className="text-xl font-light mb-3 text-black">
                 Postdoctoral Researchers
               </h3>
@@ -104,7 +104,7 @@ const Opportunities: React.FC = () => {
               
               <div className="bg-white border border-gray-200 p-4 rounded-lg mt-4 mb-4">
                 <p className="body-text-18 text-black leading-relaxed font-thin mb-3">
-                  We have open positions for postdoctoral researchers. Please send the application to <a href="mailto:kc.santosh@usd.edu" className="text-red-600 hover:text-red-700 underline">kc.santosh@usd.edu</a> with the subject line "Postdoc Application - USD AI Lab 2025":
+                  We have open positions for postdoctoral researchers. Please send the application to <a href="mailto:usd.airesearch.lab@gmail.com" className="text-logo-red underline">usd.airesearch.lab@gmail.com</a> with the subject line "Postdoc Application - USD AI Lab 2025":
                 </p>
                 <ul className="list-disc list-inside body-text-18 text-black leading-relaxed font-thin space-y-1 ml-4">
                   <li>CV including publication list</li>
@@ -114,7 +114,7 @@ const Opportunities: React.FC = () => {
               </div>
               
               <p className="body-text-18 text-black leading-relaxed font-thin mb-2">
-                You may additionally consider applying to competitive fellowships (in case you are submitting to one of those, please send an email to <a href="mailto:kc.santosh@usd.edu" className="text-red-600 hover:text-red-700 underline">kc.santosh@usd.edu</a> with the subject line "Fellowship Application - USD AI Lab 2025"):
+                You may additionally consider applying to competitive fellowships (in case you are submitting to one of those, please send an email to <a href="mailto:usd.airesearch.lab@gmail.com" className="text-logo-red underline">usd.airesearch.lab@gmail.com</a> with the subject line "Fellowship Application - USD AI Lab 2025"):
               </p>
               <ul className="list-disc list-inside body-text-18 text-black leading-relaxed font-thin space-y-1 ml-4">
                 <li>NSF Postdoctoral Research Fellowship</li>
@@ -124,7 +124,7 @@ const Opportunities: React.FC = () => {
             </motion.div>
 
             {/* Short Research Visits / Internships */}
-            <motion.div variants={fadeInUp} className="border-l-4 border-red-600 pl-6">
+            <motion.div variants={fadeInUp} className="border-l-4 border-logo-red pl-6">
               <h3 className="text-xl font-light mb-3 text-black">
                 Short Research Visits / Internships
               </h3>
@@ -144,7 +144,7 @@ const Opportunities: React.FC = () => {
             </motion.div>
 
             {/* Master's Students */}
-            <motion.div variants={fadeInUp} className="border-l-4 border-red-600 pl-6">
+            <motion.div variants={fadeInUp} className="border-l-4 border-logo-red pl-6">
               <h3 className="text-xl font-light mb-3 text-black">
                 Master's Students
               </h3>
@@ -154,7 +154,7 @@ const Opportunities: React.FC = () => {
               
               <div className="bg-white border border-gray-200 p-4 rounded-lg mt-4">
                 <p className="body-text-18 text-black leading-relaxed font-thin mb-3">
-                  <strong>Application Requirements:</strong> Please send your application to <a href="mailto:kc.santosh@usd.edu" className="text-red-600 hover:text-red-700 underline">kc.santosh@usd.edu</a> with the subject line "Master's Research Opportunity":
+                  <strong>Application Requirements:</strong> Please send your application to <a href="mailto:usd.airesearch.lab@gmail.com" className="text-logo-red underline">usd.airesearch.lab@gmail.com</a> with the subject line "Master's Research Opportunity":
                 </p>
                 <ul className="list-disc list-inside body-text-18 text-black leading-relaxed font-thin space-y-1 ml-4">
                   <li>CV and academic transcripts</li>
@@ -165,7 +165,7 @@ const Opportunities: React.FC = () => {
             </motion.div>
 
             {/* Undergraduate Students */}
-            <motion.div variants={fadeInUp} className="border-l-4 border-red-600 pl-6">
+            <motion.div variants={fadeInUp} className="border-l-4 border-logo-red pl-6">
               <h3 className="text-xl font-light mb-3 text-black">
                 Undergraduate Students
               </h3>
@@ -191,7 +191,7 @@ const Opportunities: React.FC = () => {
                 <strong>Funding:</strong> Successful candidates may be supported through research assistantships, teaching assistantships, or external fellowships. We encourage applicants to explore relevant fellowship opportunities.
               </p>
               <p className="body-text-18 text-black leading-relaxed font-thin">
-                For general inquiries, please visit our <a href="#/contact" className="text-red-600 hover:text-red-700 underline">Contact page</a>.
+                For general inquiries, please visit our <a href="#/contact" className="text-logo-red underline">Contact page</a>.
               </p>
             </div>
           </motion.div>

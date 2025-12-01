@@ -36,3 +36,15 @@ h1.heading-red {
   font-size: 18px;
   font-family: 'Ubuntu', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
 }
+
+.text-logo-red {
+  color: #C53030 !important;
+}
+
+.text-logo-red:hover {
+  color: #A02727 !important;
+}
+
+.border-logo-red {
+  border-color: #C53030 !important;
+}
