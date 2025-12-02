@@ -26,10 +26,10 @@ const Affiliates: React.FC = () => {
       >
         {/* Header Section */}
         <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4" style={{ color: 'var(--logo-red)' }}>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-red-600">
             Affiliates
           </h1>
-          <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red)' }}></div>
+          <div className="w-24 h-1 mb-6 bg-red-600"></div>
         </motion.div>
 
         {/* Content Section */}
@@ -39,61 +39,94 @@ const Affiliates: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Sponsors Grid Section */}
+        {/* Partners Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-2xl md:text-3xl font-thin mb-12 text-center" style={{ color: 'var(--logo-red)' }}>
-            Our Sponsors & Partners
+          <h2 className="text-2xl md:text-3xl font-thin mb-12 text-left text-red-600">
+            Our Partners & Collaborators
           </h2>
           
-          {/* Compact Timeline Layout */}
-          <div className="relative max-w-3xl mx-auto">
-            {/* Central Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200"></div>
+          {/* Modern Layout - Categories with Company Names Only */}
+          <div className="max-w-6xl mx-auto space-y-12">
             
-            {/* Industry Partners - Left Side */}
-            <div className="relative flex justify-end pr-6 mb-10">
-              <div className="w-1/2 text-right">
-                <div className="bg-white rounded-lg shadow-md p-4 border border-gray-100">
-                  <h3 className="text-lg font-medium mb-3" style={{ color: 'var(--logo-red)' }}>Industry Partners</h3>
-                  <div className="flex justify-end space-x-4">
-                    <img src="/images/sponsor/Area.png" alt="Area Companies" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                    <img src="/images/sponsor/Sterling.png" alt="Sterling" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                    <img src="/images/sponsor/dakota.png" alt="Dakota State" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                  </div>
+            {/* Categories with Company Names */}
+            <div className="space-y-8">
+              
+              <motion.div 
+                className="border-l-4 border-red-600 pl-6"
+                variants={fadeInUp}
+              >
+                <h3 className="text-xl font-semibold mb-4 text-gray-800 font-ubuntu">Industry Partners</h3>
+                <div className="text-gray-700 leading-relaxed space-y-2">
+                  <p>Sterling</p>
+                  <p>Vermillion Area Chamber & Development</p>
+                  <p>Dakota PC</p>
                 </div>
-                {/* Timeline Dot */}
-                <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full" style={{ backgroundColor: 'var(--logo-red)' }}></div>
-              </div>
+              </motion.div>
+              
+              {/* Academic Partners */}
+              <motion.div 
+                className="border-l-4 border-red-600 pl-6"
+                variants={fadeInUp}
+              >
+                <h3 className="text-xl font-semibold mb-4 text-gray-800 font-ubuntu">Academic Partners</h3>
+                <div className="text-gray-700 leading-relaxed space-y-2">
+                  <p>South Dakota Biomedical Computing Consortium (SDBCC)</p>
+                </div>
+              </motion.div>
+              
+              {/* Professional Organizations */}
+              <motion.div 
+                className="border-l-4 border-red-600 pl-6"
+                variants={fadeInUp}
+              >
+                <h3 className="text-xl font-semibold mb-4 text-gray-800 font-ubuntu">Professional Organizations</h3>
+                <div className="text-gray-700 leading-relaxed space-y-2">
+                  <p>IEEE</p>
+                  <p>IEEE USA</p>
+                </div>
+              </motion.div>
             </div>
             
-            {/* Academic Partners - Right Side */}
-            <div className="relative flex justify-start pl-6 mb-10">
-              <div className="w-1/2">
-                <div className="bg-white rounded-lg shadow-md p-4 border border-gray-100">
-                  <h3 className="text-lg font-medium mb-3" style={{ color: 'var(--logo-red)' }}>Academic Partners</h3>
-                  <div className="flex space-x-4">
-                    <img src="/images/sponsor/SD-BCC.png" alt="South Dakota Biomedical Computing Collaborative" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                  </div>
+            {/* Partner Logos Card */}
+            <motion.div 
+              className="bg-white rounded-xl shadow-lg border border-gray-200 p-8"
+              variants={fadeInUp}
+              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            >
+              {/* All Partner Logos Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
+                
+                {/* Sterling */}
+                <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                  <img src="/images/sponsor/Sterling.png" alt="Sterling Technology" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
                 </div>
-                {/* Timeline Dot */}
-                <div className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full" style={{ backgroundColor: 'var(--logo-red)' }}></div>
-              </div>
-            </div>
-            
-            {/* Professional Organizations - Left Side */}
-            <div className="relative flex justify-end pr-6">
-              <div className="w-1/2 text-right">
-                <div className="bg-white rounded-lg shadow-md p-4 border border-gray-100">
-                  <h3 className="text-lg font-medium mb-3" style={{ color: 'var(--logo-red)' }}>Professional Organizations</h3>
-                  <div className="flex justify-end space-x-4">
-                    <img src="/images/sponsor/IEEE.png" alt="IEEE" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                    <img src="/images/sponsor/ieee_usa.png" alt="IEEE USA" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                  </div>
+                
+                {/* Area Companies */}
+                <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                  <img src="/images/sponsor/Area.png" alt="Area Development Partnership" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
                 </div>
-                {/* Timeline Dot */}
-                <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full" style={{ backgroundColor: 'var(--logo-red)' }}></div>
+                
+                {/* Dakota State */}
+                <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                  <img src="/images/sponsor/dakota.png" alt="Dakota State University" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                </div>
+                
+                {/* SD-BCC */}
+                <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                  <img src="/images/sponsor/SD-BCC.png" alt="South Dakota Biomedical Computing Collaborative" className="h-14 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                </div>
+                
+                {/* IEEE */}
+                <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                  <img src="/images/sponsor/IEEE.png" alt="IEEE" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                </div>
+                
+                {/* IEEE USA - spans to next row on smaller screens */}
+                <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow md:col-start-2 lg:col-start-auto">
+                  <img src="/images/sponsor/ieee_usa.png" alt="IEEE USA" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
 
@@ -107,7 +140,7 @@ const Affiliates: React.FC = () => {
           </p>
           <p className="text-gray-700 leading-relaxed">
             For partnership inquiries, please contact us at{' '}
-            <a href="mailto:kc.santosh@usd.edu" className="underline" style={{ color: 'var(--logo-red)' }}>
+            <a href="mailto:kc.santosh@usd.edu" className="underline text-red-600 hover:text-red-800 transition-colors">
               kc.santosh@usd.edu
             </a>
           </p>

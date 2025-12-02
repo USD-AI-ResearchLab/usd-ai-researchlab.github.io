@@ -159,4 +159,9 @@ div.border-logo-red {
   background-color: rgba(197, 48, 48, 0.1) !important;
 }
 
+/* Ubuntu font class */
+.font-ubuntu {
+  font-family: 'Ubuntu', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif !important;
+}
+
 /* Force GitHub Pages rebuild */
