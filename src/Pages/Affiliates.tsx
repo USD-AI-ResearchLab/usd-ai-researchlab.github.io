@@ -93,27 +93,25 @@ const Affiliates: React.FC = () => {
               variants={fadeInUp}
               whileHover={{ y: -5, transition: { duration: 0.3 } }}
             >
-              {/* All Partner Logos Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-center">
-                
-                {/* Sterling */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center">
+                {/* Sterling Technology */}
                 <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                   <img src="/images/sponsor/Sterling.png" alt="Sterling Technology" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
                 </div>
                 
-                {/* Area Companies */}
+                {/* Vermillion Area Chamber & Development */}
                 <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                  <img src="/images/sponsor/Area.png" alt="Area Development Partnership" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                  <img src="/images/sponsor/Area.png" alt="Vermillion Area Chamber & Development" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
                 </div>
                 
-                {/* Dakota State */}
+                {/* Dakota PC */}
                 <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                  <img src="/images/sponsor/dakota.png" alt="Dakota State University" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                  <img src="/images/sponsor/dakota.png" alt="Dakota PC" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
                 </div>
                 
                 {/* SD-BCC */}
                 <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                  <img src="/images/sponsor/SD-BCC.png" alt="South Dakota Biomedical Computing Collaborative" className="h-14 object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                  <img src="/images/sponsor/SD-BCC.png" alt="South Dakota Biomedical Computing Consortium" className="h-14 object-contain opacity-80 hover:opacity-100 transition-opacity" />
                 </div>
                 
                 {/* IEEE */}
@@ -121,29 +119,32 @@ const Affiliates: React.FC = () => {
                   <img src="/images/sponsor/IEEE.png" alt="IEEE" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
                 </div>
                 
-                {/* IEEE USA - spans to next row on smaller screens */}
-                <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow md:col-start-2 lg:col-start-auto">
+                {/* IEEE USA */}
+                <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                   <img src="/images/sponsor/ieee_usa.png" alt="IEEE USA" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
                 </div>
               </div>
             </motion.div>
+            
+            {/* Partnership Information */}
+            <motion.div 
+              className="bg-white border border-gray-200 rounded-lg p-8 mt-12"
+              variants={fadeInUp}
+            >
+              <h3 className="text-xl font-semibold mb-4 text-gray-800 font-ubuntu">
+                Partnership Opportunities
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                We welcome collaborations with organizations that share our commitment to advancing artificial intelligence research and education.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                For partnership inquiries, please contact us at{' '}
+                <a href="mailto:kc.santosh@usd.edu" className="underline text-red-600 hover:text-red-800 transition-colors">
+                  kc.santosh@usd.edu
+                </a>
+              </p>
+            </motion.div>
           </div>
-        </motion.div>
-
-        {/* Partnership Information */}
-        <motion.div className="bg-white border border-gray-200 rounded-lg p-8" variants={fadeInUp}>
-          <h3 className="text-xl font-semibold mb-4 text-gray-800">
-            Partnership Opportunities
-          </h3>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            We welcome collaborations with organizations that share our commitment to advancing artificial intelligence research and education. Our partnerships span across industry, academia, and professional organizations.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            For partnership inquiries, please contact us at{' '}
-            <a href="mailto:kc.santosh@usd.edu" className="underline text-red-600 hover:text-red-800 transition-colors">
-              kc.santosh@usd.edu
-            </a>
-          </p>
         </motion.div>
       </motion.div>
     </div>
