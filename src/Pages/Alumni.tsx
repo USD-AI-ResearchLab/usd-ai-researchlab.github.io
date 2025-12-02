@@ -471,13 +471,6 @@ const Alumni: React.FC = () => {
     return categoryMatch && letterMatch;
   });
 
-  // Debug: Let's see what we have
-  console.log('Total alumni in array:', alumni.length);
-  console.log('Sample alumni degrees:', alumni.slice(0, 10).map(a => a.degree));
-  console.log('Selected category:', selectedCategory);
-  console.log('Selected letter:', selectedLetter);
-  console.log('Filtered alumni count:', filteredAlumni.length);
-
   return (
     <div className="pt-20 min-h-screen bg-white">
       <div className="container mx-auto px-4">
