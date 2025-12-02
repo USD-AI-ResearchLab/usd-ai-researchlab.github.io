@@ -71,7 +71,7 @@ const Initiatives: React.FC = () => {
               {category.isExternal ? (
                 <a href={category.link} target="_blank" rel="noopener noreferrer" className="block">
                   <motion.div 
-                    className="rounded-lg p-8 hover:shadow-lg transition-all duration-300 text-center h-96 flex items-center justify-center border"
+                    className="rounded-lg p-8 hover:shadow-lg transition-all duration-300 text-center h-48 flex items-center justify-center border"
                     style={{ 
                       backgroundColor: activeCard === index ? 'var(--logo-red, #C53030)' : 'white',
                       borderColor: 'var(--logo-red, #C53030)',
@@ -103,7 +103,7 @@ const Initiatives: React.FC = () => {
               ) : (
                 <Link to={category.link} className="block">
                   <motion.div 
-                    className="rounded-lg p-8 hover:shadow-lg transition-all duration-300 text-center h-96 flex items-center justify-center border"
+                    className="rounded-lg p-8 hover:shadow-lg transition-all duration-300 text-center h-48 flex items-center justify-center border"
                     style={{ 
                       backgroundColor: activeCard === index ? 'var(--logo-red, #C53030)' : 'white',
                       borderColor: 'var(--logo-red, #C53030)',

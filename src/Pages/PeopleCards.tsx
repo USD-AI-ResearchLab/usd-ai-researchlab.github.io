@@ -29,25 +29,8 @@ const PeopleCards: React.FC = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
     >
-      {/* Profile Photo */}
+      {/* Name */}
       <div className="flex flex-col items-center mb-4">
-        {person.photo ? (
-          <img
-            src={person.photo}
-            alt={person.name}
-            className="w-32 h-32 object-cover rounded-full mb-4 border-4"
-            style={{ borderColor: 'var(--logo-red, #C53030)' }}
-          />
-        ) : (
-          <div 
-            className="w-32 h-32 rounded-full flex items-center justify-center text-white text-4xl font-bold mb-4"
-            style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
-          >
-            {person.name.split(' ').map(n => n[0]).join('').toUpperCase()}
-          </div>
-        )}
-        
-        {/* Name */}
         <h3 className="text-xl font-semibold text-gray-800 text-center mb-2">
           {person.name}
         </h3>

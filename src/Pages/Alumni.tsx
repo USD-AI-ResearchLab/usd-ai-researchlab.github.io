@@ -14,8 +14,7 @@ const Alumni: React.FC = () => {
   const categories = [
     'All',
     'PhD', 
-    'Masters',
-    'Postdoc'
+    'Masters'
   ];
 
   const letters = [
@@ -467,11 +466,17 @@ const Alumni: React.FC = () => {
   const filteredAlumni = alumni.filter(person => {
     const categoryMatch = selectedCategory === 'All' || 
                          (selectedCategory === 'PhD' && person.degree === 'PhD') ||
-                         (selectedCategory === 'Masters' && person.degree === "Master's") ||
-                         (selectedCategory === 'Postdoc' && person.degree === 'Postdoc');
+                         (selectedCategory === 'Masters' && person.degree === "Master's");
     const letterMatch = selectedLetter === 'All' || person.name.charAt(0).toUpperCase() === selectedLetter;
     return categoryMatch && letterMatch;
   });
+
+  // Debug: Let's see what we have
+  console.log('Total alumni in array:', alumni.length);
+  console.log('Sample alumni degrees:', alumni.slice(0, 10).map(a => a.degree));
+  console.log('Selected category:', selectedCategory);
+  console.log('Selected letter:', selectedLetter);
+  console.log('Filtered alumni count:', filteredAlumni.length);
 
   return (
     <div className="pt-20 min-h-screen bg-white">
@@ -568,11 +573,6 @@ const Alumni: React.FC = () => {
                 className="person-card bg-white rounded-xl shadow-lg p-6 text-center h-full flex flex-col items-center justify-between border-2 border-transparent hover:border-logo-red block transition-transform duration-200 hover:scale-105"
               >
                 <div className="flex flex-col items-center flex-1">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-gray-100 shadow-lg bg-white">
-                    <div className="w-full h-full flex items-center justify-center text-white font-bold text-2xl bg-gradient-to-br from-red-600 to-red-500">
-                      {person.name.split(' ').map(n => n[0]).join('').toUpperCase()}
-                    </div>
-                  </div>
                   <h3 className="text-lg font-semibold mb-3 line-clamp-2 leading-tight text-red-600">
                     {person.name}
                   </h3>

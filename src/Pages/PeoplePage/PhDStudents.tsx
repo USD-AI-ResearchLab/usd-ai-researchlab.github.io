@@ -72,6 +72,7 @@ const PhDStudents: React.FC = () => {
                   photo={person.photo}
                   url={person.url}
                   memberKey={person.memberKey}
+                  showAvatar={false}
                 />
               </motion.div>
             ))}
