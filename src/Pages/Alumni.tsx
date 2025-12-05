@@ -70,6 +70,13 @@ const Alumni: React.FC = () => {
       category: "Alumni"
     },
     {
+      name: "Anupam Dhakal",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Research Assistant",
+      category: "Alumni"
+    },
+    {
       name: "Mohammad Navid Nayyem",
       degree: "Master's",
       year: "2024",
@@ -81,6 +88,13 @@ const Alumni: React.FC = () => {
       degree: "Master's",
       year: "2024",
       currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Deborah Asamoah",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Teaching Assistant",
       category: "Alumni"
     },
     {
@@ -99,13 +113,6 @@ const Alumni: React.FC = () => {
     },
     {
       name: "Sivani Maddepalli",
-      degree: "Master's",
-      year: "2024",
-      currentPosition: "Grad Student (G/RA)",
-      category: "Alumni"
-    },
-    {
-      name: "Sainath Vaddi",
       degree: "Master's",
       year: "2024",
       currentPosition: "Grad Student (G/RA)",
@@ -140,10 +147,38 @@ const Alumni: React.FC = () => {
       category: "Alumni"
     },
     {
+      name: "Jeevan Kaphle",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Graduate Assistant",
+      category: "Alumni"
+    },
+    {
+      name: "Robin Narsingh Ranabhat",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Research Assistant",
+      category: "Alumni"
+    },
+    {
+      name: "Thoyajakasha Kashyap Kristipati",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Research Assistant",
+      category: "Alumni"
+    },
+    {
       name: "Pooja Singh",
       degree: "Master's",
       year: "2024",
       currentPosition: "Grad Student (G/RA)",
+      category: "Alumni"
+    },
+    {
+      name: "Aniket Kumar",
+      degree: "Master's",
+      year: "2024",
+      currentPosition: "Research Assistant",
       category: "Alumni"
     },
     {
