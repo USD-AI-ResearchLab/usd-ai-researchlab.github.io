@@ -93,8 +93,8 @@ const Affiliates: React.FC = () => {
               variants={fadeInUp}
               whileHover={{ y: -5, transition: { duration: 0.3 } }}
             >
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center">
-                {/* Sterling Technology */}
+              <div className="grid grid-cols-3 gap-6 items-center justify-items-center">
+                {/* Partner Logos - 3 columns */}
                 <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                   <img src="/images/sponsor/Sterling.png" alt="Sterling Technology" className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
                 </div>
