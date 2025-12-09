@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   const [isEmojiHovered, setIsEmojiHovered] = useState(false);
 
   return (
-    <footer className="bg-white text-gray-700 py-12 mt-16">
+    <footer className="bg-white text-gray-700 py-12 mt-16 border-t border-gray-200">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Social Media Icons */}
         <div className="flex justify-center items-center space-x-8 mb-8">
