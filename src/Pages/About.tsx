@@ -49,7 +49,7 @@ const About: React.FC = () => {
           </p>
           
           <p className="text-lg text-black leading-relaxed mb-8 font-thin">
-            Join us as we drive AI innovation with sustainability at its core!
+            Join us as pioneer the future of AI from the heart of South Dakota, the Mount Rushmore state!
           </p>
         </motion.div>
 
