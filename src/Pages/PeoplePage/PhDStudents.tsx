@@ -31,7 +31,6 @@ const PhDStudents: React.FC = () => {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030) !important' }}>
             PhD Students
           </h1>
-          <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
           <p className="text-lg text-black max-w-3xl leading-relaxed font-thin">
             Our PhD students are conducting pioneering research in artificial intelligence, contributing to the advancement of the field.
           </p>

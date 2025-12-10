@@ -29,7 +29,6 @@ const Opportunities: React.FC = () => {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 heading-red">
             Opportunities
           </h1>
-          <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
         </motion.div>
 
         {/* Main Content Section */}

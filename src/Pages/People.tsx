@@ -42,7 +42,6 @@ const People: React.FC = () => {
           >
             Our People
           </h1>
-          <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
         </motion.div>
 
         {/* Categories Cards */}
