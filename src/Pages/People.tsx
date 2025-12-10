@@ -40,7 +40,7 @@ const People: React.FC = () => {
               color: 'var(--logo-red, #C53030)' 
             }}
           >
-            Our People
+             People
           </h1>
         </motion.div>
 
