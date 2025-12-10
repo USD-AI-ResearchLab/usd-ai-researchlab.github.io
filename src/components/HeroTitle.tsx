@@ -3,6 +3,8 @@ export default function HeroTitle() {
     <h1 className="font-light leading-[1.05] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
       <!-- 
       <span className="text-black">  </span>
+
+      -->
       <span 
         className="bg-clip-text text-transparent"
         style={{ 
@@ -11,12 +13,13 @@ export default function HeroTitle() {
           backgroundClip: 'text'
         }}
       >
-        -->
+        
         USD Artificial Intelligence Research <br />
         the AI powerhouse
       </span>
       <!--  
       <span className="text-black"></span>
+        -->
       <br />
       <span 
         className="bg-clip-text text-transparent"
@@ -26,7 +29,7 @@ export default function HeroTitle() {
           backgroundClip: 'text'
         }}
       >
-        -->
+        
         of South Dakota
       </span>
 
