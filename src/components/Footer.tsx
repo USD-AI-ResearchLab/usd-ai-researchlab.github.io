@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// Updated footer with social media icons and hover effects
+// Updated footer with social media icons and hover effects - USD correction
 const Footer: React.FC = () => {
   const [isEmojiHovered, setIsEmojiHovered] = useState(false);
 
