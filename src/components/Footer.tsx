@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
         {/* Copyright */}
         <div className="text-center">
           <p className="text-black text-sm font-thin font-ubuntu">
-            © 2015 UAD AI RESEARCH LAB All rights reserved.
+            © 2015 USD AI RESEARCH LAB All rights reserved.
           </p>
         </div>
       </div>
