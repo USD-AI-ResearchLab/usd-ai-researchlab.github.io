@@ -10,9 +10,6 @@ const NavBar: React.FC = () => {
   const initiativesDropdownRef = useRef<HTMLDivElement>(null);
   const initiativesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
-  
-  // Check if current page is home page
-  const isHomePage = location.pathname === '/' || location.pathname === '';
 
   const toggleMenu = (): void => {
     setIsOpen((prev) => !prev);
@@ -75,21 +72,19 @@ const NavBar: React.FC = () => {
           gap: '32px'
         }} className="flex">
           
-          {/* LOGO - LEFT SIDE (Hidden on home page) */}
-          {!isHomePage && (
-            <Link to="/" style={{ textDecoration: 'none' }}>
-              <img 
-                src={bgimage} 
-                alt="AI Lab Logo" 
-                style={{
-                  width: '60px',
-                  height: '60px',
-                  objectFit: 'contain',
-                  cursor: 'pointer'
-                }}
-              />
+          {/* LOGO - LEFT SIDE */}
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <img 
+              src={bgimage} 
+              alt="AI Lab Logo" 
+              style={{
+                width: '60px',
+                height: '60px',
+                objectFit: 'contain',
+                cursor: 'pointer'
+              }}
+            />
             </Link>
-          )}
           
           <Link to="/about" style={{ textDecoration: 'none' }}>
             <div style={{
@@ -420,16 +415,14 @@ const NavBar: React.FC = () => {
         isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}>
         
-        {/* Logo in mobile menu - Hidden on home page - Positioned before About */}
-        {!isHomePage && (
-          <Link to="/" onClick={toggleMenu} className="mb-2">
-            <img 
-              src={bgimage} 
-              alt="AI Lab Logo" 
-              className="w-16 h-16 object-contain cursor-pointer" 
-            />
-          </Link>
-        )}
+        {/* Logo in mobile menu */}
+        <Link to="/" onClick={toggleMenu} className="mb-2">
+          <img 
+            src={bgimage} 
+            alt="AI Lab Logo" 
+            className="w-16 h-16 object-contain cursor-pointer" 
+          />
+        </Link>
         
         <Link to="/about" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Home</div>
