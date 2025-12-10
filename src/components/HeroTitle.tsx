@@ -1,7 +1,8 @@
 export default function HeroTitle() {
   return (
     <h1 className="font-light leading-[1.05] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-      <span className="text-black">The </span>
+      <!-- 
+      <span className="text-black">  </span>
       <span 
         className="bg-clip-text text-transparent"
         style={{ 
@@ -10,10 +11,12 @@ export default function HeroTitle() {
           backgroundClip: 'text'
         }}
       >
-        USD AI Research <br />
-        The AI powerhouse
+        -->
+        USD Artificial Intelligence Research <br />
+        the AI powerhouse
       </span>
-      <span className="text-black"> on</span>
+      <!--  
+      <span className="text-black"></span>
       <br />
       <span 
         className="bg-clip-text text-transparent"
@@ -23,8 +26,11 @@ export default function HeroTitle() {
           backgroundClip: 'text'
         }}
       >
+        -->
         of South Dakota
       </span>
+
+      <!--
       <span className="text-black"> from the</span>
       <br />
       <span className="text-black">heart of </span>
@@ -38,6 +44,7 @@ export default function HeroTitle() {
       >
         Rushmore State
       </span>
+    -->
     </h1>
   );
 }
