@@ -10,7 +10,13 @@ const Footer: React.FC = () => {
         {/* Social Media Icons */}
         <div className="flex justify-center items-center space-x-8 mb-8">
           {/* University/Institution Icon */}
-          <div className="text-black hover:text-red-600 transition-colors duration-200 cursor-pointer">
+          <a 
+            href="https://www.usd.edu/Academics/Colleges-and-Schools/college-of-arts-sciences/computer-science"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Visit USD Computer Science Department"
+            className="text-black hover:text-red-600 transition-colors duration-200"
+          >
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M2 21h20"/>
               <path d="M3 21V8l9-4 9 4v13"/>
@@ -18,7 +24,7 @@ const Footer: React.FC = () => {
               <path d="M10 21v-8h4v8"/>
               <path d="M15 21v-8h2v8"/>
             </svg>
-          </div>
+          </a>
 
           {/* LinkedIn Icon */}
           <a 
