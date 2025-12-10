@@ -27,7 +27,7 @@ const About: React.FC = () => {
         {/* Header Section */}
         <motion.div className="text-left mb-16" variants={fadeInUp}>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 heading-red">
-            Welcome to the USD AI Research Lab!
+            USD AI Research 
           </h1>
           <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
         </motion.div>
