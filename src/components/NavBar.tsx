@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import bgimage from "../assets/logo.svg";
 
@@ -9,7 +9,6 @@ const NavBar: React.FC = () => {
   const [isConferencesOpen, setIsConferencesOpen] = useState<boolean>(false);
   const initiativesDropdownRef = useRef<HTMLDivElement>(null);
   const initiativesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const location = useLocation();
 
   const toggleMenu = (): void => {
     setIsOpen((prev) => !prev);
