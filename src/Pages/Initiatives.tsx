@@ -42,7 +42,7 @@ const Initiatives: React.FC = () => {
               color: 'var(--logo-red, #C53030)' 
             }}
           >
-            Our Initiatives
+            Initiatives
           </h1>
           <div className="w-24 h-1 mb-6" style={{ backgroundColor: 'var(--logo-red, #C53030)' }}></div>
         </motion.div>
