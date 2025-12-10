@@ -10,7 +10,8 @@ export default function HeroTitle() {
           backgroundClip: 'text'
         }}
       >
-        Coyote's AI powerhouse
+        USD AI Research <br />
+        The AI powerhouse
       </span>
       <span className="text-black"> on</span>
       <br />
@@ -22,7 +23,7 @@ export default function HeroTitle() {
           backgroundClip: 'text'
         }}
       >
-        Sustainable innovation
+        of South Dakota
       </span>
       <span className="text-black"> from the</span>
       <br />
