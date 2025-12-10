@@ -34,11 +34,14 @@ const About: React.FC = () => {
         {/* Main Content Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
           <p className="text-lg text-black leading-relaxed mb-6 font-thin">
-            We are excited to have you explore our work, where we push the boundaries of foundational AI and machine learning while embracing sustainable AI solutions.
+            USD AI Research is the leading artificial intelligence research and development center based in South Dakota.
           </p>
           
           <p className="text-lg text-black leading-relaxed mb-6 font-thin">
-            Our research spans green computing, active learning, and scalable as well as robust AI solutions, ensuring efficiency while saying no to carbon footprint.
+            It brings together researchers in computer vision, machine learning, natural language processing, deep learning, reinforcement learning, quantum computing, and more. 
+          The team includes undergraduate, master's, and PhD students, as well as postdoctoral scholars and faculty, all working on both foundational and applied AI. 
+
+
           </p>
           
           <p className="text-lg text-black leading-relaxed mb-6 font-thin">
