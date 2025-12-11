@@ -25,30 +25,28 @@ const About: React.FC = () => {
         variants={staggerChildren}
       >
         {/* Header Section */}
-        <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 heading-red">
-            USD AI Research 
+        <motion.div className="text-left mb-4" variants={fadeInUp}>
+          <h1 className="text-4xl text-red-600 mb-4">
+            USD AI Research
           </h1>
         </motion.div>
 
         {/* Main Content Section */}
-        <motion.div className="mb-16" variants={fadeInUp}>
-          <p className="text-lg text-black leading-relaxed mb-6 font-thin">
-            USD AI Research is the leading artificial intelligence research and development center based in South Dakota.
+        <motion.div className="mb-8" variants={fadeInUp}>
+          <p className="text-lg text-black leading-relaxed mb-4 font-thin">
+            <span className="bg-gradient-to-r from-black via-red-600 to-black bg-clip-text text-transparent">USD AI Research</span> is the leading <span className="bg-gradient-to-r from-black via-red-600 to-black bg-clip-text text-transparent">artificial intelligence</span> research and development center based in South Dakota.
           </p>
           
-          <p className="text-lg text-black leading-relaxed mb-6 font-thin">
-            It brings together researchers in computer vision, machine learning, natural language processing, deep learning, reinforcement learning, quantum computing, and more. 
+          <p className="text-lg text-black leading-relaxed mb-4 font-thin">
+            It brings together researchers in <span className="bg-gradient-to-r from-black via-red-500 to-black bg-clip-text text-transparent">computer vision</span>, <span className="bg-gradient-to-r from-black via-red-500 to-black bg-clip-text text-transparent">machine learning</span>, <span className="bg-gradient-to-r from-black via-red-600 to-black bg-clip-text text-transparent">natural language processing</span>, <span className="bg-gradient-to-r from-black via-red-600 to-black bg-clip-text text-transparent">deep learning</span>, reinforcement learning, <span className="bg-gradient-to-r from-black via-red-500 to-black bg-clip-text text-transparent">quantum computing</span>, and more. 
           The team includes undergraduate, master's, and PhD students, as well as postdoctoral scholars and faculty, all working on both foundational and applied AI. 
-
-
           </p>
           
-          <p className="text-lg text-black leading-relaxed mb-6 font-thin">
-            We specialize in areas such as pattern recognition, computer vision, image processing, data mining, and big data analytics. Our interdisciplinary work impacts domains including healthcare informatics, medical imaging, document analysis, biometrics, forensics, speech processing, and the Internet of Things.
+          <p className="text-lg text-black leading-relaxed mb-4 font-thin">
+            We specialize in areas such as <span className="bg-gradient-to-r from-black via-red-500 to-black bg-clip-text text-transparent">pattern recognition</span>, computer vision, <span className="bg-gradient-to-r from-black via-red-600 to-black bg-clip-text text-transparent">image processing</span>, <span className="bg-gradient-to-r from-black via-red-600 to-black bg-clip-text text-transparent">data mining</span>, and <span className="bg-gradient-to-r from-black via-red-500 to-black bg-clip-text text-transparent">big data analytics</span>. Our interdisciplinary work impacts domains including <span className="bg-gradient-to-r from-black via-red-500 to-black bg-clip-text text-transparent">healthcare informatics</span>, medical imaging, document analysis, biometrics, forensics, speech processing, and the Internet of Things.
           </p>
           
-          <p className="text-lg text-black leading-relaxed mb-8 font-thin">
+          <p className="text-lg text-black leading-relaxed mb-4 font-thin">
             Join us as pioneer the future of AI from the heart of South Dakota, the Mount Rushmore state!
           </p>
         </motion.div>
@@ -56,8 +54,7 @@ const About: React.FC = () => {
         {/* News Section */}
         <motion.div variants={fadeInUp}>
           <div className="mb-8">
-            <h2 className="text-4xl font-bold text-gray-900 mb-2">News</h2>
-            <div className="w-20 h-1" style={{ backgroundColor: '#C53030' }}></div>
+            <h2 className="text-4xl text-red-600 mb-4">News</h2>
           </div>
           
           <div className="bg-white rounded-lg shadow-md p-8">

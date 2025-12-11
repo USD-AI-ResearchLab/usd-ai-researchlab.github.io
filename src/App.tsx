@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import FloatingScrollArrows from "./components/FloatingScrollArrows";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import People from "./Pages/People";
@@ -30,6 +31,7 @@ const App: React.FC = () => {
         </Routes>
       </main>
       <Footer />
+      <FloatingScrollArrows />
     </div>
   );
 }

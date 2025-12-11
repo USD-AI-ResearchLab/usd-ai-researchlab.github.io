@@ -2,11 +2,79 @@ import React, { useState, useRef, useEffect } from 'react';
 import BooksComponent from '../components/BooksComponent';
 import { PUBLICATIONS } from '../data/publications';
 
+// Custom hook for counting animation
+const useCountUp = (end: number, duration: number = 2000) => {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    let startTime: number;
+    let animationFrame: number;
+    
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = (timestamp - startTime) / duration;
+      
+      if (progress < 1) {
+        setCount(Math.floor(end * progress));
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+    
+    animationFrame = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [end, duration]);
+  
+  return count;
+};
+
+// Animated Statistics Card Component
+const AnimatedStatCard: React.FC<{ 
+  title: string; 
+  value?: number; 
+  suffix?: string; 
+  subtitle: string; 
+  isText?: boolean 
+}> = ({ title, value = 0, suffix = '', subtitle, isText = false }) => {
+  const animatedValue = useCountUp(value, 2000);
+  
+  return (
+    <div className="bg-white p-1.5 rounded-sm border border-gray-100">
+      <h3 className="text-xs font-semibold mb-0.5 text-red-600">
+        {title}
+      </h3>
+      {isText ? (
+        <p className="text-xs text-gray-600 leading-tight">
+          {subtitle}
+        </p>
+      ) : (
+        <>
+          <p className="text-base font-bold text-black mb-0.5">
+            {animatedValue}{suffix}
+          </p>
+          <p className="text-xs text-gray-600">
+            {subtitle}
+          </p>
+        </>
+      )}
+    </div>
+  );
+};
+
 const Publications: React.FC = () => {
   const [hoveredPublication, setHoveredPublication] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const itemsPerPage = 6; // Number of publications per page
 
   // Define categories based on publication data
   const categories = [
@@ -60,6 +128,17 @@ const Publications: React.FC = () => {
     return matchesSearch && matchesCategory;
   });
 
+  // Pagination calculations
+  const totalPages = Math.ceil(filteredPublications.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedPublications = filteredPublications.slice(startIndex, endIndex);
+
+  // Reset to page 1 when search or category changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, selectedCategory]);
+
   const handleMouseEnter = (index: number) => {
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
@@ -83,7 +162,7 @@ const Publications: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-20 min-h-screen bg-white">
+    <div className="pt-32 min-h-screen bg-white">
       <div className="w-full">
         {/* Header Section */}
         <div className="pl-4 mb-16">
@@ -95,11 +174,48 @@ const Publications: React.FC = () => {
       
       <div className="w-full px-4">
 
-        {/* Content Section */}
-        <div className="mb-16">
-          <p className="text-lg text-gray-700 leading-relaxed mb-8 font-thin">
-            Books, research papers, and publications from the USD AI Research Lab
-          </p>
+        {/* Publications & Research Stats Section */}
+        <div className="w-full mb-8 flex justify-start">
+          <div className="bg-white border rounded-lg border-gray-200 p-3 max-w-md w-full">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-base font-semibold text-red-600">
+                Publications & Research
+              </h2>
+              <svg className="w-3 h-3 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+              </svg>
+            </div>
+
+            <div className="grid grid-cols-2 gap-1">
+              <AnimatedStatCard 
+                title="Published Research"
+                value={200}
+                suffix="+"
+                subtitle="Peer-Reviewed Articles"
+              />
+              
+              <AnimatedStatCard 
+                title="Books"
+                value={10}
+                suffix="+"
+                subtitle="Published Works"
+              />
+              
+              <AnimatedStatCard 
+                title="Conferences"
+                value={10}
+                suffix="+"
+                subtitle="International Events"
+              />
+              
+              <AnimatedStatCard 
+                title="Funding Sources"
+                value={0}
+                subtitle="SDBOR, DOD, NSF, Department Of Education"
+                isText={true}
+              />
+            </div>
+          </div>
         </div>
         
         {/* Books Section */}
@@ -163,17 +279,21 @@ const Publications: React.FC = () => {
 
           {/* Results Count */}
           <div className="mb-4 text-sm text-gray-600 font-light">
-            Showing {filteredPublications.length} of {PUBLICATIONS.length} papers
+            Showing {startIndex + 1}-{Math.min(endIndex, filteredPublications.length)} of {filteredPublications.length} papers
+            {filteredPublications.length !== PUBLICATIONS.length && (
+              <span> (filtered from {PUBLICATIONS.length} total)</span>
+            )}
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-            {filteredPublications.map((publication, index) => {
-              const isHovered = hoveredPublication === index;
+            {paginatedPublications.map((publication, index) => {
+              const actualIndex = startIndex + index; // Calculate actual index for hover state
+              const isHovered = hoveredPublication === actualIndex;
               return (
                 <div
-                  key={index}
+                  key={actualIndex}
                   className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
-                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseEnter={() => handleMouseEnter(actualIndex)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <div className="p-6">
@@ -266,6 +386,57 @@ const Publications: React.FC = () => {
               );
             })}
           </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center mt-8 space-x-2">
+              {/* Previous Button */}
+              <button
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className={`px-3 py-1 rounded ${
+                  currentPage === 1
+                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                    : 'bg-white text-red-600 border border-red-600 hover:bg-red-50 transition-colors'
+                }`}
+              >
+                Previous
+              </button>
+
+              {/* Page Numbers */}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                <button
+                  key={pageNum}
+                  onClick={() => setCurrentPage(pageNum)}
+                  className={`px-3 py-1 rounded transition-colors ${
+                    pageNum === currentPage
+                      ? 'text-white'
+                      : 'bg-white text-red-600 border border-red-600 hover:bg-red-50'
+                  }`}
+                  style={
+                    pageNum === currentPage
+                      ? { backgroundColor: 'var(--logo-red, #C53030)' }
+                      : undefined
+                  }
+                >
+                  {pageNum}
+                </button>
+              ))}
+
+              {/* Next Button */}
+              <button
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className={`px-3 py-1 rounded ${
+                  currentPage === totalPages
+                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                    : 'bg-white text-red-600 border border-red-600 hover:bg-red-50 transition-colors'
+                }`}
+              >
+                Next
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
