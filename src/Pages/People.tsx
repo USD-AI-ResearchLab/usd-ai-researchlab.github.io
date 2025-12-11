@@ -49,254 +49,106 @@ const People: React.FC = () => {
       name: "Chenchaiah Mekalathu",
       degree: "Master's",
       year: "2024",
-      role: "Masters Graduate | Computer Science",
+      role: "Master's Graduate | Computer Science",
       category: "Alumni"
     },
     {
-      name: "Kanishka Parankusham",
+      name: "Hari Sukarti",
       degree: "Master's",
       year: "2024",
-      role: "Masters Graduate | Computer Science",
+      role: "Master's Graduate | Computer Science",
       category: "Alumni"
     },
     {
-      name: "Neerajdattu Dudam",
+      name: "Murthy Srinivasa Reddy",
       degree: "Master's",
       year: "2024",
-      role: "Masters Graduate | Computer Science",
+      role: "Master's Graduate | Computer Science",
       category: "Alumni"
     },
     {
-      name: "Akshay Reddy",
+      name: "Vinit Kumar Yadav",
       degree: "Master's",
       year: "2024",
-      role: "Masters Graduate | Computer Science",
+      role: "Master's Graduate | Computer Science",
       category: "Alumni"
     },
     {
-      name: "Anupam Dhakal",
+      name: "Thabesum Tazeem Sheikh",
       degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
+      year: "2023",
+      role: "Master's Graduate | Computer Science",
       category: "Alumni"
     },
     {
-      name: "Mohammad Navid Nayyem",
+      name: "Ashwin Karthik Amudalavalasa",
       degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
+      year: "2023",
+      role: "Master's Graduate | Computer Science",
       category: "Alumni"
     },
     {
-      name: "KrishnaPhanindra Marupaka",
+      name: "Srinath Reddy Devireddy",
       degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
+      year: "2023",
+      role: "Master's Graduate | Computer Science",
       category: "Alumni"
     },
     {
-      name: "Deborah Asamoah",
+      name: "Swapna Reddy Nalla",
       degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
+      year: "2023",
+      role: "Master's Graduate | Computer Science",
       category: "Alumni"
     },
     {
-      name: "Deepika Nuthalapati",
+      name: "Vamshi Krishna Andeshra",
       degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Satya Mouli Dhangati",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Sivani Maddepalli",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Sony Gurram",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Aashish Ghimire",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Sabin Adhikari",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Jayakumar Pujar",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Jeevan Kaphle",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Robin Narsingh Ranabhat",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Thoyajakasha Kashyap Kristipati",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Pooja Singh",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Aniket Kumar",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Anup Khanal",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Anushuya Baidya",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "MdAftabul Islam",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "AkhilReddy Mendu",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Anuska Pokharel",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Yslam Ismailov",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Hansakrish Kuttubaskar",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Praveen Paramsivam",
-      degree: "Master's",
-      year: "2024",
-      role: "Masters Graduate | Computer Science",
+      year: "2023",
+      role: "Master's Graduate | Computer Science",
       category: "Alumni"
     }
   ];
 
-  const letters = [
-    'All', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-  ];
+  const letters = ['All', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  const categories = ['All', 'Faculty', 'Post Doc', 'PhD Students', 'Masters Students', 'Current', 'Alumni'];
 
-  const categories = [
-    'All', 'Faculty', 'Post Doc', 'PhD Students', 'Masters Students', 'Current', 'Alumni'
-  ];
-
-  // Filter PhD students
+  // Separate data by category
+  const facultyStaff = facultyData;
+  
+  // Extract students based on degree
   const phdStudents = studentsData.filter(student => 
-    student.role && (
-      student.role.toLowerCase().includes('phd') ||
-      student.role.toLowerCase().includes('ph.d') ||
-      student.role.toLowerCase().includes('doctoral') ||
-      student.role.toLowerCase().includes('doctorate')
-    )
+    student.degree?.toLowerCase().includes('phd') || 
+    student.degree?.toLowerCase().includes('ph.d') ||
+    student.role?.toLowerCase().includes('phd')
   );
-
-  // Filter Master's students
+  
   const mastersStudents = studentsData.filter(student => 
-    student.role && (
-      student.role.toLowerCase().includes('master') ||
-      student.role.toLowerCase().includes('m.s.') ||
-      student.role.toLowerCase().includes('ms ') ||
-      student.role.toLowerCase().includes('graduate')
-    ) && !(
-      student.role.toLowerCase().includes('phd') ||
-      student.role.toLowerCase().includes('ph.d') ||
-      student.role.toLowerCase().includes('doctoral') ||
-      student.role.toLowerCase().includes('doctorate')
-    )
+    (student.degree?.toLowerCase().includes('master') || 
+     student.degree?.toLowerCase().includes('ms') ||
+     student.role?.toLowerCase().includes('master')) &&
+    !student.degree?.toLowerCase().includes('phd') &&
+    !student.degree?.toLowerCase().includes('ph.d')
   );
 
-  // Get current data based on category filter
+  const postDocs = facultyData.filter(member => 
+    member.role?.toLowerCase().includes('postdoc') || 
+    member.role?.toLowerCase().includes('post-doc') ||
+    member.role?.toLowerCase().includes('postdoctoral')
+  );
+
+  // Filter and get current data based on selection
   const getCurrentData = () => {
+    let categoryData: any[] = [];
     const allData = [...facultyData, ...studentsData, ...alumni];
-    
-    // First, get the right category data
-    let categoryData = [];
-    
+
+    // First filter by category
     switch (selectedCategory) {
-      case 'All':
-        categoryData = allData;
-        break;
       case 'Faculty':
-        categoryData = facultyData.filter(person => 
-          !person.role || !person.role.toLowerCase().includes('postdoc')
-        );
+        categoryData = facultyStaff;
         break;
       case 'Post Doc':
-        categoryData = facultyData.filter(person => 
-          person.role && person.role.toLowerCase().includes('postdoc')
-        );
+        categoryData = postDocs;
         break;
       case 'PhD Students':
         categoryData = phdStudents;
@@ -316,7 +168,6 @@ const People: React.FC = () => {
     
     // Then apply letter filter
     if (selectedLetter === 'All') {
-      console.log('Letter filter: All, returning all category data:', categoryData.length);
       return categoryData;
     }
     
@@ -326,9 +177,6 @@ const People: React.FC = () => {
       return firstLetter === selectedLetter;
     });
     
-    console.log(`Letter filter: ${selectedLetter}, category: ${selectedCategory}, filtered from ${categoryData.length} to ${filtered.length}`);
-    console.log('Names found:', filtered.map(p => p.name));
-    
     return filtered;
   };
 
@@ -336,26 +184,29 @@ const People: React.FC = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-white">
-      <div className="container mx-auto max-w-7xl px-4 py-12">
-        {/* Header */}
-        <motion.div 
-          className="mb-12 text-left" 
-          variants={fadeInUp} 
-          initial="initial" 
-          animate="animate"
-        >
-          <h1 
-            className="text-4xl font-bold mb-4"
-            style={{ 
-              fontFamily: 'Ubuntu, sans-serif',
-              color: 'var(--logo-red, #C53030)' 
-            }}
-          >
+      <motion.div 
+        className="container mx-auto px-4 py-12 max-w-4xl"
+        initial="initial"
+        animate="animate"
+        variants={staggerChildren}
+      >
+        {/* Header Section */}
+        <motion.div className="text-left mb-4" variants={fadeInUp}>
+          <h1 className="text-4xl text-red-600 mb-4">
             People
           </h1>
-          
-          {/* Category Filters - Moved here */}
-          <div className="flex flex-wrap justify-center mb-4 gap-2">
+        </motion.div>
+
+        {/* Team Description */}
+        <motion.div className="mb-8" variants={fadeInUp}>
+          <p className="text-lg text-black leading-relaxed mb-4 font-thin">
+            Meet the brilliant minds behind our AI research lab - faculty, students, and alumni who are shaping the future of artificial intelligence.
+          </p>
+        </motion.div>
+
+        {/* Category Filters */}
+        <motion.div className="mb-8" variants={fadeInUp}>
+          <div className="flex flex-wrap gap-2">
             {categories.map((category) => (
               <button
                 key={category}
@@ -374,20 +225,23 @@ const People: React.FC = () => {
               </button>
             ))}
           </div>
+        </motion.div>
 
-          {/* Letter Filter - Moved here */}
-          <div className="flex flex-wrap justify-center mb-6 gap-2">
+        {/* Letter Filter */}
+        <motion.div className="mb-8" variants={fadeInUp}>
+          <div className="flex flex-wrap gap-2">
             {letters.map((letter) => (
               <button
                 key={letter}
                 onClick={() => setSelectedLetter(letter)}
-                className={`px-3 py-1 text-sm font-medium rounded transition-colors ${
+                className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
                   selectedLetter === letter
                     ? 'text-white'
                     : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
                 }`}
                 style={{
-                  backgroundColor: selectedLetter === letter ? 'var(--logo-red, #C53030)' : 'transparent'
+                  backgroundColor: selectedLetter === letter ? 'var(--logo-red, #C53030)' : 'transparent',
+                  border: `1px solid ${selectedLetter === letter ? 'var(--logo-red, #C53030)' : '#e5e7eb'}`
                 }}
               >
                 {letter}
@@ -398,10 +252,7 @@ const People: React.FC = () => {
 
         {/* Section Headers */}
         <motion.div className="mb-8 text-left" variants={fadeInUp}>
-          <h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4"
-            style={{ color: 'var(--logo-red, #C53030)' }}
-          >
+          <h2 className="text-4xl text-red-600 mb-4">
             {selectedCategory === 'Faculty' && 'Faculty & Research Staff'}
             {selectedCategory === 'PhD Students' && 'PhD Students'}
             {selectedCategory === 'Masters Students' && 'Masters Students'}
@@ -422,21 +273,13 @@ const People: React.FC = () => {
         </motion.div>
 
         {/* People Grid */}
-        <motion.div
-          key={selectedCategory}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-          initial="initial"
-          animate="animate"
+        <motion.div 
+          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
           variants={staggerChildren}
         >
           {currentData.map((person: any, index: number) => (
-            <motion.div
-              key={`${person.name}-${index}`}
-              variants={cardVariants}
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
-            >
-              <PersonCard
+            <motion.div key={index} variants={cardVariants}>
+              <PersonCard 
                 name={person.name}
                 role={person.role}
                 photo={person.photo}
@@ -449,7 +292,7 @@ const People: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 };
