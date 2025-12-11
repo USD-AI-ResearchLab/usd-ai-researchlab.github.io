@@ -339,7 +339,7 @@ const People: React.FC = () => {
       <div className="container mx-auto max-w-7xl px-4 py-12">
         {/* Header */}
         <motion.div 
-          className="mb-12 text-center" 
+          className="mb-12 text-left" 
           variants={fadeInUp} 
           initial="initial" 
           animate="animate"
@@ -351,7 +351,7 @@ const People: React.FC = () => {
               color: 'var(--logo-red, #C53030)' 
             }}
           >
-            Our People
+            People
           </h1>
           
           {/* Category Filters - Moved here */}
@@ -408,7 +408,7 @@ const People: React.FC = () => {
             {selectedCategory === 'Post Doc' && 'Post Doctoral Researchers'}
             {selectedCategory === 'Current' && 'Current Members'}
             {selectedCategory === 'Alumni' && 'Alumni'}
-            {selectedCategory === 'All' && 'Our Team'}
+            {selectedCategory === 'All' && 'Team'}
           </h2>
           <p className="text-lg text-black max-w-3xl leading-relaxed font-thin">
             {selectedCategory === 'Faculty' && 'Our distinguished faculty members lead cutting-edge research in artificial intelligence and machine learning.'}
