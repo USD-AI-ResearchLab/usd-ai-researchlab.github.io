@@ -345,7 +345,7 @@ const People: React.FC = () => {
           animate="animate"
         >
           <h1 
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-4xl font-bold mb-4"
             style={{ 
               fontFamily: 'Ubuntu, sans-serif',
               color: 'var(--logo-red, #C53030)' 
