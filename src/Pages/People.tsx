@@ -453,12 +453,6 @@ const People: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
-        
-        {/* Debug info */}
-        <div className="mt-8 p-4 bg-white rounded">
-          <p>Debug: Category: {selectedCategory}, Letter: {selectedLetter}, Results: {currentData.length}</p>
-          <p>Names: {currentData.map(p => p.name).join(', ')}</p>
-        </div>
       </div>
     </div>
   );
