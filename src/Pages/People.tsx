@@ -250,28 +250,6 @@ const People: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Section Headers */}
-        <motion.div className="mb-8 text-left" variants={fadeInUp}>
-          <h2 className="text-4xl text-red-600 mb-4">
-            {selectedCategory === 'Faculty' && 'Faculty & Research Staff'}
-            {selectedCategory === 'PhD Students' && 'PhD Students'}
-            {selectedCategory === 'Masters Students' && 'Masters Students'}
-            {selectedCategory === 'Post Doc' && 'Post Doctoral Researchers'}
-            {selectedCategory === 'Current' && 'Current Members'}
-            {selectedCategory === 'Alumni' && 'Alumni'}
-            {selectedCategory === 'All' && 'Team'}
-          </h2>
-          <p className="text-lg text-black max-w-3xl leading-relaxed font-thin">
-            {selectedCategory === 'Faculty' && 'Our distinguished faculty members lead cutting-edge research in artificial intelligence and machine learning.'}
-            {selectedCategory === 'PhD Students' && 'Our PhD students are conducting pioneering research in artificial intelligence, contributing to the advancement of the field.'}
-            {selectedCategory === 'Masters Students' && 'Our Masters students are developing expertise in artificial intelligence through rigorous coursework and research projects.'}
-            {selectedCategory === 'Post Doc' && 'Our post-doctoral researchers bring advanced expertise and contribute to innovative research initiatives.'}
-            {selectedCategory === 'Current' && 'Meet all our current faculty, PhD students, and Masters students working together on cutting-edge AI research.'}
-            {selectedCategory === 'Alumni' && 'Our proud alumni who have contributed to the growth of artificial intelligence research and continue to make impact in their respective fields.'}
-            {selectedCategory === 'All' && 'Meet the brilliant minds behind our AI research lab - faculty, students, and alumni who are shaping the future of artificial intelligence.'}
-          </p>
-        </motion.div>
-
         {/* People Grid */}
         <motion.div 
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
