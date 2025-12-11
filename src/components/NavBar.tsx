@@ -53,13 +53,13 @@ const NavBar: React.FC = () => {
         top: 0,
         left: 0,
         width: '100%',
-        height: '80px',
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+        height: '100px',
+        backgroundColor: '#C53030',
         backdropFilter: 'blur(16px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '0 32px',
+        padding: '0 40px',
         boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
         zIndex: 50
       }}>
@@ -77,23 +77,26 @@ const NavBar: React.FC = () => {
               src={bgimage} 
               alt="AI Lab Logo" 
               style={{
-                width: '60px',
-                height: '60px',
+                width: '70px',
+                height: '70px',
                 objectFit: 'contain',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                backgroundColor: '#C53030',
+                borderRadius: '8px',
+                padding: '6px'
               }}
             />
             </Link>
           
           <Link to="/about" style={{ textDecoration: 'none' }}>
             <div style={{
-              fontSize: '16px',
+              fontSize: '18px',
               fontWeight: 300,
-              color: '#374151',
+              color: 'white',
               transition: 'color 0.2s'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
+            onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
             >
               Home
             </div>
@@ -102,13 +105,13 @@ const NavBar: React.FC = () => {
           {/* People Link */}
           <Link to="/people" style={{ textDecoration: 'none' }}>
             <div style={{
-              fontSize: '16px',
+              fontSize: '18px',
               fontWeight: 300,
-              color: '#374151',
+              color: 'white',
               transition: 'color 0.2s'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
+            onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
             >
               People
             </div>
@@ -116,13 +119,13 @@ const NavBar: React.FC = () => {
 
           <Link to="/publications" style={{ textDecoration: 'none' }}>
             <div style={{
-              fontSize: '16px',
+              fontSize: '18px',
               fontWeight: 300,
-              color: '#374151',
+              color: 'white',
               transition: 'color 0.2s'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
+            onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
             >
               Publications
             </div>
@@ -131,13 +134,13 @@ const NavBar: React.FC = () => {
           {/* Initiatives Link */}
           <Link to="/initiatives" style={{ textDecoration: 'none' }}>
             <div style={{
-              fontSize: '16px',
+              fontSize: '18px',
               fontWeight: 300,
-              color: '#374151',
+              color: 'white',
               transition: 'color 0.2s'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
+            onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
             >
               Initiatives
             </div>
@@ -152,15 +155,15 @@ const NavBar: React.FC = () => {
           >
             <div style={{ textDecoration: 'none' }}>
               <div style={{
-                fontSize: '16px',
+                fontSize: '18px',
                 fontWeight: 300,
-                color: '#374151',
+                color: 'white',
                 transition: 'color 0.2s',
                 cursor: 'pointer',
                 userSelect: 'none'
               }}
-              onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
-              onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
+              onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
+              onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
               >
                 Initiatives (Dropdown)
               </div>
@@ -191,16 +194,16 @@ const NavBar: React.FC = () => {
                     padding: '12px 16px',
                     fontSize: '15px',
                     fontWeight: 400,
-                    color: '#374151',
+                    color: 'black',
                     transition: 'all 0.2s'
                   }}
                   onMouseOver={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
-                    (e.target as HTMLElement).style.color = '#C53030';
+                    (e.target as HTMLElement).style.color = '#f0f0f0';
                   }}
                   onMouseOut={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'transparent';
-                    (e.target as HTMLElement).style.color = '#374151';
+                    (e.target as HTMLElement).style.color = 'white';
                   }}
                   >
                     AI Symposium
@@ -211,16 +214,16 @@ const NavBar: React.FC = () => {
                     padding: '12px 16px',
                     fontSize: '15px',
                     fontWeight: 400,
-                    color: '#374151',
+                    color: 'black',
                     transition: 'all 0.2s'
                   }}
                   onMouseOver={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
-                    (e.target as HTMLElement).style.color = '#C53030';
+                    (e.target as HTMLElement).style.color = '#f0f0f0';
                   }}
                   onMouseOut={(e) => {
                     (e.target as HTMLElement).style.backgroundColor = 'transparent';
-                    (e.target as HTMLElement).style.color = '#374151';
+                    (e.target as HTMLElement).style.color = 'white';
                   }}
                   >
                     AI Club
@@ -240,7 +243,7 @@ const NavBar: React.FC = () => {
                       padding: '12px 16px',
                       fontSize: '15px',
                       fontWeight: 400,
-                      color: isConferencesOpen ? '#C53030' : '#374151',
+                      color: isConferencesOpen ? '#f0f0f0' : 'white',
                       backgroundColor: isConferencesOpen ? 'rgba(197, 48, 48, 0.08)' : 'transparent',
                       cursor: 'pointer',
                       transition: 'all 0.2s'
@@ -272,16 +275,16 @@ const NavBar: React.FC = () => {
                           padding: '12px 16px',
                           fontSize: '15px',
                           fontWeight: 400,
-                          color: '#374151',
+                          color: 'black',
                           transition: 'all 0.2s'
                         }}
                         onMouseOver={(e) => {
                           (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
-                          (e.target as HTMLElement).style.color = '#C53030';
+                          (e.target as HTMLElement).style.color = '#f0f0f0';
                         }}
                         onMouseOut={(e) => {
                           (e.target as HTMLElement).style.backgroundColor = 'transparent';
-                          (e.target as HTMLElement).style.color = '#374151';
+                          (e.target as HTMLElement).style.color = 'white';
                         }}
                         >
                           CAI
@@ -293,16 +296,16 @@ const NavBar: React.FC = () => {
                           padding: '12px 16px',
                           fontSize: '15px',
                           fontWeight: 400,
-                          color: '#374151',
+                          color: 'black',
                           transition: 'all 0.2s'
                         }}
                         onMouseOver={(e) => {
                           (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
-                          (e.target as HTMLElement).style.color = '#C53030';
+                          (e.target as HTMLElement).style.color = '#f0f0f0';
                         }}
                         onMouseOut={(e) => {
                           (e.target as HTMLElement).style.backgroundColor = 'transparent';
-                          (e.target as HTMLElement).style.color = '#374151';
+                          (e.target as HTMLElement).style.color = 'white';
                         }}
                         >
                           RTIP2R
@@ -317,13 +320,13 @@ const NavBar: React.FC = () => {
 
           <Link to="/opportunities" style={{ textDecoration: 'none' }}>
             <div style={{
-              fontSize: '16px',
+              fontSize: '18px',
               fontWeight: 300,
-              color: '#374151',
+              color: 'white',
               transition: 'color 0.2s'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
+            onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
             >
               Opportunities
             </div>
@@ -331,85 +334,21 @@ const NavBar: React.FC = () => {
 
           <Link to="/affiliates" style={{ textDecoration: 'none' }}>
             <div style={{
-              fontSize: '16px',
+              fontSize: '18px',
               fontWeight: 300,
-              color: '#374151',
+              color: 'white',
               transition: 'color 0.2s'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#C53030'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = '#374151'}
+            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
+            onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
             >
               Affiliates
             </div>
           </Link>
         </div>
-
-        {/* MOBILE MENU BUTTON */}
-        <button 
-          onClick={toggleMenu} 
-          style={{
-            background: 'none',
-            border: 'none',
-            fontSize: '24px',
-            color: '#374151',
-            cursor: 'pointer',
-            padding: '8px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '4px'
-          }}
-          className="block sm:hidden"
-        >
-          {isOpen ? (
-            // X icon when menu is open
-            <div style={{
-              width: '24px',
-              height: '24px',
-              position: 'relative',
-              transform: 'rotate(45deg)'
-            }}>
-              <div style={{
-                position: 'absolute',
-                width: '24px',
-                height: '2px',
-                backgroundColor: '#374151',
-                top: '11px'
-              }}></div>
-              <div style={{
-                position: 'absolute',
-                width: '24px',
-                height: '2px',
-                backgroundColor: '#374151',
-                top: '11px',
-                transform: 'rotate(90deg)'
-              }}></div>
-            </div>
-          ) : (
-            // Hamburger menu when closed
-            <>
-              <div style={{
-                width: '24px',
-                height: '2px',
-                backgroundColor: '#374151'
-              }}></div>
-              <div style={{
-                width: '24px',
-                height: '2px',
-                backgroundColor: '#374151'
-              }}></div>
-              <div style={{
-                width: '24px',
-                height: '2px',
-                backgroundColor: '#374151'
-              }}></div>
-            </>
-          )}
-        </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu - keeping hidden for now but removing button */}
       <div className={`fixed top-20 left-0 w-64 min-h-screen bg-white/95 backdrop-blur-xl flex flex-col items-start justify-start gap-6 pt-8 pl-6 pr-4 pb-8 sm:hidden transition-all duration-300 ease-in-out shadow-xl overflow-y-auto z-40 ${
         isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}>
@@ -420,6 +359,11 @@ const NavBar: React.FC = () => {
             src={bgimage} 
             alt="AI Lab Logo" 
             className="w-16 h-16 object-contain cursor-pointer" 
+            style={{
+              backgroundColor: '#C53030',
+              borderRadius: '8px',
+              padding: '4px'
+            }}
           />
         </Link>
         
