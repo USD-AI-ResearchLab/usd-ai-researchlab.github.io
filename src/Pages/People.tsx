@@ -353,10 +353,6 @@ const People: React.FC = () => {
           >
             Our People
           </h1>
-          <div 
-            className="w-24 h-1 mx-auto mb-6" 
-            style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
-          ></div>
           
           {/* Category Filters - Moved here */}
           <div className="flex flex-wrap justify-center mb-4 gap-2">
