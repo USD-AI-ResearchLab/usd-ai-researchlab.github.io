@@ -100,7 +100,7 @@ const Publications: React.FC = () => {
     <div className="pt-24 min-h-screen bg-white">
       <div className="container ml-0 px-4 py-8 max-w-4xl">
         {/* Header Section */}
-        <div className="mb-16">
+        <div className="text-left mb-16">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
             Publications
           </h1>

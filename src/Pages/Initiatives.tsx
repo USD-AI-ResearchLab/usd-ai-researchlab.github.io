@@ -34,7 +34,7 @@ const Initiatives: React.FC = () => {
 
   return (
     <div className="pt-24 min-h-screen bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container ml-0 px-4 py-8 max-w-4xl">
         <motion.div className="mb-16 text-left" variants={fadeInUp} initial="initial" animate="animate">
           <h1 
             className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red"
@@ -44,7 +44,7 @@ const Initiatives: React.FC = () => {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-4 gap-8 max-w-6xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
           initial="initial" 
           animate="animate"
           variants={{
