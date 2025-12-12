@@ -19,7 +19,7 @@ const Opportunities: React.FC = () => {
   return (
     <div className="pt-20 min-h-screen bg-white">
       <motion.div 
-        className="container mx-auto px-4 py-12 max-w-4xl"
+        className="container ml-0 px-4 py-12 max-w-4xl"
         initial="initial"
         animate="animate"
         variants={staggerChildren}

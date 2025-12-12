@@ -97,17 +97,16 @@ const Publications: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-32 min-h-screen bg-white">
-      <div className="w-full">
+    <div className="pt-20 min-h-screen bg-white">
+      <div className="container ml-0 px-4 py-12 max-w-4xl">
         {/* Header Section */}
-        <div className="pl-4 mb-16">
+        <div className="mb-16">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
             Publications
           </h1>
         </div>
-      </div>
       
-      <div className="w-full px-4">
+      <div className="w-full">
         
         {/* Books Section */}
         <div className="w-full mb-16">
@@ -318,6 +317,7 @@ const Publications: React.FC = () => {
             </div>
           )}
         </div>
+      </div>
       </div>
     </div>
   );
