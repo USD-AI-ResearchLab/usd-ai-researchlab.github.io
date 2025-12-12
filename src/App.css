@@ -1,5 +1,98 @@
 @import "tailwindcss";
 
+/* Custom text selection styling for better visibility */
+::selection {
+  background: #C53030 !important;
+  color: white !important;
+  text-shadow: none !important;
+}
+
+::-moz-selection {
+  background: #C53030 !important;
+  color: white !important;
+  text-shadow: none !important;
+}
+
+/* Specific selection styling for navigation and header elements */
+nav ::selection,
+header ::selection,
+.navbar ::selection,
+nav *::selection,
+header *::selection,
+.navbar *::selection {
+  background: #E53E3E !important;
+  color: white !important;
+  text-shadow: none !important;
+  font-weight: bold !important;
+}
+
+nav ::-moz-selection,
+header ::-moz-selection,
+.navbar ::-moz-selection,
+nav *::-moz-selection,
+header *::-moz-selection,
+.navbar *::-moz-selection {
+  background: #E53E3E !important;
+  color: white !important;
+  text-shadow: none !important;
+  font-weight: bold !important;
+}
+
+/* Footer selection styling */
+footer ::selection,
+footer *::selection {
+  background: #A02727 !important;
+  color: white !important;
+  text-shadow: none !important;
+  font-weight: bold !important;
+}
+
+footer ::-moz-selection,
+footer *::-moz-selection {
+  background: #A02727 !important;
+  color: white !important;
+  text-shadow: none !important;
+  font-weight: bold !important;
+}
+
+/* Link selection styling */
+a ::selection,
+a *::selection {
+  background: #FC8181 !important;
+  color: #1A202C !important;
+  text-shadow: none !important;
+  font-weight: bold !important;
+}
+
+a ::-moz-selection,
+a *::-moz-selection {
+  background: #FC8181 !important;
+  color: #1A202C !important;
+  text-shadow: none !important;
+  font-weight: bold !important;
+}
+
+/* Button and interactive elements selection */
+button ::selection,
+button *::selection,
+.btn ::selection,
+.btn *::selection {
+  background: #2D3748 !important;
+  color: #F7FAFC !important;
+  text-shadow: none !important;
+  font-weight: bold !important;
+}
+
+button ::-moz-selection,
+button *::-moz-selection,
+.btn ::-moz-selection,
+.btn *::-moz-selection {
+  background: #2D3748 !important;
+  color: #F7FAFC !important;
+  text-shadow: none !important;
+  font-weight: bold !important;
+}
+
 html, body {
   margin: 0;
   padding: 0;

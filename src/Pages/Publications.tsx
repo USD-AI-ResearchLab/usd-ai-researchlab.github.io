@@ -2,71 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import BooksComponent from '../components/BooksComponent';
 import { PUBLICATIONS } from '../data/publications';
 
-// Custom hook for counting animation
-const useCountUp = (end: number, duration: number = 2000) => {
-  const [count, setCount] = useState(0);
-  
-  useEffect(() => {
-    let startTime: number;
-    let animationFrame: number;
-    
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = (timestamp - startTime) / duration;
-      
-      if (progress < 1) {
-        setCount(Math.floor(end * progress));
-        animationFrame = requestAnimationFrame(animate);
-      } else {
-        setCount(end);
-      }
-    };
-    
-    animationFrame = requestAnimationFrame(animate);
-    
-    return () => {
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
-      }
-    };
-  }, [end, duration]);
-  
-  return count;
-};
-
-// Animated Statistics Card Component
-const AnimatedStatCard: React.FC<{ 
-  title: string; 
-  value?: number; 
-  suffix?: string; 
-  subtitle: string; 
-  isText?: boolean 
-}> = ({ title, value = 0, suffix = '', subtitle, isText = false }) => {
-  const animatedValue = useCountUp(value, 2000);
-  
-  return (
-    <div className="bg-white p-1.5 rounded-sm border border-gray-100">
-      <h3 className="text-xs font-semibold mb-0.5 text-red-600">
-        {title}
-      </h3>
-      {isText ? (
-        <p className="text-xs text-gray-600 leading-tight">
-          {subtitle}
-        </p>
-      ) : (
-        <>
-          <p className="text-base font-bold text-black mb-0.5">
-            {animatedValue}{suffix}
-          </p>
-          <p className="text-xs text-gray-600">
-            {subtitle}
-          </p>
-        </>
-      )}
-    </div>
-  );
-};
-
 const Publications: React.FC = () => {
   const [hoveredPublication, setHoveredPublication] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -166,61 +101,17 @@ const Publications: React.FC = () => {
       <div className="w-full">
         {/* Header Section */}
         <div className="pl-4 mb-16">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030) !important' }}>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
             Publications
           </h1>
         </div>
       </div>
       
       <div className="w-full px-4">
-
-        {/* Publications & Research Stats Section */}
-        <div className="w-full mb-8 flex justify-start">
-          <div className="bg-white border rounded-lg border-gray-200 p-3 max-w-md w-full">
-            <div className="flex items-center justify-between mb-3">
-              <h2 className="text-base font-semibold text-red-600">
-                Publications & Research
-              </h2>
-              <svg className="w-3 h-3 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-              </svg>
-            </div>
-
-            <div className="grid grid-cols-2 gap-1">
-              <AnimatedStatCard 
-                title="Published Research"
-                value={200}
-                suffix="+"
-                subtitle="Peer-Reviewed Articles"
-              />
-              
-              <AnimatedStatCard 
-                title="Books"
-                value={10}
-                suffix="+"
-                subtitle="Published Works"
-              />
-              
-              <AnimatedStatCard 
-                title="Conferences"
-                value={10}
-                suffix="+"
-                subtitle="International Events"
-              />
-              
-              <AnimatedStatCard 
-                title="Funding Sources"
-                value={0}
-                subtitle="SDBOR, DOD, NSF, Department Of Education"
-                isText={true}
-              />
-            </div>
-          </div>
-        </div>
         
         {/* Books Section */}
         <div className="w-full mb-16">
-          <h2 className="text-3xl font-thin text-gray-800 mb-8" style={{ color: 'var(--logo-red, #C53030)' }}>
+          <h2 className="text-3xl font-thin text-logo-red mb-8">
             Books
           </h2>
           <BooksComponent />
@@ -228,7 +119,7 @@ const Publications: React.FC = () => {
 
         {/* Research Papers Section */}
         <div className="w-full mb-16 relative">
-          <h2 className="text-3xl font-thin text-gray-800 mb-8" style={{ color: 'var(--logo-red, #C53030)' }}>
+          <h2 className="text-3xl font-thin text-logo-red mb-8">
             Research Papers
           </h2>
 
@@ -262,14 +153,9 @@ const Publications: React.FC = () => {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     selectedCategory === category
-                      ? 'text-white shadow-md'
+                      ? 'bg-red-600 text-white shadow-md'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
-                  style={
-                    selectedCategory === category
-                      ? { backgroundColor: 'var(--logo-red, #C53030)' }
-                      : undefined
-                  }
                 >
                   {category}
                 </button>
@@ -349,8 +235,7 @@ const Publications: React.FC = () => {
                               href={publication.paperUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center px-4 py-2 text-white rounded-md hover:opacity-90 transition-opacity text-sm font-medium"
-                              style={{ backgroundColor: 'var(--logo-red, #C53030)' }}
+                              className="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-md hover:opacity-90 transition-opacity text-sm font-medium"
                             >
                               <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -410,14 +295,9 @@ const Publications: React.FC = () => {
                   onClick={() => setCurrentPage(pageNum)}
                   className={`px-3 py-1 rounded transition-colors ${
                     pageNum === currentPage
-                      ? 'text-white'
+                      ? 'bg-red-600 text-white'
                       : 'bg-white text-red-600 border border-red-600 hover:bg-red-50'
                   }`}
-                  style={
-                    pageNum === currentPage
-                      ? { backgroundColor: 'var(--logo-red, #C53030)' }
-                      : undefined
-                  }
                 >
                   {pageNum}
                 </button>

@@ -14,7 +14,7 @@ const Home: React.FC = () => {
               <img 
                 src={bgimage} 
                 alt="AI Lab Logo" 
-                className="mx-auto" 
+                className="mx-auto"
                 style={{ 
                   width: 'min(95vw, 1400px)', 
                   height: 'auto',

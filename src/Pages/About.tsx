@@ -1,5 +1,70 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+
+// Custom hook for counting animation
+const useCountUp = (end: number, duration: number = 2000) => {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    let startTime: number;
+    let animationFrame: number;
+    
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = (timestamp - startTime) / duration;
+      
+      if (progress < 1) {
+        setCount(Math.floor(end * progress));
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+    
+    animationFrame = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [end, duration]);
+  
+  return count;
+};
+
+// Animated Statistics Card Component
+const AnimatedStatCard: React.FC<{ 
+  title: string; 
+  value?: number; 
+  suffix?: string; 
+  subtitle: string; 
+  isText?: boolean 
+}> = ({ title, value = 0, suffix = '', subtitle, isText = false }) => {
+  const animatedValue = useCountUp(value, 2000);
+  
+  return (
+    <div className="bg-white p-1.5 rounded-sm border border-gray-100">
+      <h3 className="text-xs font-semibold mb-0.5 text-red-600">
+        {title}
+      </h3>
+      {isText ? (
+        <p className="text-xs text-gray-600 leading-tight">
+          {subtitle}
+        </p>
+      ) : (
+        <>
+          <p className="text-base font-bold text-black mb-0.5">
+            {animatedValue}{suffix}
+          </p>
+          <p className="text-xs text-gray-600">
+            {subtitle}
+          </p>
+        </>
+      )}
+    </div>
+  );
+};
 
 const About: React.FC = () => {
   const fadeInUp = {
@@ -19,7 +84,7 @@ const About: React.FC = () => {
   return (
     <div className="pt-20 min-h-screen bg-white">
       <motion.div 
-        className="container mx-auto px-4 py-12 max-w-4xl"
+        className="container ml-0 px-4 py-12 max-w-4xl"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
@@ -49,6 +114,50 @@ const About: React.FC = () => {
           <p className="text-lg text-black leading-relaxed mb-4 font-thin">
             Join us as pioneer the future of AI from the heart of South Dakota, the Mount Rushmore state!
           </p>
+        </motion.div>
+
+        {/* Publications & Research Stats Section */}
+        <motion.div className="w-full mb-8 flex justify-start" variants={fadeInUp}>
+          <div className="bg-white border rounded-lg border-gray-200 p-3 max-w-md w-full">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-base font-semibold text-red-600">
+                Publications & Research
+              </h2>
+              <svg className="w-3 h-3 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+              </svg>
+            </div>
+
+            <div className="grid grid-cols-2 gap-1">
+              <AnimatedStatCard 
+                title="Published Research"
+                value={200}
+                suffix="+"
+                subtitle="Peer-Reviewed Articles"
+              />
+              
+              <AnimatedStatCard 
+                title="Books"
+                value={10}
+                suffix="+"
+                subtitle="Published Works"
+              />
+              
+              <AnimatedStatCard 
+                title="Conferences"
+                value={10}
+                suffix="+"
+                subtitle="International Events"
+              />
+              
+              <AnimatedStatCard 
+                title="Funding Sources"
+                value={0}
+                subtitle="SDBOR, DOD, NSF, Department Of Education"
+                isText={true}
+              />
+            </div>
+          </div>
         </motion.div>
 
         {/* News Section */}
