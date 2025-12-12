@@ -33,7 +33,7 @@ const Initiatives: React.FC = () => {
   ];
 
   return (
-    <div className="pt-20 min-h-screen bg-white">
+    <div className="pt-24 min-h-screen bg-white">
       <div className="container mx-auto px-4">
         <motion.div className="mb-16 text-left" variants={fadeInUp} initial="initial" animate="animate">
           <h1 

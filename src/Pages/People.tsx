@@ -181,9 +181,9 @@ const People: React.FC = () => {
   const currentData = getCurrentData();
 
   return (
-    <div className="pt-20 min-h-screen bg-white">
+    <div className="pt-24 min-h-screen bg-white">
       <motion.div 
-        className="container ml-0 px-4 py-12 max-w-4xl"
+        className="container ml-0 px-4 py-8 max-w-4xl"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
