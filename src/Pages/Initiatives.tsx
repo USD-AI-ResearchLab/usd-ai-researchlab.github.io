@@ -37,10 +37,7 @@ const Initiatives: React.FC = () => {
       <div className="container mx-auto px-4">
         <motion.div className="mb-16 text-left" variants={fadeInUp} initial="initial" animate="animate">
           <h1 
-            className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4"
-            style={{ 
-              color: 'var(--logo-red, #C53030)' 
-            }}
+            className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red"
           >
             Initiatives
           </h1>

@@ -26,7 +26,7 @@ const Affiliates: React.FC = () => {
       >
         {/* Header Section */}
         <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-red-600">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
             Affiliates
           </h1>
         </motion.div>

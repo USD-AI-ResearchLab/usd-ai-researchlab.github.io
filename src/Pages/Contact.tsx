@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
       >
         {/* Header Section */}
         <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4" style={{ color: 'var(--logo-red, #C53030) !important' }}>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
             Contact
           </h1>
         </motion.div>
