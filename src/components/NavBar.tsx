@@ -48,7 +48,7 @@ const NavBar: React.FC = () => {
   return (
     <>
       {/* MAIN NAVBAR - Layout: Navigation Left, Logo Right */}
-      <div style={{
+      <div className="navbar" style={{
         position: 'fixed',
         top: 0,
         left: 0,
@@ -74,6 +74,7 @@ const NavBar: React.FC = () => {
           {/* LOGO - LEFT SIDE */}
           <Link to="/" style={{ textDecoration: 'none' }}>
             <img 
+              className="logo"
               src={bgimage} 
               alt="AI Lab Logo" 
               style={{
