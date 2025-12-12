@@ -6,6 +6,7 @@ export interface Person {
   memberKey?: string; // For LinkedIn image matching
   scholarUrl?: string; // Google Scholar profile
   dblpUrl?: string; // DBLP profile
+  degree?: string; // Academic degree information
 }
 
 // Local faculty photos - stored in public/faculty folder for direct access

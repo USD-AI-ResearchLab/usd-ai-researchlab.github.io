@@ -116,19 +116,17 @@ const People: React.FC = () => {
   // Separate data by category
   const facultyStaff = facultyData;
   
-  // Extract students based on degree
+  // Extract students based on role
   const phdStudents = studentsData.filter(student => 
-    student.degree?.toLowerCase().includes('phd') || 
-    student.degree?.toLowerCase().includes('ph.d') ||
-    student.role?.toLowerCase().includes('phd')
+    student.role?.toLowerCase().includes('phd') || 
+    student.role?.toLowerCase().includes('ph.d')
   );
   
   const mastersStudents = studentsData.filter(student => 
-    (student.degree?.toLowerCase().includes('master') || 
-     student.degree?.toLowerCase().includes('ms') ||
-     student.role?.toLowerCase().includes('master')) &&
-    !student.degree?.toLowerCase().includes('phd') &&
-    !student.degree?.toLowerCase().includes('ph.d')
+    (student.role?.toLowerCase().includes('master') || 
+     student.role?.toLowerCase().includes('ms')) &&
+    !student.role?.toLowerCase().includes('phd') &&
+    !student.role?.toLowerCase().includes('ph.d')
   );
 
   const postDocs = facultyData.filter(member => 
