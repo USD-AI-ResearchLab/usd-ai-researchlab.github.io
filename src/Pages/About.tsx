@@ -91,7 +91,7 @@ const About: React.FC = () => {
       >
         {/* Header Section */}
         <motion.div className="text-left mb-4" variants={fadeInUp}>
-          <h1 className="text-4xl text-red-600 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
             USD AI Research
           </h1>
         </motion.div>
@@ -163,7 +163,7 @@ const About: React.FC = () => {
         {/* News Section */}
         <motion.div variants={fadeInUp}>
           <div className="mb-8">
-            <h2 className="text-4xl text-red-600 mb-4">News</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">News</h2>
           </div>
           
           <div className="bg-white rounded-lg shadow-md p-8">

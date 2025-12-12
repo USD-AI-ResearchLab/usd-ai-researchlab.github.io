@@ -190,7 +190,7 @@ const People: React.FC = () => {
       >
         {/* Header Section */}
         <motion.div className="text-left mb-4" variants={fadeInUp}>
-          <h1 className="text-4xl text-red-600 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
             People
           </h1>
         </motion.div>

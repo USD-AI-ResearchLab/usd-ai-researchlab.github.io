@@ -33,7 +33,7 @@ const Opportunities: React.FC = () => {
 
         {/* Main Content Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-2xl font-light mb-6 text-black">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin mb-6 text-logo-red">
             Join Our Research Lab
           </h2>
           

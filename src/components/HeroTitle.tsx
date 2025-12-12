@@ -1,7 +1,7 @@
 export default function HeroTitle() {
   return (
     <div>
-      <h1 className="font-light leading-[1.05] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+      <h1 className="font-thin leading-[1.05] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
         <span 
           className="bg-clip-text text-transparent"
           style={{ 
@@ -13,7 +13,7 @@ export default function HeroTitle() {
           USD Artificial Intelligence Research
         </span>
       </h1>
-      <h2 className="font-light leading-[1.2] tracking-tight text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2">
+      <h2 className="font-thin leading-[1.2] tracking-tight text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2">
         <span 
           className="bg-clip-text text-transparent"
           style={{ 

@@ -111,7 +111,7 @@ const Publications: React.FC = () => {
         
         {/* Books Section */}
         <div className="w-full mb-16">
-          <h2 className="text-3xl font-thin text-logo-red mb-8">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
             Books
           </h2>
           <BooksComponent />
@@ -119,7 +119,7 @@ const Publications: React.FC = () => {
 
         {/* Research Papers Section */}
         <div className="w-full mb-16 relative">
-          <h2 className="text-3xl font-thin text-logo-red mb-8">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
             Research Papers
           </h2>
 

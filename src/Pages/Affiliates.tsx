@@ -40,7 +40,7 @@ const Affiliates: React.FC = () => {
 
         {/* Partners Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
-          <h2 className="text-2xl md:text-3xl font-thin mb-12 text-left text-red-600">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin mb-12 text-left text-logo-red">
             Our Partners & Collaborators
           </h2>
           
