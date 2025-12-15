@@ -67,6 +67,92 @@ const AnimatedStatCard: React.FC<{
 };
 
 const About: React.FC = () => {
+  // News carousel state
+  const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
+  
+  // News items data
+  const newsItems = [
+    {
+      icon: "agreements",
+      title: "Agreements/MOUs",
+      content: "(December 2024) The AI Research Lab signed an agreement with the Thumbay Institute for AI in Healthcare at Gulf Medical University, UAE.",
+      subtitle: "Looking for a collaboration, don't hesitate to reach out."
+    },
+    {
+      icon: "funding",
+      title: "Major Funding",
+      content: "(November 2024) Secured $7.245M funding for South Dakota Biomedical Computation Collaborative initiative.",
+      subtitle: "Advancing computational research in biomedical sciences."
+    },
+    {
+      icon: "research",
+      title: "Research Infrastructure",
+      content: "(October 2024) NSF Award #2346643 for CC* Campus Compute infrastructure project totaling $0.5M.",
+      subtitle: "Building advanced computational capabilities for research excellence."
+    },
+    {
+      icon: "collaboration",
+      title: "International Partnerships",
+      content: "(September 2024) Established new research partnerships with leading AI institutions across Europe and Asia.",
+      subtitle: "Expanding global reach in artificial intelligence research."
+    }
+  ];
+
+  // Navigation functions
+  const nextNews = () => {
+    setCurrentNewsIndex((prev) => (prev + 1) % newsItems.length);
+  };
+
+  const prevNews = () => {
+    setCurrentNewsIndex((prev) => (prev - 1 + newsItems.length) % newsItems.length);
+  };
+
+  const goToNews = (index: number) => {
+    setCurrentNewsIndex(index);
+  };
+
+  // Icon component
+  const getIcon = (iconType: string) => {
+    const iconMap = {
+      agreements: (
+        <svg className="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+        </svg>
+      ),
+      funding: (
+        <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+          <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd" />
+        </svg>
+      ),
+      research: (
+        <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+        </svg>
+      ),
+      collaboration: (
+        <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+          <path d="M6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+        </svg>
+      )
+    };
+
+    const iconColor = {
+      agreements: "bg-yellow-100",
+      funding: "bg-green-100", 
+      research: "bg-blue-100",
+      collaboration: "bg-purple-100"
+    };
+
+    return (
+      <div className={`w-12 h-12 ${iconColor[iconType as keyof typeof iconColor]} rounded-full flex items-center justify-center mr-4`}>
+        {iconMap[iconType as keyof typeof iconMap]}
+      </div>
+    );
+  };
+
+  const currentNews = newsItems[currentNewsIndex];
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -84,7 +170,7 @@ const About: React.FC = () => {
   return (
     <div className="pt-24 min-h-screen bg-white">
       <motion.div 
-        className="container ml-0 px-4 py-8 max-w-4xl"
+        className="container mx-auto px-4 py-8"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
@@ -99,7 +185,7 @@ const About: React.FC = () => {
         {/* Main Content Section with Side Card */}
         <motion.div className="flex flex-col lg:flex-row gap-8 mb-8" variants={fadeInUp}>
           {/* Text Content */}
-          <div className="flex-1">
+          <div className="flex-1 lg:min-w-0">
             <p className="text-lg text-black leading-relaxed mb-4 font-thin">
               <span className="bg-gradient-to-r from-black via-red-600 to-black bg-clip-text text-transparent">USD AI Research</span> is the leading <span className="bg-gradient-to-r from-black via-red-600 to-black bg-clip-text text-transparent">artificial intelligence</span> research and development center based in South Dakota.
             </p>
@@ -119,10 +205,10 @@ const About: React.FC = () => {
           </div>
 
           {/* Publications & Research Stats Card */}
-          <div className="flex-shrink-0 lg:w-80">
-            <div className="bg-white border rounded-lg border-gray-200 p-3 w-full">
-              <div className="flex items-center justify-between mb-3">
-                <h2 className="text-base font-semibold text-red-600">
+          <div className="flex-shrink-0 lg:w-[480px]">
+            <div className="bg-white border rounded-lg border-gray-200 p-6 w-full shadow-md">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold text-red-600">
                   Publications & Research
                 </h2>
                 <svg className="w-3 h-3 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,47 +255,60 @@ const About: React.FC = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">News</h2>
           </div>
           
-          <div className="bg-white rounded-lg shadow-md p-8">
-            <p className="text-lg text-black mb-6 font-thin">
-              We are part of highly ambitious projects:
-            </p>
+          <div className="bg-white rounded-lg shadow-md border border-gray-200 p-8 relative">
+            {/* Navigation arrows */}
+            <button 
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
+              aria-label="Previous news item"
+              onClick={prevNews}
+            >
+              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
             
-            <div className="space-y-6">
-              {/* Project 1 */}
-              <div className="border-l-4 pl-6 py-2" style={{ borderColor: '#C53030' }}>
-                <h3 className="text-xl font-semibold text-black mb-2">
-                  South Dakota Biomedical Computation Collaborative
-                </h3>
-                <p className="text-black mb-2">
-                  <span className="font-medium" style={{ color: '#C53030' }}>Funding: $7.245M</span>
-                </p>
-                <a 
-                  href="https://sd-bcc.org/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 underline text-sm"
-                >
-                  Visit SD-BCC Website →
-                </a>
+            <button 
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
+              aria-label="Next news item"
+              onClick={nextNews}
+            >
+              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Content */}
+            <div className="mx-12">
+              {/* Header with icon */}
+              <div className="flex items-center mb-6">
+                {getIcon(currentNews.icon)}
+                <h3 className="text-2xl font-semibold text-gray-900">{currentNews.title}</h3>
               </div>
 
-              {/* Project 2 */}
-              <div className="border-l-4 pl-6 py-2" style={{ borderColor: '#C53030' }}>
-                <h3 className="text-xl font-semibold text-black mb-2">
-                  Research Infrastructure: CC* Campus Compute
-                </h3>
-                <p className="text-black mb-2">
-                  <span className="font-medium">NSF Award # 2346643</span> | <span className="font-medium" style={{ color: '#C53030' }}>Funding: $0.5M</span>
+              {/* Main content */}
+              <div className="space-y-4">
+                <p className="text-gray-800 leading-relaxed">
+                  <strong>{currentNews.content}</strong>
                 </p>
-                <a 
-                  href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2346643" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 underline text-sm"
-                >
-                  View NSF Award Details →
-                </a>
+                
+                <p className="text-gray-700 leading-relaxed">
+                  {currentNews.subtitle}
+                </p>
               </div>
+            </div>
+
+            {/* Pagination dots */}
+            <div className="flex justify-center mt-8 space-x-2">
+              {newsItems.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    index === currentNewsIndex ? 'bg-gray-800' : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  onClick={() => goToNews(index)}
+                  aria-label={`Go to news item ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </motion.div>
