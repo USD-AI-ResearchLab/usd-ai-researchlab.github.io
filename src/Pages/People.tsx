@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import PersonCard from '../components/PersonCard';
 import { facultyData } from '../data/faculty';
 import { studentsData } from '../data/students';
+import { alumniData } from '../data/alumni';
 
 const People: React.FC = () => {
   const [selectedLetter, setSelectedLetter] = useState('All');
@@ -26,89 +27,6 @@ const People: React.FC = () => {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 }
   };
-
-  // Alumni data
-  const alumni = [
-    // PhD Alumni
-    {
-      name: "David Cortes",
-      degree: "PhD",
-      year: "2024",
-      role: "PhD Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Priyam Pandey",
-      degree: "PhD",
-      year: "2024",
-      role: "PhD Graduate | Computer Science",
-      category: "Alumni"
-    },
-    // Master's Alumni
-    {
-      name: "Chenchaiah Mekalathu",
-      degree: "Master's",
-      year: "2024",
-      role: "Master's Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Hari Sukarti",
-      degree: "Master's",
-      year: "2024",
-      role: "Master's Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Murthy Srinivasa Reddy",
-      degree: "Master's",
-      year: "2024",
-      role: "Master's Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Vinit Kumar Yadav",
-      degree: "Master's",
-      year: "2024",
-      role: "Master's Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Thabesum Tazeem Sheikh",
-      degree: "Master's",
-      year: "2023",
-      role: "Master's Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Ashwin Karthik Amudalavalasa",
-      degree: "Master's",
-      year: "2023",
-      role: "Master's Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Srinath Reddy Devireddy",
-      degree: "Master's",
-      year: "2023",
-      role: "Master's Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Swapna Reddy Nalla",
-      degree: "Master's",
-      year: "2023",
-      role: "Master's Graduate | Computer Science",
-      category: "Alumni"
-    },
-    {
-      name: "Vamshi Krishna Andeshra",
-      degree: "Master's",
-      year: "2023",
-      role: "Master's Graduate | Computer Science",
-      category: "Alumni"
-    }
-  ];
 
   const letters = ['All', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   const categories = ['All', 'Faculty', 'Postdoc', 'PhD Students', 'Masters Students', 'Current', 'Alumni'];
@@ -140,7 +58,7 @@ const People: React.FC = () => {
   // Filter and get current data based on selection
   const getCurrentData = () => {
     let categoryData: any[] = [];
-    const allData = [...facultyData, ...studentsData, ...alumni];
+    const allData = [...facultyData, ...studentsData, ...alumniData];
 
     // First filter by category
     switch (selectedCategory) {
@@ -160,7 +78,7 @@ const People: React.FC = () => {
         categoryData = [...facultyStaff, ...postDocs, ...phdStudents, ...mastersStudents];
         break;
       case 'Alumni':
-        categoryData = alumni;
+        categoryData = alumniData;
         break;
       default:
         categoryData = allData;
