@@ -205,7 +205,317 @@ export const alumniData: AlumnusData[] = [
     memberKey: "malashree-dhungel"
   },
 
-  // TODO: Add the remaining ~30+ alumni here
+  // Additional Alumni - More Graduate Students
+  {
+    name: "Anup Khanal",
+    degree: "Master's",
+    year: "2023",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "anup-khanal"
+  },
+  {
+    name: "Anushuya Baidya",
+    degree: "Master's",
+    year: "2023",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "anushuya-baidya"
+  },
+  {
+    name: "MdAftabul Islam",
+    degree: "Master's",
+    year: "2023",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "mdaftabul-islam"
+  },
+  {
+    name: "AkhilReddy Mendu",
+    degree: "Master's",
+    year: "2023",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "akhilreddy-mendu"
+  },
+  {
+    name: "Anuska Pokharel",
+    degree: "Master's",
+    year: "2023",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "anuska-pokharel"
+  },
+  {
+    name: "Yslam Ismailov",
+    degree: "Master's",
+    year: "2023",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "yslam-ismailov"
+  },
+  {
+    name: "Hansakrish Kuttubaskar",
+    degree: "Master's",
+    year: "2023",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "hansakrish-kuttubaskar"
+  },
+  {
+    name: "Praveen Paramsivam",
+    degree: "Master's",
+    year: "2023",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "praveen-paramsivam"
+  },
+  {
+    name: "Abhishek Chaudhary",
+    degree: "Master's",
+    year: "2022",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "abhishek-chaudhary"
+  },
+  {
+    name: "A Matthew Chacko",
+    degree: "Master's",
+    year: "2022",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "a-matthew-chacko"
+  },
+  {
+    name: "KalyanVikram Muppudoju",
+    degree: "Master's",
+    year: "2022",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "kalyanvikram-muppudoju"
+  },
+  {
+    name: "Srijana Raut",
+    degree: "Master's",
+    year: "2022",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "srijana-raut"
+  },
+  {
+    name: "Suprim Nakarmi",
+    degree: "Master's",
+    year: "2022",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "suprim-nakarmi"
+  },
+  {
+    name: "Gaurrav Subedi",
+    degree: "Master's",
+    year: "2022",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "gaurrav-subedi"
+  },
+  {
+    name: "Rakshya Dahal",
+    degree: "Master's",
+    year: "2022",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "rakshya-dahal"
+  },
+  {
+    name: "Alisha Karna",
+    degree: "Master's",
+    year: "2022",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "alisha-karna"
+  },
+  {
+    name: "Aarati Dhungel",
+    degree: "Master's",
+    year: "2022",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "aarati-dhungel"
+  },
+  {
+    name: "Anup Dhakal",
+    degree: "Master's",
+    year: "2021",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "anup-dhakal"
+  },
+  {
+    name: "Ronaj Pradhan",
+    degree: "Master's",
+    year: "2021",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "ronaj-pradhan"
+  },
+  {
+    name: "Md Masum Rana",
+    degree: "Master's",
+    year: "2021",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "md-masum-rana"
+  },
+  {
+    name: "Bipul Bhattarai",
+    degree: "Master's",
+    year: "2021",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "bipul-bhattarai"
+  },
+  {
+    name: "Josh Henderson",
+    degree: "Master's",
+    year: "2021",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "josh-henderson"
+  },
+  {
+    name: "Siddhi Kiran Bajracharya",
+    degree: "Master's",
+    year: "2021",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "siddhi-kiran-bajracharya"
+  },
+  {
+    name: "Hugo Morvan",
+    degree: "Master's",
+    year: "2021",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "hugo-morvan"
+  },
+  {
+    name: "Bichar Shrestha Gurung",
+    degree: "Master's",
+    year: "2020",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "bichar-shrestha-gurung"
+  },
+  {
+    name: "Bigyan Shrestha",
+    degree: "Master's",
+    year: "2020",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "bigyan-shrestha"
+  },
+  {
+    name: "Raman Regmi",
+    degree: "Master's",
+    year: "2020",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "raman-regmi"
+  },
+  {
+    name: "Adedeji Waisu Yusuff",
+    degree: "Master's",
+    year: "2020",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "adedeji-waisu-yusuff"
+  },
+  {
+    name: "Muntamir Mamun",
+    degree: "Master's",
+    year: "2020",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "muntamir-mamun"
+  },
+  {
+    name: "Rafia Sharmin Alice",
+    degree: "Master's",
+    year: "2020",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "rafia-sharmin-alice"
+  },
+  {
+    name: "Nikita Shrestha",
+    degree: "Master's",
+    year: "2019",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "nikita-shrestha"
+  },
+  {
+    name: "Siva Allu",
+    degree: "Master's",
+    year: "2019",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "siva-allu"
+  },
+  {
+    name: "Prakash Madai",
+    degree: "Master's",
+    year: "2019",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "prakash-madai"
+  },
+  {
+    name: "Shotadbi Roy",
+    degree: "Master's",
+    year: "2019",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "shotadbi-roy"
+  },
+  {
+    name: "Supriti Ghosh",
+    degree: "Master's",
+    year: "2019",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "supriti-ghosh"
+  },
+  {
+    name: "Bruce Stofft",
+    degree: "Master's",
+    year: "2019",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "bruce-stofft"
+  },
+  {
+    name: "Afia Farjana",
+    degree: "Master's",
+    year: "2018",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "afia-farjana"
+  },
+  {
+    name: "Jahirul Islam",
+    degree: "Master's",
+    year: "2018",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "jahirul-islam"
+  },
+  {
+    name: "Haidong Wang",
+    degree: "Master's",
+    year: "2018",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "haidong-wang"
+  },
+  {
+    name: "Alina Chu",
+    degree: "Master's",
+    year: "2018",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "alina-chu"
+  },
+  {
+    name: "Airu Liu",
+    degree: "Master's",
+    year: "2018",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "airu-liu"
+  },
+  {
+    name: "Fatema Tu Zohora",
+    degree: "Master's",
+    year: "2017",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "fatema-tu-zohora"
+  },
+  {
+    name: "A Afaque",
+    degree: "Master's",
+    year: "2017",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "a-afaque"
+  },
+  {
+    name: "Nikul Vyas",
+    degree: "Master's",
+    year: "2017",
+    role: "Master's Graduate | Computer Science",
+    memberKey: "nikul-vyas"
+  },
+
+  // TODO: Add more alumni if needed
   // Please provide the alumni data to complete this list
   // 
   // Template for adding new alumni:
