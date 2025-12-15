@@ -8,3 +8,4 @@ The site is automatically deployed to GitHub Pages via GitHub Actions when chang
 
 Live site: https://usd-ai-researchlab.github.io/
 
+# Deployment trigger Sun Dec 14 23:17:49 CST 2025
