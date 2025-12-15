@@ -114,7 +114,17 @@ const People: React.FC = () => {
   const categories = ['All', 'Faculty', 'Postdoc', 'PhD Students', 'Masters Students', 'Current', 'Alumni'];
 
   // Separate data by category
-  const facultyStaff = facultyData;
+  const postDocs = facultyData.filter(member => 
+    member.role?.toLowerCase().includes('postdoc') || 
+    member.role?.toLowerCase().includes('post-doc') ||
+    member.role?.toLowerCase().includes('postdoctoral')
+  );
+  
+  const facultyStaff = facultyData.filter(member => 
+    !member.role?.toLowerCase().includes('postdoc') && 
+    !member.role?.toLowerCase().includes('post-doc') &&
+    !member.role?.toLowerCase().includes('postdoctoral')
+  );
   
   // Extract students based on role
   const phdStudents = studentsData.filter(student => 
@@ -127,12 +137,6 @@ const People: React.FC = () => {
      student.role?.toLowerCase().includes('ms')) &&
     !student.role?.toLowerCase().includes('phd') &&
     !student.role?.toLowerCase().includes('ph.d')
-  );
-
-  const postDocs = facultyData.filter(member => 
-    member.role?.toLowerCase().includes('postdoc') || 
-    member.role?.toLowerCase().includes('post-doc') ||
-    member.role?.toLowerCase().includes('postdoctoral')
   );
 
   // Filter and get current data based on selection
