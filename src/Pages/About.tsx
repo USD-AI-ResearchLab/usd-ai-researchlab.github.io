@@ -87,7 +87,6 @@ const About: React.FC = () => {
   const [engagementSummary, setEngagementSummary] = useState({ totalLikes: 0, totalComments: 0, totalShares: 0, averageEngagement: 0 });
   const [trendingPost, setTrendingPost] = useState<LinkedInPost | null>(null);
   const [followerCount, setFollowerCount] = useState("4.0k");
-  const [lastUpdated, setLastUpdated] = useState(new Date());
   const [expandedPost, setExpandedPost] = useState<string | null>(null);
   const [recentUpdates, setRecentUpdates] = useState(0);
   const profile = linkedinProfile;
@@ -97,24 +96,28 @@ const About: React.FC = () => {
     {
       icon: "agreements",
       title: "Agreements/MOUs",
+      date: "December 2024",
       content: "(December 2024) The AI Research Lab signed an agreement with the Thumbay Institute for AI in Healthcare at Gulf Medical University, UAE.",
       subtitle: "Looking for a collaboration, don't hesitate to reach out."
     },
     {
       icon: "funding",
       title: "Major Funding",
+      date: "November 2024",
       content: "(November 2024) Secured $7.245M funding for South Dakota Biomedical Computation Collaborative initiative.",
       subtitle: "Advancing computational research in biomedical sciences."
     },
     {
       icon: "research",
       title: "Research Infrastructure",
+      date: "October 2024",
       content: "(October 2024) NSF Award #2346643 for CC* Campus Compute infrastructure project totaling $0.5M.",
       subtitle: "Building advanced computational capabilities for research excellence."
     },
     {
       icon: "collaboration",
       title: "International Partnerships",
+      date: "September 2024",
       content: "(September 2024) Established new research partnerships with leading AI institutions across Europe and Asia.",
       subtitle: "Expanding global reach in artificial intelligence research."
     }
@@ -173,9 +176,6 @@ const About: React.FC = () => {
       // Update engagement summary
       const summary = getEngagementSummary();
       setEngagementSummary(summary);
-      
-      // Update last updated timestamp
-      setLastUpdated(new Date());
       
       // Track recent updates for notification badge
       setRecentUpdates(prev => prev + 1);
@@ -388,7 +388,9 @@ const About: React.FC = () => {
                 <div className="flex items-start space-x-4 mb-8">
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center shadow-lg">
-                      {getIcon(currentNews.icon, 'w-8 h-8 text-white')}
+                      <div className="w-8 h-8 text-white">
+                        {getIcon(currentNews.icon)}
+                      </div>
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
@@ -539,7 +541,6 @@ const About: React.FC = () => {
                         setRecentUpdates(0);
                         const data = await fetchLinkedInData();
                         setLinkedinPosts(data.posts);
-                        setLastUpdated(new Date());
                         setIsLoadingLinkedIn(false);
                       }}
                       className="text-gray-500 hover:text-red-600 transition-all duration-300 transform hover:scale-110 p-2 rounded-full hover:bg-red-50 border border-gray-200 hover:border-red-200 shadow-sm hover:shadow-md"
