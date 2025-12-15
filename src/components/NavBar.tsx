@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
-import bgimage from "../assets/logo.svg";
+import bgimage from "../assets/logo-copy.svg";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -78,8 +78,8 @@ const NavBar: React.FC = () => {
               src={bgimage} 
               alt="AI Lab Logo" 
               style={{
-                width: '70px',
-                height: '70px',
+                width: '85px',
+                height: '85px',
                 objectFit: 'contain',
                 cursor: 'pointer',
                 backgroundColor: '#C53030',
@@ -87,7 +87,7 @@ const NavBar: React.FC = () => {
                 padding: '6px'
               }}
             />
-            </Link>
+          </Link>
           
           <Link to="/about" style={{ textDecoration: 'none' }}>
             <div style={{
