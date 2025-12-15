@@ -160,7 +160,7 @@ const People: React.FC = () => {
         categoryData = mastersStudents;
         break;
       case 'Current':
-        categoryData = [...facultyData, ...phdStudents, ...mastersStudents];
+        categoryData = [...facultyStaff, ...postDocs, ...phdStudents, ...mastersStudents];
         break;
       case 'Alumni':
         categoryData = alumni;
@@ -259,7 +259,7 @@ const People: React.FC = () => {
           variants={staggerChildren}
         >
           {currentData.map((person: any, index: number) => (
-            <motion.div key={index} variants={cardVariants}>
+            <motion.div key={person.memberKey || person.name || index} variants={cardVariants}>
               <PersonCard 
                 name={person.name}
                 role={person.role}
