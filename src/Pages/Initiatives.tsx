@@ -31,7 +31,7 @@ const Initiatives: React.FC = () => {
     {
       title: "AI Symposium",
       link: "/events/ai-symposium/2025",
-      image: "/images/conferences/usd-clean.png",
+      image: "/images/conferences/usd-logo.png",
       description: "Annual symposium bringing together AI researchers, industry experts, and students to share cutting-edge research and innovations.",
       sections: {
         "Keynote Speakers": ["World-renowned AI researchers", "Industry leaders from major tech companies", "Emerging AI startup founders"],
@@ -43,7 +43,7 @@ const Initiatives: React.FC = () => {
       title: "AI Club", 
       link: "https://usdinvolved.usd.edu/organization/ai-club",
       isExternal: true,
-      image: "/images/conferences/usd-clean.png",
+      image: "/images/conferences/usd-logo.png",
       description: "Student-led organization fostering AI learning through projects, competitions, and networking opportunities.",
       sections: {
         "Activities": ["Weekly coding sessions", "AI project competitions", "Guest speaker events"],
@@ -55,7 +55,7 @@ const Initiatives: React.FC = () => {
       title: "CAI Conference",
       link: "https://www.ieeesmc.org/cai-2026/",
       isExternal: true,
-      image: "/images/conferences/ieee-clean.png",
+      image: "/images/conferences/ieee-master-logo.png",
       description: "IEEE Conference on Computational AI focusing on theoretical foundations and practical applications.",
       sections: {
         "Focus Areas": ["Computational intelligence", "Evolutionary algorithms", "Fuzzy systems"],
@@ -67,7 +67,7 @@ const Initiatives: React.FC = () => {
       title: "RTIP2R Conference",
       link: "https://rtip2r-conference.org/2025/",
       isExternal: true,
-      image: "/images/conferences/springer-clean.png",
+      image: "/images/conferences/springer-logo.png",
       description: "Real-Time Image Processing for Recognition conference showcasing advances in computer vision and pattern recognition.",
       sections: {
         "Topics": ["Real-time image processing", "Pattern recognition", "Computer vision applications"],
@@ -79,7 +79,7 @@ const Initiatives: React.FC = () => {
       title: "AI Engineering",
       link: "https://www.aiengineering-conference.org",
       isExternal: true,
-      image: "/images/conferences/ai-engineering-clean.svg",
+      image: "/images/conferences/ai-engineering.png",
       description: "Conference focused on engineering aspects of AI systems, deployment, and scalability challenges.",
       sections: {
         "Engineering Focus": ["AI system architecture", "MLOps and deployment", "Scalability solutions"],
@@ -91,7 +91,7 @@ const Initiatives: React.FC = () => {
       title: "2AI Conference",
       link: "https://www.2ai-conference.org",
       isExternal: true,
-      image: "/images/conferences/2ai-clean.svg",
+      image: "/images/conferences/2ai-logo.png",
       description: "Conference on Applied Artificial Intelligence emphasizing practical AI solutions across industries.",
       sections: {
         "Application Domains": ["Healthcare AI", "Financial technology", "Smart cities", "Education technology"],
@@ -103,7 +103,7 @@ const Initiatives: React.FC = () => {
       title: "CVMI Conference",
       link: "https://cvmi2024.iiita.ac.in/",
       isExternal: true,
-      image: "/images/conferences/cvmi-clean.png",
+      image: "/images/conferences/cvmi-logo.jpg",
       description: "Computer Vision and Machine Intelligence conference exploring the intersection of vision and intelligence.",
       sections: {
         "Research Areas": ["Computer vision", "Machine intelligence", "Deep learning for vision"],
@@ -246,22 +246,7 @@ const Initiatives: React.FC = () => {
           ))}
         </motion.div>
 
-        {/* Bottom Section */}
-        <motion.div className="mt-20 text-left mr-auto max-w-4xl" variants={fadeInUp}>
-          <h2 className="text-3xl font-light text-gray-800 mb-6">Get Involved</h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Join our vibrant research community and participate in cutting-edge AI research initiatives. 
-            Connect with fellow researchers, industry experts, and students passionate about artificial intelligence.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-start">
-            <button className="px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200">
-              Contact Research Team
-            </button>
-            <button className="px-8 py-3 border border-red-600 text-red-600 hover:bg-red-50 font-medium rounded-lg transition-colors duration-200">
-              View All Publications
-            </button>
-          </div>
-        </motion.div>
+
       </motion.div>
     </div>
   );
