@@ -126,19 +126,16 @@ const People: React.FC = () => {
     !member.role?.toLowerCase().includes('postdoctoral')
   );
   
-  // Extract students based on role
-  const phdStudents = studentsData.filter(student => 
-    student.role?.toLowerCase().includes('phd') || 
-    student.role?.toLowerCase().includes('ph.d')
-  );
+  // Extract students based on role - simplified logic for debugging
+  const phdStudents = studentsData.filter(student => {
+    const role = student.role?.toLowerCase() || '';
+    return role.includes('phd');
+  });
   
-  const mastersStudents = studentsData.filter(student => 
-    (student.role?.toLowerCase().includes('master') || 
-     student.role?.toLowerCase().includes('ms') ||
-     student.role?.toLowerCase().includes('m.s.')) &&
-    !student.role?.toLowerCase().includes('phd') &&
-    !student.role?.toLowerCase().includes('ph.d')
-  );
+  const mastersStudents = studentsData.filter(student => {
+    const role = student.role?.toLowerCase() || '';
+    return role.includes('m.s.') && !role.includes('phd');
+  });
 
   // Filter and get current data based on selection
   const getCurrentData = () => {
