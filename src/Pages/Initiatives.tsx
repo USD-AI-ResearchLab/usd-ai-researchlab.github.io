@@ -37,13 +37,28 @@ const Initiatives: React.FC = () => {
       title: "RTIP2R Conference",
       link: "https://rtip2r-conference.org/2025/",
       isExternal: true
+    },
+    {
+      title: "AI Engineering Conference",
+      link: "https://www.aiengineering-conference.org",
+      isExternal: true
+    },
+    {
+      title: "2AI Conference",
+      link: "https://www.2ai-conference.org",
+      isExternal: true
+    },
+    {
+      title: "CVMI Conference",
+      link: "https://cvmi2024.iiita.ac.in/",
+      isExternal: true
     }
   ];
 
   return (
     <div className="pt-24 min-h-screen bg-white">
       <motion.div 
-        className="container ml-0 px-4 py-8 max-w-4xl"
+        className="container mx-auto px-4 py-8"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
@@ -56,7 +71,7 @@ const Initiatives: React.FC = () => {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={fadeInUp}
         >
           {categories.map((category, index) => (
