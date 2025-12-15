@@ -134,7 +134,8 @@ const People: React.FC = () => {
   
   const mastersStudents = studentsData.filter(student => 
     (student.role?.toLowerCase().includes('master') || 
-     student.role?.toLowerCase().includes('ms')) &&
+     student.role?.toLowerCase().includes('ms') ||
+     student.role?.toLowerCase().includes('m.s.')) &&
     !student.role?.toLowerCase().includes('phd') &&
     !student.role?.toLowerCase().includes('ph.d')
   );
