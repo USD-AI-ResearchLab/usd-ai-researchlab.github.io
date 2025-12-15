@@ -78,13 +78,13 @@ const NavBar: React.FC = () => {
               src={bgimage} 
               alt="AI Lab Logo" 
               style={{
-                width: '85px',
-                height: '85px',
+                width: '98px',
+                height: '98px',
                 objectFit: 'contain',
                 cursor: 'pointer',
                 backgroundColor: '#C53030',
                 borderRadius: '8px',
-                padding: '6px'
+                padding: '4px',
               }}
             />
           </Link>
@@ -359,11 +359,13 @@ const NavBar: React.FC = () => {
           <img 
             src={bgimage} 
             alt="AI Lab Logo" 
-            className="w-16 h-16 object-contain cursor-pointer" 
+            className="object-contain cursor-pointer" 
             style={{
+              width: '78px',
+              height: '78px',
               backgroundColor: '#C53030',
               borderRadius: '8px',
-              padding: '4px'
+              padding: '4px',
             }}
           />
         </Link>

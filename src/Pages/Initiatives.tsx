@@ -58,7 +58,7 @@ const Initiatives: React.FC = () => {
   return (
     <div className="pt-24 min-h-screen bg-white">
       <motion.div 
-        className="container mx-auto px-4 py-8"
+        className="w-full px-4 py-8"
         initial="initial"
         animate="animate"
         variants={staggerChildren}

@@ -7,7 +7,7 @@ const Home: React.FC = () => {
     <div className="min-h-screen w-full bg-white flex flex-col">
       {/* Combined Logo and Content Section */}
       <div className="flex-1 flex items-center justify-center">
-        <div className="container mx-auto px-4 py-20">
+        <div className="w-full px-4 py-20">
           <div className="text-center max-w-6xl mx-auto">
             {/* Logo - Centered */}
             <div className="mb-16 flex justify-center">

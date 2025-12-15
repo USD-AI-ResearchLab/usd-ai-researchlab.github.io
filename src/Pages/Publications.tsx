@@ -98,7 +98,7 @@ const Publications: React.FC = () => {
 
   return (
     <div className="pt-24 min-h-screen bg-white">
-      <div className="container ml-0 px-4 py-8 max-w-4xl">
+      <div className="w-full px-4 py-8">
         {/* Header Section */}
         <div className="text-left mb-16">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">

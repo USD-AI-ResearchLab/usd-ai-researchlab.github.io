@@ -44,20 +44,20 @@ const AnimatedStatCard: React.FC<{
   const animatedValue = useCountUp(value, 2000);
   
   return (
-    <div className="bg-white p-1.5 rounded-sm border border-gray-100">
-      <h3 className="text-xs font-semibold mb-0.5 text-red-600">
+    <div className="bg-white p-2 sm:p-3 lg:p-3 xl:p-4 rounded-sm border border-gray-100 h-full flex flex-col justify-center">
+      <h3 className="text-xs sm:text-xs lg:text-sm font-semibold mb-1 text-red-600">
         {title}
       </h3>
       {isText ? (
-        <p className="text-xs text-gray-600 leading-tight">
+        <p className="text-xs sm:text-xs lg:text-sm text-gray-600 leading-tight">
           {subtitle}
         </p>
       ) : (
         <>
-          <p className="text-base font-bold text-black mb-0.5">
+          <p className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold text-black mb-1">
             {animatedValue}{suffix}
           </p>
-          <p className="text-xs text-gray-600">
+          <p className="text-xs sm:text-xs lg:text-sm text-gray-600">
             {subtitle}
           </p>
         </>
@@ -170,7 +170,7 @@ const About: React.FC = () => {
   return (
     <div className="pt-24 min-h-screen bg-white">
       <motion.div 
-        className="container mx-auto px-4 py-8"
+        className="w-full px-4 py-8"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
@@ -205,18 +205,18 @@ const About: React.FC = () => {
           </div>
 
           {/* Publications & Research Stats Card */}
-          <div className="flex-shrink-0 lg:w-[480px]">
-            <div className="bg-white border rounded-lg border-gray-200 p-6 w-full shadow-md">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold text-red-600">
+          <div className="flex-shrink-0 w-full lg:w-[480px] xl:w-[520px]">
+            <div className="bg-white border rounded-lg border-gray-200 p-4 sm:p-6 lg:p-8 w-full shadow-md min-h-[280px] sm:min-h-[300px] lg:min-h-[320px] xl:min-h-[350px] flex flex-col">
+              <div className="flex items-center justify-between mb-4 sm:mb-5 lg:mb-6">
+                <h2 className="text-base sm:text-lg lg:text-xl font-semibold text-red-600">
                   Publications & Research
                 </h2>
-                <svg className="w-3 h-3 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                 </svg>
               </div>
 
-              <div className="grid grid-cols-2 gap-1">
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:gap-3 xl:gap-4 flex-grow">
                 <AnimatedStatCard 
                   title="Published Research"
                   value={200}
