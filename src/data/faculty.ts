@@ -45,7 +45,7 @@ export const facultyData: Person[] = [
   },
   {
     name: "Dr. Srikanth Baride",
-    role: "PostDoc, Department of Computer Science, USD | Member, AI Research Lab",
+    role: "Postdoc, Department of Computer Science, USD | Member, AI Research Lab",
     photo: profileImage4,
     memberKey: "srikanth-baride",
     url: "https://www.linkedin.com/in/srikanth-baride",
@@ -54,7 +54,7 @@ export const facultyData: Person[] = [
   },
   {
     name: "Dr. Nand K Yadav",
-    role: "PostDoc, Department of Computer Science, USD | Member, AI Research Lab",
+    role: "Postdoc, Department of Computer Science, USD | Member, AI Research Lab",
     photo: profileImage5,
     memberKey: "nand-yadav",
     url: "https://www.linkedin.com/in/nand-k-yadav-891883262/",

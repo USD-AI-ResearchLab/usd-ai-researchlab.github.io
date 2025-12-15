@@ -111,7 +111,7 @@ const People: React.FC = () => {
   ];
 
   const letters = ['All', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-  const categories = ['All', 'Faculty', 'Post Doc', 'PhD Students', 'Masters Students', 'Current', 'Alumni'];
+  const categories = ['All', 'Faculty', 'Postdoc', 'PhD Students', 'Masters Students', 'Current', 'Alumni'];
 
   // Separate data by category
   const facultyStaff = facultyData;
@@ -145,7 +145,7 @@ const People: React.FC = () => {
       case 'Faculty':
         categoryData = facultyStaff;
         break;
-      case 'Post Doc':
+      case 'Postdoc':
         categoryData = postDocs;
         break;
       case 'PhD Students':
@@ -263,7 +263,7 @@ const People: React.FC = () => {
                 memberKey={person.memberKey}
                 scholarUrl={person.scholarUrl}
                 dblpUrl={person.dblpUrl}
-                showAvatar={selectedCategory === 'Faculty' || selectedCategory === 'Post Doc' || selectedCategory === 'Current' || selectedCategory === 'All'}
+                showAvatar={selectedCategory === 'Faculty' || selectedCategory === 'Postdoc' || selectedCategory === 'Current' || selectedCategory === 'All'}
               />
             </motion.div>
           ))}
