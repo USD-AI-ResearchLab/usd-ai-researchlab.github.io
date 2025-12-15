@@ -11,9 +11,7 @@ interface PersonCardProps {
   showAvatar?: boolean; // New prop to control avatar display
 }
 
-const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, scholarUrl, dblpUrl, showAvatar = true }) => {
-  // Get the best available image URL - prioritize local images, skip LinkedIn for students without photos
-  const imageUrl = photo; // Only use provided photos, don't fetch LinkedIn images for new students
+const PersonCard: React.FC<PersonCardProps> = ({ name, role, url, scholarUrl, dblpUrl }) => {
 
   const CardContent = () => (
     <div className="person-card bg-white rounded-xl shadow-lg p-6 text-center h-full flex flex-col items-center justify-between border-2 border-transparent hover:border-logo-red">
