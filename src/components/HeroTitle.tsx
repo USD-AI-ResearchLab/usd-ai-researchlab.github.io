@@ -1,7 +1,7 @@
 export default function HeroTitle() {
   return (
-    <div>
-      <h1 className="font-thin leading-[1.05] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+    <div className="text-left">
+      <h1 className="font-bold leading-[1.1] tracking-tight text-xl sm:text-2xl md:text-3xl lg:text-4xl">
         <span 
           className="bg-clip-text text-transparent"
           style={{ 
@@ -10,10 +10,10 @@ export default function HeroTitle() {
             backgroundClip: 'text'
           }}
         >
-          USD Artificial Intelligence Research
+          USD AI Research Lab
         </span>
       </h1>
-      <h2 className="font-thin leading-[1.2] tracking-tight text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2">
+      <h2 className="font-bold leading-[1.1] tracking-tight text-lg sm:text-xl md:text-2xl lg:text-3xl mt-1">
         <span 
           className="bg-clip-text text-transparent"
           style={{ 
@@ -22,7 +22,7 @@ export default function HeroTitle() {
             backgroundClip: 'text'
           }}
         >
-          the AI powerhouse of South Dakota
+          South Dakota's AI Powerhouse
         </span>
       </h2>
     </div>
