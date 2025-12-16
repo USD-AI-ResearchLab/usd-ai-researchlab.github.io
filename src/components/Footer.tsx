@@ -8,12 +8,12 @@ const Footer: React.FC = () => {
       className="text-white border-t border-gray-200" 
       style={{ 
         backgroundColor: '#C53030',
-        height: '100px',
+        height: '120px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '0 40px',
-        boxShadow: '0 -2px 10px rgba(0, 0, 0, 0.1)'
+        padding: '0 50px',
+        boxShadow: '0 -3px 15px rgba(0, 0, 0, 0.15)'
       }}
     >
       <div className="flex items-center justify-between w-full max-w-6xl">

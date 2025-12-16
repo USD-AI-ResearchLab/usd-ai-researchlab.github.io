@@ -173,7 +173,7 @@ const Initiatives: React.FC = () => {
 
   return (
     <motion.div 
-      className="pt-24 min-h-screen bg-white"
+      className="pt-32 min-h-screen bg-white"
       initial={{ opacity: 0 }}
       animate={{ 
         opacity: 1,

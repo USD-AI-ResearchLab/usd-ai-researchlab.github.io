@@ -97,7 +97,7 @@ const Publications: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-24 min-h-screen bg-white">
+    <div className="pt-32 min-h-screen bg-white">
       <div className="w-full px-4 py-8">
         {/* Header Section */}
         <div className="text-left mb-16">

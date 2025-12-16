@@ -252,7 +252,7 @@ const About: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 min-h-screen bg-white">
+    <div className="pt-32 min-h-screen bg-white">
       <motion.div 
         className="w-full px-4 py-8"
         initial="initial"

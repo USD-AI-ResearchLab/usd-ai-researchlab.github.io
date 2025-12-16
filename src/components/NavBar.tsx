@@ -53,14 +53,14 @@ const NavBar: React.FC = () => {
         top: 0,
         left: 0,
         width: '100%',
-        height: '100px',
+        height: '120px',
         backgroundColor: '#C53030',
         backdropFilter: 'blur(16px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '0 40px',
-        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+        padding: '0 50px',
+        boxShadow: '0 3px 15px rgba(0, 0, 0, 0.15)',
         zIndex: 50
       }}>
         
@@ -78,13 +78,13 @@ const NavBar: React.FC = () => {
               src={bgimage} 
               alt="AI Lab Logo" 
               style={{
-                width: '98px',
-                height: '98px',
+                width: '110px',
+                height: '110px',
                 objectFit: 'contain',
                 cursor: 'pointer',
                 backgroundColor: '#C53030',
-                borderRadius: '8px',
-                padding: '4px',
+                borderRadius: '10px',
+                padding: '6px',
               }}
             />
           </Link>
