@@ -47,7 +47,7 @@ const NavBar: React.FC = () => {
 
   return (
     <>
-      {/* MAIN NAVBAR - Layout: Navigation Left, Logo Right */}
+      {/* MAIN NAVBAR - Layout: Navigation Centered */}
       <div className="navbar" style={{
         position: 'fixed',
         top: 0,
@@ -58,13 +58,13 @@ const NavBar: React.FC = () => {
         backdropFilter: 'blur(16px)',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         padding: '0 40px',
         boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
         zIndex: 50
       }}>
         
-        {/* NAVIGATION MENU - LEFT SIDE */}
+        {/* NAVIGATION MENU - CENTERED */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
