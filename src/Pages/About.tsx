@@ -338,8 +338,7 @@ const About: React.FC = () => {
           {/* Left side - News Section */}
           <div className="flex-1">
             <div className="mb-8">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-2 text-gray-900 tracking-tight">Latest News</h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full"></div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-2 text-gray-900 tracking-tight">News</h2>
             </div>
             
             <div 
