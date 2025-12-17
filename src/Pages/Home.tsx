@@ -8,9 +8,9 @@ const Home: React.FC = () => {
       {/* Combined Logo and Content Section */}
       <div className="flex-1 flex items-center">
         <div className="w-full px-4 py-20">
-          <div className="flex items-center max-w-6xl ml-8">
-            {/* Left side - Logo and Text */}
-            <div className="text-left flex-1">
+          <div className="flex items-center w-full">
+            {/* Left side - Logo and Text - Takes exactly half the screen */}
+            <div className="w-1/2 text-left pl-8">
               {/* Logo - Left Aligned */}
               <div className="mb-16 flex justify-start">
                 <img 
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
                   style={{ 
                     width: 'min(50vw, 600px)', 
                     height: 'auto',
-                    maxHeight: '40vh'
+                    maxHeight: '50vh'
                   }}
                 />
               </div>
@@ -30,11 +30,11 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Center vertical line - mild/subtle */}
-            <div className="w-px h-96 bg-gray-200 mx-16"></div>
+            {/* Center vertical line - almost invisible */}
+            <div className="w-px h-96 bg-gray-100 mx-8"></div>
 
-            {/* Right side - can add content here later */}
-            <div className="flex-1">
+            {/* Right side - Takes exactly half the screen */}
+            <div className="w-1/2">
               {/* Future content can go here */}
             </div>
           </div>
