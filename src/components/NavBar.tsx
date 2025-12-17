@@ -85,6 +85,16 @@ const NavBar: React.FC = () => {
                 backgroundColor: '#C53030',
                 borderRadius: '10px',
                 padding: '6px',
+                transition: 'all 0.3s ease',
+                filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))'
+              }}
+              onMouseOver={(e) => {
+                (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.4))';
+                (e.target as HTMLElement).style.transform = 'scale(1.05)';
+              }}
+              onMouseOut={(e) => {
+                (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
+                (e.target as HTMLElement).style.transform = 'scale(1)';
               }}
             />
           </Link>
@@ -94,10 +104,22 @@ const NavBar: React.FC = () => {
               fontSize: '18px',
               fontWeight: 300,
               color: 'white',
-              transition: 'color 0.2s'
+              transition: 'all 0.3s ease',
+              filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))',
+              textShadow: '0 0 0px rgba(255, 255, 255, 0)'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
+            onMouseOver={(e) => {
+              (e.target as HTMLElement).style.color = '#f0f0f0';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
+              (e.target as HTMLElement).style.textShadow = '0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.3)';
+              (e.target as HTMLElement).style.transform = 'scale(1.05)';
+            }}
+            onMouseOut={(e) => {
+              (e.target as HTMLElement).style.color = 'white';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
+              (e.target as HTMLElement).style.textShadow = '0 0 0px rgba(255, 255, 255, 0)';
+              (e.target as HTMLElement).style.transform = 'scale(1)';
+            }}
             >
               Home
             </div>
@@ -109,10 +131,22 @@ const NavBar: React.FC = () => {
               fontSize: '18px',
               fontWeight: 300,
               color: 'white',
-              transition: 'color 0.2s'
+              transition: 'all 0.3s ease',
+              filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))',
+              textShadow: '0 0 0px rgba(255, 255, 255, 0)'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
+            onMouseOver={(e) => {
+              (e.target as HTMLElement).style.color = '#f0f0f0';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
+              (e.target as HTMLElement).style.textShadow = '0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.3)';
+              (e.target as HTMLElement).style.transform = 'scale(1.05)';
+            }}
+            onMouseOut={(e) => {
+              (e.target as HTMLElement).style.color = 'white';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
+              (e.target as HTMLElement).style.textShadow = '0 0 0px rgba(255, 255, 255, 0)';
+              (e.target as HTMLElement).style.transform = 'scale(1)';
+            }}
             >
               People
             </div>
@@ -123,10 +157,22 @@ const NavBar: React.FC = () => {
               fontSize: '18px',
               fontWeight: 300,
               color: 'white',
-              transition: 'color 0.2s'
+              transition: 'all 0.3s ease',
+              filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))',
+              textShadow: '0 0 0px rgba(255, 255, 255, 0)'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
+            onMouseOver={(e) => {
+              (e.target as HTMLElement).style.color = '#f0f0f0';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
+              (e.target as HTMLElement).style.textShadow = '0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.3)';
+              (e.target as HTMLElement).style.transform = 'scale(1.05)';
+            }}
+            onMouseOut={(e) => {
+              (e.target as HTMLElement).style.color = 'white';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
+              (e.target as HTMLElement).style.textShadow = '0 0 0px rgba(255, 255, 255, 0)';
+              (e.target as HTMLElement).style.transform = 'scale(1)';
+            }}
             >
               Publications
             </div>
@@ -138,10 +184,22 @@ const NavBar: React.FC = () => {
               fontSize: '18px',
               fontWeight: 300,
               color: 'white',
-              transition: 'color 0.2s'
+              transition: 'all 0.3s ease',
+              filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))',
+              textShadow: '0 0 0px rgba(255, 255, 255, 0)'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
+            onMouseOver={(e) => {
+              (e.target as HTMLElement).style.color = '#f0f0f0';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
+              (e.target as HTMLElement).style.textShadow = '0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.3)';
+              (e.target as HTMLElement).style.transform = 'scale(1.05)';
+            }}
+            onMouseOut={(e) => {
+              (e.target as HTMLElement).style.color = 'white';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
+              (e.target as HTMLElement).style.textShadow = '0 0 0px rgba(255, 255, 255, 0)';
+              (e.target as HTMLElement).style.transform = 'scale(1)';
+            }}
             >
               Initiatives
             </div>
@@ -324,10 +382,22 @@ const NavBar: React.FC = () => {
               fontSize: '18px',
               fontWeight: 300,
               color: 'white',
-              transition: 'color 0.2s'
+              transition: 'all 0.3s ease',
+              filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))',
+              textShadow: '0 0 0px rgba(255, 255, 255, 0)'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
+            onMouseOver={(e) => {
+              (e.target as HTMLElement).style.color = '#f0f0f0';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
+              (e.target as HTMLElement).style.textShadow = '0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.3)';
+              (e.target as HTMLElement).style.transform = 'scale(1.05)';
+            }}
+            onMouseOut={(e) => {
+              (e.target as HTMLElement).style.color = 'white';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
+              (e.target as HTMLElement).style.textShadow = '0 0 0px rgba(255, 255, 255, 0)';
+              (e.target as HTMLElement).style.transform = 'scale(1)';
+            }}
             >
               Opportunities
             </div>
@@ -338,10 +408,22 @@ const NavBar: React.FC = () => {
               fontSize: '18px',
               fontWeight: 300,
               color: 'white',
-              transition: 'color 0.2s'
+              transition: 'all 0.3s ease',
+              filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))',
+              textShadow: '0 0 0px rgba(255, 255, 255, 0)'
             }}
-            onMouseOver={(e) => (e.target as HTMLElement).style.color = '#f0f0f0'}
-            onMouseOut={(e) => (e.target as HTMLElement).style.color = 'white'}
+            onMouseOver={(e) => {
+              (e.target as HTMLElement).style.color = '#f0f0f0';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
+              (e.target as HTMLElement).style.textShadow = '0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.3)';
+              (e.target as HTMLElement).style.transform = 'scale(1.05)';
+            }}
+            onMouseOut={(e) => {
+              (e.target as HTMLElement).style.color = 'white';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
+              (e.target as HTMLElement).style.textShadow = '0 0 0px rgba(255, 255, 255, 0)';
+              (e.target as HTMLElement).style.transform = 'scale(1)';
+            }}
             >
               Affiliates
             </div>
