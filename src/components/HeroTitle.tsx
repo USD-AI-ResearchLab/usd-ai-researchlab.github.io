@@ -10,7 +10,7 @@ export default function HeroTitle() {
             backgroundClip: 'text'
           }}
         >
-          USD AI Research Lab
+          USD AI Research
         </span>
       </h1>
       <h2 className="font-bold leading-[0.8] tracking-tight text-sm sm:text-base md:text-lg lg:text-xl">

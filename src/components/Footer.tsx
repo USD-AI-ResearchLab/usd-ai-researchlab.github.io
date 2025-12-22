@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
 
         {/* Copyright - Right Side */}
         <div className="text-white text-base font-light">
-          © 2015 USD AI Research Lab. All rights reserved.
+          © 2015 USD AI Research. All rights reserved.
         </div>
       </div>
     </footer>

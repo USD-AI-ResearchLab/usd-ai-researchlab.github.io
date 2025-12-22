@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
+import { 
+  fetchLinkedInData, 
+  fetchLinkedInDataFromProxy, 
+  LinkedInPost, 
+  LinkedInProfile,
+  formatEngagementStats,
+  refreshPostDates,
+  checkAndUpdateForNewYear
+} from '../data/linkedin';
 
 // Custom hook for counting animation
 const useCountUp = (end: number, duration: number = 2000) => {
@@ -69,6 +78,12 @@ const About: React.FC = () => {
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   
+  // LinkedIn data state
+  const [linkedinPosts, setLinkedinPosts] = useState<LinkedInPost[]>([]);
+  const [linkedinProfile, setLinkedinProfile] = useState<LinkedInProfile | null>(null);
+  const [isLoadingLinkedIn, setIsLoadingLinkedIn] = useState(true);
+  const [linkedinError, setLinkedinError] = useState<string | null>(null);
+  
   // News items data
   const newsItems = [
     {
@@ -111,6 +126,50 @@ const About: React.FC = () => {
       return () => clearInterval(interval);
     }
   }, [isHovered, newsItems.length]);
+
+  // Fetch LinkedIn data
+  useEffect(() => {
+    const loadLinkedInData = async () => {
+      setIsLoadingLinkedIn(true);
+      setLinkedinError(null);
+      
+      // Check if it's a new year and update accordingly
+      const yearCheck = checkAndUpdateForNewYear();
+      if (yearCheck.isNewYear && yearCheck.updatedPosts) {
+        setLinkedinPosts(yearCheck.updatedPosts);
+        setIsLoadingLinkedIn(false);
+        return;
+      }
+      
+      try {
+        // Try primary method first
+        const data = await fetchLinkedInData();
+        setLinkedinPosts(data.posts);
+        setLinkedinProfile(data.profile);
+      } catch (error) {
+        try {
+          // Try proxy method as fallback
+          const data = await fetchLinkedInDataFromProxy();
+          setLinkedinPosts(data.posts);
+          setLinkedinProfile(data.profile);
+        } catch (proxyError) {
+          console.error('Failed to fetch LinkedIn data:', proxyError);
+          setLinkedinError('Unable to load LinkedIn data');
+          // Use refreshed static data as final fallback
+          setLinkedinPosts(refreshPostDates());
+        }
+      } finally {
+        setIsLoadingLinkedIn(false);
+      }
+    };
+
+    loadLinkedInData();
+    
+    // Refresh data every 10 minutes
+    const refreshInterval = setInterval(loadLinkedInData, 10 * 60 * 1000);
+    
+    return () => clearInterval(refreshInterval);
+  }, []);
 
   // Navigation functions
   const nextNews = () => {
@@ -249,100 +308,204 @@ const About: React.FC = () => {
                 />
               </div>
             </div>
+
           </div>
         </motion.div>
 
-        {/* News Section */}
-        <motion.div variants={fadeInUp}>
-          <div className="mb-8">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-2 text-gray-900 tracking-tight">News</h2>
-          </div>
-          
-          <div 
-            className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative overflow-hidden backdrop-blur-sm"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            {/* Subtle background pattern */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-red-50 to-transparent rounded-full -translate-y-16 translate-x-16 opacity-60"></div>
+        {/* News & LinkedIn Section - Side by Side */}
+        <motion.div variants={fadeInUp} className="mb-16">
+          <div className="grid lg:grid-cols-2 gap-8">
             
-            {/* Professional navigation arrows */}
-            <button 
-              className="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
-              aria-label="Previous news item"
-              onClick={prevNews}
-            >
-              <svg className="w-5 h-5 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            
-            <button 
-              className="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
-              aria-label="Next news item"
-              onClick={nextNews}
-            >
-              <svg className="w-5 h-5 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-            {/* Enhanced content layout */}
-            <div className="mx-16">
-              {/* Professional header with refined icon */}
-              <div className="flex items-start space-x-4 mb-8">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center shadow-lg">
-                    {getIcon(currentNews.icon)}
-                  </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-2xl font-semibold text-gray-900 leading-tight mb-2">{currentNews.title}</h3>
-                  <div className="flex items-center space-x-4 text-sm text-gray-500">
-                    <span className="font-medium">{currentNews.date}</span>
-                    <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                    <span className="bg-red-100 text-red-700 px-3 py-1 rounded-full font-medium text-xs">Latest Update</span>
-                  </div>
-                </div>
+            {/* News Section */}
+            <div>
+              <div className="mb-8">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-2 text-gray-900 tracking-tight">News</h2>
               </div>
+              
+              <div 
+                className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative overflow-hidden backdrop-blur-sm"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                {/* Subtle background pattern */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-red-50 to-transparent rounded-full -translate-y-16 translate-x-16 opacity-60"></div>
+                
+                {/* Professional navigation arrows */}
+                <button 
+                  className="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
+                  aria-label="Previous news item"
+                  onClick={prevNews}
+                >
+                  <svg className="w-5 h-5 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                
+                <button 
+                  className="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
+                  aria-label="Next news item"
+                  onClick={nextNews}
+                >
+                  <svg className="w-5 h-5 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
 
-              {/* Enhanced content with better typography */}
-              <div className="space-y-6">
-                <p className="text-gray-800 leading-relaxed text-lg font-medium">
-                  {currentNews.content}
-                </p>
-                
-                <p className="text-gray-600 leading-relaxed text-base">
-                  {currentNews.subtitle}
-                </p>
-                
-                {/* Professional call-to-action */}
-                <div className="pt-4">
-                  <button className="inline-flex items-center space-x-2 text-red-600 hover:text-red-700 font-medium text-sm group">
-                    <span>Read full announcement</span>
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </button>
+                {/* Enhanced content layout */}
+                <div className="mx-16">
+                  {/* Professional header with refined icon */}
+                  <div className="flex items-start space-x-4 mb-8">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center shadow-lg">
+                        {getIcon(currentNews.icon)}
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-2xl font-semibold text-gray-900 leading-tight mb-2">{currentNews.title}</h3>
+                      <div className="flex items-center space-x-4 text-sm text-gray-500">
+                        <span className="font-medium">{currentNews.date}</span>
+                        <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+                        <span className="bg-red-100 text-red-700 px-3 py-1 rounded-full font-medium text-xs">Latest Update</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Enhanced content with better typography */}
+                  <div className="space-y-6">
+                    <p className="text-gray-800 leading-relaxed text-lg font-medium">
+                      {currentNews.content}
+                    </p>
+                    
+                    <p className="text-gray-600 leading-relaxed text-base">
+                      {currentNews.subtitle}
+                    </p>
+                    
+                    {/* Professional call-to-action */}
+                    <div className="pt-4">
+                      <button className="inline-flex items-center space-x-2 text-red-600 hover:text-red-700 font-medium text-sm group">
+                        <span>Read full announcement</span>
+                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Professional pagination with enhanced design */}
+                <div className="flex justify-center mt-10 space-x-3">
+                  {newsItems.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 transform hover:scale-125 ${
+                        index === currentNewsIndex 
+                          ? 'bg-red-600 shadow-lg ring-4 ring-red-100' 
+                          : 'bg-gray-300 hover:bg-red-300 hover:shadow-md'
+                      }`}
+                      onClick={() => goToNews(index)}
+                      aria-label={`Go to news item ${index + 1}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
 
-            {/* Professional pagination with enhanced design */}
-            <div className="flex justify-center mt-10 space-x-3">
-              {newsItems.map((_, index) => (
-                <button
-                  key={index}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 transform hover:scale-125 ${
-                    index === currentNewsIndex 
-                      ? 'bg-red-600 shadow-lg ring-4 ring-red-100' 
-                      : 'bg-gray-300 hover:bg-red-300 hover:shadow-md'
-                  }`}
-                  onClick={() => goToNews(index)}
-                  aria-label={`Go to news item ${index + 1}`}
-                />
-              ))}
+            {/* LinkedIn Section */}
+            <div>
+              <div className="mb-8">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-2 text-gray-900 tracking-tight">LinkedIn Updates</h2>
+              </div>
+
+              {/* LinkedIn Profile Card - Subtle theme */}
+              {linkedinProfile && (
+                <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-6 mb-8 border border-gray-200">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-16 h-16 bg-gray-600 rounded-2xl flex items-center justify-center">
+                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900">{linkedinProfile.name}</h3>
+                      <p className="text-gray-600">{linkedinProfile.followers} followers • {linkedinProfile.established}</p>
+                      <p className="text-gray-500 text-sm">{linkedinProfile.description}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* LinkedIn Posts Scrollable Container */}
+              <div className="relative bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <div className="linkedin-scroll overflow-y-auto max-h-96 pr-2">
+                  <div className="grid gap-4">
+                    {isLoadingLinkedIn ? (
+                      // Loading skeletons
+                      Array.from({ length: 6 }).map((_, index) => (
+                        <div key={index} className="bg-gray-50 rounded-xl border border-gray-100 p-4 animate-pulse">
+                          <div className="flex items-center space-x-3 mb-3">
+                            <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
+                            <div className="flex-1">
+                              <div className="h-3 bg-gray-200 rounded mb-1"></div>
+                              <div className="h-2 bg-gray-200 rounded w-2/3"></div>
+                            </div>
+                          </div>
+                          <div className="space-y-2">
+                            <div className="h-3 bg-gray-200 rounded"></div>
+                            <div className="h-3 bg-gray-200 rounded"></div>
+                            <div className="h-3 bg-gray-200 rounded w-4/5"></div>
+                          </div>
+                        </div>
+                      ))
+                    ) : linkedinError ? (
+                      <div className="text-center py-8 text-gray-600">
+                        <p className="mb-2">Unable to load LinkedIn posts</p>
+                        <p className="text-sm text-gray-500">{linkedinError}</p>
+                      </div>
+                    ) : (
+                      linkedinPosts.slice(0, 6).map((post, index) => (
+                        <motion.div
+                          key={index}
+                          className="bg-gray-50 rounded-xl border border-gray-100 p-4 hover:shadow-md transition-all duration-200 hover:border-gray-300"
+                          whileHover={{ scale: 1.02 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          <div className="flex items-center space-x-3 mb-3">
+                            <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center">
+                              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                              </svg>
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex items-center space-x-2">
+                                <span className="font-medium text-gray-900 text-sm">{post.author || 'USD AI Research'}</span>
+                              </div>
+                              <p className="text-xs text-gray-500">{post.date}</p>
+                            </div>
+                          </div>
+                          
+                          <p className="text-gray-800 text-sm leading-relaxed mb-3 line-clamp-3">
+                            {post.content}
+                          </p>
+                          
+                          <div className="flex items-center justify-between text-xs text-gray-500">
+                            <span>{formatEngagementStats(post)}</span>
+                            <button className="text-gray-600 hover:text-gray-700 font-medium">
+                              View Post
+                            </button>
+                          </div>
+                        </motion.div>
+                      ))
+                    )}
+                  </div>
+                </div>
+
+                {/* Scroll indicator */}
+                <div className="absolute top-0 right-0 bg-gray-50 text-gray-600 px-2 py-1 rounded-bl-lg text-xs font-medium">
+                  ↕ Scroll for more
+                </div>
+              </div>
             </div>
+
           </div>
         </motion.div>
 

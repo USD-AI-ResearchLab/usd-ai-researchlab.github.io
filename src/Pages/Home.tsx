@@ -17,7 +17,7 @@ const Home: React.FC = () => {
             <div className="flex justify-center w-full">
               <img 
                 src={bgimage} 
-                alt="USD AI Research Lab Logo" 
+                alt="USD AI Research Logo" 
                 className="w-full max-w-sm h-auto"
                 style={{ 
                   maxHeight: '35vh',

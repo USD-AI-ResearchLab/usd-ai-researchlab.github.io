@@ -35,7 +35,7 @@ const Contact: React.FC = () => {
         {/* Content Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
           <p className="text-lg text-gray-700 leading-relaxed mb-8 font-thin">
-            Get in touch with the USD AI Research Lab team. We welcome collaboration opportunities, inquiries about our research, and partnerships.
+            Get in touch with the USD AI Research team. We welcome collaboration opportunities, inquiries about our research, and partnerships.
           </p>
 
           {/* Professional Contact Information */}

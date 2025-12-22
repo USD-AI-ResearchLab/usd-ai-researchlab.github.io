@@ -1,0 +1,21 @@
+{
+  "name": "linkedin-scraper",
+  "version": "1.0.0",
+  "description": "Backend API to scrape LinkedIn company posts",
+  "main": "linkedin-api.js",
+  "scripts": {
+    "start": "node linkedin-api.js",
+    "dev": "nodemon linkedin-api.js",
+    "update-linkedin": "node ../scripts/update-linkedin-data.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.0.0",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.0",
+    "cors": "^2.8.5",
+    "node-fetch": "^3.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
