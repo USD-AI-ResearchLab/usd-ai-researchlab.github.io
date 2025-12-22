@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import FloatingScrollArrows from "../components/FloatingScrollArrows";
 
 const Affiliates: React.FC = () => {
   const fadeInUp = {
@@ -17,7 +18,7 @@ const Affiliates: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 min-h-screen bg-white">
+    <div className="pt-32 pb-32 min-h-screen bg-white">
       <motion.div 
         className="w-full px-4 py-8"
         initial="initial"
@@ -146,6 +147,9 @@ const Affiliates: React.FC = () => {
           </div>
         </motion.div>
       </motion.div>
+
+      {/* Floating Scroll Arrows */}
+      <FloatingScrollArrows />
     </div>
   );
 };

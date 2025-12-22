@@ -26,10 +26,12 @@ export const studentsData: Person[] = [
   },
   {
     name: "Sai Shankar Swarna",
-    role: "M.S. Computer Science | Teaching Assistant"
+    role: "M.S. Computer Science | Teaching Assistant",
+    memberKey: "sai-shankar-swarna"
   },
   {
-    name: "Uddin, Ifrat Ikhtear",
-    role: "M.S. Computer Science | Research Assistant"
+    name: "Ifrat Ikhtear Uddin",
+    role: "M.S. Computer Science | Research Assistant",
+    memberKey: "ifrat-ikhtear-uddin"
   }
 ];

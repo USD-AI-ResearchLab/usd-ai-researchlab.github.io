@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import BooksComponent from '../components/BooksComponent';
 import { PUBLICATIONS } from '../data/publications';
+import FloatingScrollArrows from "../components/FloatingScrollArrows";
 
 const Publications: React.FC = () => {
   const [hoveredPublication, setHoveredPublication] = useState<number | null>(null);
@@ -97,7 +98,7 @@ const Publications: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-32 min-h-screen bg-white">
+    <div className="pt-32 pb-32 min-h-screen bg-white">
       <div className="w-full px-4 py-8">
         {/* Header Section */}
         <div className="text-left mb-16">
@@ -319,6 +320,9 @@ const Publications: React.FC = () => {
         </div>
       </div>
       </div>
+
+      {/* Floating Scroll Arrows */}
+      <FloatingScrollArrows />
     </div>
   );
 };

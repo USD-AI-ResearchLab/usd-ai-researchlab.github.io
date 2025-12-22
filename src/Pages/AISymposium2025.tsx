@@ -7,6 +7,7 @@ import RegistrationInfo from '../components/RegistrationInfo';
 import ConferenceSchedule from '../components/ConferenceSchedule';
 import CommitteeMembers from '../components/CommitteeMembers';
 import Speakers from '../components/Speakers';
+import FloatingScrollArrows from "../components/FloatingScrollArrows";
 
 const AISymposium2025: React.FC = () => {
   const [showGoToTop, setShowGoToTop] = useState(false);
@@ -65,14 +66,14 @@ const AISymposium2025: React.FC = () => {
 
   return (
     <div 
-      className="bg-white min-h-screen"
+      className="bg-white pb-32 min-h-screen"
       style={{
         backgroundImage: "url('/images/pattern.svg')",
         backgroundAttachment: "fixed",
         fontFamily: 'Ubuntu, sans-serif'
       }}
     >
-      <div className="mx-auto px-4 sm:px-6 py-6 max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-7xl" style={{ paddingTop: '100px' }}>
+      <div className="mx-auto px-4 sm:px-6 py-6 max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-7xl" style={{ paddingTop: '140px' }}>
         {/* Symposium Navbar */}
         <div className="flex justify-center py-6 px-6 bg-white mb-8 rounded-lg">
           <div className="text-center">
@@ -571,6 +572,9 @@ const AISymposium2025: React.FC = () => {
             ↑
           </button>
         )}
+
+      {/* Floating Scroll Arrows */}
+      <FloatingScrollArrows />
       </div>
     </div>
   );

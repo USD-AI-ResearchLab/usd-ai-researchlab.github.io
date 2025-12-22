@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import FloatingScrollArrows from "../components/FloatingScrollArrows";
 
 const Initiatives: React.FC = () => {
   const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({});
@@ -173,7 +174,7 @@ const Initiatives: React.FC = () => {
 
   return (
     <motion.div 
-      className="pt-32 min-h-screen bg-white"
+      className="pt-32 pb-32 min-h-screen bg-white"
       initial={{ opacity: 0 }}
       animate={{ 
         opacity: 1,
@@ -369,7 +370,8 @@ const Initiatives: React.FC = () => {
           `
         }} />
 
-
+      {/* Floating Scroll Arrows */}
+      <FloatingScrollArrows />
       </motion.div>
     </motion.div>
   );
