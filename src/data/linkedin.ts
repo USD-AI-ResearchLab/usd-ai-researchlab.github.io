@@ -367,13 +367,13 @@ export const fetchLinkedInDataFromProxy = async (): Promise<{ profile: LinkedInP
 // Alternative scraping service
 const fetchLinkedInViaScrapeOwl = async (): Promise<{ profile: LinkedInProfile; posts: LinkedInPost[] }> => {
   try {
-    const response = await fetch('https://api.scrapingbee.com/api/v1/', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // Note: This requires ScrapingBee API key
-    });
+    // Note: This requires ScrapingBee API key
+    // const response = await fetch('https://api.scrapingbee.com/api/v1/', {
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // });
     
     // Implement scraping logic here
     throw new Error('Scraping service not configured');
@@ -541,7 +541,7 @@ export const checkAndUpdateForNewYear = (): { isNewYear: boolean; updatedPosts?:
 
 // Function to get the appropriate greeting based on current time
 export const getTimeBasedGreeting = (): string => {
-  const hour = new Date().getHours();
+  // const hour = new Date().getHours(); // Unused for now, saved for future time-based features
   const month = new Date().getMonth();
   const currentYear = getCurrentYear();
   

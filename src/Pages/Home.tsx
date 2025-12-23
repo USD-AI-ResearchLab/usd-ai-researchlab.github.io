@@ -1,7 +1,7 @@
 import React from 'react';
 import bgimage from "../assets/logo.svg";
 import HeroTitle from "../components/HeroTitle";
-import NewsCarousel from "../components/NewsCarousel";
+// import NewsCarousel from "../components/NewsCarousel"; // Unused for now
 
 const Home: React.FC = () => {
   return (
