@@ -8,6 +8,7 @@ export interface LinkedInPost {
   likes?: number;
   comments?: number;
   shares?: number;
+  postUrl?: string; // URL to the actual LinkedIn post
 }
 
 export interface LinkedInProfile {
@@ -48,11 +49,12 @@ export const linkedinPosts: LinkedInPost[] = [
   {
     id: "1",
     date: generatePostDate(0), // December 2025
-    content: "� Year-End Highlights 2025! Our AI Research Lab achieved remarkable milestones: 15 published papers, $12M in research funding, 8 PhD graduations, and partnerships with 25+ healthcare institutions. Thank you to our incredible team for making 2025 our best year yet! 🚀",
+    content: "🎉 Year-End Highlights 2025! Our AI Research Lab achieved remarkable milestones: 15 published papers, $12M in research funding, 8 PhD graduations, and partnerships with 25+ healthcare institutions. Thank you to our incredible team for making 2025 our best year yet! 🚀",
     type: "announcement",
     likes: 342,
     comments: 67,
-    shares: 89
+    shares: 89,
+    postUrl: "https://www.linkedin.com/company/kc-ai/posts/?feedView=all"
   },
   {
     id: "2", 
@@ -62,7 +64,8 @@ export const linkedinPosts: LinkedInPost[] = [
     author: "KC (Casey) Santosh",
     likes: 456,
     comments: 98,
-    shares: 156
+    shares: 156,
+    postUrl: "https://www.linkedin.com/company/kc-ai/posts/?feedView=all"
   },
   {
     id: "3",
@@ -71,26 +74,29 @@ export const linkedinPosts: LinkedInPost[] = [
     type: "announcement",
     likes: 289,
     comments: 45,
-    shares: 78
+    shares: 78,
+    postUrl: "https://www.nature.com/nm/" // Link to Nature Medicine journal
   },
   {
     id: "4",
     date: generatePostDate(1), // November 2025
-    content: "� Proud moment! PhD student Sarah Chen won the Best Paper Award at NeurIPS 2025 for her work on 'Federated Learning in Medical Imaging: Privacy-Preserving Collaborative AI'. Her research is setting new standards for secure healthcare AI. 🎓",
+    content: "🎓 Proud moment! PhD student Sarah Chen won the Best Paper Award at NeurIPS 2025 for her work on 'Federated Learning in Medical Imaging: Privacy-Preserving Collaborative AI'. Her research is setting new standards for secure healthcare AI. 🎓",
     type: "shared",
     author: "KC (Casey) Santosh",
     likes: 178,
     comments: 34,
-    shares: 42
+    shares: 42,
+    postUrl: "https://nips.cc/" // Link to NeurIPS conference
   },
   {
     id: "5",
     date: generatePostDate(2), // October 2025
-    content: "� FUNDING SUCCESS: Just received $3.2M NIH R01 grant for our 'AI-Driven Precision Medicine Initiative'. This 4-year project will develop personalized treatment algorithms using multimodal patient data. Excited to advance precision healthcare! 🏥",
+    content: "💰 FUNDING SUCCESS: Just received $3.2M NIH R01 grant for our 'AI-Driven Precision Medicine Initiative'. This 4-year project will develop personalized treatment algorithms using multimodal patient data. Excited to advance precision healthcare! 🏥",
     type: "company",
     likes: 234,
     comments: 41,
-    shares: 67
+    shares: 67,
+    postUrl: "https://www.nih.gov/" // Link to NIH website
   },
   {
     id: "6",
@@ -99,7 +105,8 @@ export const linkedinPosts: LinkedInPost[] = [
     type: "announcement",
     likes: 145,
     comments: 23,
-    shares: 35
+    shares: 35,
+    postUrl: "https://www.titech.ac.jp/english" // Link to Tokyo Institute of Technology
   },
   {
     id: "7",
@@ -319,7 +326,7 @@ export const fetchLinkedInDataFromProxy = async (): Promise<{ profile: LinkedInP
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        company_url: 'https://www.linkedin.com/company/kc-ai/',
+        company_url: 'https://www.linkedin.com/company/kc-ai/posts/?feedView=all',
         posts_count: 10
       })
     });

@@ -11,6 +11,16 @@ import {
   checkAndUpdateForNewYear
 } from '../data/linkedin';
 
+// Interface for news items
+interface NewsItem {
+  icon: string;
+  title: string;
+  date: string;
+  content: string;
+  subtitle: string;
+  url: string;
+}
+
 // Custom hook for counting animation
 const useCountUp = (end: number, duration: number = 2000) => {
   const [count, setCount] = useState(0);
@@ -85,34 +95,38 @@ const About: React.FC = () => {
   const [linkedinError, setLinkedinError] = useState<string | null>(null);
   
   // News items data
-  const newsItems = [
+  const newsItems: NewsItem[] = [
     {
       icon: "agreements",
       title: "Agreements/MOUs",
       date: "December 2024",
       content: "(December 2024) The AI Research Lab signed an agreement with the Thumbay Institute for AI in Healthcare at Gulf Medical University, UAE.",
-      subtitle: "Looking for a collaboration, don't hesitate to reach out."
+      subtitle: "Looking for a collaboration, don't hesitate to reach out.",
+      url: "https://www.gmu.ac.ae/en/college-of-medicine/thumbay-institute-for-precision-medicine"
     },
     {
       icon: "funding",
-      title: "Major Funding",
+      title: "Major Funding", 
       date: "November 2024",
       content: "(November 2024) Secured $7.245M funding for South Dakota Biomedical Computation Collaborative initiative.",
-      subtitle: "Advancing computational research in biomedical sciences."
+      subtitle: "Advancing computational research in biomedical sciences.",
+      url: "https://www.usd.edu/"
     },
     {
       icon: "research",
       title: "Research Infrastructure",
       date: "October 2024",
       content: "(October 2024) NSF Award #2346643 for CC* Campus Compute infrastructure project totaling $0.5M.",
-      subtitle: "Building advanced computational capabilities for research excellence."
+      subtitle: "Building advanced computational capabilities for research excellence.",
+      url: "https://www.nsf.gov/"
     },
     {
       icon: "collaboration",
       title: "International Partnerships",
       date: "September 2024",
       content: "(September 2024) Established new research partnerships with leading AI institutions across Europe and Asia.",
-      subtitle: "Expanding global reach in artificial intelligence research."
+      subtitle: "Expanding global reach in artificial intelligence research.",
+      url: "https://www.usd.edu/usd-ai-research"
     }
   ];
 
@@ -146,14 +160,15 @@ const About: React.FC = () => {
         const data = await fetchLinkedInData();
         setLinkedinPosts(data.posts);
         setLinkedinProfile(data.profile);
-      } catch (error) {
+      } catch (primaryError) {
+        console.error('Primary LinkedIn fetch failed:', primaryError);
         try {
           // Try proxy method as fallback
           const data = await fetchLinkedInDataFromProxy();
           setLinkedinPosts(data.posts);
           setLinkedinProfile(data.profile);
-        } catch (proxyError) {
-          console.error('Failed to fetch LinkedIn data:', proxyError);
+        } catch (fallbackError) {
+          console.error('Failed to fetch LinkedIn data:', fallbackError);
           setLinkedinError('Unable to load LinkedIn data');
           // Use refreshed static data as final fallback
           setLinkedinPosts(refreshPostDates());
@@ -314,16 +329,16 @@ const About: React.FC = () => {
 
         {/* News & LinkedIn Section - Side by Side */}
         <motion.div variants={fadeInUp} className="mb-16">
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             
             {/* News Section */}
-            <div>
-              <div className="mb-8">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-2 text-gray-900 tracking-tight">News</h2>
+            <div className="flex flex-col h-full">
+              <div className="mb-6 lg:mb-8">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-light mb-2 text-gray-900 tracking-tight">News</h2>
               </div>
               
               <div 
-                className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative overflow-hidden backdrop-blur-sm"
+                className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 lg:p-8 relative overflow-hidden backdrop-blur-sm flex-grow min-h-[600px] flex flex-col"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
@@ -332,27 +347,27 @@ const About: React.FC = () => {
                 
                 {/* Professional navigation arrows */}
                 <button 
-                  className="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
+                  className="absolute left-4 lg:left-6 top-1/2 transform -translate-y-1/2 w-10 h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
                   aria-label="Previous news item"
                   onClick={prevNews}
                 >
-                  <svg className="w-5 h-5 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 lg:w-5 lg:h-5 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
                 
                 <button 
-                  className="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
+                  className="absolute right-4 lg:right-6 top-1/2 transform -translate-y-1/2 w-10 h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
                   aria-label="Next news item"
                   onClick={nextNews}
                 >
-                  <svg className="w-5 h-5 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 lg:w-5 lg:h-5 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
 
                 {/* Enhanced content layout */}
-                <div className="mx-16">
+                <div className="mx-12 lg:mx-16 flex-grow flex flex-col justify-center">
                   {/* Professional header with refined icon */}
                   <div className="flex items-start space-x-4 mb-8">
                     <div className="flex-shrink-0">
@@ -382,12 +397,17 @@ const About: React.FC = () => {
                     
                     {/* Professional call-to-action */}
                     <div className="pt-4">
-                      <button className="inline-flex items-center space-x-2 text-red-600 hover:text-red-700 font-medium text-sm group">
+                      <a 
+                        href={currentNews.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-2 text-red-600 hover:text-red-700 font-medium text-sm group transition-colors duration-200"
+                      >
                         <span>Read full announcement</span>
                         <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -411,32 +431,41 @@ const About: React.FC = () => {
             </div>
 
             {/* LinkedIn Section */}
-            <div>
-              <div className="mb-8">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-2 text-gray-900 tracking-tight">LinkedIn Updates</h2>
+            <div className="flex flex-col h-full">
+              <div className="mb-6 lg:mb-8">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-light mb-2 text-gray-900 tracking-tight">LinkedIn Updates</h2>
               </div>
 
-              {/* LinkedIn Profile Card - Subtle theme */}
-              {linkedinProfile && (
-                <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-6 mb-8 border border-gray-200">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-gray-600 rounded-2xl flex items-center justify-center">
-                      <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                      </svg>
+              <div className="flex flex-col flex-grow min-h-[600px]">
+                {/* LinkedIn Profile Card - Subtle theme */}
+                {linkedinProfile && (
+                  <a 
+                    href="https://www.linkedin.com/company/kc-ai/posts/?feedView=all" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-4 lg:p-6 mb-4 lg:mb-6 border border-gray-200 flex-shrink-0 hover:shadow-md transition-all duration-200 hover:border-blue-300 cursor-pointer group"
+                  >
+                    <div className="flex items-center space-x-4">
+                      <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center group-hover:bg-blue-700 transition-colors duration-200">
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-800 transition-colors duration-200">{linkedinProfile.name}</h3>
+                        <p className="text-gray-600">{linkedinProfile.followers} followers • {linkedinProfile.established}</p>
+                        <p className="text-gray-500 text-sm">{linkedinProfile.description}</p>
+                        <p className="text-blue-600 text-xs mt-1 group-hover:text-blue-700">
+                          Click to visit our LinkedIn page →
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900">{linkedinProfile.name}</h3>
-                      <p className="text-gray-600">{linkedinProfile.followers} followers • {linkedinProfile.established}</p>
-                      <p className="text-gray-500 text-sm">{linkedinProfile.description}</p>
-                    </div>
-                  </div>
-                </div>
-              )}
+                  </a>
+                )}
 
-              {/* LinkedIn Posts Scrollable Container */}
-              <div className="relative bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                <div className="linkedin-scroll overflow-y-auto max-h-96 pr-2">
+                {/* LinkedIn Posts Scrollable Container */}
+                <div className="relative bg-white rounded-xl shadow-xl border border-gray-100 p-4 lg:p-6 flex-grow">
+                  <div className="linkedin-scroll overflow-y-auto h-full pr-2">
                   <div className="grid gap-4">
                     {isLoadingLinkedIn ? (
                       // Loading skeletons
@@ -489,9 +518,14 @@ const About: React.FC = () => {
                           
                           <div className="flex items-center justify-between text-xs text-gray-500">
                             <span>{formatEngagementStats(post)}</span>
-                            <button className="text-gray-600 hover:text-gray-700 font-medium">
+                            <a 
+                              href={post.postUrl || "https://www.linkedin.com/company/kc-ai/posts/?feedView=all"} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200 hover:underline"
+                            >
                               View Post
-                            </button>
+                            </a>
                           </div>
                         </motion.div>
                       ))
@@ -503,6 +537,7 @@ const About: React.FC = () => {
                 <div className="absolute top-0 right-0 bg-gray-50 text-gray-600 px-2 py-1 rounded-bl-lg text-xs font-medium">
                   ↕ Scroll for more
                 </div>
+              </div>
               </div>
             </div>
 
