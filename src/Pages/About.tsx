@@ -338,7 +338,7 @@ const About: React.FC = () => {
               </div>
               
               <div 
-                className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 lg:p-8 relative overflow-hidden backdrop-blur-sm flex-grow min-h-[400px] flex flex-col"
+                className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 lg:p-6 relative overflow-hidden backdrop-blur-sm flex-grow h-[450px] flex flex-col"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
@@ -347,56 +347,56 @@ const About: React.FC = () => {
                 
                 {/* Professional navigation arrows */}
                 <button 
-                  className="absolute left-4 lg:left-6 top-1/2 transform -translate-y-1/2 w-10 h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
+                  className="absolute left-3 lg:left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 lg:w-10 lg:h-10 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
                   aria-label="Previous news item"
                   onClick={prevNews}
                 >
-                  <svg className="w-4 h-4 lg:w-5 lg:h-5 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3 h-3 lg:w-4 lg:h-4 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
                 
                 <button 
-                  className="absolute right-4 lg:right-6 top-1/2 transform -translate-y-1/2 w-10 h-10 lg:w-12 lg:h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
+                  className="absolute right-3 lg:right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 lg:w-10 lg:h-10 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
                   aria-label="Next news item"
                   onClick={nextNews}
                 >
-                  <svg className="w-4 h-4 lg:w-5 lg:h-5 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3 h-3 lg:w-4 lg:h-4 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
 
                 {/* Enhanced content layout */}
-                <div className="mx-12 lg:mx-16 flex-grow flex flex-col justify-center">
+                <div className="mx-6 lg:mx-8 flex-grow flex flex-col justify-center">
                   {/* Professional header with refined icon */}
-                  <div className="flex items-start space-x-4 mb-8">
+                  <div className="flex items-start space-x-3 mb-6">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center shadow-lg">
+                      <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center shadow-lg">
                         {getIcon(currentNews.icon)}
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-2xl font-semibold text-gray-900 leading-tight mb-2">{currentNews.title}</h3>
-                      <div className="flex items-center space-x-4 text-sm text-gray-500">
+                      <h3 className="text-xl font-semibold text-gray-900 leading-tight mb-1">{currentNews.title}</h3>
+                      <div className="flex items-center space-x-3 text-xs text-gray-500">
                         <span className="font-medium">{currentNews.date}</span>
                         <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                        <span className="bg-red-100 text-red-700 px-3 py-1 rounded-full font-medium text-xs">Latest Update</span>
+                        <span className="bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium text-xs">Latest Update</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Enhanced content with better typography */}
-                  <div className="space-y-6">
-                    <p className="text-gray-800 leading-relaxed text-lg font-medium">
+                  <div className="space-y-4">
+                    <p className="text-gray-800 leading-relaxed text-base font-medium">
                       {currentNews.content}
                     </p>
                     
-                    <p className="text-gray-600 leading-relaxed text-base">
+                    <p className="text-gray-600 leading-relaxed text-sm">
                       {currentNews.subtitle}
                     </p>
                     
                     {/* Professional call-to-action */}
-                    <div className="pt-4">
+                    <div className="pt-3">
                       <a 
                         href={currentNews.url} 
                         target="_blank" 
@@ -413,13 +413,13 @@ const About: React.FC = () => {
                 </div>
 
                 {/* Professional pagination with enhanced design */}
-                <div className="flex justify-center mt-10 space-x-3">
+                <div className="flex justify-center mt-6 space-x-2">
                   {newsItems.map((_, index) => (
                     <button
                       key={index}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 transform hover:scale-125 ${
+                      className={`w-2 h-2 rounded-full transition-all duration-300 transform hover:scale-125 ${
                         index === currentNewsIndex 
-                          ? 'bg-red-600 shadow-lg ring-4 ring-red-100' 
+                          ? 'bg-red-600 shadow-lg ring-2 ring-red-100' 
                           : 'bg-gray-300 hover:bg-red-300 hover:shadow-md'
                       }`}
                       onClick={() => goToNews(index)}
@@ -436,7 +436,7 @@ const About: React.FC = () => {
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-light mb-2 text-gray-900 tracking-tight">LinkedIn Updates</h2>
               </div>
 
-              <div className="flex flex-col flex-grow min-h-[400px]">
+              <div className="flex flex-col flex-grow h-[450px]">
                 {/* LinkedIn Profile Card - Subtle theme */}
                 {linkedinProfile && (
                   <a 
