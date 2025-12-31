@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
 
 const Initiatives: React.FC = () => {
-  const [expandedSections, setExpandedSections] = useState<{[key: string]: boolean}>({});
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [autoScrollEnabled, setAutoScrollEnabled] = useState(true);
   
@@ -20,14 +19,6 @@ const Initiatives: React.FC = () => {
         staggerChildren: 0.1
       }
     }
-  };
-
-  const toggleSection = (cardIndex: number, sectionTitle: string) => {
-    const key = `${cardIndex}-${sectionTitle}`;
-    setExpandedSections(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }));
   };
 
   // Chevron components for navigation
@@ -91,84 +82,49 @@ const Initiatives: React.FC = () => {
       title: "AI Symposium",
       link: "/events/ai-symposium/2025",
       image: "/images/conferences/usd-logo.png",
-      description: "Annual symposium bringing together AI researchers, industry experts, and students to share cutting-edge research and innovations.",
-      sections: {
-        "Keynote Speakers": ["World-renowned AI researchers", "Industry leaders from major tech companies", "Emerging AI startup founders"],
-        "Research Tracks": ["Machine Learning", "Computer Vision", "Natural Language Processing", "Robotics"],
-        "Workshops": ["Hands-on ML workshops", "AI ethics discussions", "Career development sessions"]
-      }
+      description: "Annual symposium bringing together AI researchers, industry experts, and students to share cutting-edge research and innovations."
     },
     {
       title: "AI Club", 
       link: "https://usdinvolved.usd.edu/organization/ai-club",
       isExternal: true,
       image: "/images/conferences/usd-logo.png",
-      description: "Student-led organization fostering AI learning through projects, competitions, and networking opportunities.",
-      sections: {
-        "Activities": ["Weekly coding sessions", "AI project competitions", "Guest speaker events"],
-        "Projects": ["Computer vision applications", "NLP chatbots", "Recommendation systems"],
-        "Learning": ["Tutorial series", "Study groups", "Mentorship programs"]
-      }
+      description: "Student-led organization fostering AI learning through projects, competitions, and networking opportunities."
     },
     {
       title: "CAI Conference",
       link: "https://www.ieeesmc.org/cai-2026/",
       isExternal: true,
       image: "/images/conferences/ieee-master-logo.png",
-      description: "IEEE Conference on Computational AI focusing on theoretical foundations and practical applications.",
-      sections: {
-        "Focus Areas": ["Computational intelligence", "Evolutionary algorithms", "Fuzzy systems"],
-        "Presentations": ["Research papers", "Poster sessions", "Demo presentations"],
-        "Networking": ["Industry panels", "Academic collaborations", "Career fair"]
-      }
+      description: "IEEE Conference on Computational AI focusing on theoretical foundations and practical applications."
     },
     {
       title: "RTIP2R Conference",
       link: "https://rtip2r-conference.org/2025/",
       isExternal: true,
       image: "/images/conferences/springer-logo.png",
-      description: "Real-Time Image Processing for Recognition conference showcasing advances in computer vision and pattern recognition.",
-      sections: {
-        "Topics": ["Real-time image processing", "Pattern recognition", "Computer vision applications"],
-        "Sessions": ["Technical presentations", "Live demonstrations", "Interactive workshops"],
-        "Applications": ["Medical imaging", "Autonomous systems", "Industrial vision"]
-      }
+      description: "Real-Time Image Processing for Recognition conference showcasing advances in computer vision and pattern recognition."
     },
     {
       title: "AI Engineering",
       link: "https://www.aiengineering-conference.org",
       isExternal: true,
       image: "/images/conferences/ai-engineering.png",
-      description: "Conference focused on engineering aspects of AI systems, deployment, and scalability challenges.",
-      sections: {
-        "Engineering Focus": ["AI system architecture", "MLOps and deployment", "Scalability solutions"],
-        "Technical Sessions": ["Production AI systems", "Infrastructure design", "Performance optimization"],
-        "Industry Insights": ["Case studies", "Best practices", "Lessons learned"]
-      }
+      description: "Conference focused on engineering aspects of AI systems, deployment, and scalability challenges."
     },
     {
       title: "2AI Conference",
       link: "https://www.2ai-conference.org",
       isExternal: true,
       image: "/images/conferences/2ai-logo.png",
-      description: "Conference on Applied Artificial Intelligence emphasizing practical AI solutions across industries.",
-      sections: {
-        "Application Domains": ["Healthcare AI", "Financial technology", "Smart cities", "Education technology"],
-        "Technical Content": ["Applied research", "Implementation strategies", "Performance metrics"],
-        "Collaboration": ["Industry partnerships", "Academic-industry bridge", "Innovation showcase"]
-      }
+      description: "Conference on Applied Artificial Intelligence emphasizing practical AI solutions across industries."
     },
     {
       title: "CVMI Conference",
       link: "https://cvmi2024.iiita.ac.in/",
       isExternal: true,
       image: "/images/conferences/cvmi-logo.jpg",
-      description: "Computer Vision and Machine Intelligence conference exploring the intersection of vision and intelligence.",
-      sections: {
-        "Research Areas": ["Computer vision", "Machine intelligence", "Deep learning for vision"],
-        "Innovations": ["Novel architectures", "Vision transformers", "Multi-modal learning"],
-        "Applications": ["Medical imaging", "Autonomous driving", "Augmented reality"]
-      }
+      description: "Computer Vision and Machine Intelligence conference exploring the intersection of vision and intelligence."
     }
   ];
 
@@ -268,52 +224,7 @@ const Initiatives: React.FC = () => {
                   {/* Content Section */}
                   <div className="p-6">
                     <h3 className="text-2xl font-semibold text-gray-800 mb-3">{category.title}</h3>
-                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">{category.description}</p>
-
-                    {/* Expandable Sections */}
-                    <div className="space-y-2">
-                      {Object.entries(category.sections).map(([sectionTitle, items], sectionIndex) => {
-                        const sectionKey = `${index}-${sectionTitle}`;
-                        const isExpanded = expandedSections[sectionKey];
-                        
-                        return (
-                          <div key={sectionIndex} className="border border-gray-200 rounded-lg">
-                            <button
-                              onClick={() => toggleSection(index, sectionTitle)}
-                              className="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 rounded-lg"
-                            >
-                              <span className="font-medium text-gray-700">{sectionTitle}</span>
-                              <svg 
-                                className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
-                                fill="none" 
-                                stroke="currentColor" 
-                                viewBox="0 0 24 24"
-                              >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                              </svg>
-                            </button>
-                            
-                            {isExpanded && (
-                              <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: 'auto', opacity: 1 }}
-                                transition={{ duration: 0.3 }}
-                                className="px-4 pb-3"
-                              >
-                                <ul className="space-y-1">
-                                  {items.map((item: string, itemIndex: number) => (
-                                    <li key={itemIndex} className="text-sm text-gray-600 flex items-start">
-                                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                      {item}
-                                    </li>
-                                  ))}
-                                </ul>
-                              </motion.div>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
+                    <p className="text-gray-600 mb-6 text-sm leading-relaxed">{category.description}</p>
 
                     {/* Action Button */}
                     <div className="mt-6">
