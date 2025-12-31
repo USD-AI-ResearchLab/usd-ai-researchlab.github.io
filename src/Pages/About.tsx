@@ -338,7 +338,7 @@ const About: React.FC = () => {
               </div>
               
               <div 
-                className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 lg:p-8 relative overflow-hidden backdrop-blur-sm flex-grow min-h-[600px] flex flex-col"
+                className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 lg:p-8 relative overflow-hidden backdrop-blur-sm flex-grow min-h-[400px] flex flex-col"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
@@ -436,26 +436,26 @@ const About: React.FC = () => {
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-light mb-2 text-gray-900 tracking-tight">LinkedIn Updates</h2>
               </div>
 
-              <div className="flex flex-col flex-grow min-h-[600px]">
+              <div className="flex flex-col flex-grow min-h-[400px]">
                 {/* LinkedIn Profile Card - Subtle theme */}
                 {linkedinProfile && (
                   <a 
                     href="https://www.linkedin.com/company/kc-ai/posts/?feedView=all" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="block bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-4 lg:p-6 mb-4 lg:mb-6 border border-gray-200 flex-shrink-0 hover:shadow-md transition-all duration-200 hover:border-blue-300 cursor-pointer group"
+                    className="block bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-3 lg:p-4 mb-3 lg:mb-4 border border-gray-200 flex-shrink-0 hover:shadow-md transition-all duration-200 hover:border-red-300 cursor-pointer group"
                   >
                     <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center group-hover:bg-blue-700 transition-colors duration-200">
-                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <div className="w-12 h-12 bg-red-600 rounded-2xl flex items-center justify-center group-hover:bg-red-700 transition-colors duration-200">
+                        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-800 transition-colors duration-200">{linkedinProfile.name}</h3>
-                        <p className="text-gray-600">{linkedinProfile.followers} followers • {linkedinProfile.established}</p>
-                        <p className="text-gray-500 text-sm">{linkedinProfile.description}</p>
-                        <p className="text-blue-600 text-xs mt-1 group-hover:text-blue-700">
+                        <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-800 transition-colors duration-200">{linkedinProfile.name}</h3>
+                        <p className="text-gray-600 text-sm">{linkedinProfile.followers} followers • {linkedinProfile.established}</p>
+                        <p className="text-gray-500 text-xs">{linkedinProfile.description}</p>
+                        <p className="text-red-600 text-xs mt-1 group-hover:text-red-700">
                           Click to visit our LinkedIn page →
                         </p>
                       </div>
@@ -464,13 +464,13 @@ const About: React.FC = () => {
                 )}
 
                 {/* LinkedIn Posts Scrollable Container */}
-                <div className="relative bg-white rounded-xl shadow-xl border border-gray-100 p-4 lg:p-6 flex-grow">
+                <div className="relative bg-white rounded-xl shadow-xl border border-gray-100 p-3 lg:p-4 flex-grow">
                   <div className="linkedin-scroll overflow-y-auto h-full pr-2">
                   <div className="grid gap-4">
                     {isLoadingLinkedIn ? (
                       // Loading skeletons
                       Array.from({ length: 6 }).map((_, index) => (
-                        <div key={index} className="bg-gray-50 rounded-xl border border-gray-100 p-4 animate-pulse">
+                        <div key={index} className="bg-gray-50 rounded-xl border border-gray-100 p-3 animate-pulse">
                           <div className="flex items-center space-x-3 mb-3">
                             <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
                             <div className="flex-1">
@@ -494,7 +494,7 @@ const About: React.FC = () => {
                       linkedinPosts.slice(0, 6).map((post, index) => (
                         <motion.div
                           key={index}
-                          className="bg-gray-50 rounded-xl border border-gray-100 p-4 hover:shadow-md transition-all duration-200 hover:border-gray-300"
+                          className="bg-gray-50 rounded-xl border border-gray-100 p-3 hover:shadow-md transition-all duration-200 hover:border-gray-300"
                           whileHover={{ scale: 1.02 }}
                           transition={{ type: "spring", stiffness: 300 }}
                         >
@@ -522,7 +522,7 @@ const About: React.FC = () => {
                               href={post.postUrl || "https://www.linkedin.com/company/kc-ai/posts/?feedView=all"} 
                               target="_blank" 
                               rel="noopener noreferrer"
-                              className="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200 hover:underline"
+                              className="text-red-600 hover:text-red-700 font-medium transition-colors duration-200 hover:underline"
                             >
                               View Post
                             </a>
