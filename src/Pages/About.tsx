@@ -245,7 +245,7 @@ const About: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 pb-32 min-h-screen bg-white">
+    <div className="pt-24 pb-24 min-h-screen bg-white">
       <motion.div 
         className="w-full px-4 py-8"
         initial="initial"
@@ -328,7 +328,7 @@ const About: React.FC = () => {
         </motion.div>
 
         {/* News & LinkedIn Section - Side by Side */}
-        <motion.div variants={fadeInUp} className="mb-16">
+        <motion.div variants={fadeInUp} className="mb-16 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             
             {/* News Section */}
@@ -338,7 +338,7 @@ const About: React.FC = () => {
               </div>
               
               <div 
-                className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 lg:p-6 relative overflow-hidden backdrop-blur-sm flex-grow h-[450px] flex flex-col"
+                className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 lg:p-6 relative overflow-hidden backdrop-blur-sm flex-grow h-[400px] flex flex-col"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
@@ -436,7 +436,7 @@ const About: React.FC = () => {
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-light mb-2 text-gray-900 tracking-tight">LinkedIn Updates</h2>
               </div>
 
-              <div className="flex flex-col flex-grow h-[450px]">
+              <div className="flex flex-col flex-grow h-[400px]">
                 {/* LinkedIn Profile Card - Subtle theme */}
                 {linkedinProfile && (
                   <a 
@@ -464,7 +464,7 @@ const About: React.FC = () => {
                 )}
 
                 {/* LinkedIn Posts Scrollable Container */}
-                <div className="relative bg-white rounded-xl shadow-xl border border-gray-100 p-3 lg:p-4 flex-grow">
+                <div className="relative bg-white rounded-xl shadow-xl border border-gray-100 p-3 lg:p-4 flex-grow h-[320px]">
                   <div className="linkedin-scroll overflow-y-auto h-full pr-2">
                   <div className="grid gap-4">
                     {isLoadingLinkedIn ? (
