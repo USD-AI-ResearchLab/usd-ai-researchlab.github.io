@@ -81,49 +81,49 @@ const Initiatives: React.FC = () => {
     {
       title: "AI Symposium",
       link: "/events/ai-symposium/2025",
-      image: "/images/conferences/usd-logo.png",
+      image: "/images/conferences/usd-ai-symposium.png",
       description: "Annual symposium bringing together AI researchers, industry experts, and students to share cutting-edge research and innovations."
     },
     {
       title: "AI Club", 
       link: "https://usdinvolved.usd.edu/organization/ai-club",
       isExternal: true,
-      image: "/images/conferences/usd-logo.png",
+      image: "/images/conferences/ai-club.jpg",
       description: "Student-led organization fostering AI learning through projects, competitions, and networking opportunities."
     },
     {
       title: "CAI Conference",
       link: "https://www.ieeesmc.org/cai-2026/",
       isExternal: true,
-      image: "/images/conferences/ieee-master-logo.png",
+      image: "/images/conferences/ieee-cai.png",
       description: "IEEE Conference on Computational AI focusing on theoretical foundations and practical applications."
     },
     {
       title: "RTIP2R Conference",
       link: "https://rtip2r-conference.org/2025/",
       isExternal: true,
-      image: "/images/conferences/springer-logo.png",
+      image: "/images/conferences/rtip2r-conference.jpg",
       description: "Real-Time Image Processing for Recognition conference showcasing advances in computer vision and pattern recognition."
     },
     {
       title: "AI Engineering",
       link: "https://www.aiengineering-conference.org",
       isExternal: true,
-      image: "/images/conferences/ai-engineering.png",
+      image: "/images/conferences/ai-engineering.jpg",
       description: "Conference focused on engineering aspects of AI systems, deployment, and scalability challenges."
     },
     {
       title: "2AI Conference",
       link: "https://www.2ai-conference.org",
       isExternal: true,
-      image: "/images/conferences/2ai-logo.png",
+      image: "/images/conferences/2ai-conference.jpg",
       description: "Conference on Applied Artificial Intelligence emphasizing practical AI solutions across industries."
     },
     {
       title: "CVMI Conference",
       link: "https://cvmi2024.iiita.ac.in/",
       isExternal: true,
-      image: "/images/conferences/cvmi-logo.jpg",
+      image: "/images/conferences/cvmi-conference.jpg",
       description: "Computer Vision and Machine Intelligence conference exploring the intersection of vision and intelligence."
     }
   ];
