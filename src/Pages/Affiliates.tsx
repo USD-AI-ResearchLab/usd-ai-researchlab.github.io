@@ -137,25 +137,26 @@ const Affiliates: React.FC = () => {
               <h2 className="text-3xl font-bold text-gray-800 mb-10 text-left pb-4 border-b-2 border-blue-200/60">
                 Professional Organizations
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <motion.div 
-                  className="flex flex-col items-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group"
-                  variants={fadeInUp}
-                  whileHover={{ scale: 1.03, y: -6, transition: { duration: 0.4 } }}
-                >
-                  <a href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer">
-                    <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-gray-100/80">
-                      <img 
-                        src="/images/sponsor/IEEE.png" 
-                        alt="IEEE" 
-                        className="h-28 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-400 filter group-hover:brightness-110 drop-shadow-md" 
-                      />
-                    </div>
-                  </a>
-                  <h3 className="text-lg font-semibold text-gray-800 text-center mt-6 group-hover:text-blue-700 transition-colors duration-300">IEEE</h3>
-                </motion.div>
+              <div className="flex justify-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-4xl">
+                  <motion.div 
+                    className="flex flex-col items-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group"
+                    variants={fadeInUp}
+                    whileHover={{ scale: 1.03, y: -6, transition: { duration: 0.4 } }}
+                  >
+                    <a href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer">
+                      <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-gray-100/80">
+                        <img 
+                          src="/images/sponsor/IEEE.png" 
+                          alt="IEEE" 
+                          className="h-28 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-400 filter group-hover:brightness-110 drop-shadow-md" 
+                        />
+                      </div>
+                    </a>
+                    <h3 className="text-lg font-semibold text-gray-800 text-center mt-6 group-hover:text-blue-700 transition-colors duration-300">IEEE</h3>
+                  </motion.div>
 
-                <motion.div 
+                  <motion.div 
                   className="flex flex-col items-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group"
                   variants={fadeInUp}
                   whileHover={{ scale: 1.03, y: -6, transition: { duration: 0.4 } }}
@@ -171,6 +172,7 @@ const Affiliates: React.FC = () => {
                   </a>
                   <h3 className="text-lg font-semibold text-gray-800 text-center mt-6 group-hover:text-blue-700 transition-colors duration-300">IEEE USA</h3>
                 </motion.div>
+                </div>
               </div>
             </motion.div>
             
