@@ -38,7 +38,7 @@ const Affiliates: React.FC = () => {
             
             {/* Industry Partners Card */}
             <motion.div 
-              className="bg-gradient-to-br from-white via-gray-50/50 to-blue-50/30 rounded-2xl shadow-xl border border-gray-200/80 p-10 backdrop-blur-sm hover:shadow-2xl hover:border-blue-200/60 transition-all duration-500"
+              className="bg-white rounded-2xl shadow-xl border border-gray-200/80 p-10 hover:shadow-2xl hover:border-blue-200/60 transition-all duration-500"
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.4 } }}
             >
@@ -47,12 +47,12 @@ const Affiliates: React.FC = () => {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <motion.div 
-                  className="flex flex-col items-center p-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group hover:bg-white"
+                  className="flex flex-col items-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group"
                   variants={fadeInUp}
                   whileHover={{ scale: 1.03, y: -6, transition: { duration: 0.4 } }}
                 >
                   <a href="https://sterling.com/" target="_blank" rel="noopener noreferrer">
-                    <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-gray-100/80">
+                    <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-gray-100/80">
                       <img 
                         src="/images/sponsor/Sterling.png" 
                         alt="Sterling Technology" 
@@ -64,12 +64,12 @@ const Affiliates: React.FC = () => {
                 </motion.div>
 
                 <motion.div 
-                  className="flex flex-col items-center p-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group hover:bg-white"
+                  className="flex flex-col items-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group"
                   variants={fadeInUp}
                   whileHover={{ scale: 1.03, y: -6, transition: { duration: 0.4 } }}
                 >
                   <a href="https://www.vermillionchamber.com/" target="_blank" rel="noopener noreferrer">
-                    <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-gray-100/80">
+                    <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-gray-100/80">
                       <img 
                         src="/images/sponsor/Area.png" 
                         alt="Vermillion Area Chamber & Development" 
@@ -81,12 +81,12 @@ const Affiliates: React.FC = () => {
                 </motion.div>
 
                 <motion.div 
-                  className="flex flex-col items-center p-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group hover:bg-white"
+                  className="flex flex-col items-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group"
                   variants={fadeInUp}
                   whileHover={{ scale: 1.03, y: -6, transition: { duration: 0.4 } }}
                 >
                   <a href="https://www.dakotapc.com/" target="_blank" rel="noopener noreferrer">
-                    <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-gray-100/80">
+                    <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-gray-100/80">
                       <img 
                         src="/images/sponsor/dakota.png" 
                         alt="Dakota PC" 
@@ -101,7 +101,7 @@ const Affiliates: React.FC = () => {
 
             {/* Academic Partners Card */}
             <motion.div 
-              className="bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30 rounded-2xl shadow-xl border border-blue-200/80 p-10 backdrop-blur-sm hover:shadow-2xl hover:border-blue-300/80 transition-all duration-500"
+              className="bg-white rounded-2xl shadow-xl border border-blue-200/80 p-10 hover:shadow-2xl hover:border-blue-300/80 transition-all duration-500"
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.4 } }}
             >
@@ -110,13 +110,13 @@ const Affiliates: React.FC = () => {
               </h2>
               <div className="flex justify-center">
                 <motion.div 
-                  className="flex flex-col items-center p-16 bg-gradient-to-br from-white via-blue-50/30 to-gray-50/50 rounded-3xl shadow-2xl border border-gray-200/60 hover:shadow-3xl hover:border-blue-200/80 transition-all duration-500 group max-w-2xl backdrop-blur-sm"
+                  className="flex flex-col items-center p-16 bg-white rounded-3xl shadow-2xl border border-gray-200/60 hover:shadow-3xl hover:border-blue-200/80 transition-all duration-500 group max-w-2xl"
                   variants={fadeInUp}
                   whileHover={{ scale: 1.03, y: -12, transition: { duration: 0.5 } }}
                 >
                   <a href="https://www.sdbcc.org/" target="_blank" rel="noopener noreferrer" className="block w-full">
-                    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 via-white to-indigo-50/50 p-10 shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-blue-100/50 group-hover:border-blue-200/80">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 via-transparent to-indigo-400/5 group-hover:from-blue-400/10 group-hover:to-indigo-400/10 transition-all duration-500"></div>
+                    <div className="relative overflow-hidden rounded-2xl bg-white p-10 shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-blue-100/50 group-hover:border-blue-200/80">
+                      <div className="absolute inset-0 bg-white group-hover:bg-blue-50/20 transition-all duration-500"></div>
                       <div className="relative flex justify-center items-center min-h-[280px]">
                         <img 
                           src="/images/sponsor/SD-BCC.png" 
@@ -146,21 +146,21 @@ const Affiliates: React.FC = () => {
 
             {/* Professional Organizations Card */}
             <motion.div 
-              className="bg-gradient-to-br from-white via-gray-50/50 to-green-50/30 rounded-2xl shadow-xl border border-gray-200/80 p-10 backdrop-blur-sm hover:shadow-2xl hover:border-green-200/60 transition-all duration-500"
+              className="bg-white rounded-2xl shadow-xl border border-gray-200/80 p-10 hover:shadow-2xl hover:border-blue-200/60 transition-all duration-500"
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.4 } }}
             >
-              <h2 className="text-3xl font-bold text-gray-800 mb-10 text-left pb-4 border-b-2 border-green-200/60">
+              <h2 className="text-3xl font-bold text-gray-800 mb-10 text-left pb-4 border-b-2 border-blue-200/60">
                 Professional Organizations
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
                 <motion.div 
-                  className="flex flex-col items-center p-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-green-200/80 transition-all duration-400 group hover:bg-white"
+                  className="flex flex-col items-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group"
                   variants={fadeInUp}
                   whileHover={{ scale: 1.03, y: -6, transition: { duration: 0.4 } }}
                 >
                   <a href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer">
-                    <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-blue-100/80">
+                    <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-gray-100/80">
                       <img 
                         src="/images/sponsor/IEEE.png" 
                         alt="IEEE" 
@@ -168,16 +168,16 @@ const Affiliates: React.FC = () => {
                       />
                     </div>
                   </a>
-                  <h3 className="text-lg font-semibold text-gray-800 text-center mt-6 group-hover:text-green-700 transition-colors duration-300">IEEE</h3>
+                  <h3 className="text-lg font-semibold text-gray-800 text-center mt-6 group-hover:text-blue-700 transition-colors duration-300">IEEE</h3>
                 </motion.div>
 
                 <motion.div 
-                  className="flex flex-col items-center p-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-green-200/80 transition-all duration-400 group hover:bg-white"
+                  className="flex flex-col items-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group"
                   variants={fadeInUp}
                   whileHover={{ scale: 1.03, y: -6, transition: { duration: 0.4 } }}
                 >
                   <a href="https://www.ieeeusa.org/" target="_blank" rel="noopener noreferrer">
-                    <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-blue-100/80">
+                    <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-gray-100/80">
                       <img 
                         src="/images/sponsor/ieee_usa.png" 
                         alt="IEEE USA" 
@@ -185,7 +185,7 @@ const Affiliates: React.FC = () => {
                       />
                     </div>
                   </a>
-                  <h3 className="text-lg font-semibold text-gray-800 text-center mt-6 group-hover:text-green-700 transition-colors duration-300">IEEE USA</h3>
+                  <h3 className="text-lg font-semibold text-gray-800 text-center mt-6 group-hover:text-blue-700 transition-colors duration-300">IEEE USA</h3>
                 </motion.div>
               </div>
             </motion.div>
@@ -195,7 +195,7 @@ const Affiliates: React.FC = () => {
 
         {/* Partnership Information */}
         <motion.div 
-          className="bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/20 border border-indigo-200/60 rounded-2xl p-10 mt-16 shadow-xl hover:shadow-2xl transition-all duration-500 backdrop-blur-sm"
+          className="bg-white border border-indigo-200/60 rounded-2xl p-10 mt-16 shadow-xl hover:shadow-2xl transition-all duration-500"
           variants={fadeInUp}
         >
           <h3 className="text-2xl font-bold mb-6 text-gray-800 border-b-2 border-indigo-200/60 pb-3">
