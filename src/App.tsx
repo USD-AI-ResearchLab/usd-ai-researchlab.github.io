@@ -11,6 +11,7 @@ import Contact from "./Pages/Contact";
 import Affiliates from "./Pages/Affiliates";
 import Opportunities from "./Pages/Opportunities";
 import AISymposium2025 from "./Pages/AISymposium2025";
+import SponsorCardDemo from "./Pages/SponsorCardDemo";
 
 const App: React.FC = () => {
   return (
@@ -27,6 +28,7 @@ const App: React.FC = () => {
           <Route path="/opportunities" element={<Opportunities />} />
           <Route path="/affiliates" element={<Affiliates />} />
           <Route path="/events/ai-symposium/2025" element={<AISymposium2025 />} />
+          <Route path="/sponsor-cards-demo" element={<SponsorCardDemo />} />
         </Routes>
       </main>
       <Footer />
