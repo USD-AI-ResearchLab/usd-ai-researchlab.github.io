@@ -108,38 +108,22 @@ const Affiliates: React.FC = () => {
               <h2 className="text-3xl font-bold text-gray-800 mb-10 text-left pb-4 border-b-2 border-blue-300/60">
                 Academic Partners
               </h2>
-              <div className="flex justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <motion.div 
-                  className="flex flex-col items-center p-16 bg-white rounded-3xl shadow-2xl border border-gray-200/60 hover:shadow-3xl hover:border-blue-200/80 transition-all duration-500 group max-w-2xl"
+                  className="flex flex-col items-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group"
                   variants={fadeInUp}
-                  whileHover={{ scale: 1.03, y: -12, transition: { duration: 0.5 } }}
+                  whileHover={{ scale: 1.03, y: -6, transition: { duration: 0.4 } }}
                 >
-                  <a href="https://www.sdbcc.org/" target="_blank" rel="noopener noreferrer" className="block w-full">
-                    <div className="relative overflow-hidden rounded-2xl bg-white p-10 shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-blue-100/50 group-hover:border-blue-200/80">
-                      <div className="absolute inset-0 bg-white group-hover:bg-blue-50/20 transition-all duration-500"></div>
-                      <div className="relative flex justify-center items-center min-h-[280px]">
-                        <img 
-                          src="/images/sponsor/SD-BCC.png" 
-                          alt="South Dakota Biomedical Computing Consortium" 
-                          className="h-64 w-auto object-contain opacity-95 hover:opacity-100 transition-all duration-500 filter group-hover:brightness-105 group-hover:contrast-105 drop-shadow-lg group-hover:drop-shadow-xl" 
-                        />
-                      </div>
-                      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </div>
+                  <a href="https://www.sdbcc.org/" target="_blank" rel="noopener noreferrer">
+                    <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-lg group-hover:shadow-xl transition-all duration-400 border border-gray-100/80">
+                      <img 
+                        src="/images/sponsor/SD-BCC.png" 
+                        alt="South Dakota Biomedical Computing Consortium" 
+                        className="h-28 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-400 filter group-hover:brightness-110 drop-shadow-md" 
+                      />
                     </div>
                   </a>
-                  <div className="mt-8 text-center space-y-3">
-                    <h3 className="text-2xl font-bold text-gray-800 group-hover:text-blue-800 transition-colors duration-300 leading-tight tracking-wide">
-                      South Dakota Biomedical Computing Consortium
-                    </h3>
-                    <p className="text-lg font-medium text-blue-600 group-hover:text-blue-700 transition-colors duration-300 tracking-wider">
-                      (SDBCC)
-                    </p>
-                    <div className="w-16 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 mx-auto rounded-full group-hover:w-24 transition-all duration-300"></div>
-                  </div>
+                  <h3 className="text-lg font-semibold text-gray-800 text-center mt-6 group-hover:text-blue-700 transition-colors duration-300">South Dakota Biomedical Computing Consortium (SDBCC)</h3>
                 </motion.div>
               </div>
             </motion.div>
@@ -153,7 +137,7 @@ const Affiliates: React.FC = () => {
               <h2 className="text-3xl font-bold text-gray-800 mb-10 text-left pb-4 border-b-2 border-blue-200/60">
                 Professional Organizations
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <motion.div 
                   className="flex flex-col items-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200/60 hover:shadow-xl hover:border-blue-200/80 transition-all duration-400 group"
                   variants={fadeInUp}
