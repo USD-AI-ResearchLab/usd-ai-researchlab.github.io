@@ -82,8 +82,6 @@ const NavBar: React.FC = () => {
                 height: '110px',
                 objectFit: 'contain',
                 cursor: 'pointer',
-                backgroundColor: '#C53030',
-                borderRadius: '10px',
                 padding: '6px',
                 transition: 'all 0.3s ease',
                 filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))'
