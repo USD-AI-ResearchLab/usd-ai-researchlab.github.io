@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" style="background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #6b7280 100%);">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Main Engineering Badge -->
+  <rect x="50" y="40" width="300" height="160" rx="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+  
+  <!-- Title Section -->
+  <text x="200" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1f2937">
+    AI ENGINEERING
+  </text>
+  
+  <!-- Animated Mechanical Gear -->
+  <g transform="translate(200, 120)">
+    <!-- Main Gear -->
+    <circle r="20" fill="none" stroke="#374151" stroke-width="3">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Gear Teeth -->
+    <g fill="#6b7280" opacity="0.8">
+      <rect x="-2" y="-25" width="4" height="10" rx="1">
+        <animateTransform attributeName="transform" type="rotate" values="0;360" dur="8s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="-2" y="15" width="4" height="10" rx="1">
+        <animateTransform attributeName="transform" type="rotate" values="0;360" dur="8s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="-25" y="-2" width="10" height="4" rx="1">
+        <animateTransform attributeName="transform" type="rotate" values="0;360" dur="8s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="15" y="-2" width="10" height="4" rx="1">
+        <animateTransform attributeName="transform" type="rotate" values="0;360" dur="8s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    
+    <!-- Central Hub -->
+    <circle r="8" fill="#1f2937">
+      <animate attributeName="r" values="8;10;8" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- AI Integration Points -->
+    <circle cx="-30" cy="10" r="4" fill="#6b7280">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="30" cy="10" r="4" fill="#6b7280">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="2.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="35" r="4" fill="#6b7280">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Specialty Description -->
+  <text x="200" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#374151">
+    Intelligent Systems &amp; Automation
+  </text>
+  
+  <!-- Industry Badge -->
+  <rect x="145" y="175" width="110" height="18" rx="9" fill="#1f2937" opacity="0.8"/>
+  <text x="200" y="187" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">
+    INDUSTRY 4.0 READY
+  </text>
+  
+  <!-- Engineering Process Indicators -->
+  <g opacity="0.6">
+    <!-- Process Bars -->
+    <rect x="70" y="100" width="15" height="3" fill="#6b7280">
+      <animate attributeName="width" values="15;25;15" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="70" y="108" width="20" height="3" fill="#374151">
+      <animate attributeName="width" values="20;30;20" dur="2.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="70" y="116" width="12" height="3" fill="#1f2937">
+      <animate attributeName="width" values="12;22;12" dur="1.8s" repeatCount="indefinite"/>
+    </rect>
+    
+    <rect x="315" y="98" width="15" height="4" fill="#6b7280">
+      <animate attributeName="width" values="15;25;15" dur="2.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="315" y="106" width="18" height="4" fill="#374151">
+      <animate attributeName="width" values="18;28;18" dur="2.7s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Engineering Stats -->
+  <text x="90" y="210" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#1f2937">
+    95% Employment
+  </text>
+  <text x="200" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#1f2937">
+    Fortune 500 Partners
+  </text>
+  <text x="310" y="210" text-anchor="end" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#1f2937">
+    Innovation Focus
+  </text>
+</svg>

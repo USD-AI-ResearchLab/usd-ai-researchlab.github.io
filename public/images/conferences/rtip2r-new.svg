@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" style="background: linear-gradient(135deg, #7c2d12 0%, #dc2626 50%, #f87171 100%);">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Main Conference Badge -->
+  <rect x="50" y="40" width="300" height="160" rx="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+  
+  <!-- Conference Title -->
+  <text x="200" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#7c2d12">
+    RTIP2R 2025
+  </text>
+  
+  <!-- Full Conference Name -->
+  <text x="200" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#dc2626">
+    Real-Time Image Processing &amp; Pattern Recognition
+  </text>
+  
+  <!-- Animated Medical Imaging Grid -->
+  <g transform="translate(200, 125)">
+    <!-- Medical Cross -->
+    <rect x="-15" y="-3" width="30" height="6" fill="#dc2626" rx="3"/>
+    <rect x="-3" y="-15" width="6" height="30" fill="#dc2626" rx="3"/>
+    
+    <!-- Processing Grid -->
+    <g transform="translate(0, 25)" opacity="0.8">
+      <rect x="-20" y="-8" width="8" height="8" fill="#f87171" rx="1">
+        <animate attributeName="fill-opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="-8" y="-8" width="8" height="8" fill="#dc2626" rx="1">
+        <animate attributeName="fill-opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="4" y="-8" width="8" height="8" fill="#7c2d12" rx="1">
+        <animate attributeName="fill-opacity" values="0.5;1;0.5" dur="2.1s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="16" y="-8" width="8" height="8" fill="#f87171" rx="1">
+        <animate attributeName="fill-opacity" values="0.5;1;0.5" dur="1.7s" repeatCount="indefinite"/>
+      </rect>
+      
+      <rect x="-20" y="2" width="8" height="8" fill="#dc2626" rx="1">
+        <animate attributeName="fill-opacity" values="0.5;1;0.5" dur="1.9s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="-8" y="2" width="8" height="8" fill="#7c2d12" rx="1">
+        <animate attributeName="fill-opacity" values="0.5;1;0.5" dur="2.2s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="4" y="2" width="8" height="8" fill="#f87171" rx="1">
+        <animate attributeName="fill-opacity" values="0.5;1;0.5" dur="1.6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="16" y="2" width="8" height="8" fill="#dc2626" rx="1">
+        <animate attributeName="fill-opacity" values="0.5;1;0.5" dur="2.0s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+  
+  <!-- Conference Focus Areas -->
+  <text x="200" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#374151">
+    Medical Imaging &amp; Healthcare AI
+  </text>
+  
+  <!-- Publication Badge -->
+  <rect x="155" y="180" width="90" height="18" rx="9" fill="#dc2626" opacity="0.8"/>
+  <text x="200" y="192" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">
+    PEER REVIEWED
+  </text>
+  
+  <!-- Healthcare Indicators -->
+  <g opacity="0.7">
+    <!-- Heartbeat Line -->
+    <path d="M80,140 L95,140 L100,130 L105,150 L110,120 L115,140 L130,140" 
+          stroke="#f87171" stroke-width="2" fill="none">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Medical Indicators -->
+    <circle cx="300" cy="120" r="3" fill="#dc2626">
+      <animate attributeName="r" values="3;5;3" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="315" cy="130" r="2" fill="#f87171">
+      <animate attributeName="r" values="2;4;2" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Conference Stats -->
+  <text x="90" y="210" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#7c2d12">
+    300+ Papers
+  </text>
+  <text x="200" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#7c2d12">
+    45+ Countries
+  </text>
+  <text x="310" y="210" text-anchor="end" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#7c2d12">
+    Medical Grade
+  </text>
+</svg>
