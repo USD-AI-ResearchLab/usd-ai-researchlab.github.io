@@ -95,7 +95,7 @@ const Affiliates: React.FC = () => {
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
           <div className="text-center mb-8">
-            <span className="inline-block px-6 py-2 bg-red-50 text-red-600 rounded-full text-lg font-semibold border-2 border-red-200">
+            <span className="inline-block px-6 py-2 bg-rose-50 text-rose-600 rounded-full text-lg font-semibold border-2 border-rose-200">
               {currentCategory.name}
             </span>
           </div>
@@ -185,7 +185,7 @@ const Affiliates: React.FC = () => {
                 key={index}
                 className={`w-4 h-4 rounded-full transition-all duration-300 cursor-pointer ${
                   index === currentCategoryIndex 
-                    ? 'bg-red-600 shadow-lg transform scale-110' 
+                    ? 'bg-rose-600 shadow-lg transform scale-110' 
                     : 'bg-gray-300 hover:bg-gray-400 hover:scale-105'
                 }`}
                 onClick={() => goToCategory(index)}
@@ -214,7 +214,7 @@ const Affiliates: React.FC = () => {
               <div className="flex items-start flex-wrap">
                 <a 
                   href="mailto:usd.airesearch.lab@gmail.com" 
-                  className="inline-flex items-center px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors duration-300 text-lg font-medium shadow-lg hover:shadow-xl whitespace-nowrap"
+                  className="inline-flex items-center px-6 py-3 bg-rose-600 text-white rounded-xl hover:bg-rose-700 transition-colors duration-300 text-lg font-medium shadow-lg hover:shadow-xl whitespace-nowrap"
                 >
                   <svg className="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2z" />
