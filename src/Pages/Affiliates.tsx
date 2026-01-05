@@ -51,7 +51,7 @@ const Affiliates: React.FC = () => {
                   variants={fadeInUp}
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                 >
-                  <a href="https://www.sterlingtechsolutions.com/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://sterling.com/" target="_blank" rel="noopener noreferrer">
                     <img 
                       src="/images/sponsor/Sterling.png" 
                       alt="Sterling Technology" 
@@ -81,7 +81,7 @@ const Affiliates: React.FC = () => {
                   variants={fadeInUp}
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                 >
-                  <a href="https://dakotapc.com/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.dakotapc.com/" target="_blank" rel="noopener noreferrer">
                     <img 
                       src="/images/sponsor/dakota.png" 
                       alt="Dakota PC" 
@@ -150,7 +150,7 @@ const Affiliates: React.FC = () => {
                   variants={fadeInUp}
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                 >
-                  <a href="https://ieeeusa.org/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.ieeeusa.org/" target="_blank" rel="noopener noreferrer">
                     <img 
                       src="/images/sponsor/ieee_usa.png" 
                       alt="IEEE USA" 
