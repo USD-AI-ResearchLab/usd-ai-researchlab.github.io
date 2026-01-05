@@ -7,11 +7,27 @@ const NewsCarousel: React.FC = () => {
   const newsItems = [
     {
       id: 1,
-      date: 'October 2024',
+      date: 'November 2024',
       badge: 'Latest Update',
+      title: 'Major Funding',
+      subtitle: '(November 2024) Secured $7.245M funding for South Dakota Biomedical Computation Collaborative initiative.',
+      description: 'Advancing computational research in biomedical sciences.',
+      link: 'https://www.usd.edu/',
+      icon: (
+        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
+          <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd"></path>
+        </svg>
+      )
+    },
+    {
+      id: 2,
+      date: 'October 2024',
+      badge: 'Infrastructure',
       title: 'Research Infrastructure',
       subtitle: '(October 2024) NSF Award #2346643 for CC* Campus Compute infrastructure project totaling $0.5M.',
       description: 'Building advanced computational capabilities for research excellence.',
+      link: 'https://www.nsf.gov/',
       icon: (
         <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
           <path d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" fillRule="evenodd" clipRule="evenodd" />
@@ -19,12 +35,13 @@ const NewsCarousel: React.FC = () => {
       )
     },
     {
-      id: 2,
+      id: 3,
       date: 'September 2024',
       badge: 'New Publication',
       title: 'AI Research Breakthrough',
       subtitle: 'Our team published groundbreaking research in medical image analysis using deep learning.',
       description: 'Advancing the state-of-the-art in automated medical diagnosis.',
+      link: 'https://www.usd.edu/',
       icon: (
         <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
           <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -32,28 +49,16 @@ const NewsCarousel: React.FC = () => {
       )
     },
     {
-      id: 3,
+      id: 4,
       date: 'August 2024',
       badge: 'Event',
       title: 'AI Symposium Success',
       subtitle: 'The 6th AI Symposium was held with over 200 participants from academia and industry.',
       description: 'Fostering collaboration and innovation in artificial intelligence.',
+      link: 'https://www.usd.edu/',
       icon: (
         <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
           <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
-        </svg>
-      )
-    },
-    {
-      id: 4,
-      date: 'July 2024',
-      badge: 'Funding',
-      title: 'New Grant Award',
-      subtitle: 'Received $300K funding for developing AI-powered healthcare solutions.',
-      description: 'Supporting innovative research in medical AI applications.',
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
         </svg>
       )
     }
@@ -65,7 +70,7 @@ const NewsCarousel: React.FC = () => {
     
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % newsItems.length);
-    }, 6000); // Change slide every 6 seconds
+    }, 3000); // Change slide every 3 seconds
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, newsItems.length]);
@@ -148,12 +153,17 @@ const NewsCarousel: React.FC = () => {
               {currentItem.description}
             </p>
             <div className="pt-4">
-              <button className="inline-flex items-center space-x-2 text-red-600 hover:text-red-700 font-medium text-sm group">
+              <a 
+                href={currentItem.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-red-600 hover:text-red-700 font-medium text-sm group transition-colors duration-200"
+              >
                 <span>Read full announcement</span>
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </button>
+              </a>
             </div>
           </div>
         </div>

@@ -426,6 +426,32 @@ const NavBar: React.FC = () => {
               Affiliates
             </div>
           </Link>
+
+          <Link to="/contact" style={{ textDecoration: 'none' }}>
+            <div style={{
+              fontSize: '18px',
+              fontWeight: 300,
+              color: 'white',
+              transition: 'all 0.3s ease',
+              filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))',
+              textShadow: '0 0 0px rgba(255, 255, 255, 0)'
+            }}
+            onMouseOver={(e) => {
+              (e.target as HTMLElement).style.color = '#f0f0f0';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
+              (e.target as HTMLElement).style.textShadow = '0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.3)';
+              (e.target as HTMLElement).style.transform = 'scale(1.05)';
+            }}
+            onMouseOut={(e) => {
+              (e.target as HTMLElement).style.color = 'white';
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
+              (e.target as HTMLElement).style.textShadow = '0 0 0px rgba(255, 255, 255, 0)';
+              (e.target as HTMLElement).style.transform = 'scale(1)';
+            }}
+            >
+              Contact
+            </div>
+          </Link>
         </div>
       </div>
 
@@ -496,6 +522,10 @@ const NavBar: React.FC = () => {
         
         <Link to="/affiliates" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Affiliates</div>
+        </Link>
+        
+        <Link to="/contact" onClick={toggleMenu}>
+          <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Contact</div>
         </Link>
       </div>
     </>
