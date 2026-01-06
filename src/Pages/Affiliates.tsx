@@ -152,7 +152,7 @@ const Affiliates: React.FC = () => {
 
                     {/* Visit Website Indicator */}
                     <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="flex items-center text-red-600 text-sm font-medium">
+                      <div className="flex items-center text-rose-600 text-sm font-medium">
                         Visit Website
                         <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
