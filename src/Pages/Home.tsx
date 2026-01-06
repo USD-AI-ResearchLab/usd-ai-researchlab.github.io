@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
 import logoImage from "../assets/logo-copy.svg";
@@ -31,11 +32,13 @@ const Home: React.FC = () => {
         {/* Header Section with Logo */}
         <motion.div className="text-center mb-16" variants={fadeInUp}>
           <div className="flex flex-col items-center">
-            <img 
-              src={logoImage} 
-              alt="USD AI Research Lab Logo" 
-              className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-6 object-contain drop-shadow-lg"
-            />
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <img 
+                src={logoImage} 
+                alt="USD AI Research Lab Logo" 
+                className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-6 object-contain drop-shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300"
+              />
+            </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
               USD AI Research
             </h1>
