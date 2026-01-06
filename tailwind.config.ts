@@ -6,6 +6,12 @@ const config: Config = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      colors: {
+        'logo-red': {
+          DEFAULT: '#C53030',
+          'light': '#E53E3E',
+        }
+      },
       fontFamily: {
         cursive: ['"Pacifico"', 'cursive'],
       },
