@@ -30,9 +30,9 @@ const Affiliates: React.FC = () => {
   ];
 
   const categories = [
-    { name: "Industry Partner", cards: industryPartners },
-    { name: "Academic Partner", cards: academicPartners },
-    { name: "Professional Organization", cards: professionalOrganizations }
+    { name: "Industry Partners", cards: industryPartners },
+    { name: "Academic Partners", cards: academicPartners },
+    { name: "Professional Organizations", cards: professionalOrganizations }
   ];
 
   // Carousel state - 3 categories showing all cards simultaneously
@@ -89,13 +89,13 @@ const Affiliates: React.FC = () => {
 
         {/* Multi-Card Carousel */}
         <motion.div 
-          className="bg-white rounded-3xl shadow-xl border border-gray-200/80 p-12 mb-20 transition-all duration-500 relative max-w-6xl"
+          className="p-12 mb-20 transition-all duration-500 relative max-w-6xl"
           variants={fadeInUp}
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
           <div className="text-center mb-8">
-            <span className="inline-block px-6 py-2 bg-logo-red/10 text-logo-red rounded-full text-lg font-semibold border-2 border-logo-red/30">
+            <span className="inline-block px-6 py-2 text-logo-red rounded-full text-lg font-semibold">
               {currentCategory.name}
             </span>
           </div>
@@ -196,7 +196,7 @@ const Affiliates: React.FC = () => {
 
         {/* Partnership Information */}
         <motion.div 
-          className="bg-gradient-to-r from-logo-red/5 to-logo-red-light/5 border border-logo-red/20 rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-500"
+          className="p-12 transition-all duration-500"
           variants={fadeInUp}
           whileHover={{ y: -8, transition: { duration: 0.4 } }}
         >
@@ -207,21 +207,19 @@ const Affiliates: React.FC = () => {
             <p className="text-gray-700 leading-relaxed mb-8 text-xl">
               We welcome collaborations with organizations that share our commitment to advancing artificial intelligence research and education.
             </p>
-            <div className="bg-white/60 rounded-2xl p-8 backdrop-blur-sm">
-              <p className="text-gray-700 leading-relaxed text-lg mb-6">
+            <div className="text-left">
+              <p className="text-gray-700 leading-relaxed text-lg mb-4">
                 For partnership inquiries, please contact us at:
               </p>
-              <div className="flex items-start flex-wrap">
-                <a 
-                  href="mailto:usd.airesearch.lab@gmail.com" 
-                  className="inline-flex items-center px-6 py-3 bg-logo-red text-white rounded-xl hover:bg-logo-red-light transition-colors duration-300 text-lg font-medium shadow-lg hover:shadow-xl whitespace-nowrap"
-                >
-                  <svg className="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2z" />
-                  </svg>
-                  usd.airesearch.lab@gmail.com
-                </a>
-              </div>
+              <a 
+                href="mailto:usd.airesearch.lab@gmail.com" 
+                className="inline-flex items-center text-logo-red hover:text-logo-red-light transition-colors duration-300 text-lg font-medium underline hover:no-underline"
+              >
+                <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2z" />
+                </svg>
+                usd.airesearch.lab@gmail.com
+              </a>
             </div>
           </div>
         </motion.div>
