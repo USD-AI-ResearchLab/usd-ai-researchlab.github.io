@@ -119,7 +119,7 @@ const Affiliates: React.FC = () => {
               {currentCategory.cards.map((card, index) => (
                 <motion.div 
                   key={`${currentCategoryIndex}-${index}`}
-                  className="flex flex-col items-center bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl hover:bg-gray-50 transition-all duration-300 group cursor-pointer p-6 flex-1 max-w-xs hover:border-logo-red/30"
+                  className="flex flex-col items-center p-6 flex-1 max-w-xs transition-all duration-300 group cursor-pointer hover:scale-105"
                   style={{ minWidth: '240px', height: '320px' }}
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -135,7 +135,7 @@ const Affiliates: React.FC = () => {
                     style={{ textDecoration: 'none', color: 'inherit' }}
                   >
                     {/* Logo Container */}
-                    <div className="bg-gray-50 p-4 rounded-xl mb-4 flex items-center justify-center w-full group-hover:bg-logo-red/10 transition-colors border border-gray-100" style={{ height: '140px' }}>
+                    <div className="p-4 mb-4 flex items-center justify-center w-full transition-colors" style={{ height: '140px' }}>
                       <img 
                         src={card.image} 
                         alt={card.alt} 
