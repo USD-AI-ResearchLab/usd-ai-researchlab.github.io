@@ -147,7 +147,7 @@ const DirectorPhoto: React.FC = () => (
         <img 
           src="/faculty/kc-santosh.jpg" 
           alt="Prof. KC Santosh - Founding Director"
-          className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-2xl object-cover shadow-xl transition-all duration-500 group-hover:shadow-2xl"
+          className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-2xl object-cover shadow-xl transition-all duration-500 group-hover:shadow-2xl"
         />
         
         {/* Gradient overlay on image */}
@@ -156,10 +156,6 @@ const DirectorPhoto: React.FC = () => (
         {/* Decorative border */}
         <div className="absolute inset-0 rounded-2xl ring-1 ring-white/20 ring-inset"></div>
       </div>
-      
-      {/* Floating accent elements */}
-      <div className="absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-br from-red-500 to-red-600 rounded-full opacity-80 shadow-lg"></div>
-      <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full opacity-60 shadow-md"></div>
     </div>
   </motion.div>
 );
