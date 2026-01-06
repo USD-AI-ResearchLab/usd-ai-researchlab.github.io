@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Animation delay classes for background patterns */
+.animate-pulse-delay-2 {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 2s;
+}
+
+.animate-pulse-delay-4 {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 4s;
+}
+
 /* Line clamp utility for text truncation */
 .line-clamp-3 {
   display: -webkit-box;
