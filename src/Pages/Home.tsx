@@ -265,24 +265,30 @@ const Home: React.FC = () => {
       <style>{`
         @keyframes gradientFlow {
           0% { 
-            background-position: 0% 50%; 
+            background-position: 0% 0%; 
+          }
+          25% { 
+            background-position: 100% 100%; 
           }
           50% { 
-            background-position: 100% 50%; 
+            background-position: 100% 0%; 
+          }
+          75% { 
+            background-position: 0% 100%; 
           }
           100% { 
-            background-position: 0% 50%; 
+            background-position: 0% 0%; 
           }
         }
         
         .gradient-text {
-          background: linear-gradient(90deg, #000000 0%, #dc2626 30%, #ef4444 50%, #dc2626 70%, #000000 100%);
+          background: linear-gradient(135deg, #000000 0%, #dc2626 30%, #ef4444 50%, #dc2626 70%, #000000 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           color: transparent;
-          background-size: 300% 100%;
-          animation: gradientFlow 4s ease-in-out infinite;
+          background-size: 200% 200%;
+          animation: gradientFlow 6s ease-in-out infinite;
         }
         
         /* Fallback for unsupported browsers */
