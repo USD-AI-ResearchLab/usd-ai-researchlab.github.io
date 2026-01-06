@@ -245,7 +245,7 @@ const About: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 pb-24 min-h-screen bg-white">
+    <div className="pt-32 pb-32 min-h-screen bg-white">
       <motion.div 
         className="w-full px-4 py-8"
         initial="initial"
@@ -255,7 +255,7 @@ const About: React.FC = () => {
         {/* Header Section */}
         <motion.div className="text-left mb-16" variants={fadeInUp}>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
-            USD AI Research
+            About
           </h1>
         </motion.div>
 
