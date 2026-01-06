@@ -317,10 +317,10 @@ const People: React.FC = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 border ${
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 border-2 ${
                     selectedCategory === category
-                      ? 'text-white bg-logo-red border-logo-red hover:bg-red-700 shadow-md'
-                      : 'text-gray-600 bg-white border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:shadow-sm'
+                      ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
+                      : 'text-gray-600 bg-white border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-50'
                   }`}
                 >
                   {category}
@@ -339,10 +339,10 @@ const People: React.FC = () => {
                 <button
                   key={letter}
                   onClick={() => setSelectedLetter(letter)}
-                  className={`px-3 py-2 text-sm font-medium rounded transition-all duration-200 border ${
+                  className={`px-3 py-2 text-sm font-medium rounded transition-all duration-200 border-2 ${
                     selectedLetter === letter
-                      ? 'text-white bg-logo-red border-logo-red hover:bg-red-700 shadow-md'
-                      : 'text-gray-600 bg-white border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:shadow-sm'
+                      ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
+                      : 'text-gray-600 bg-white border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-50'
                   }`}
                 >
                   {letter}
