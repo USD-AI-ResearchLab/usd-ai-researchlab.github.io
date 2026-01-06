@@ -317,14 +317,11 @@ const People: React.FC = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors border shadow-sm ${
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 border ${
                     selectedCategory === category
-                      ? 'text-white bg-logo-red border-logo-red'
-                      : 'text-gray-600 hover:text-gray-800 bg-white hover:bg-white border-gray-300 hover:shadow-md'
+                      ? 'text-white bg-logo-red border-logo-red hover:bg-red-700 shadow-md'
+                      : 'text-gray-600 bg-white border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:shadow-sm'
                   }`}
-                  style={{
-                    backgroundColor: selectedCategory === category ? 'var(--logo-red, #C53030) !important' : 'white !important',
-                  }}
                 >
                   {category}
                 </button>
@@ -342,14 +339,11 @@ const People: React.FC = () => {
                 <button
                   key={letter}
                   onClick={() => setSelectedLetter(letter)}
-                  className={`px-3 py-2 text-sm font-medium rounded transition-colors border shadow-sm ${
+                  className={`px-3 py-2 text-sm font-medium rounded transition-all duration-200 border ${
                     selectedLetter === letter
-                      ? 'text-white bg-logo-red border-logo-red'
-                      : 'text-gray-600 hover:text-gray-800 bg-white hover:bg-white border-gray-300 hover:shadow-md'
+                      ? 'text-white bg-logo-red border-logo-red hover:bg-red-700 shadow-md'
+                      : 'text-gray-600 bg-white border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:shadow-sm'
                   }`}
-                  style={{
-                    backgroundColor: selectedLetter === letter ? 'var(--logo-red, #C53030) !important' : 'white !important',
-                  }}
                 >
                   {letter}
                 </button>
