@@ -67,9 +67,9 @@ const Affiliates: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-24">
+    <div className="w-full bg-white min-h-screen">
       <motion.div 
-        className="container mx-auto px-6 py-20"
+        className="container mx-auto max-w-6xl px-8 pt-40 pb-16"
         initial="initial"
         animate="animate"
         variants={{
@@ -89,7 +89,7 @@ const Affiliates: React.FC = () => {
 
         {/* Multi-Card Carousel */}
         <motion.div 
-          className="p-12 mb-20 transition-all duration-500 relative max-w-6xl"
+          className="relative mb-20 transition-all duration-500"
           variants={fadeInUp}
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
@@ -104,7 +104,7 @@ const Affiliates: React.FC = () => {
             {/* Navigation Arrows */}
             <button 
               onClick={goToPrevious}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200"
               disabled={categories.length <= 1}
               aria-label="Previous category"
               title="Previous category"
@@ -114,13 +114,13 @@ const Affiliates: React.FC = () => {
               </svg>
             </button>
 
-            {/* Multiple Cards Display */}
-            <div className="flex justify-center px-8 gap-4">
+            {/* Multiple Cards Display - Full Width */}
+            <div className="flex justify-center items-center min-h-[400px] px-16 gap-8">
               {currentCategory.cards.map((card, index) => (
                 <motion.div 
                   key={`${currentCategoryIndex}-${index}`}
-                  className="flex flex-col items-center p-6 flex-1 max-w-xs transition-all duration-300 group cursor-pointer hover:scale-105"
-                  style={{ minWidth: '240px', height: '320px' }}
+                  className="flex flex-col items-center p-8 flex-1 min-w-[300px] max-w-[400px] transition-all duration-300 group cursor-pointer hover:scale-105"
+                  style={{ height: '360px' }}
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
@@ -135,17 +135,17 @@ const Affiliates: React.FC = () => {
                     style={{ textDecoration: 'none', color: 'inherit' }}
                   >
                     {/* Logo Container */}
-                    <div className="p-4 mb-4 flex items-center justify-center w-full transition-colors" style={{ height: '140px' }}>
+                    <div className="p-6 mb-6 flex items-center justify-center w-full transition-colors" style={{ height: '160px' }}>
                       <img 
                         src={card.image} 
                         alt={card.alt} 
-                        className="max-h-24 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        className="max-h-32 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     
                     {/* Company Name */}
                     <div className="flex-1 flex items-center justify-center w-full">
-                      <h3 className="text-lg text-gray-800 text-center font-semibold leading-tight px-2 group-hover:text-logo-red transition-colors duration-300">
+                      <h3 className="text-xl text-gray-800 text-center font-semibold leading-tight px-3 group-hover:text-logo-red transition-colors duration-300">
                         {card.name}
                       </h3>
                     </div>
@@ -167,7 +167,7 @@ const Affiliates: React.FC = () => {
             {/* Right Arrow */}
             <button 
               onClick={goToNext}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200"
               disabled={categories.length <= 1}
               aria-label="Next category"
               title="Next category"
@@ -201,14 +201,14 @@ const Affiliates: React.FC = () => {
           whileHover={{ y: -8, transition: { duration: 0.4 } }}
         >
           <div className="text-left">
-            <h3 className="text-3xl mb-8 text-gray-800 font-light no-underline">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-light mb-8 text-gray-900 tracking-tight">
               Partnership Opportunities
             </h3>
-            <p className="text-gray-700 leading-relaxed mb-8 text-xl">
+            <p className="text-gray-700 leading-relaxed mb-8 text-lg">
               We welcome collaborations with organizations that share our commitment to advancing artificial intelligence research and education.
             </p>
             <div className="text-left">
-              <p className="text-gray-700 leading-relaxed text-lg mb-4">
+              <p className="text-gray-700 leading-relaxed text-base mb-4">
                 For partnership inquiries, please contact us at:
               </p>
               <a 
