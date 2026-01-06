@@ -8,15 +8,15 @@ const Footer: React.FC = () => {
       className="text-white border-t border-gray-200" 
       style={{ 
         backgroundColor: '#C53030',
-        height: '120px',
+        minHeight: '120px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '0 50px',
+        padding: '20px 50px',
         boxShadow: '0 -3px 15px rgba(0, 0, 0, 0.15)'
       }}
     >
-      <div className="flex items-center justify-between w-full max-w-6xl">
+      <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-6 md:gap-0">
         {/* Social Media Icons - Left Side */}
         <div className="flex items-center space-x-8">
           {/* University/Institution Icon */}
@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Copyright - Right Side */}
-        <div className="text-white text-base font-light">
+        <div className="text-white text-base font-light text-center md:text-right">
           © 2015 USD AI Research. All rights reserved.
         </div>
       </div>

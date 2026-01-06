@@ -58,44 +58,46 @@ const NavBar: React.FC = () => {
         backdropFilter: 'blur(16px)',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        padding: '0 50px',
+        justifyContent: 'space-between',
+        padding: '0 20px',
         boxShadow: '0 3px 15px rgba(0, 0, 0, 0.15)',
         zIndex: 50
       }}>
         
+        {/* Logo - Always Visible */}
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <img 
+            className="logo"
+            src={bgimage} 
+            alt="AI Lab Logo" 
+            style={{
+              width: '80px',
+              height: '80px',
+              objectFit: 'contain',
+              cursor: 'pointer',
+              padding: '6px',
+              transition: 'all 0.3s ease',
+              filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))'
+            }}
+            onMouseOver={(e) => {
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.4))';
+              (e.target as HTMLElement).style.transform = 'scale(1.05)';
+            }}
+            onMouseOut={(e) => {
+              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
+              (e.target as HTMLElement).style.transform = 'scale(1)';
+            }}
+          />
+        </Link>
+
         {/* NAVIGATION MENU - CENTERED */}
         <div style={{
-          display: 'flex',
           alignItems: 'center',
-          gap: '32px'
-        }} className="flex">
-          
-          {/* LOGO - LEFT SIDE */}
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <img 
-              className="logo"
-              src={bgimage} 
-              alt="AI Lab Logo" 
-              style={{
-                width: '110px',
-                height: '110px',
-                objectFit: 'contain',
-                cursor: 'pointer',
-                padding: '6px',
-                transition: 'all 0.3s ease',
-                filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))'
-              }}
-              onMouseOver={(e) => {
-                (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.4))';
-                (e.target as HTMLElement).style.transform = 'scale(1.05)';
-              }}
-              onMouseOut={(e) => {
-                (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
-                (e.target as HTMLElement).style.transform = 'scale(1)';
-              }}
-            />
-          </Link>
+          gap: '20px',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          flex: 1
+        }} className="hidden md:flex">
           
           <Link to="/about" style={{ textDecoration: 'none' }}>
             <div style={{
@@ -453,28 +455,25 @@ const NavBar: React.FC = () => {
             </div>
           </Link>
         </div>
+
+        {/* Hamburger Menu Button - Visible on small screens */}
+        <button
+          onClick={toggleMenu}
+          className="md:hidden text-white focus:outline-none z-50"
+          style={{
+            fontSize: '28px',
+            padding: '8px',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          <i className={isOpen ? 'bx bx-x' : 'bx bx-menu'}></i>
+        </button>
       </div>
 
-      {/* Mobile menu - keeping hidden for now but removing button */}
-      <div className={`fixed top-20 left-0 w-64 min-h-screen bg-white/95 backdrop-blur-xl flex flex-col items-start justify-start gap-6 pt-8 pl-6 pr-4 pb-8 sm:hidden transition-all duration-300 ease-in-out shadow-xl overflow-y-auto z-40 ${
+      {/* Mobile menu */}
+      <div className={`fixed top-[120px] left-0 w-64 min-h-screen bg-white/95 backdrop-blur-xl flex flex-col items-start justify-start gap-6 pt-8 pl-6 pr-4 pb-8 md:hidden transition-all duration-300 ease-in-out shadow-xl overflow-y-auto z-40 ${
         isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}>
-        
-        {/* Logo in mobile menu */}
-        <Link to="/" onClick={toggleMenu} className="mb-2">
-          <img 
-            src={bgimage} 
-            alt="AI Lab Logo" 
-            className="object-contain cursor-pointer" 
-            style={{
-              width: '78px',
-              height: '78px',
-              backgroundColor: '#C53030',
-              borderRadius: '8px',
-              padding: '4px',
-            }}
-          />
-        </Link>
         
         <Link to="/about" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Home</div>
