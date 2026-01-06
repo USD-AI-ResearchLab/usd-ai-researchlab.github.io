@@ -225,8 +225,8 @@ const People: React.FC = () => {
             disabled={validCurrentPage === 1}
             className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
               validCurrentPage === 1
-                ? 'text-gray-400 cursor-not-allowed bg-gray-50'
-                : 'text-gray-700 hover:text-red-600 hover:bg-red-50 bg-white border border-gray-300'
+                ? 'text-gray-400 cursor-not-allowed bg-white border border-gray-200'
+                : 'text-gray-700 hover:text-red-600 hover:bg-white hover:shadow-md bg-white border border-gray-300'
             }`}
           >
             ← Previous
@@ -253,7 +253,7 @@ const People: React.FC = () => {
                 className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
                   isCurrentPage
                     ? 'bg-red-600 text-white shadow-sm cursor-default'
-                    : 'text-gray-700 hover:text-red-600 hover:bg-red-50 bg-white border border-gray-300'
+                    : 'text-gray-700 hover:text-red-600 hover:bg-white hover:shadow-md bg-white border border-gray-300'
                 }`}
               >
                 {pageNumber}
@@ -267,8 +267,8 @@ const People: React.FC = () => {
             disabled={validCurrentPage === totalPages}
             className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
               validCurrentPage === totalPages
-                ? 'text-gray-400 cursor-not-allowed bg-gray-50'
-                : 'text-gray-700 hover:text-red-600 hover:bg-red-50 bg-white border border-gray-300'
+                ? 'text-gray-400 cursor-not-allowed bg-white border border-gray-200'
+                : 'text-gray-700 hover:text-red-600 hover:bg-white hover:shadow-md bg-white border border-gray-300'
             }`}
           >
             Next →
@@ -310,47 +310,51 @@ const People: React.FC = () => {
 
         {/* Category Filters */}
         <motion.div className="mb-8" variants={fadeInUp}>
-          <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  selectedCategory === category
-                    ? 'text-white'
-                    : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
-                }`}
-                style={{
-                  backgroundColor: selectedCategory === category ? 'var(--logo-red, #C53030)' : 'transparent',
-                  border: `1px solid ${selectedCategory === category ? 'var(--logo-red, #C53030)' : '#e5e7eb'}`
-                }}
-              >
-                {category}
-              </button>
-            ))}
+          <div className="flex items-center gap-4 flex-wrap">
+            <span className="text-lg font-medium text-gray-700">Filter by:</span>
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors border shadow-sm ${
+                    selectedCategory === category
+                      ? 'text-white bg-logo-red border-logo-red'
+                      : 'text-gray-600 hover:text-gray-800 bg-white hover:bg-white border-gray-300 hover:shadow-md'
+                  }`}
+                  style={{
+                    backgroundColor: selectedCategory === category ? 'var(--logo-red, #C53030) !important' : 'white !important',
+                  }}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
         </motion.div>
 
         {/* Letter Filter */}
         <motion.div className="mb-8" variants={fadeInUp}>
-          <div className="flex flex-wrap gap-2">
-            {letters.map((letter) => (
-              <button
-                key={letter}
-                onClick={() => setSelectedLetter(letter)}
-                className={`px-3 py-2 text-sm font-medium rounded transition-colors ${
-                  selectedLetter === letter
-                    ? 'text-white'
-                    : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
-                }`}
-                style={{
-                  backgroundColor: selectedLetter === letter ? 'var(--logo-red, #C53030)' : 'transparent',
-                  border: `1px solid ${selectedLetter === letter ? 'var(--logo-red, #C53030)' : '#e5e7eb'}`
-                }}
-              >
-                {letter}
-              </button>
-            ))}
+          <div className="flex items-center gap-4 flex-wrap">
+            <span className="text-lg font-medium text-gray-700">Start with:</span>
+            <div className="flex flex-wrap gap-2">
+              {letters.map((letter) => (
+                <button
+                  key={letter}
+                  onClick={() => setSelectedLetter(letter)}
+                  className={`px-3 py-2 text-sm font-medium rounded transition-colors border shadow-sm ${
+                    selectedLetter === letter
+                      ? 'text-white bg-logo-red border-logo-red'
+                      : 'text-gray-600 hover:text-gray-800 bg-white hover:bg-white border-gray-300 hover:shadow-md'
+                  }`}
+                  style={{
+                    backgroundColor: selectedLetter === letter ? 'var(--logo-red, #C53030) !important' : 'white !important',
+                  }}
+                >
+                  {letter}
+                </button>
+              ))}
+            </div>
           </div>
         </motion.div>
 

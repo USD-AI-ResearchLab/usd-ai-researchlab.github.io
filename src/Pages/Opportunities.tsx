@@ -19,6 +19,7 @@ const Opportunities: React.FC = () => {
   };
 
   const staggerChildren = {
+    initial: {},
     animate: {
       transition: {
         staggerChildren: 0.1
@@ -120,11 +121,11 @@ const Opportunities: React.FC = () => {
                 {/* Header */}
                 <button
                   onClick={() => toggleSection(position.id)}
-                  className="w-full flex items-center justify-between p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-200"
+                  className="w-full flex items-center gap-3 p-6 bg-white hover:bg-gray-50 transition-colors duration-200 text-left"
                 >
-                  <h3 className="text-xl font-light text-black">{position.title}</h3>
+                  <h3 className="text-xl font-light text-black flex-grow">{position.title}</h3>
                   <svg 
-                    className={`w-6 h-6 text-gray-600 transition-transform duration-200 ${openSections[position.id] ? 'rotate-180' : ''}`}
+                    className={`w-5 h-5 text-gray-600 transition-transform duration-200 flex-shrink-0 ${openSections[position.id] ? 'rotate-180' : ''}`}
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
@@ -205,56 +206,56 @@ const Opportunities: React.FC = () => {
                 )}
               </motion.div>
             ))}
-          </div>
 
-          {/* Research Visits/Internships - Dropdown Card Section */}
-          <motion.div
-            variants={fadeInUp}
-            className="border border-gray-200 rounded-lg overflow-hidden"
-          >
-            {/* Header */}
-            <button
-              onClick={() => toggleSection('research-visits')}
-              className="w-full flex items-center justify-between p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-200"
+            {/* Research Visits/Internships - Dropdown Card Section */}
+            <motion.div
+              variants={fadeInUp}
+              className="border border-gray-200 rounded-lg overflow-hidden"
             >
-              <h3 className="text-xl font-light text-black">Research Visits & Internships</h3>
-              <svg 
-                className={`w-6 h-6 text-gray-600 transition-transform duration-200 ${openSections['research-visits'] ? 'rotate-180' : ''}`}
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
+              {/* Header */}
+              <button
+                onClick={() => toggleSection('research-visits')}
+                className="w-full flex items-center gap-3 p-6 bg-white hover:bg-gray-50 transition-colors duration-200 text-left"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
+                <h3 className="text-xl font-light text-black flex-grow">Research Visits & Internships</h3>
+                <svg 
+                  className={`w-5 h-5 text-gray-600 transition-transform duration-200 flex-shrink-0 ${openSections['research-visits'] ? 'rotate-180' : ''}`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
 
-            {/* Content */}
-            {openSections['research-visits'] && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-                className="p-6 bg-white border-t border-gray-100"
-              >
-                {/* Information */}
-                <div className="mb-6">
-                  <h4 className="text-base font-medium text-black mb-3">Availability</h4>
-                  <p className="text-base text-gray-700 mb-4">
-                    Research visits are very limited and typically only possible through existing collaborations or funded programs (summer schools, fellowships, mobility grants).
-                  </p>
-                </div>
+              {/* Content */}
+              {openSections['research-visits'] && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="p-6 bg-white border-t border-gray-100"
+                >
+                  {/* Information */}
+                  <div className="mb-6">
+                    <h4 className="text-base font-medium text-black mb-3">Availability</h4>
+                    <p className="text-base text-gray-700 mb-4">
+                      Research visits are very limited and typically only possible through existing collaborations or funded programs (summer schools, fellowships, mobility grants).
+                    </p>
+                  </div>
 
-                {/* Important Notice */}
-                <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg">
-                  <h4 className="text-base font-medium text-red-800 mb-2">Important Notice</h4>
-                  <p className="text-base text-red-700">
-                    Currently not responding to emails regarding research visits/internships.
-                  </p>
-                </div>
-              </motion.div>
-            )}
-          </motion.div>
+                  {/* Important Notice */}
+                  <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg">
+                    <h4 className="text-base font-medium text-red-800 mb-2">Important Notice</h4>
+                    <p className="text-base text-red-700">
+                      Currently not responding to emails regarding research visits/internships.
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </motion.div>
+          </div>
 
           {/* Important Notes */}
           <motion.div variants={fadeInUp} className="mt-12 p-6 bg-white border border-gray-200 rounded-lg">
