@@ -92,7 +92,7 @@ const HeroLogo: React.FC = () => (
 
 const HeroTitle: React.FC = () => (
   <motion.h1 
-    className="gradient-text text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-3 tracking-tight leading-tight text-center"
+    className="gradient-text-hero text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-3 tracking-tight leading-tight text-center"
     variants={animations.fadeInUp}
     style={{
       fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -110,7 +110,7 @@ const HeroTagline: React.FC = () => (
     variants={animations.fadeInUp}
   >
     <motion.p 
-      className="gradient-text text-lg md:text-xl lg:text-2xl font-light leading-relaxed mb-2"
+      className="gradient-text-hero text-lg md:text-xl lg:text-2xl font-light leading-relaxed mb-2"
       variants={animations.fadeInUp}
       style={{
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -120,7 +120,7 @@ const HeroTagline: React.FC = () => (
       Leading artificial intelligence research and development center
     </motion.p>
     <motion.p 
-      className="gradient-text text-base md:text-lg lg:text-xl font-normal italic tracking-wide"
+      className="gradient-text-hero text-base md:text-lg lg:text-xl font-normal italic tracking-wide"
       variants={animations.fadeInUp}
       style={{
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -166,7 +166,7 @@ const DirectorMessage: React.FC = () => (
     variants={animations.fadeInUp}
   >
     <motion.blockquote 
-      className="gradient-text text-xl md:text-2xl lg:text-3xl font-light leading-tight mb-4 tracking-tight"
+      className="gradient-text-director text-xl md:text-2xl lg:text-3xl font-light leading-tight mb-4 tracking-tight"
       style={styles.elegantQuote}
       variants={animations.fadeInUp}
     >
@@ -174,7 +174,7 @@ const DirectorMessage: React.FC = () => (
     </motion.blockquote>
     
     <motion.p 
-      className="gradient-text text-sm md:text-base lg:text-lg font-normal mb-6 leading-relaxed"
+      className="gradient-text-director text-sm md:text-base lg:text-lg font-normal mb-6 leading-relaxed"
       variants={animations.fadeInUp}
       style={{
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -188,10 +188,10 @@ const DirectorMessage: React.FC = () => (
       className="space-y-2"
       variants={animations.fadeInUp}
     >
-      <div className="gradient-text text-lg lg:text-xl font-semibold">
+      <div className="gradient-text-director text-lg lg:text-xl font-semibold">
         Prof. KC Santosh
       </div>
-      <div className="gradient-text text-sm lg:text-base font-medium">
+      <div className="gradient-text-director text-sm lg:text-base font-medium">
         Founding Director, USD AI Research Lab
       </div>
     </motion.div>
@@ -281,8 +281,20 @@ const Home: React.FC = () => {
           }
         }
         
-        .gradient-text {
+        /* Hero Section: Black-Red-Black gradient */
+        .gradient-text-hero {
           background: linear-gradient(135deg, #000000 0%, #dc2626 30%, #ef4444 50%, #dc2626 70%, #000000 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
+          background-size: 200% 200%;
+          animation: gradientFlow 6s ease-in-out infinite;
+        }
+        
+        /* Director Section: Red-Black-Red gradient */
+        .gradient-text-director {
+          background: linear-gradient(135deg, #dc2626 0%, #000000 30%, #1a1a1a 50%, #000000 70%, #dc2626 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -293,7 +305,7 @@ const Home: React.FC = () => {
         
         /* Fallback for unsupported browsers */
         @supports not (background-clip: text) or not (-webkit-background-clip: text) {
-          .gradient-text {
+          .gradient-text-hero, .gradient-text-director {
             color: #dc2626;
             background: none;
             -webkit-text-fill-color: initial;
