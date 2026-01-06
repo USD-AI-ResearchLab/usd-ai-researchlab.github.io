@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
+import logoImage from "../assets/logo-copy.svg";
 // import NewsCarousel from "../components/NewsCarousel"; // Unused for now
 
 const Home: React.FC = () => {
@@ -27,11 +28,21 @@ const Home: React.FC = () => {
         animate="animate"
         variants={staggerChildren}
       >
-        {/* Header Section */}
-        <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
-            USD AI Research
-          </h1>
+        {/* Header Section with Logo */}
+        <motion.div className="text-center mb-16" variants={fadeInUp}>
+          <div className="flex flex-col items-center">
+            <img 
+              src={logoImage} 
+              alt="USD AI Research Lab Logo" 
+              className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-6 object-contain drop-shadow-lg"
+            />
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
+              USD AI Research
+            </h1>
+            <p className="text-lg md:text-xl text-gray-600 font-light max-w-2xl">
+              Leading artificial intelligence research and development center
+            </p>
+          </div>
         </motion.div>
 
         {/* Main Content Section */}
