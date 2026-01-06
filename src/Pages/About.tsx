@@ -255,7 +255,7 @@ const About: React.FC = () => {
         {/* Header Section */}
         <motion.div className="text-left mb-16" variants={fadeInUp}>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
-            About
+            USD AI Research
           </h1>
         </motion.div>
 
