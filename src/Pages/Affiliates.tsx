@@ -95,7 +95,11 @@ const Affiliates: React.FC = () => {
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
           <div className="text-center mb-8">
-            <span className="inline-block px-6 py-2 bg-rose-50 text-rose-600 rounded-full text-lg font-semibold border-2 border-rose-200">
+            <span className="inline-block px-6 py-2 rounded-full text-lg font-semibold border-2" style={{ 
+              backgroundColor: 'color-mix(in srgb, var(--logo-red) 10%, transparent)',
+              color: 'var(--logo-red)',
+              borderColor: 'color-mix(in srgb, var(--logo-red) 30%, transparent)'
+            }}>
               {currentCategory.name}
             </span>
           </div>
@@ -119,8 +123,18 @@ const Affiliates: React.FC = () => {
               {currentCategory.cards.map((card, index) => (
                 <motion.div 
                   key={`${currentCategoryIndex}-${index}`}
-                  className="flex flex-col items-center bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl hover:border-rose-200 hover:bg-gray-50 transition-all duration-300 group cursor-pointer p-6 flex-1 max-w-xs"
-                  style={{ minWidth: '240px', height: '320px' }}
+                  className="flex flex-col items-center bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl hover:bg-gray-50 transition-all duration-300 group cursor-pointer p-6 flex-1 max-w-xs"
+                  style={{ 
+                    minWidth: '240px', 
+                    height: '320px',
+                    '--hover-border-color': 'color-mix(in srgb, var(--logo-red) 30%, transparent)'
+                  } as React.CSSProperties}
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLElement).style.borderColor = 'color-mix(in srgb, var(--logo-red) 30%, transparent)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLElement).style.borderColor = 'var(--color-gray-200)';
+                  }}
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
@@ -135,7 +149,16 @@ const Affiliates: React.FC = () => {
                     style={{ textDecoration: 'none', color: 'inherit' }}
                   >
                     {/* Logo Container */}
-                    <div className="bg-gray-50 p-4 rounded-xl mb-4 flex items-center justify-center w-full group-hover:bg-rose-50 transition-colors border border-gray-100" style={{ height: '140px' }}>
+                    <div 
+                      className="bg-gray-50 p-4 rounded-xl mb-4 flex items-center justify-center w-full transition-colors border border-gray-100" 
+                      style={{ height: '140px' }}
+                      onMouseEnter={(e) => {
+                        (e.target as HTMLElement).style.backgroundColor = 'color-mix(in srgb, var(--logo-red) 10%, transparent)';
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.target as HTMLElement).style.backgroundColor = 'var(--color-gray-50)';
+                      }}
+                    >
                       <img 
                         src={card.image} 
                         alt={card.alt} 
@@ -145,14 +168,22 @@ const Affiliates: React.FC = () => {
                     
                     {/* Company Name */}
                     <div className="flex-1 flex items-center justify-center w-full">
-                      <h3 className="text-lg text-gray-800 text-center font-semibold leading-tight px-2 group-hover:text-rose-600 transition-colors duration-300">
+                      <h3 
+                        className="text-lg text-gray-800 text-center font-semibold leading-tight px-2 transition-colors duration-300"
+                        onMouseEnter={(e) => {
+                          (e.target as HTMLElement).style.color = 'var(--logo-red)';
+                        }}
+                        onMouseLeave={(e) => {
+                          (e.target as HTMLElement).style.color = 'var(--color-gray-800)';
+                        }}
+                      >
                         {card.name}
                       </h3>
                     </div>
 
                     {/* Visit Website Indicator */}
                     <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="flex items-center text-rose-600 text-sm font-medium">
+                      <div className="flex items-center text-sm font-medium" style={{ color: 'var(--logo-red)' }}>
                         Visit Website
                         <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -185,9 +216,12 @@ const Affiliates: React.FC = () => {
                 key={index}
                 className={`w-4 h-4 rounded-full transition-all duration-300 cursor-pointer ${
                   index === currentCategoryIndex 
-                    ? 'bg-rose-600 shadow-lg transform scale-110' 
+                    ? 'shadow-lg transform scale-110' 
                     : 'bg-gray-300 hover:bg-gray-400 hover:scale-105'
                 }`}
+                style={{ 
+                  backgroundColor: index === currentCategoryIndex ? 'var(--logo-red)' : undefined
+                }}
                 onClick={() => goToCategory(index)}
               />
             ))}
@@ -214,7 +248,16 @@ const Affiliates: React.FC = () => {
               <div className="flex items-start flex-wrap">
                 <a 
                   href="mailto:usd.airesearch.lab@gmail.com" 
-                  className="inline-flex items-center px-6 py-3 bg-rose-600 text-white rounded-xl hover:bg-rose-700 transition-colors duration-300 text-lg font-medium shadow-lg hover:shadow-xl whitespace-nowrap"
+                  className="inline-flex items-center px-6 py-3 text-white rounded-xl hover:opacity-90 transition-colors duration-300 text-lg font-medium shadow-lg hover:shadow-xl whitespace-nowrap"
+                  style={{ 
+                    backgroundColor: 'var(--logo-red)'
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'var(--logo-red-light)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'var(--logo-red)';
+                  }}
                 >
                   <svg className="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2z" />
