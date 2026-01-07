@@ -58,12 +58,12 @@ const NavBar: React.FC = () => {
         backdropFilter: 'blur(16px)',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         padding: '0 20px',
         boxShadow: '0 3px 15px rgba(0, 0, 0, 0.15)',
         zIndex: 50,
         gap: '20px'
-      }} className="md:justify-center">
+      }}>
         
         {/* Logo - Always Visible */}
         <Link to="/" style={{ textDecoration: 'none' }}>

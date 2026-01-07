@@ -313,9 +313,9 @@ const Home: React.FC = () => {
         }
       `}</style>
       
-      <main className="relative">
+      <main className="relative min-h-screen flex items-center justify-center">
         {/* Compact Container */}
-        <div className="pt-16 pb-8 relative overflow-hidden">
+        <div className="w-full py-8 relative overflow-hidden max-w-7xl mx-auto">
           <BackgroundElements />
           
           <motion.div 
