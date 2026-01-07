@@ -69,7 +69,7 @@ const Affiliates: React.FC = () => {
   return (
     <div className="w-full bg-white min-h-screen">
       <motion.div 
-        className="container mx-auto max-w-6xl px-8 pt-40 pb-16"
+        className="px-8 pt-40 pb-16 max-w-7xl mx-auto"
         initial="initial"
         animate="animate"
         variants={{

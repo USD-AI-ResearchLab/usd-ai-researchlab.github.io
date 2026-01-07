@@ -141,7 +141,7 @@ const Initiatives: React.FC = () => {
       }}
     >
       <motion.div 
-        className="w-full py-8"
+        className="w-full py-8 max-w-7xl mx-auto"
         initial="initial"
         animate="animate"
         variants={staggerChildren}

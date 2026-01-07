@@ -61,8 +61,9 @@ const NavBar: React.FC = () => {
         justifyContent: 'space-between',
         padding: '0 20px',
         boxShadow: '0 3px 15px rgba(0, 0, 0, 0.15)',
-        zIndex: 50
-      }}>
+        zIndex: 50,
+        gap: '20px'
+      }} className="md:justify-center">
         
         {/* Logo - Always Visible */}
         <Link to="/" style={{ textDecoration: 'none' }}>
@@ -71,8 +72,8 @@ const NavBar: React.FC = () => {
             src={bgimage} 
             alt="AI Lab Logo" 
             style={{
-              width: '80px',
-              height: '80px',
+              width: '100px',
+              height: '100px',
               objectFit: 'contain',
               cursor: 'pointer',
               padding: '6px',
@@ -95,8 +96,7 @@ const NavBar: React.FC = () => {
           alignItems: 'center',
           gap: '20px',
           flexWrap: 'wrap',
-          justifyContent: 'center',
-          flex: 1
+          justifyContent: 'center'
         }} className="hidden md:flex">
           
           <Link to="/about" style={{ textDecoration: 'none' }}>

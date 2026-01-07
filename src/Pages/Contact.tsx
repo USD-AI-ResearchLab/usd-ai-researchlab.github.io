@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
   return (
     <div className="pt-32 pb-32 min-h-screen bg-white">
       <motion.div 
-        className="w-full px-4 py-8"
+        className="w-full px-4 py-8 max-w-7xl mx-auto"
         initial="initial"
         animate="animate"
         variants={staggerChildren}

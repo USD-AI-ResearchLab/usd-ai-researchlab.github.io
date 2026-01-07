@@ -254,13 +254,13 @@ const About: React.FC = () => {
       >
         {/* Header Section */}
         <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 max-w-7xl mx-auto text-logo-red">
             USD AI Research
           </h1>
         </motion.div>
 
         {/* Main Content Section with Side Card */}
-        <motion.div className="flex flex-col lg:flex-row gap-8 mb-8" variants={fadeInUp}>
+        <motion.div className="flex flex-col lg:flex-row gap-8 mb-8 max-w-7xl mx-auto" variants={fadeInUp}>
           {/* Text Content */}
           <div className="flex-1 lg:min-w-0">
             <p className="text-lg text-black leading-relaxed mb-4 font-thin">
