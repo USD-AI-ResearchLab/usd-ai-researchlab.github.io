@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
 
 const Initiatives: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [autoScrollEnabled, setAutoScrollEnabled] = useState(true);
   
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -20,62 +19,6 @@ const Initiatives: React.FC = () => {
       }
     }
   };
-
-  // Chevron components for navigation
-  const ChevronLeft = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-
-  const ChevronRight = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-
-  // Scroll function like books
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 400; // Larger scroll for cards
-      const currentScroll = scrollContainerRef.current.scrollLeft;
-      const maxScroll = scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth;
-      
-      let newScroll = direction === 'left' 
-        ? currentScroll - scrollAmount 
-        : currentScroll + scrollAmount;
-
-      // Loop back to start/end if we reach the edges
-      if (newScroll > maxScroll) newScroll = 0;
-      if (newScroll < 0) newScroll = maxScroll;
-
-      scrollContainerRef.current.scrollTo({
-        left: newScroll,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  // Auto-scroll effect like books
-  useEffect(() => {
-    let intervalId: NodeJS.Timeout;
-    
-    if (autoScrollEnabled) {
-      intervalId = setInterval(() => {
-        scroll('right');
-      }, 4000); // Auto-scroll every 4 seconds
-    }
-
-    return () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-    };
-  }, [autoScrollEnabled]);
-
-  // Pause auto-scroll on hover
-  const handleMouseEnter = () => setAutoScrollEnabled(false);
-  const handleMouseLeave = () => setAutoScrollEnabled(true);
 
   const categories = [
     {
@@ -153,31 +96,18 @@ const Initiatives: React.FC = () => {
           </h1>
         </motion.div>
 
-        {/* Main Scrolling Container - Like Books */}
+        {/* Main Grid Container */}
         <div className="relative w-full max-w-[1600px] mx-auto px-4 lg:px-8">
-          <div 
-            className="relative" 
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            {/* Left Navigation Button */}
-            <button 
-              onClick={() => scroll('left')}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/90 hover:bg-white shadow-lg border border-gray-200 transition-all duration-200"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft />
-            </button>
-
-            {/* Scrolling Cards Container */}
+          <div className="relative">
+            {/* Grid Cards Container */}
             <div 
               ref={scrollContainerRef}
-              className="flex overflow-x-auto gap-8 px-12 py-4 scroll-smooth hide-scrollbar"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 py-4"
             >
               {categories.map((category, index) => (
                 <motion.div
                   key={index}
-                  className="flex-shrink-0 w-80 bg-white border border-gray-200 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 overflow-hidden relative group"
+                  className="w-full bg-white border border-gray-200 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 overflow-hidden relative group"
                   initial={{ 
                     opacity: 0, 
                     scale: 0.85, 
@@ -413,7 +343,7 @@ const Initiatives: React.FC = () => {
                           </motion.svg>
                         </motion.span>
                       ) : (
-                        <motion.div className="mt-6 relative z-30 flex flex-wrap gap-2">
+                        <motion.div className="mt-6 relative z-30 grid grid-cols-2 md:grid-cols-3 gap-3">
                           {category.title === "AI Symposium" ? (
                             <>
                               <a href="https://usd-ai-researchlab.github.io/#/events/ai-symposium/2025" target="_blank" rel="noopener noreferrer">
@@ -510,15 +440,6 @@ const Initiatives: React.FC = () => {
                 </motion.div>
               ))}
             </div>
-
-            {/* Right Navigation Button */}
-            <button 
-              onClick={() => scroll('right')}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/90 hover:bg-white shadow-lg border border-gray-200 transition-all duration-200"
-              aria-label="Scroll right"
-            >
-              <ChevronRight />
-            </button>
           </div>
         </div>
 
