@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
+import usdLogo from '../assets/RealLogo.png';
 
 const Contact: React.FC = () => {
   const fadeInUp = {
@@ -85,18 +86,29 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Map Section */}
-          <motion.div variants={fadeInUp} className="mt-12 bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <iframe
-              width="100%"
-              height="400"
-              frameBorder={0}
-              className="border-0"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2931.5932089477217!2d-96.40155!3d42.77629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8787fa9c6e3b6d7f%3A0x8c5f5f5f5f5f5f5f!2s414%20E%20Clark%20St%2C%20Vermillion%2C%20SD%2057069!5e0!3m2!1sen!2sus!4v1705612800000"
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="University of South Dakota Location Map"
-            ></iframe>
+          <motion.div variants={fadeInUp} className="mt-16 bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md">
+            {/* Logo Header */}
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 flex items-center gap-4 border-b border-gray-200">
+              <img src={usdLogo} alt="University of South Dakota" className="h-16 w-auto" />
+              <div>
+                <h4 className="text-xl font-light text-black">Visit Us</h4>
+                <p className="text-sm text-gray-600">University of South Dakota - Computer Science Department</p>
+              </div>
+            </div>
+            {/* Map */}
+            <div className="relative w-full h-96">
+              <iframe
+                width="100%"
+                height="100%"
+                frameBorder={0}
+                className="border-0"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2931.577!2d-96.4015!3d42.7763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8787fa9c6e3b6d7f%3A0x8c5f5f5f5f5f5f5f!2sUniversity%20of%20South%20Dakota%20-%20Computer%20Science%20Department!5e0!3m2!1sen!2sus!4v1705612800000"
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="University of South Dakota - Computer Science Department Location"
+              ></iframe>
+            </div>
           </motion.div>
         </motion.div>
       </motion.div>
