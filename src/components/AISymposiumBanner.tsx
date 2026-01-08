@@ -23,10 +23,10 @@ const AISymposiumBanner: React.FC = () => {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-2">
-                🚀 7th AI Symposium 2025
+                🚀 7th AI Symposium
               </h2>
               <p className="text-lg mb-2 opacity-90">
-                June 26-27, 2025 | USD Sioux Falls
+                USD Sioux Falls
               </p>
               <p className="text-sm opacity-80">
                 Join leading experts in AI, healthcare, and biomedical computing

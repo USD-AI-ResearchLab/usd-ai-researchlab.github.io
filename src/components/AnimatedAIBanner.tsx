@@ -265,14 +265,6 @@ const AnimatedAIBanner: React.FC = () => {
           />
         </circle>
 
-        {/* Neural network pattern overlay */}
-        <rect
-          width="1200"
-          height="300"
-          fill="url(#nodePattern)"
-          opacity="0.7"
-        />
-
         {/* Enhanced glowing accent elements */}
         <circle cx="950" cy="80" r="60" fill="#C53030" opacity="0.3">
           <animate
@@ -351,147 +343,19 @@ const AnimatedAIBanner: React.FC = () => {
           2025
         </text>
 
+        {/* Years list */}
         <text
           x="600"
-          y="250"
+          y="240"
           fontFamily="Ubuntu, sans-serif"
           fontWeight="bold"
-          fontSize="25"
+          fontSize="18"
           textAnchor="middle"
           fill="#ffffff"
           filter="url(#glow)"
         >
-          <animate
-            attributeName="fill-opacity"
-            values="1;0.7;1"
-            dur="1s"
-            repeatCount="indefinite"
-          />
-          <animate
-            attributeName="y"
-            values="245;250;255"
-            dur="2s"
-            begin="0.3s"
-            repeatCount="indefinite"
-          />
-          Click to Download Your Certificate of Participation
+          2025  •  2024  •  2023  •  2022  •  2021
         </text>
-
-        {/* Enhanced decorative circuit lines with particle effects */}
-        <path
-          d="M100,50 L300,50 L350,100 L700,100"
-          stroke="#C53030"
-          strokeWidth="2"
-          fill="none"
-        >
-          <animate
-            attributeName="stroke-opacity"
-            values="1;0.5;1"
-            dur="1.5s"
-            repeatCount="indefinite"
-          />
-          <animate
-            attributeName="stroke-width"
-            values="2;3;2"
-            dur="2s"
-            repeatCount="indefinite"
-          />
-        </path>
-        <path
-          d="M1100,50 L900,50 L850,100 L700,100"
-          stroke="#C53030"
-          strokeWidth="2"
-          fill="none"
-        >
-          <animate
-            attributeName="stroke-opacity"
-            values="1;0.5;1"
-            dur="1.5s"
-            begin=".25s"
-            repeatCount="indefinite"
-          />
-          <animate
-            attributeName="stroke-width"
-            values="2;3;2"
-            dur="2s"
-            begin="0.25s"
-            repeatCount="indefinite"
-          />
-        </path>
-        <path
-          d="M100,250 L300,250 L350,200 L700,200"
-          stroke="#C53030"
-          strokeWidth="2"
-          fill="none"
-        >
-          <animate
-            attributeName="stroke-opacity"
-            values="1;0.5;1"
-            dur="1.5s"
-            begin="0.5s"
-            repeatCount="indefinite"
-          />
-          <animate
-            attributeName="stroke-width"
-            values="2;3;2"
-            dur="2s"
-            begin="0.5s"
-            repeatCount="indefinite"
-          />
-        </path>
-        <path
-          d="M1100,250 L900,250 L850,200 L700,200"
-          stroke="#C53030"
-          strokeWidth="2"
-          fill="none"
-        >
-          <animate
-            attributeName="stroke-opacity"
-            values="1;0.5;1"
-            dur="1.5s"
-            begin="0.75s"
-            repeatCount="indefinite"
-          />
-          <animate
-            attributeName="stroke-width"
-            values="2;3;2"
-            dur="2s"
-            begin="0.75s"
-            repeatCount="indefinite"
-          />
-        </path>
-
-        {/* Particle effects */}
-        <circle cx="700" cy="100" r="2" fill="#fecaca">
-          <animate
-            attributeName="cx"
-            values="700;350;700"
-            dur="3s"
-            repeatCount="indefinite"
-          />
-          <animate
-            attributeName="fill-opacity"
-            values="1;0.5;1"
-            dur="3s"
-            repeatCount="indefinite"
-          />
-        </circle>
-        <circle cx="700" cy="200" r="2" fill="#fecaca">
-          <animate
-            attributeName="cx"
-            values="700;350;700"
-            dur="3s"
-            begin="1.5s"
-            repeatCount="indefinite"
-          />
-          <animate
-            attributeName="fill-opacity"
-            values="1;0.5;1"
-            dur="3s"
-            begin="1.5s"
-            repeatCount="indefinite"
-          />
-        </circle>
       </svg>
     </Link>
   );

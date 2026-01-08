@@ -413,30 +413,97 @@ const Initiatives: React.FC = () => {
                           </motion.svg>
                         </motion.span>
                       ) : (
-                        <motion.span 
-                          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium rounded-lg transition-all duration-300 pointer-events-none shadow-lg"
-                          whileHover={{
-                            boxShadow: "0 10px 25px -5px rgba(220, 38, 38, 0.4)",
-                            scale: 1.05,
-                            transition: { duration: 0.2 }
-                          }}
-                        >
-                          Explore Event
-                          <motion.svg 
-                            className="w-4 h-4 ml-2" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
-                            animate={{ x: [0, 3, 0] }}
-                            transition={{ 
-                              duration: 2,
-                              repeat: Infinity,
-                              repeatType: "loop"
-                            }}
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </motion.svg>
-                        </motion.span>
+                        <motion.div className="mt-6 relative z-30 flex flex-wrap gap-2">
+                          {category.title === "AI Symposium" ? (
+                            <>
+                              <a href="https://usd-ai-researchlab.github.io/#/events/ai-symposium/2025" target="_blank" rel="noopener noreferrer">
+                                <motion.span 
+                                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium rounded-lg transition-all duration-300 shadow-lg text-sm"
+                                  whileHover={{
+                                    boxShadow: "0 10px 25px -5px rgba(220, 38, 38, 0.4)",
+                                    scale: 1.05,
+                                    transition: { duration: 0.2 }
+                                  }}
+                                >
+                                  2025
+                                </motion.span>
+                              </a>
+                              <a href="https://www.usd.edu/academics/colleges-and-schools/college-of-arts-sciences/south-dakotan-arts-and-sciences/usd-to-host-fourth-annual-ai-symposium" target="_blank" rel="noopener noreferrer">
+                                <motion.span 
+                                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium rounded-lg transition-all duration-300 shadow-lg text-sm"
+                                  whileHover={{
+                                    boxShadow: "0 10px 25px -5px rgba(220, 38, 38, 0.4)",
+                                    scale: 1.05,
+                                    transition: { duration: 0.2 }
+                                  }}
+                                >
+                                  2024
+                                </motion.span>
+                              </a>
+                              <a href="https://www.usd.edu/academics/colleges-and-schools/college-of-arts-sciences/south-dakotan-arts-and-sciences/usd-to-host-third-annual-ai-symposium" target="_blank" rel="noopener noreferrer">
+                                <motion.span 
+                                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium rounded-lg transition-all duration-300 shadow-lg text-sm"
+                                  whileHover={{
+                                    boxShadow: "0 10px 25px -5px rgba(220, 38, 38, 0.4)",
+                                    scale: 1.05,
+                                    transition: { duration: 0.2 }
+                                  }}
+                                >
+                                  2023
+                                </motion.span>
+                              </a>
+                              <a href="https://www.usd.edu/academics/colleges-and-schools/college-of-arts-sciences/south-dakotan-arts-and-sciences/usd-to-host-artificial-intelligence-symposium-march-22" target="_blank" rel="noopener noreferrer">
+                                <motion.span 
+                                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium rounded-lg transition-all duration-300 shadow-lg text-sm"
+                                  whileHover={{
+                                    boxShadow: "0 10px 25px -5px rgba(220, 38, 38, 0.4)",
+                                    scale: 1.05,
+                                    transition: { duration: 0.2 }
+                                  }}
+                                >
+                                  2022
+                                </motion.span>
+                              </a>
+                              <a href="https://www.usd.edu/the-south-dakotan/usd-to-host-first-ai-symposium-march-16-18" target="_blank" rel="noopener noreferrer">
+                                <motion.span 
+                                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium rounded-lg transition-all duration-300 shadow-lg text-sm"
+                                  whileHover={{
+                                    boxShadow: "0 10px 25px -5px rgba(220, 38, 38, 0.4)",
+                                    scale: 1.05,
+                                    transition: { duration: 0.2 }
+                                  }}
+                                >
+                                  2021
+                                </motion.span>
+                              </a>
+                            </>
+                          ) : (
+                            <motion.span 
+                              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium rounded-lg transition-all duration-300 pointer-events-none shadow-lg"
+                              whileHover={{
+                                boxShadow: "0 10px 25px -5px rgba(220, 38, 38, 0.4)",
+                                scale: 1.05,
+                                transition: { duration: 0.2 }
+                              }}
+                            >
+                              Explore Event
+                              <motion.svg 
+                                className="w-4 h-4 ml-2" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                viewBox="0 0 24 24"
+                                animate={{ x: [0, 3, 0] }}
+                                transition={{ 
+                                  duration: 2,
+                                  repeat: Infinity,
+                                  repeatType: "loop"
+                                }}
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                              </motion.svg>
+                            </motion.span>
+                          )}
+                        </motion.div>
                       )}
                     </motion.div>
                   </motion.div>
