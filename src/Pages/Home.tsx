@@ -76,7 +76,7 @@ const styles = {
 // ========================================================================================
 const HeroLogo: React.FC = () => (
   <motion.div 
-    className="relative mb-2"
+    className="relative mb-2 bg-white rounded-full p-8"
     variants={animations.fadeIn}
   >
     <Link to="/" style={{ textDecoration: 'none' }}>
@@ -141,22 +141,24 @@ const DirectorPhoto: React.FC = () => (
     variants={animations.fadeIn}
     {...animations.scaleHover}
   >
-    <div className="relative group">
-      {/* Enhanced photo container */}
-      <div className="relative">
-        <img 
-          src="/faculty/kc-santosh.jpg" 
-          alt="Prof. KC Santosh - Founding Director"
-          className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-2xl object-cover shadow-xl transition-all duration-500 group-hover:shadow-2xl"
-        />
-        
-        {/* Gradient overlay on image */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent rounded-2xl opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
-        
-        {/* Decorative border */}
-        <div className="absolute inset-0 rounded-2xl ring-1 ring-white/20 ring-inset"></div>
+    <a href="https://kc-santosh.org" target="_blank" rel="noopener noreferrer" className="no-underline">
+      <div className="relative group cursor-pointer">
+        {/* Enhanced photo container */}
+        <div className="relative">
+          <img 
+            src="/faculty/kc-santosh.jpg" 
+            alt="Prof. KC Santosh - Founding Director"
+            className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-2xl object-cover shadow-xl transition-all duration-500 group-hover:shadow-2xl"
+          />
+          
+          {/* Gradient overlay on image */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent rounded-2xl opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
+          
+          {/* Decorative border */}
+          <div className="absolute inset-0 rounded-2xl ring-1 ring-white/20 ring-inset"></div>
+        </div>
       </div>
-    </div>
+    </a>
   </motion.div>
 );
 
@@ -192,7 +194,7 @@ const DirectorMessage: React.FC = () => (
         Prof. KC Santosh
       </div>
       <div className="gradient-text-director text-sm lg:text-base font-medium">
-        Founding Director, USD AI Research Lab
+        Inaugural Director, USD AI Research
       </div>
     </motion.div>
   </motion.div>
@@ -202,7 +204,7 @@ const DirectorMessage: React.FC = () => (
 // SECTION COMPONENTS
 // ========================================================================================
 const BackgroundElements: React.FC = () => (
-  <div className="absolute inset-0 overflow-hidden opacity-40">
+  <div className="absolute inset-0 overflow-hidden opacity-0">
     <div className="absolute top-1/4 right-1/5 w-96 h-96 bg-gradient-to-br from-red-100 to-red-50 rounded-full blur-3xl"></div>
     <div className="absolute bottom-1/4 left-1/5 w-80 h-80 bg-gradient-to-br from-gray-100 to-gray-50 rounded-full blur-2xl"></div>
     <div className="absolute top-3/4 right-1/3 w-64 h-64 bg-gradient-to-br from-red-50 to-transparent rounded-full blur-xl"></div>
@@ -225,21 +227,11 @@ const HeroSection: React.FC = () => (
 const DirectorSection: React.FC = () => (
   <motion.section 
     className="mb-8"
-    variants={animations.fadeIn}
+    variants={animations.staggerContainer}
+    initial="initial"
+    animate="animate"
   >
-    <div className="relative bg-gradient-to-br from-gray-50 via-white to-red-50/20 rounded-2xl shadow-xl overflow-hidden border border-gray-100/50">
-      {/* Enhanced gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/30 to-red-50/10"></div>
-      
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full"
-             style={{
-               backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0,0,0,0.15) 1px, transparent 0)`,
-               backgroundSize: '40px 40px'
-             }}></div>
-      </div>
-      
+    <div className="relative">
       <div className="relative px-6 md:px-12 lg:px-16 py-8 lg:py-12">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
@@ -249,8 +241,7 @@ const DirectorSection: React.FC = () => (
         </div>
       </div>
       
-      {/* Bottom accent line */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500/30 to-transparent"></div>
+      {/* Bottom accent line - removed */}
     </div>
   </motion.section>
 );
@@ -305,8 +296,14 @@ const Home: React.FC = () => {
         
         /* Fallback for unsupported browsers */
         @supports not (background-clip: text) or not (-webkit-background-clip: text) {
-          .gradient-text-hero, .gradient-text-director {
+          .gradient-text-hero {
             color: #dc2626;
+            background: none;
+            -webkit-text-fill-color: initial;
+          }
+          
+          .gradient-text-director {
+            color: #1a1a1a;
             background: none;
             -webkit-text-fill-color: initial;
           }

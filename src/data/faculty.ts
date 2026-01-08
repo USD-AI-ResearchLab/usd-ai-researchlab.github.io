@@ -19,7 +19,7 @@ const profileImage5 = "/faculty/nand-yadav.jpg"; // Dr. Nand K Yadav
 export const facultyData: Person[] = [
   {
     name: "Prof. KC Santosh",
-    role: "Professor (AI) & Chair, Department of Computer Science, USD | Founding Director, AI Research Lab",
+    role: "Professor (AI) & Chair, Department of Computer Science, USD | Founding Director, USD AI Research",
     photo: profileImage1,
     memberKey: "kc-santosh",
     url: "https://kc-santosh.org/",
@@ -28,7 +28,7 @@ export const facultyData: Person[] = [
   },
   {
     name: "Dr. Rodrigue Rizk",
-    role: "Assistant Professor, Department of Computer Science, USD | Vice-Director, Engineering",
+    role: "Assistant Professor, Department of Computer Science, USD | Vice-Director, Engineering | Graduate Program Co-ordinator",
     photo: profileImage2,
     memberKey: "rodrigue-rizk",
     url: "https://www.linkedin.com/in/rodrigue-rizk",
@@ -45,7 +45,7 @@ export const facultyData: Person[] = [
   },
   {
     name: "Dr. Srikanth Baride",
-    role: "Postdoc, Department of Computer Science, USD | Member, AI Research Lab",
+    role: "Postdoc, Department of Computer Science, USD | Member, USD AI Research",
     photo: profileImage4,
     memberKey: "srikanth-baride",
     url: "https://www.linkedin.com/in/srikanth-baride",
@@ -54,7 +54,7 @@ export const facultyData: Person[] = [
   },
   {
     name: "Dr. Nand K Yadav",
-    role: "Postdoc, Department of Computer Science, USD | Member, AI Research Lab",
+    role: "Postdoc, Department of Computer Science, USD | Member, USD AI Research",
     photo: profileImage5,
     memberKey: "nand-yadav",
     url: "https://www.linkedin.com/in/nand-k-yadav-891883262/",

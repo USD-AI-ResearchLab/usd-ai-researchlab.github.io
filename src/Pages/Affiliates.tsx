@@ -16,8 +16,8 @@ const Affiliates: React.FC = () => {
   // Grouped cards by category for 3-dot navigation
   const industryPartners = [
     { name: "Sterling", image: "/images/sponsor/Sterling.png", url: "https://www.sterlingcomputers.com/", alt: "Sterling" },
-    { name: "Vermillion Chamber of Commerce", image: "/images/sponsor/Area.png", url: "https://vermillionchamber.com/", alt: "Vermillion Chamber of Commerce" },
-    { name: "Dakota PC", image: "/images/sponsor/dakota.png", url: "https://www.dakotapc.com/", alt: "Dakota PC" }
+    { name: "Vermillion Chamber of Commerce", image: "/images/sponsor/Area.png", url: "https://livevermillion.com/", alt: "Vermillion Chamber of Commerce" },
+    { name: "Dakota PC", image: "/images/sponsor/dakota.png", url: "https://dakotapcwarehouse.com/", alt: "Dakota PC" }
   ];
 
   const academicPartners = [

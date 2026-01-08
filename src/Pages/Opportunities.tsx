@@ -158,7 +158,7 @@ const Opportunities: React.FC = () => {
                         <h4 className="text-base font-medium text-black mb-3">Application Requirements</h4>
                         <div className="bg-red-50 border-l-4 border-logo-red p-4 rounded-r-lg">
                           <p className="text-base text-gray-700 mb-3">
-                            Send your application to <a href="mailto:usd.airesearch.lab@gmail.com" className="text-logo-red underline font-medium">usd.airesearch.lab@gmail.com</a> with subject line "{position.emailSubject}":
+                            Send your application to <a href="mailto:usd.airesearch.lab@gmail.com" className="text-logo-red underline font-medium">usd.airesearch.lab@gmail.com</a>
                           </p>
                           <ul className="list-disc list-inside text-base text-gray-700 space-y-1">
                             {position.applicationRequirements.map((req, index) => (
@@ -166,33 +166,6 @@ const Opportunities: React.FC = () => {
                             ))}
                           </ul>
                         </div>
-                      </div>
-                    )}
-
-                    {/* Additional Programs */}
-                    {position.additionalPrograms && (
-                      <div className="mb-4">
-                        <h4 className="text-base font-medium text-gray-600 mb-2">Alternative Application Routes</h4>
-                        <ul className="list-disc list-inside text-base text-gray-600 space-y-1">
-                          {position.additionalPrograms.map((program, index) => (
-                            <li key={index}>{program}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    {/* Fellowships */}
-                    {position.fellowships && (
-                      <div className="mb-4">
-                        <h4 className="text-base font-medium text-gray-600 mb-2">Competitive Fellowships</h4>
-                        <p className="text-base text-gray-600 mb-2">
-                          Consider applying to these (email us with subject "Fellowship Application - USD AI Lab 2025"):
-                        </p>
-                        <ul className="list-disc list-inside text-base text-gray-600 space-y-1">
-                          {position.fellowships.map((fellowship, index) => (
-                            <li key={index}>{fellowship}</li>
-                          ))}
-                        </ul>
                       </div>
                     )}
 
@@ -273,6 +246,30 @@ const Opportunities: React.FC = () => {
             <p className="text-base text-gray-600 mt-4">
               For general inquiries, visit our <a href="#/contact" className="text-logo-red underline">Contact page</a>.
             </p>
+          </motion.div>
+
+          {/* Research Collaborations & Partnerships */}
+          <motion.div variants={fadeInUp} className="mt-12 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-xl font-light mb-4 text-black">
+              Research Collaborations & Partnerships
+            </h3>
+            <div className="space-y-4">
+              <p className="text-base text-gray-700 leading-relaxed">
+                We are always interested in collaborating with researchers, industry partners, and academic institutions. 
+                For research collaboration inquiries, please include:
+              </p>
+              <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                <li>Your research background and current affiliation</li>
+                <li>Specific research areas of mutual interest</li>
+                <li>Proposed collaboration timeline and objectives</li>
+                <li>Available resources and funding (if applicable)</li>
+              </ul>
+              <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                <p className="text-sm text-gray-600">
+                  <strong>For general inquiries:</strong> Please use the subject line "USD AI Lab - [Your Topic]" to help us route your message appropriately.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </motion.div>

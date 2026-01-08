@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
             {/* Lab Director Contact */}
             <motion.div variants={fadeInUp} className="bg-white border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-light mb-4 text-black">
-                Lab Director
+                Contact Info
               </h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
@@ -55,8 +55,8 @@ const Contact: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-gray-600 font-medium min-w-[80px]">LinkedIn:</span>
-                  <a href="https://www.linkedin.com/in/kc-santosh/" target="_blank" rel="noopener noreferrer" className="text-logo-red underline">
-                    linkedin.com/in/kc-santosh
+                  <a href="https://www.linkedin.com/company/kc-ai/" target="_blank" rel="noopener noreferrer" className="text-logo-red underline">
+                    linkedin.com/company/kc-ai
                   </a>
                 </div>
               </div>
@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
             {/* General Lab Contact */}
             <motion.div variants={fadeInUp} className="bg-white border border-gray-200 rounded-lg p-6">
               <h3 className="text-xl font-light mb-4 text-black">
-                Lab Information
+                Location
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start space-x-3">
@@ -80,49 +80,11 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </motion.div>
+
+
           </div>
 
-          {/* Collaboration Information */}
-          <motion.div variants={fadeInUp} className="mt-12 bg-white border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-light mb-4 text-black">
-              Research Collaborations & Partnerships
-            </h3>
-            <div className="space-y-4">
-              <p className="text-base text-gray-700 leading-relaxed">
-                We are always interested in collaborating with researchers, industry partners, and academic institutions. 
-                For research collaboration inquiries, please include:
-              </p>
-              <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-                <li>Your research background and current affiliation</li>
-                <li>Specific research areas of mutual interest</li>
-                <li>Proposed collaboration timeline and objectives</li>
-                <li>Available resources and funding (if applicable)</li>
-              </ul>
-              <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                <p className="text-sm text-gray-600">
-                  <strong>For general inquiries:</strong> Please use the subject line "USD AI Lab - [Your Topic]" to help us route your message appropriately.
-                </p>
-              </div>
-            </div>
-          </motion.div>
 
-          {/* Office Hours & Meetings */}
-          <motion.div variants={fadeInUp} className="mt-8 bg-white border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-light mb-4 text-black">
-              Office Hours & Meetings
-            </h3>
-            <div className="space-y-3">
-              <p className="text-base text-gray-700 leading-relaxed">
-                <strong>Office Hours:</strong> By appointment only
-              </p>
-              <p className="text-base text-gray-700 leading-relaxed">
-                <strong>Virtual Meetings:</strong> Available via Zoom or Microsoft Teams
-              </p>
-              <p className="text-sm text-gray-600">
-                Please email to schedule a meeting. Include your preferred time slots and the purpose of the meeting.
-              </p>
-            </div>
-          </motion.div>
         </motion.div>
       </motion.div>
 
