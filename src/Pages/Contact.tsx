@@ -102,12 +102,16 @@ const Contact: React.FC = () => {
                 height="100%"
                 frameBorder={0}
                 className="border-0"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2931.577!2d-96.40154!3d42.77629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8787fa9a5a5a5a5b%3A0x1234567890abcdef!2sDepartment%20of%20Computer%20Science%2C%20University%20of%20South%20Dakota%2C%20414%20E%20Clark%20St%2C%20Vermillion%2C%20SD%2057069!5e0!3m2!1sen!2sus!4v1705612800000"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2931.5769!2d-96.40150332812499!3d42.77628670000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8787fa9c703b26e5%3A0x8c5f5f5f5f5f5f5f!2s414%20E%20Clark%20St%2C%20Vermillion%2C%20SD%2057069%2C%20USA!5e0!3m2!1sen!2sus!4v1610000000000"
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="University of South Dakota - Computer Science Department Location"
+                title="University of South Dakota - Computer Science Department Location - You are here"
               ></iframe>
+              {/* "You are here" indicator */}
+              <div className="absolute top-4 left-4 bg-logo-red text-white px-3 py-2 rounded-lg shadow-lg text-sm font-medium z-10">
+                📍 You are here
+              </div>
             </div>
           </motion.div>
         </motion.div>
