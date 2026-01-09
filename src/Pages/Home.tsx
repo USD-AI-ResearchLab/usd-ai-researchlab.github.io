@@ -66,8 +66,9 @@ const styles = {
   },
   
   elegantQuote: {
-    fontFamily: 'Georgia, "Times New Roman", serif',
-    fontStyle: 'italic'
+    fontStyle: 'italic',
+    fontWeight: '500',
+    fontSize: '36px'
   }
 };
 
@@ -76,17 +77,22 @@ const styles = {
 // ========================================================================================
 const HeroLogo: React.FC = () => (
   <motion.div 
-    className="relative mb-2 bg-white rounded-full p-8"
+    className="relative mb-2"
     variants={animations.fadeIn}
   >
-    <Link to="/" style={{ textDecoration: 'none' }}>
-      <motion.img 
-        src={logoImage} 
-        alt="USD AI Research Lab Logo" 
-        className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain cursor-pointer mx-auto"
-        {...animations.scaleHover}
-      />
-    </Link>
+    {/* Glowing background effect */}
+    <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-red-400/30 to-red-500/20 rounded-full blur-3xl scale-110 animate-pulse" />
+    
+    <div className="relative bg-white rounded-full p-8 shadow-xl ring-2 ring-red-100/50">
+      <Link to="/" style={{ textDecoration: 'none' }}>
+        <motion.img 
+          src={logoImage} 
+          alt="USD AI Research Lab Logo" 
+          className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain cursor-pointer mx-auto"
+          {...animations.scaleHover}
+        />
+      </Link>
+    </div>
   </motion.div>
 );
 
@@ -232,16 +238,39 @@ const DirectorSection: React.FC = () => (
     animate="animate"
   >
     <div className="relative">
-      <div className="relative px-6 md:px-12 lg:px-16 py-8 lg:py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
-            <DirectorPhoto />
-            <DirectorMessage />
+      {/* Decorative Elements */}
+      <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-red-400/20 to-red-600/20 rounded-full blur-2xl" />
+      <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-gray-400/20 to-gray-600/20 rounded-full blur-2xl" />
+      
+      {/* Main Card */}
+      <motion.div 
+        className="relative bg-gradient-to-br from-white via-red-50/30 to-white rounded-2xl shadow-lg border border-red-100/50 overflow-hidden"
+        whileHover={{ 
+          boxShadow: '0 20px 40px rgba(220, 38, 38, 0.15)',
+          transition: { duration: 0.3 }
+        }}
+      >
+        {/* Decorative corner accents */}
+        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-red-500/10 to-transparent rounded-bl-full" />
+        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-gray-500/10 to-transparent rounded-tr-full" />
+        
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(220, 38, 38, 0.3) 1px, transparent 0)`,
+            backgroundSize: '32px 32px'
+          }} className="w-full h-full" />
+        </div>
+        
+        <div className="relative px-6 md:px-12 lg:px-16 py-10 lg:py-14">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16">
+              <DirectorPhoto />
+              <DirectorMessage />
+            </div>
           </div>
         </div>
-      </div>
-      
-      {/* Bottom accent line - removed */}
+      </motion.div>
     </div>
   </motion.section>
 );
@@ -250,8 +279,33 @@ const DirectorSection: React.FC = () => (
 // MAIN HOME COMPONENT
 // ========================================================================================
 const Home: React.FC = () => {
+  const [rotateX, setRotateX] = React.useState(0);
+  const [rotateY, setRotateY] = React.useState(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Calculate rotation based on mouse position (opposite direction for tilt effect)
+    const rotateY = ((x - centerX) / centerX) * -10; // max 10 degrees
+    const rotateX = ((y - centerY) / centerY) * 10;  // max 10 degrees
+    
+    setRotateX(rotateX);
+    setRotateY(rotateY);
+  };
+
+  const handleMouseLeave = () => {
+    setRotateX(0);
+    setRotateY(0);
+  };
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Custom CSS for gradient animation */}
       <style>{`
         @keyframes gradientFlow {
@@ -310,21 +364,74 @@ const Home: React.FC = () => {
         }
       `}</style>
       
-      <main className="relative min-h-screen flex items-center justify-center">
-        {/* Compact Container */}
-        <div className="w-full py-8 relative overflow-hidden max-w-7xl mx-auto">
-          <BackgroundElements />
-          
-          <motion.div 
-            className="relative z-10 px-6 lg:px-8"
-            initial="initial"
-            animate="animate"
-            variants={animations.staggerContainer}
+      <main className="relative min-h-screen flex items-center justify-center p-4">
+        {/* 3D Card Container */}
+        <motion.div 
+          className="w-full max-w-7xl"
+          style={{ perspective: '2000px' }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div
+            className="relative bg-gradient-to-br from-white via-gray-50 to-white rounded-3xl shadow-2xl overflow-hidden"
+            style={{
+              transformStyle: 'preserve-3d',
+              rotateX,
+              rotateY,
+            }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
           >
-            <HeroSection />
-            <DirectorSection />
+            {/* Animated gradient overlay */}
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-red-500/10 pointer-events-none"
+              animate={{
+                opacity: [0.3, 0.5, 0.3]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            />
+            
+            {/* Decorative corner elements */}
+            <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-red-500/20 to-transparent rounded-br-full" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-red-500/20 to-transparent rounded-bl-full" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-gray-500/20 to-transparent rounded-tr-full" />
+            <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-gray-500/20 to-transparent rounded-tl-full" />
+            
+            {/* Border glow effect with animation */}
+            <motion.div 
+              className="absolute inset-0 rounded-3xl ring-2 ring-red-200/50 pointer-events-none"
+              animate={{
+                ringColor: ['rgba(254, 202, 202, 0.3)', 'rgba(254, 202, 202, 0.6)', 'rgba(254, 202, 202, 0.3)']
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            />
+            
+            {/* Content wrapper */}
+            <div className="relative py-12 px-6 lg:px-12">
+              <BackgroundElements />
+              
+              <motion.div 
+                className="relative z-10"
+                initial="initial"
+                animate="animate"
+                variants={animations.staggerContainer}
+              >
+                <HeroSection />
+                <DirectorSection />
+              </motion.div>
+            </div>
           </motion.div>
-        </div>
+        </motion.div>
       </main>
 
       <FloatingScrollArrows />

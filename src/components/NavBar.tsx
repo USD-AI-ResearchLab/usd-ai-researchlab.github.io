@@ -61,43 +61,52 @@ const NavBar: React.FC = () => {
         justifyContent: 'center',
         padding: '0 20px',
         boxShadow: '0 3px 15px rgba(0, 0, 0, 0.15)',
-        zIndex: 50,
-        gap: '20px'
+        zIndex: 50
       }}>
         
-        {/* Logo - Always Visible */}
-        <Link to="/" style={{ textDecoration: 'none' }}>
-          <img 
-            className="logo"
-            src={bgimage} 
-            alt="AI Lab Logo" 
-            style={{
-              width: '100px',
-              height: '100px',
-              objectFit: 'contain',
-              cursor: 'pointer',
-              padding: '6px',
-              transition: 'all 0.3s ease',
-              filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))'
-            }}
-            onMouseOver={(e) => {
-              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.4))';
-              (e.target as HTMLElement).style.transform = 'scale(1.05)';
-            }}
-            onMouseOut={(e) => {
-              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
-              (e.target as HTMLElement).style.transform = 'scale(1)';
-            }}
-          />
-        </Link>
-
-        {/* NAVIGATION MENU - CENTERED */}
-        <div style={{
+        {/* Container with max-width */}
+        <div className="max-w-7xl mx-auto w-full px-6 lg:px-8" style={{
+          display: 'flex',
           alignItems: 'center',
-          gap: '20px',
-          flexWrap: 'wrap',
-          justifyContent: 'center'
-        }} className="hidden md:flex">
+          justifyContent: 'space-evenly',
+          gap: '32px'
+        }}>
+        
+          {/* NAVIGATION MENU WITH LOGO - ALL ITEMS WITH EQUAL SPACING */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '32px',
+            flexWrap: 'wrap',
+            justifyContent: 'space-evenly',
+            width: '100%'
+          }} className="hidden md:flex">
+          
+          {/* Logo */}
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <img 
+              className="logo"
+              src={bgimage} 
+              alt="AI Lab Logo" 
+              style={{
+                width: '100px',
+                height: '100px',
+                objectFit: 'contain',
+                cursor: 'pointer',
+                padding: '6px',
+                transition: 'all 0.3s ease',
+                filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))'
+              }}
+              onMouseOver={(e) => {
+                (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.4))';
+                (e.target as HTMLElement).style.transform = 'scale(1.05)';
+              }}
+              onMouseOut={(e) => {
+                (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
+                (e.target as HTMLElement).style.transform = 'scale(1)';
+              }}
+            />
+          </Link>
           
           <Link to="/about" style={{ textDecoration: 'none' }}>
             <div style={{
@@ -463,11 +472,31 @@ const NavBar: React.FC = () => {
           style={{
             fontSize: '28px',
             padding: '8px',
-            transition: 'all 0.3s ease'
+            transition: 'all 0.3s ease',
+            position: 'absolute',
+            right: '20px'
           }}
         >
           <i className={isOpen ? 'bx bx-x' : 'bx bx-menu'}></i>
         </button>
+        
+        {/* Logo for Mobile - Visible on small screens */}
+        <Link to="/" style={{ textDecoration: 'none' }} className="md:hidden">
+          <img 
+            className="logo"
+            src={bgimage} 
+            alt="AI Lab Logo" 
+            style={{
+              width: '100px',
+              height: '100px',
+              objectFit: 'contain',
+              cursor: 'pointer',
+              padding: '6px'
+            }}
+          />
+        </Link>
+        
+        </div>
       </div>
 
       {/* Mobile menu */}
