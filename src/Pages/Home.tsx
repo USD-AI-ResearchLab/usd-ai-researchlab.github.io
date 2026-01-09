@@ -403,18 +403,8 @@ const Home: React.FC = () => {
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-gray-500/20 to-transparent rounded-tr-full" />
             <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-gray-500/20 to-transparent rounded-tl-full" />
             
-            {/* Border glow effect with animation */}
-            <motion.div 
-              className="absolute inset-0 rounded-3xl ring-2 ring-red-200/50 pointer-events-none"
-              animate={{
-                ringColor: ['rgba(254, 202, 202, 0.3)', 'rgba(254, 202, 202, 0.6)', 'rgba(254, 202, 202, 0.3)']
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-            />
+            {/* Border glow effect */}
+            <div className="absolute inset-0 rounded-3xl ring-2 ring-red-200/50 pointer-events-none" />
             
             {/* Content wrapper */}
             <div className="relative py-12 px-6 lg:px-12">
