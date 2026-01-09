@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import FloatingScrollArrows from "../components/FloatingScrollArrows";
 import logoImage from "../assets/logo.svg";
 
 // ========================================================================================
@@ -423,8 +422,6 @@ const Home: React.FC = () => {
           </motion.div>
         </motion.div>
       </main>
-
-      <FloatingScrollArrows />
     </div>
   );
 };
