@@ -74,10 +74,8 @@ const NavBar: React.FC = () => {
         
           {/* NAVIGATION MENU WITH LOGO - ALL ITEMS WITH EQUAL SPACING */}
           <div style={{
-            display: 'flex',
             alignItems: 'center',
             gap: '32px',
-            flexWrap: 'wrap',
             justifyContent: 'space-evenly',
             width: '100%'
           }} className="hidden md:flex">

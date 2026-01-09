@@ -83,12 +83,12 @@ const HeroLogo: React.FC = () => (
     {/* Glowing background effect */}
     <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-red-400/30 to-red-500/20 rounded-full blur-3xl scale-110 animate-pulse" />
     
-    <div className="relative bg-white rounded-full p-8 shadow-xl ring-2 ring-red-100/50">
+    <div className="relative bg-white rounded-full p-4 shadow-xl ring-2 ring-red-100/50">
       <Link to="/" style={{ textDecoration: 'none' }}>
         <motion.img 
           src={logoImage} 
           alt="USD AI Research Lab Logo" 
-          className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain cursor-pointer mx-auto"
+          className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain cursor-pointer mx-auto"
           {...animations.scaleHover}
         />
       </Link>
@@ -98,7 +98,7 @@ const HeroLogo: React.FC = () => (
 
 const HeroTitle: React.FC = () => (
   <motion.h1 
-    className="gradient-text-hero text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-3 tracking-tight leading-tight text-center"
+    className="gradient-text-hero text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light mb-2 tracking-tight leading-tight text-center"
     variants={animations.fadeInUp}
     style={{
       fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -112,11 +112,11 @@ const HeroTitle: React.FC = () => (
 
 const HeroTagline: React.FC = () => (
   <motion.div 
-    className="max-w-4xl mx-auto mb-6 text-center"
+    className="max-w-2xl mx-auto mb-3 text-center"
     variants={animations.fadeInUp}
   >
     <motion.p 
-      className="gradient-text-hero text-lg md:text-xl lg:text-2xl font-light leading-relaxed mb-2"
+      className="gradient-text-hero text-sm md:text-base lg:text-lg font-light leading-relaxed mb-1"
       variants={animations.fadeInUp}
       style={{
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -126,7 +126,7 @@ const HeroTagline: React.FC = () => (
       Leading artificial intelligence research and development center
     </motion.p>
     <motion.p 
-      className="gradient-text-hero text-base md:text-lg lg:text-xl font-normal italic tracking-wide"
+      className="gradient-text-hero text-xs md:text-sm lg:text-base font-normal italic tracking-wide"
       variants={animations.fadeInUp}
       style={{
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -154,7 +154,7 @@ const DirectorPhoto: React.FC = () => (
           <img 
             src="/faculty/kc-santosh.jpg" 
             alt="Prof. KC Santosh - Founding Director"
-            className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-2xl object-cover shadow-xl transition-all duration-500 group-hover:shadow-2xl"
+            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-xl object-cover shadow-xl transition-all duration-500 group-hover:shadow-2xl"
           />
           
           {/* Gradient overlay on image */}
@@ -170,19 +170,19 @@ const DirectorPhoto: React.FC = () => (
 
 const DirectorMessage: React.FC = () => (
   <motion.div 
-    className="flex-1 text-center lg:text-left max-w-2xl"
+    className="flex-1 text-center lg:text-left max-w-xl"
     variants={animations.fadeInUp}
   >
     <motion.blockquote 
-      className="gradient-text-director text-xl md:text-2xl lg:text-3xl font-light leading-tight mb-4 tracking-tight"
-      style={styles.elegantQuote}
+      className="gradient-text-director text-base md:text-lg lg:text-xl font-light leading-tight mb-2 tracking-tight"
+      style={{...styles.elegantQuote, fontSize: '18px'}}
       variants={animations.fadeInUp}
     >
       "Building sustainable AI for all"
     </motion.blockquote>
     
     <motion.p 
-      className="gradient-text-director text-sm md:text-base lg:text-lg font-normal mb-6 leading-relaxed"
+      className="gradient-text-director text-xs md:text-sm lg:text-base font-normal mb-3 leading-relaxed"
       variants={animations.fadeInUp}
       style={{
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -193,13 +193,13 @@ const DirectorMessage: React.FC = () => (
     </motion.p>
     
     <motion.div 
-      className="space-y-2"
+      className="space-y-1"
       variants={animations.fadeInUp}
     >
-      <div className="gradient-text-director text-lg lg:text-xl font-semibold">
+      <div className="gradient-text-director text-sm lg:text-base font-semibold">
         Prof. KC Santosh
       </div>
-      <div className="gradient-text-director text-sm lg:text-base font-medium">
+      <div className="gradient-text-director text-xs lg:text-sm font-medium">
         Inaugural Director, USD AI Research
       </div>
     </motion.div>
@@ -219,7 +219,7 @@ const BackgroundElements: React.FC = () => (
 
 const HeroSection: React.FC = () => (
   <motion.section 
-    className="text-center mb-8"
+    className="text-center mb-4"
     variants={animations.staggerContainer}
   >
     <div className="flex flex-col items-center justify-center">
@@ -232,39 +232,39 @@ const HeroSection: React.FC = () => (
 
 const DirectorSection: React.FC = () => (
   <motion.section 
-    className="mb-8"
+    className="mb-4"
     variants={animations.staggerContainer}
     initial="initial"
     animate="animate"
   >
     <div className="relative">
       {/* Decorative Elements */}
-      <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-red-400/20 to-red-600/20 rounded-full blur-2xl" />
-      <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-gray-400/20 to-gray-600/20 rounded-full blur-2xl" />
+      <div className="absolute -top-3 -left-3 w-12 h-12 bg-gradient-to-br from-red-400/20 to-red-600/20 rounded-full blur-xl" />
+      <div className="absolute -bottom-3 -right-3 w-16 h-16 bg-gradient-to-br from-gray-400/20 to-gray-600/20 rounded-full blur-xl" />
       
       {/* Main Card */}
       <motion.div 
-        className="relative bg-gradient-to-br from-white via-red-50/30 to-white rounded-2xl shadow-lg border border-red-100/50 overflow-hidden"
+        className="relative bg-gradient-to-br from-white via-red-50/30 to-white rounded-xl shadow-lg border border-red-100/50 overflow-hidden"
         whileHover={{ 
-          boxShadow: '0 20px 40px rgba(220, 38, 38, 0.15)',
+          boxShadow: '0 10px 20px rgba(220, 38, 38, 0.15)',
           transition: { duration: 0.3 }
         }}
       >
         {/* Decorative corner accents */}
-        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-red-500/10 to-transparent rounded-bl-full" />
-        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-gray-500/10 to-transparent rounded-tr-full" />
+        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-red-500/10 to-transparent rounded-bl-full" />
+        <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-gray-500/10 to-transparent rounded-tr-full" />
         
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-5">
           <div style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, rgba(220, 38, 38, 0.3) 1px, transparent 0)`,
-            backgroundSize: '32px 32px'
+            backgroundSize: '16px 16px'
           }} className="w-full h-full" />
         </div>
         
-        <div className="relative px-6 md:px-12 lg:px-16 py-10 lg:py-14">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16">
+        <div className="relative px-3 md:px-6 lg:px-8 py-5 lg:py-7">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-5 lg:gap-8">
               <DirectorPhoto />
               <DirectorMessage />
             </div>
@@ -364,10 +364,10 @@ const Home: React.FC = () => {
         }
       `}</style>
       
-      <main className="relative min-h-screen flex items-center justify-center p-4">
+      <main className="relative min-h-screen flex items-center justify-center p-8 md:p-12 lg:p-16 pt-[140px] pb-24">
         {/* 3D Card Container */}
         <motion.div 
-          className="w-full max-w-7xl"
+          className="w-full max-w-6xl"
           style={{ perspective: '2000px' }}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -398,16 +398,16 @@ const Home: React.FC = () => {
             />
             
             {/* Decorative corner elements */}
-            <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-red-500/20 to-transparent rounded-br-full" />
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-red-500/20 to-transparent rounded-bl-full" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-gray-500/20 to-transparent rounded-tr-full" />
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-gray-500/20 to-transparent rounded-tl-full" />
+            <div className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-br from-red-500/20 to-transparent rounded-br-full" />
+            <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-red-500/20 to-transparent rounded-bl-full" />
+            <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-gray-500/20 to-transparent rounded-tr-full" />
+            <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-gray-500/20 to-transparent rounded-tl-full" />
             
             {/* Border glow effect */}
-            <div className="absolute inset-0 rounded-3xl ring-2 ring-red-200/50 pointer-events-none" />
+            <div className="absolute inset-0 rounded-3xl ring-1 ring-red-200/50 pointer-events-none" />
             
             {/* Content wrapper */}
-            <div className="relative py-12 px-6 lg:px-12">
+            <div className="relative py-6 px-3 lg:px-6">
               <BackgroundElements />
               
               <motion.div 
