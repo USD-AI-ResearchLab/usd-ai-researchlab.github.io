@@ -92,16 +92,9 @@ const NavBar: React.FC = () => {
                 objectFit: 'contain',
                 cursor: 'pointer',
                 padding: '6px',
-                transition: 'all 0.3s ease',
-                filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))'
-              }}
-              onMouseOver={(e) => {
-                (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.4))';
-                (e.target as HTMLElement).style.transform = 'scale(1.05)';
-              }}
-              onMouseOut={(e) => {
-                (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
-                (e.target as HTMLElement).style.transform = 'scale(1)';
+                transition: 'none',
+                filter: 'none',
+                transform: 'none'
               }}
             />
           </Link>

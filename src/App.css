@@ -222,14 +222,16 @@ html, body {
   width: 100%;
   min-height: 100%;
   overflow-x: hidden;
-  background: white;
-  background-size: 400% 400%;
+  background: #ffffff;
+  background-image: none !important;
+  background-size: auto;
   color: black;
 }
 
 #root {
   min-height: 100vh;
   width: 100%;
+  background: #ffffff;
 }
 
 .heading-red {

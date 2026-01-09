@@ -79,16 +79,15 @@ const HeroLogo: React.FC = () => (
     className="relative mb-2"
     variants={animations.fadeIn}
   >
-    {/* Glowing background effect */}
-    <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-red-400/30 to-red-500/20 rounded-full blur-3xl scale-110 animate-pulse" />
+    {/* Removed glowing background effect to keep the hero area pure white */}
+    {/* <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-red-400/30 to-red-500/20 rounded-full blur-3xl scale-110 animate-pulse" /> */}
     
-    <div className="relative bg-white rounded-full p-4 shadow-xl ring-2 ring-red-100/50">
+    <div className="relative bg-white rounded-full p-4">
       <Link to="/" style={{ textDecoration: 'none' }}>
         <motion.img 
           src={logoImage} 
           alt="USD AI Research Lab Logo" 
-          className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain cursor-pointer mx-auto"
-          {...animations.scaleHover}
+          className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain mx-auto"
         />
       </Link>
     </div>
@@ -156,8 +155,7 @@ const DirectorPhoto: React.FC = () => (
             className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-xl object-cover shadow-xl transition-all duration-500 group-hover:shadow-2xl"
           />
           
-          {/* Gradient overlay on image */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent rounded-2xl opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
+          {/* Removed gradient overlay to keep the card visually pure white */}
           
           {/* Decorative border */}
           <div className="absolute inset-0 rounded-2xl ring-1 ring-white/20 ring-inset"></div>
@@ -208,14 +206,6 @@ const DirectorMessage: React.FC = () => (
 // ========================================================================================
 // SECTION COMPONENTS
 // ========================================================================================
-const BackgroundElements: React.FC = () => (
-  <div className="absolute inset-0 overflow-hidden opacity-0">
-    <div className="absolute top-1/4 right-1/5 w-96 h-96 bg-gradient-to-br from-red-100 to-red-50 rounded-full blur-3xl"></div>
-    <div className="absolute bottom-1/4 left-1/5 w-80 h-80 bg-gradient-to-br from-gray-100 to-gray-50 rounded-full blur-2xl"></div>
-    <div className="absolute top-3/4 right-1/3 w-64 h-64 bg-gradient-to-br from-red-50 to-transparent rounded-full blur-xl"></div>
-  </div>
-);
-
 const HeroSection: React.FC = () => (
   <motion.section 
     className="text-center mb-4"
@@ -237,30 +227,14 @@ const DirectorSection: React.FC = () => (
     animate="animate"
   >
     <div className="relative">
-      {/* Decorative Elements */}
-      <div className="absolute -top-3 -left-3 w-12 h-12 bg-gradient-to-br from-red-400/20 to-red-600/20 rounded-full blur-xl" />
-      <div className="absolute -bottom-3 -right-3 w-16 h-16 bg-gradient-to-br from-gray-400/20 to-gray-600/20 rounded-full blur-xl" />
-      
       {/* Main Card */}
       <motion.div 
-        className="relative bg-gradient-to-br from-white via-red-50/30 to-white rounded-xl shadow-lg border border-red-100/50 overflow-hidden"
+        className="relative bg-white rounded-xl shadow-lg border border-red-100/50 overflow-hidden"
         whileHover={{ 
           boxShadow: '0 10px 20px rgba(220, 38, 38, 0.15)',
           transition: { duration: 0.3 }
         }}
       >
-        {/* Decorative corner accents */}
-        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-red-500/10 to-transparent rounded-bl-full" />
-        <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-gray-500/10 to-transparent rounded-tr-full" />
-        
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-5">
-          <div style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(220, 38, 38, 0.3) 1px, transparent 0)`,
-            backgroundSize: '16px 16px'
-          }} className="w-full h-full" />
-        </div>
-        
         <div className="relative px-3 md:px-6 lg:px-8 py-5 lg:py-7">
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col lg:flex-row items-center justify-center gap-5 lg:gap-8">
@@ -278,33 +252,12 @@ const DirectorSection: React.FC = () => (
 // MAIN HOME COMPONENT
 // ========================================================================================
 const Home: React.FC = () => {
-  const [rotateX, setRotateX] = React.useState(0);
-  const [rotateY, setRotateY] = React.useState(0);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    // Calculate rotation based on mouse position (opposite direction for tilt effect)
-    const rotateY = ((x - centerX) / centerX) * -10; // max 10 degrees
-    const rotateX = ((y - centerY) / centerY) * 10;  // max 10 degrees
-    
-    setRotateX(rotateX);
-    setRotateY(rotateY);
-  };
-
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
-  };
+  // Keep the card stable (no 3D tilt) for consistent rendering across devices/browsers.
+  const rotateX = 0;
+  const rotateY = 0;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Custom CSS for gradient animation */}
       <style>{`
         @keyframes gradientFlow {
@@ -363,51 +316,30 @@ const Home: React.FC = () => {
         }
       `}</style>
       
-      <main className="relative min-h-screen flex items-center justify-center p-8 md:p-12 lg:p-16 pt-[140px] pb-24">
-        {/* 3D Card Container */}
+      <main className="relative min-h-screen flex items-center justify-center p-8 md:p-12 lg:p-16 pt-[140px] pb-24 bg-white">
+        {/* Stable Card Container */}
         <motion.div 
           className="w-full max-w-6xl"
-          style={{ perspective: '2000px' }}
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
         >
           <motion.div
-            className="relative bg-gradient-to-br from-white via-gray-50 to-white rounded-3xl shadow-2xl overflow-hidden"
+            className="relative bg-white rounded-3xl shadow-2xl overflow-hidden"
             style={{
               transformStyle: 'preserve-3d',
               rotateX,
               rotateY,
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
           >
-            {/* Animated gradient overlay */}
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-red-500/10 pointer-events-none"
-              animate={{
-                opacity: [0.3, 0.5, 0.3]
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-            />
-            
-            {/* Decorative corner elements */}
-            <div className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-br from-red-500/20 to-transparent rounded-br-full" />
-            <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-red-500/20 to-transparent rounded-bl-full" />
-            <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-gray-500/20 to-transparent rounded-tr-full" />
-            <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-gray-500/20 to-transparent rounded-tl-full" />
-            
-            {/* Border glow effect */}
-            <div className="absolute inset-0 rounded-3xl ring-1 ring-red-200/50 pointer-events-none" />
+            {/* Border */}
+            <div className="absolute inset-0 rounded-3xl ring-1 ring-red-200/40 pointer-events-none" />
             
             {/* Content wrapper */}
-            <div className="relative py-6 px-3 lg:px-6">
-              <BackgroundElements />
+            <div className="relative py-6 px-3 lg:px-6 bg-white">
+              {/* Keep background purely white */}
+              {/* <BackgroundElements /> */}
               
               <motion.div 
                 className="relative z-10"

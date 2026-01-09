@@ -15,9 +15,9 @@ import SponsorCardDemo from "./Pages/SponsorCardDemo";
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full bg-white">
       <NavBar />
-      <main className="w-full">
+      <main className="w-full bg-white">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

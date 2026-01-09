@@ -296,21 +296,21 @@ const About: React.FC = () => {
               <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:gap-3 xl:gap-4 flex-grow">
                 <AnimatedStatCard 
                   title="Published Research"
-                  value={200}
+                  value={300}
                   suffix="+"
                   subtitle="Peer-Reviewed Articles"
                 />
                 
                 <AnimatedStatCard 
                   title="Books"
-                  value={10}
+                  value={12}
                   suffix="+"
                   subtitle="Published Works"
                 />
                 
                 <AnimatedStatCard 
-                  title="Conferences"
-                  value={10}
+                  title="Leading Conferences"
+                  value={12}
                   suffix="+"
                   subtitle="International Events"
                 />
