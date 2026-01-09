@@ -160,9 +160,6 @@ const NewsCarousel: React.FC = () => {
                 className="inline-flex items-center space-x-2 text-red-600 hover:text-red-700 font-medium text-sm group transition-colors duration-200"
               >
                 <span>Read full announcement</span>
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
               </a>
             </div>
           </div>

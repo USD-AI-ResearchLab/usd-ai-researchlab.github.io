@@ -255,7 +255,7 @@ const About: React.FC = () => {
         {/* Header Section */}
         <motion.div className="text-left mb-16" variants={fadeInUp}>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 max-w-7xl mx-auto text-logo-red">
-            USD AI Research
+            USD Artificial Intelligence Research
           </h1>
         </motion.div>
 
@@ -401,9 +401,9 @@ const About: React.FC = () => {
                         href={currentNews.url} 
                         target="_blank" 
                         rel="noopener noreferrer"
+                        title="Read full announcement"
                         className="inline-flex items-center space-x-2 text-red-600 hover:text-red-700 font-medium text-sm group transition-colors duration-200"
                       >
-                        <span>Read full announcement</span>
                         <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>

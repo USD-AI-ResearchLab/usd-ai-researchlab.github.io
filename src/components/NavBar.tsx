@@ -336,27 +336,6 @@ const NavBar: React.FC = () => {
                       }}
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <a href="https://www.ieeesmc.org/cai-2026/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-                        <div style={{
-                          padding: '12px 16px',
-                          fontSize: '15px',
-                          fontWeight: 400,
-                          color: 'black',
-                          transition: 'all 0.2s'
-                        }}
-                        onMouseOver={(e) => {
-                          (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
-                          (e.target as HTMLElement).style.color = '#f0f0f0';
-                        }}
-                        onMouseOut={(e) => {
-                          (e.target as HTMLElement).style.backgroundColor = 'transparent';
-                          (e.target as HTMLElement).style.color = 'white';
-                        }}
-                        >
-                          CAI
-                        </div>
-                      </a>
-                      
                       <a href="https://rtip2r-conference.org/2025/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                         <div style={{
                           padding: '12px 16px',
@@ -375,6 +354,27 @@ const NavBar: React.FC = () => {
                         }}
                         >
                           RTIP2R
+                        </div>
+                      </a>
+                      
+                      <a href="https://bigdataafricasymposium.org/symposium-2026/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                        <div style={{
+                          padding: '12px 16px',
+                          fontSize: '15px',
+                          fontWeight: 400,
+                          color: 'black',
+                          transition: 'all 0.2s'
+                        }}
+                        onMouseOver={(e) => {
+                          (e.target as HTMLElement).style.backgroundColor = 'rgba(197, 48, 48, 0.08)';
+                          (e.target as HTMLElement).style.color = '#f0f0f0';
+                        }}
+                        onMouseOut={(e) => {
+                          (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                          (e.target as HTMLElement).style.color = 'white';
+                        }}
+                        >
+                          Big Data Africa
                         </div>
                       </a>
                     </div>
@@ -533,11 +533,11 @@ const NavBar: React.FC = () => {
             
             {/* Conferences in Mobile */}
             <div className="mt-3 mb-1 text-xs font-semibold text-gray-400 uppercase tracking-wide">Conferences</div>
-            <a href="https://www.ieeesmc.org/cai-2026/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
-              <div className="text-sm font-thin text-gray-600 hover:text-logo-red transition-colors">CAI</div>
-            </a>
             <a href="https://rtip2r-conference.org/2025/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
               <div className="text-sm font-thin text-gray-600 hover:text-logo-red transition-colors">RTIP2R</div>
+            </a>
+            <a href="https://bigdataafricasymposium.org/symposium-2026/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
+              <div className="text-sm font-thin text-gray-600 hover:text-logo-red transition-colors">Big Data Africa</div>
             </a>
           </div>
         </div>

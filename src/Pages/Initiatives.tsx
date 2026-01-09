@@ -35,13 +35,6 @@ const Initiatives: React.FC = () => {
       description: "Student-led organization fostering AI learning through projects, competitions, and networking opportunities."
     },
     {
-      title: "CAI Conference",
-      link: "https://www.ieeesmc.org/cai-2026/",
-      isExternal: true,
-      image: "/images/conferences/ieee-cai-new.svg",
-      description: "IEEE Conference on Computational AI focusing on theoretical foundations and practical applications."
-    },
-    {
       title: "RTIP2R Conference",
       link: "https://rtip2r-conference.org/2025/",
       isExternal: true,
@@ -68,6 +61,13 @@ const Initiatives: React.FC = () => {
       isExternal: true,
       image: "/images/conferences/cvmi-new.svg",
       description: "Computer Vision and Machine Intelligence conference exploring the intersection of vision and intelligence."
+    },
+    {
+      title: "Big Data Africa Symposium",
+      link: "https://bigdataafricasymposium.org/symposium-2026/",
+      isExternal: true,
+      image: "/images/conferences/big-data-africa-new.svg",
+      description: "Symposium focused on big data analytics, AI applications, and digital transformation across Africa."
     }
   ];
 
