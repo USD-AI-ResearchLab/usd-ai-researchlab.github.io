@@ -6,9 +6,9 @@
   "env": {
     "VITE_API_URL": "@vite_api_url"
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/.*",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
