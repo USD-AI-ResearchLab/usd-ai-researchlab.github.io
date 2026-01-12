@@ -76,7 +76,7 @@ const NavBar: React.FC = () => {
           <div style={{
             alignItems: 'center',
             gap: '32px',
-            justifyContent: 'space-evenly',
+            justifyContent: 'space-between',
             width: '100%'
           }} className="hidden md:flex">
           
