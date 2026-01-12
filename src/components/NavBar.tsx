@@ -71,7 +71,8 @@ const NavBar: React.FC = () => {
           justifyContent: 'space-evenly',
           gap: '32px'
         }}>
-        
+          
+          
           {/* NAVIGATION MENU WITH LOGO - ALL ITEMS WITH EQUAL SPACING */}
           <div style={{
             alignItems: 'center',
