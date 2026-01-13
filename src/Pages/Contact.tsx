@@ -22,14 +22,6 @@ const Contact: React.FC = () => {
   return (
     <PageLayout
       title="Contact Us"
-      subtitle="Get in touch with our research team"
-      email="usd.airesearch.lab@gmail.com"
-      phone="+1 (605) 658-0000"
-      socialLinks={{
-        twitter: 'https://twitter.com/usd_ai',
-        linkedin: 'https://www.linkedin.com/company/usd-ai-research',
-        github: 'https://github.com/usd-ai-research'
-      }}
     >
       <motion.div 
         className="w-full px-4 py-8"

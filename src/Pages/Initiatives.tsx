@@ -6,12 +6,6 @@ import PageLayout from '../components/PageLayout';
 const Initiatives: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
-
   const staggerChildren = {
     animate: {
       transition: {
@@ -88,14 +82,6 @@ const Initiatives: React.FC = () => {
   return (
     <PageLayout
       title="Initiatives & Conferences"
-      subtitle="Explore our events and special programs"
-      email="usd.airesearch.lab@gmail.com"
-      phone="+1 (605) 658-0000"
-      socialLinks={{
-        twitter: 'https://twitter.com/usd_ai',
-        linkedin: 'https://www.linkedin.com/company/usd-ai-research',
-        github: 'https://github.com/usd-ai-research'
-      }}
     >
       <motion.div 
         className="w-full px-4 py-8"

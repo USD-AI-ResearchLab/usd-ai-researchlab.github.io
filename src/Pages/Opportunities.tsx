@@ -83,14 +83,6 @@ const Opportunities: React.FC = () => {
   return (
     <PageLayout
       title="Career Opportunities"
-      subtitle="Join our team and shape the future of AI"
-      email="usd.airesearch.lab@gmail.com"
-      phone="+1 (605) 658-0000"
-      socialLinks={{
-        twitter: 'https://twitter.com/usd_ai',
-        linkedin: 'https://www.linkedin.com/company/usd-ai-research',
-        github: 'https://github.com/usd-ai-research'
-      }}
     >
       <motion.div 
         className="w-full px-4 py-8"

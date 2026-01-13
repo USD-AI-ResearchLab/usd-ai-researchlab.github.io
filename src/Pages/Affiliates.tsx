@@ -65,14 +65,6 @@ const Affiliates: React.FC = () => {
   return (
     <PageLayout
       title="Affiliates & Partners"
-      subtitle="Our collaborating institutions and partners"
-      email="usd.airesearch.lab@gmail.com"
-      phone="+1 (605) 658-0000"
-      socialLinks={{
-        twitter: 'https://twitter.com/usd_ai',
-        linkedin: 'https://www.linkedin.com/company/usd-ai-research',
-        github: 'https://github.com/usd-ai-research'
-      }}
     >
       <motion.div 
         className="px-8 pt-0 pb-16 w-full"
