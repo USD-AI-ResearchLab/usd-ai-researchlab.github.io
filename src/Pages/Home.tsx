@@ -165,7 +165,7 @@ const DirectorMessage: React.FC = () => (
       style={{...styles.elegantQuote, fontSize: '18px'}}
       variants={animations.fadeInUp}
     >
-      "Our Vision"
+      "Building sustainable AI for all"
     </motion.blockquote>
     
     <motion.p 
@@ -176,7 +176,7 @@ const DirectorMessage: React.FC = () => (
         fontWeight: '400'
       }}
     >
-      To advance sustainable, human-centered machine intelligence that is accessible, responsible, and impactful across communities. AI4ALL is committed to building AI ecosystems that empower talent, reduce barriers, and ensure AI innovation benefits society at large. #HumanAI #ExplainableAI #EthicalAI #SustainableAI #EcosystemAI #AI4ALL
+      our Vision To advance sustainable, human-centered machine intelligence that is accessible, responsible, and impactful across communities. AI4ALL is committed to building AI ecosystems that empower talent, reduce barriers, and ensure AI innovation benefits society at large. #HumanAI #ExplainableAI #EthicalAI #SustainableAI #EcosystemAI #AI4ALL
     </motion.p>
     
     <motion.div 
