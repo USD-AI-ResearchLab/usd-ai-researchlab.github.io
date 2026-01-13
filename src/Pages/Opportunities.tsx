@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import PageLayout from '../components/PageLayout';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
 
 const Opportunities: React.FC = () => {
@@ -80,20 +81,23 @@ const Opportunities: React.FC = () => {
   ];
 
   return (
-    <div className="pt-32 pb-32 min-h-screen bg-white">
+    <PageLayout
+      title="Career Opportunities"
+      subtitle="Join our team and shape the future of AI"
+      email="usd.airesearch.lab@gmail.com"
+      phone="+1 (605) 658-0000"
+      socialLinks={{
+        twitter: 'https://twitter.com/usd_ai',
+        linkedin: 'https://www.linkedin.com/company/usd-ai-research',
+        github: 'https://github.com/usd-ai-research'
+      }}
+    >
       <motion.div 
-        className="w-full px-4 py-8 max-w-7xl mx-auto"
+        className="w-full px-4 py-8"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
-        {/* Header Section */}
-        <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
-            Opportunities
-          </h1>
-        </motion.div>
-
         {/* Main Content Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
           <div className="space-y-4 mb-12">
@@ -158,7 +162,7 @@ const Opportunities: React.FC = () => {
                         <h4 className="text-base font-medium text-black mb-3">Application Requirements</h4>
                         <div className="bg-red-50 border-l-4 border-logo-red p-4 rounded-r-lg">
                           <p className="text-base text-gray-700 mb-3">
-                            Send your application to <a href="mailto:usd.airesearch.lab@gmail.com" className="text-logo-red underline font-medium">usd.airesearch.lab@gmail.com</a>
+                            Send your application to <a href="mailto:usd.airesearch.lab@gmail.com" className="text-logo-red underline font-medium">usd.airesearch.lab@gmail.com</a> | <a href="mailto:kc.santosh@usd.edu" className="text-logo-red underline font-medium">kc.santosh@usd.edu</a>
                           </p>
                           <ul className="list-disc list-inside text-base text-gray-700 space-y-1">
                             {position.applicationRequirements.map((req, index) => (
@@ -271,12 +275,35 @@ const Opportunities: React.FC = () => {
               </div>
             </div>
           </motion.div>
+
+          {/* Contact Information */}
+          <motion.div variants={fadeInUp} className="mt-12 bg-white border border-gray-200 rounded-lg p-6">
+            <h3 className="text-xl font-light mb-4 text-black">
+              Contact Us
+            </h3>
+            <div className="space-y-4">
+              <p className="text-base text-gray-700 leading-relaxed">
+                For any inquiries about opportunities, collaborations, or other matters, please reach out to us:
+              </p>
+              <div className="flex flex-col gap-3">
+                <p className="text-base text-gray-700">
+                  <a href="mailto:usd.airesearch.lab@gmail.com" className="text-logo-red underline font-medium">
+                    usd.airesearch.lab@gmail.com
+                  </a>
+                  {' | '}
+                  <a href="mailto:kc.santosh@usd.edu" className="text-logo-red underline font-medium">
+                    kc.santosh@usd.edu
+                  </a>
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </motion.div>
 
       {/* Floating Scroll Arrows */}
       <FloatingScrollArrows />
-    </div>
+    </PageLayout>
   );
 };
 

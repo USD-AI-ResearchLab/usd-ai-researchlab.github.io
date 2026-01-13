@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import PageLayout from '../components/PageLayout';
 import PersonCard from '../components/PersonCard';
 import { facultyData, Person } from '../data/faculty';
 import { studentsData } from '../data/students';
@@ -287,20 +288,15 @@ const People: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 pb-32 min-h-screen bg-white">
+    <PageLayout
+      title="Our Team"
+    >
       <motion.div 
-        className="w-full px-4 py-8 max-w-7xl mx-auto"
+        className="w-full px-4 py-8"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
-        {/* Header Section */}
-        <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
-            People
-          </h1>
-        </motion.div>
-
         {/* Team Description */}
         <motion.div className="mb-8" variants={fadeInUp}>
           <p className="text-lg text-black leading-relaxed mb-4 font-thin">
@@ -451,7 +447,7 @@ const People: React.FC = () => {
 
       {/* Floating Scroll Arrows */}
       <FloatingScrollArrows />
-    </div>
+    </PageLayout>
   );
 };
 

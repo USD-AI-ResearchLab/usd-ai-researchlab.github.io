@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import PageLayout from '../components/PageLayout';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
 import usdLogo from '../assets/RealLogo.png';
 
@@ -19,20 +20,23 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 pb-32 min-h-screen bg-white">
+    <PageLayout
+      title="Contact Us"
+      subtitle="Get in touch with our research team"
+      email="usd.airesearch.lab@gmail.com"
+      phone="+1 (605) 658-0000"
+      socialLinks={{
+        twitter: 'https://twitter.com/usd_ai',
+        linkedin: 'https://www.linkedin.com/company/usd-ai-research',
+        github: 'https://github.com/usd-ai-research'
+      }}
+    >
       <motion.div 
-        className="w-full px-4 py-8 max-w-7xl mx-auto"
+        className="w-full px-4 py-8"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
-        {/* Header Section */}
-        <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
-            Contact
-          </h1>
-        </motion.div>
-
         {/* Content Section */}
         <motion.div className="mb-16" variants={fadeInUp}>
           <p className="text-lg text-gray-700 leading-relaxed mb-8 font-thin">
@@ -119,7 +123,7 @@ const Contact: React.FC = () => {
 
       {/* Floating Scroll Arrows */}
       <FloatingScrollArrows />
-    </div>
+    </PageLayout>
   );
 };
 

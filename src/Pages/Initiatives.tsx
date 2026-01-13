@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import PageLayout from '../components/PageLayout';
 
 const Initiatives: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -85,28 +86,34 @@ const Initiatives: React.FC = () => {
   const FALLBACK_BANNER = "/images/conferences/ai-symposium-new.svg";
 
   return (
-    <motion.div 
-      className="pt-32 pb-32 min-h-screen bg-white"
-      initial={{ opacity: 0 }}
-      animate={{ 
-        opacity: 1,
-        transition: {
-          duration: 1,
-          ease: "easeOut"
-        }
+    <PageLayout
+      title="Initiatives & Conferences"
+      subtitle="Explore our events and special programs"
+      email="usd.airesearch.lab@gmail.com"
+      phone="+1 (605) 658-0000"
+      socialLinks={{
+        twitter: 'https://twitter.com/usd_ai',
+        linkedin: 'https://www.linkedin.com/company/usd-ai-research',
+        github: 'https://github.com/usd-ai-research'
       }}
     >
       <motion.div 
-        className="w-full py-8 max-w-7xl mx-auto"
-        initial="initial"
-        animate="animate"
-        variants={staggerChildren}
+        className="w-full px-4 py-8"
+        initial={{ opacity: 0 }}
+        animate={{ 
+          opacity: 1,
+          transition: {
+            duration: 1,
+            ease: "easeOut"
+          }
+        }}
       >
-        {/* Header Section */}
-        <motion.div className="text-left mb-16 max-w-4xl ml-4 lg:ml-8" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-light mb-4 text-red-600">
-            Initiatives
-          </h1>
+        <motion.div 
+          className="w-full px-4 py-8"
+          initial="initial"
+          animate="animate"
+          variants={staggerChildren}
+        >
         </motion.div>
 
         {/* Main Grid Container */}
@@ -268,7 +275,7 @@ const Initiatives: React.FC = () => {
           `
         }} />
       </motion.div>
-    </motion.div>
+    </PageLayout>
   );
 };
 

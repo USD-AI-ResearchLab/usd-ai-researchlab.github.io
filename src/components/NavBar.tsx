@@ -400,7 +400,7 @@ const NavBar: React.FC = () => {
               (e.target as HTMLElement).style.transform = 'scale(1)';
             }}
             >
-              Opportunities
+              Career Opportunities
             </div>
           </Link>
 
@@ -537,7 +537,7 @@ const NavBar: React.FC = () => {
         </div>
         
         <Link to="/opportunities" onClick={toggleMenu}>
-          <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Opportunities</div>
+          <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Career Opportunities</div>
         </Link>
         
         <Link to="/affiliates" onClick={toggleMenu}>

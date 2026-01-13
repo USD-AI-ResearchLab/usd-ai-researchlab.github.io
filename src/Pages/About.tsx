@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import PageLayout from '../components/PageLayout';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
 import { 
   fetchLinkedInData, 
@@ -51,36 +52,6 @@ const useCountUp = (end: number, duration: number = 2000) => {
   }, [end, duration]);
 
   return count;
-};
-
-// Animated stat card component
-const AnimatedStatCard: React.FC<{
-  title: string;
-  value: number;
-  suffix?: string;
-  subtitle: string;
-  isText?: boolean;
-}> = ({ title, value, suffix = '', subtitle, isText = false }) => {
-  const animatedValue = useCountUp(value, 2500);
-
-  return (
-    <div className="bg-gradient-to-br from-gray-50 to-white p-3 sm:p-4 lg:p-5 xl:p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 group hover:border-red-200">
-      <div className="space-y-1 sm:space-y-2">
-        <h3 className="font-semibold text-red-700 text-xs sm:text-sm group-hover:text-red-600 transition-colors duration-300">
-          {title}
-        </h3>
-        {!isText ? (
-          <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">
-            {animatedValue}
-            <span className="text-sm sm:text-base text-red-600">{suffix}</span>
-          </p>
-        ) : null}
-        <p className={`${isText ? 'text-xs sm:text-sm lg:text-base' : 'text-xs sm:text-sm'} text-gray-600 font-medium leading-tight`}>
-          {subtitle}
-        </p>
-      </div>
-    </div>
-  );
 };
 
 const About: React.FC = () => {
@@ -245,22 +216,17 @@ const About: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 pb-32 min-h-screen bg-white">
+    <PageLayout
+      title="USD Artificial Intelligence Research"
+    >
       <motion.div 
         className="w-full px-4 py-8"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
-        {/* Header Section */}
-        <motion.div className="text-left mb-16" variants={fadeInUp}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 max-w-7xl mx-auto text-logo-red">
-            USD Artificial Intelligence Research
-          </h1>
-        </motion.div>
-
-        {/* Main Content Section with Side Card */}
-        <motion.div className="flex flex-col lg:flex-row gap-8 mb-8 max-w-7xl mx-auto" variants={fadeInUp}>
+        {/* Main Content Section */}
+        <motion.div className="flex flex-col gap-8 mb-8" variants={fadeInUp}>
           {/* Text Content */}
           <div className="flex-1 lg:min-w-0">
             <p className="text-lg text-black leading-relaxed mb-4 font-thin">
@@ -279,51 +245,6 @@ const About: React.FC = () => {
             <p className="text-lg text-black leading-relaxed mb-4 font-thin">
               Join us as pioneer the future of AI from the heart of South Dakota, the Mount Rushmore state!
             </p>
-          </div>
-
-          {/* Publications & Research Stats Card */}
-          <div className="flex-shrink-0 w-full lg:w-[480px] xl:w-[520px]">
-            <div className="bg-white border rounded-lg border-gray-200 p-4 sm:p-6 lg:p-8 w-full shadow-md min-h-[280px] sm:min-h-[300px] lg:min-h-[320px] xl:min-h-[350px] flex flex-col">
-              <div className="flex items-center justify-between mb-4 sm:mb-5 lg:mb-6">
-                <h2 className="text-base sm:text-lg lg:text-xl font-semibold text-red-600">
-                  Publications & Research
-                </h2>
-                <svg className="w-3 h-3 sm:w-4 sm:h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-                </svg>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:gap-3 xl:gap-4 flex-grow">
-                <AnimatedStatCard 
-                  title="Published Research"
-                  value={300}
-                  suffix="+"
-                  subtitle="Peer-Reviewed Articles"
-                />
-                
-                <AnimatedStatCard 
-                  title="Books"
-                  value={12}
-                  suffix="+"
-                  subtitle="Published Works"
-                />
-                
-                <AnimatedStatCard 
-                  title="Leading Conferences"
-                  value={12}
-                  suffix="+"
-                  subtitle="International Events"
-                />
-                
-                <AnimatedStatCard 
-                  title="Funding Sources"
-                  value={0}
-                  subtitle="SDBOR, DOD, NSF, Department Of Education"
-                  isText={true}
-                />
-              </div>
-            </div>
-
           </div>
         </motion.div>
 
@@ -544,7 +465,7 @@ const About: React.FC = () => {
 
       {/* Floating Scroll Arrows */}
       <FloatingScrollArrows />
-    </div>
+    </PageLayout>
   );
 };
 

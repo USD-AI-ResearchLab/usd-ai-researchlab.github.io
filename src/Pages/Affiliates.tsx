@@ -1,13 +1,9 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import PageLayout from '../components/PageLayout';
 import FloatingScrollArrows from '../components/FloatingScrollArrows';
 
 const Affiliates: React.FC = () => {
-  const fadeIn = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.7 } },
@@ -67,9 +63,19 @@ const Affiliates: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-white min-h-screen">
+    <PageLayout
+      title="Affiliates & Partners"
+      subtitle="Our collaborating institutions and partners"
+      email="usd.airesearch.lab@gmail.com"
+      phone="+1 (605) 658-0000"
+      socialLinks={{
+        twitter: 'https://twitter.com/usd_ai',
+        linkedin: 'https://www.linkedin.com/company/usd-ai-research',
+        github: 'https://github.com/usd-ai-research'
+      }}
+    >
       <motion.div 
-        className="px-8 pt-40 pb-16 max-w-7xl mx-auto"
+        className="px-8 pt-0 pb-16 w-full"
         initial="initial"
         animate="animate"
         variants={{
@@ -80,13 +86,6 @@ const Affiliates: React.FC = () => {
           }
         }}
       >
-        {/* Header */}
-        <motion.div className="text-left mb-20" variants={fadeIn}>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
-            Affiliates
-          </h1>
-        </motion.div>
-
         {/* Multi-Card Carousel */}
         <motion.div 
           className="relative mb-20 transition-all duration-500"
@@ -227,7 +226,7 @@ const Affiliates: React.FC = () => {
 
       {/* Floating Scroll Arrows */}
       <FloatingScrollArrows />
-    </div>
+    </PageLayout>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import PageLayout from '../components/PageLayout';
 import BooksComponent from '../components/BooksComponent';
 import { PUBLICATIONS } from '../data/publications';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
@@ -98,14 +99,10 @@ const Publications: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-32 pb-32 min-h-screen bg-white">
-      <div className="w-full px-4 py-8 max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="text-left mb-16">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
-            Publications
-          </h1>
-        </div>
+    <PageLayout
+      title="Publications"
+    >
+      <div className="w-full px-4 py-8">
       
       <div className="w-full">
         
@@ -323,7 +320,7 @@ const Publications: React.FC = () => {
 
       {/* Floating Scroll Arrows */}
       <FloatingScrollArrows />
-    </div>
+    </PageLayout>
   );
 };
 
