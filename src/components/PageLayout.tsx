@@ -13,8 +13,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   children
 }) => {
   return (
-    <main className="relative min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8 pt-[280px] pb-12 bg-white">
-      <div className="w-full max-w-4xl">
+    <main className="relative min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8 pt-[140px] pb-12 bg-white">
+      <div className="w-full max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -76,18 +76,18 @@ const styles = {
 // ========================================================================================
 const HeroLogo: React.FC = () => (
   <motion.div 
-    className="relative mb-4"
+    className="relative mb-0"
     variants={animations.fadeIn}
   >
     {/* Removed glowing background effect to keep the hero area pure white */}
     {/* <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-red-400/30 to-red-500/20 rounded-full blur-3xl scale-110 animate-pulse" /> */}
     
-    <div className="relative bg-white p-4">
+    <div className="relative bg-white p-0">
       <Link to="/" style={{ textDecoration: 'none' }}>
         <motion.img 
           src={logoImage} 
           alt="USD AI Research Lab Logo" 
-          className="w-52 h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 object-contain mx-auto"
+          className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-full xl:h-auto object-contain mx-auto"
         />
       </Link>
     </div>
@@ -96,29 +96,33 @@ const HeroLogo: React.FC = () => (
 
 const HeroTitle: React.FC = () => (
   <motion.h1 
-    className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light -mt-6 tracking-tight leading-tight text-center"
+    className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight"
     variants={animations.fadeInUp}
     style={{
       fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
       fontWeight: '300',
-      display: 'inline-block'
+      display: 'block'
     }}
   >
-    <span className="gradient-text-hero">USD AI Research</span> <span className="text-xs md:text-sm lg:text-base text-gray-700 font-light">(estd. 2015)</span>
+    <span className="gradient-text-hero text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl" style={{ fontWeight: '700' }}>USD AI Research</span>
+    <span className="gradient-text-hero text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl ml-2" style={{ fontWeight: '400' }}>(EST.2015)</span>
   </motion.h1>
 );
 
 const HeroTagline: React.FC = () => (
   <motion.div 
-    className="max-w-2xl mx-auto mb-3 text-center"
+    className="text-center"
     variants={animations.fadeInUp}
   >
     <motion.p 
-      className="gradient-text-hero text-sm md:text-base lg:text-lg font-light leading-relaxed mb-1"
+      className="gradient-text-hero text-xs sm:text-sm md:text-base lg:text-lg font-light leading-relaxed mb-0"
       variants={animations.fadeInUp}
       style={{
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-        fontWeight: '300'
+        fontWeight: '300',
+        overflow: 'visible',
+        whiteSpace: 'normal',
+        wordWrap: 'break-word'
       }}
     >
       Leading artificial intelligence research and engineering to shape South Dakota's innovation future and technological leadership!
@@ -131,7 +135,7 @@ const HeroTagline: React.FC = () => (
 // ========================================================================================
 const DirectorPhoto: React.FC = () => (
   <motion.div 
-    className="relative flex-shrink-0 mb-6 lg:mb-0"
+    className="relative flex-shrink-0 mb-6 lg:mb-0 lg:mr-6"
     variants={animations.fadeIn}
     {...animations.scaleHover}
   >
@@ -142,7 +146,7 @@ const DirectorPhoto: React.FC = () => (
           <img 
             src="/faculty/kc-santosh.jpg" 
             alt="Prof. KC Santosh - Founding Director"
-            className="w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-xl object-cover shadow-xl transition-all duration-500 group-hover:shadow-2xl"
+            className="w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-xl object-cover shadow-xl transition-all duration-500 group-hover:shadow-2xl"
           />
           
           {/* Removed gradient overlay to keep the card visually pure white */}
@@ -160,34 +164,43 @@ const DirectorMessage: React.FC = () => (
     className="flex-1 text-center lg:text-left max-w-xl"
     variants={animations.fadeInUp}
   >
-    <motion.blockquote 
-      className="gradient-text-director text-base md:text-lg lg:text-xl font-light leading-tight mb-2 tracking-tight"
-      style={{...styles.elegantQuote, fontSize: '18px'}}
+    <motion.h3 
+      className="gradient-text-director text-base md:text-lg lg:text-xl font-bold leading-tight mb-3 tracking-tight"
       variants={animations.fadeInUp}
     >
-      "Building sustainable AI for all"
-    </motion.blockquote>
+      AI4ALL: Building Sustainable Machine Intelligence for All
+    </motion.h3>
     
     <motion.p 
-      className="gradient-text-director text-xs md:text-sm lg:text-base font-normal mb-3 leading-relaxed"
+      className="gradient-text-director text-xs md:text-sm lg:text-base font-normal mb-4 leading-relaxed text-justify"
       variants={animations.fadeInUp}
       style={{
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
         fontWeight: '400'
       }}
     >
-      our Vision To advance sustainable, human-centered machine intelligence that is accessible, responsible, and impactful across communities. AI4ALL is committed to building AI ecosystems that empower talent, reduce barriers, and ensure AI innovation benefits society at large. 
+      Our vision is to advance sustainable, human-centered machine intelligence that is accessible, responsible, and impactful across communities. AI4ALL is committed to building AI ecosystems that empower talent, reduce barriers, and ensure AI innovation benefits society at large.
+    </motion.p>
+
+    <motion.p 
+      className="gradient-text-director text-xs md:text-sm lg:text-base font-normal mb-4 leading-relaxed"
+      variants={animations.fadeInUp}
+      style={{
+        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
+        fontWeight: '400'
+      }}
+    >
       #HumanAI #ExplainableAI #EthicalAI #SustainableAI #EcosystemAI #AI4ALL
     </motion.p>
     
     <motion.div 
-      className="space-y-1"
+      className="space-y-0.5"
       variants={animations.fadeInUp}
     >
-      <div className="gradient-text-director text-sm lg:text-base font-semibold">
-        Prof. KC Santosh
+      <div className="gradient-text-director text-sm lg:text-base font-bold">
+        Prof. KC (Casey) Santosh
       </div>
-      <div className="gradient-text-director text-xs lg:text-sm font-medium">
+      <div className="gradient-text-director text-xs lg:text-sm font-normal">
         Inaugural Director, USD AI Research
       </div>
     </motion.div>
@@ -236,7 +249,8 @@ const AnimatedStatCard: React.FC<{
   subtitle: string;
   isText?: boolean;
   href?: string;
-}> = ({ title, value, suffix = '', subtitle, isText = false, href }) => {
+  hideSuffix?: boolean;
+}> = ({ title, value, suffix = '', subtitle, isText = false, href, hideSuffix = false }) => {
   const animatedValue = useCountUp(value, 2500);
 
   const cardContent = (
@@ -247,7 +261,7 @@ const AnimatedStatCard: React.FC<{
       {!isText ? (
         <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">
           {animatedValue}
-          {suffix && <span className="text-sm sm:text-base text-red-600 align-super">{suffix}</span>}
+          {suffix && !hideSuffix && <span className="text-sm sm:text-base text-red-600 align-super">{suffix}</span>}
         </p>
       ) : null}
       <p className={`${isText ? 'text-xs sm:text-sm lg:text-base' : 'text-xs sm:text-sm'} text-gray-600 font-medium leading-tight`}>
@@ -280,13 +294,20 @@ const AnimatedStatCard: React.FC<{
 // ========================================================================================
 const HeroSection: React.FC = () => (
   <motion.section 
-    className="text-center mb-4"
+    className="mb-4"
     variants={animations.staggerContainer}
   >
-    <div className="flex flex-col items-center justify-center">
-      <HeroLogo />
-      <HeroTitle />
-      <HeroTagline />
+    <div className="flex flex-col items-center justify-center gap-2 lg:gap-4">
+      {/* Logo */}
+      <div className="flex-shrink-0 w-auto">
+        <HeroLogo />
+      </div>
+      
+      {/* Text Below Logo */}
+      <div className="text-center w-full">
+        <HeroTitle />
+        <HeroTagline />
+      </div>
     </div>
   </motion.section>
 );
@@ -309,7 +330,7 @@ const DirectorSection: React.FC = () => (
       >
         <div className="relative px-3 md:px-6 lg:px-8 py-5 lg:py-7">
           <div className="max-w-3xl mx-auto">
-            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-center gap-4 lg:gap-6">
+            <div className="flex flex-col lg:flex-row items-start lg:items-start justify-start gap-4 lg:gap-6">
               <DirectorPhoto />
               <DirectorMessage />
             </div>
@@ -328,49 +349,39 @@ const PublicationsSection: React.FC = () => (
     animate="animate"
   >
     <div className="flex-shrink-0 w-full">
-      <div className="bg-white border rounded-lg border-gray-200 p-4 sm:p-6 lg:p-8 w-full shadow-md min-h-[280px] sm:min-h-[300px] lg:min-h-[320px] xl:min-h-[350px] flex flex-col">
-        <div className="flex items-center justify-between mb-4 sm:mb-5 lg:mb-6">
-          <h2 className="text-base sm:text-lg lg:text-xl font-semibold text-red-600">
-            Publications & Research
-          </h2>
-          <svg className="w-3 h-3 sm:w-4 sm:h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-          </svg>
-        </div>
-
-        <div className="grid grid-cols-4 gap-2 sm:gap-3 lg:gap-3 xl:gap-4 flex-grow">
-          <AnimatedStatCard 
-            title="Published Research"
-            value={300}
-            suffix="+"
-            subtitle="Peer-Reviewed Articles"
-            href="/publications"
-          />
-          
-          <AnimatedStatCard 
-            title="Books"
-            value={12}
-            suffix="+"
-            subtitle="Published Works"
-            href="/publications"
-          />
-          
-          <AnimatedStatCard 
-            title="Leading Conferences"
-            value={12}
-            suffix="+"
-            subtitle="International Events"
-            href="/initiatives"
-          />
-          
-          <AnimatedStatCard 
-            title="Funding Sources"
-            value={0}
-            subtitle="SDBOR, DOD, NSF, Department Of Education"
-            isText={true}
-            href="/contact"
-          />
-        </div>
+      <div className="grid grid-cols-4 gap-1 sm:gap-1 lg:gap-2 xl:gap-2">
+        <AnimatedStatCard 
+          title="Published Research"
+          value={300}
+          suffix="+"
+          subtitle="Peer-Reviewed Articles"
+          href="/publications"
+        />
+        
+        <AnimatedStatCard 
+          title="Books"
+          value={12}
+          suffix="+"
+          subtitle="Published Works"
+          href="/publications"
+          hideSuffix={true}
+        />
+        
+        <AnimatedStatCard 
+          title="Leading Conferences"
+          value={12}
+          suffix="+"
+          subtitle="International Events"
+          href="/initiatives"
+        />
+        
+        <AnimatedStatCard 
+          title="Funding Sources"
+          value={0}
+          subtitle="SDBOR, DOD, NSF, Department Of Education"
+          isText={true}
+          href="/contact"
+        />
       </div>
     </div>
   </motion.section>
@@ -412,9 +423,13 @@ const Home: React.FC = () => {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          color: transparent;
           background-size: 200% 200%;
           animation: gradientFlow 6s ease-in-out infinite;
+          white-space: normal;
+          word-wrap: break-word;
+          display: inline;
+          padding: 0;
+          margin: 0;
         }
         
         /* Director Section: Red-Black-Red gradient */
@@ -423,9 +438,10 @@ const Home: React.FC = () => {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          color: transparent;
           background-size: 200% 200%;
           animation: gradientFlow 6s ease-in-out infinite;
+          white-space: normal;
+          word-wrap: break-word;
         }
         
         /* Fallback for unsupported browsers */
@@ -444,10 +460,10 @@ const Home: React.FC = () => {
         }
       `}</style>
       
-      <main className="relative min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8 pt-[140px] pb-12 bg-white">
+      <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-12 bg-white mt-[120px]">
         {/* Stable Card Container */}
         <motion.div 
-          className="w-full max-w-4xl"
+          className="w-full max-w-7xl"
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}

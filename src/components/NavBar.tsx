@@ -86,44 +86,17 @@ const NavBar: React.FC = () => {
             <img 
               className="logo"
               src={bgimage} 
-              alt="AI Lab Logo" 
+              alt="AI Lab Logo"
               style={{
                 width: '100px',
                 height: '100px',
                 objectFit: 'contain',
                 cursor: 'pointer',
-                padding: '6px',
                 transition: 'none',
                 filter: 'none',
                 transform: 'none'
               }}
             />
-          </Link>
-          
-          <Link to="/about" style={{ textDecoration: 'none' }}>
-            <div style={{
-              fontSize: '18px',
-              fontWeight: 300,
-              color: 'white',
-              transition: 'all 0.3s ease',
-              filter: 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))',
-              textShadow: '0 0 0px rgba(255, 255, 255, 0)'
-            }}
-            onMouseOver={(e) => {
-              (e.target as HTMLElement).style.color = '#f0f0f0';
-              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))';
-              (e.target as HTMLElement).style.textShadow = '0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.3)';
-              (e.target as HTMLElement).style.transform = 'scale(1.05)';
-            }}
-            onMouseOut={(e) => {
-              (e.target as HTMLElement).style.color = 'white';
-              (e.target as HTMLElement).style.filter = 'drop-shadow(0 0 0px rgba(255, 255, 255, 0))';
-              (e.target as HTMLElement).style.textShadow = '0 0 0px rgba(255, 255, 255, 0)';
-              (e.target as HTMLElement).style.transform = 'scale(1)';
-            }}
-            >
-              Home
-            </div>
           </Link>
 
           {/* People Link */}
@@ -472,22 +445,6 @@ const NavBar: React.FC = () => {
           <i className={isOpen ? 'bx bx-x' : 'bx bx-menu'}></i>
         </button>
         
-        {/* Logo for Mobile - Visible on small screens */}
-        <Link to="/" style={{ textDecoration: 'none' }} className="md:hidden">
-          <img 
-            className="logo"
-            src={bgimage} 
-            alt="AI Lab Logo" 
-            style={{
-              width: '100px',
-              height: '100px',
-              objectFit: 'contain',
-              cursor: 'pointer',
-              padding: '6px'
-            }}
-          />
-        </Link>
-        
         </div>
       </div>
 
@@ -496,7 +453,7 @@ const NavBar: React.FC = () => {
         isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}>
         
-        <Link to="/about" onClick={toggleMenu}>
+        <Link to="/" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Home</div>
         </Link>
         

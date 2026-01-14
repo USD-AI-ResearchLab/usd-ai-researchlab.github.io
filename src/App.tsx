@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Home from "./Pages/Home";
-import About from "./Pages/About";
 import People from "./Pages/People";
 import Publications from "./Pages/Publications";
 import Initiatives from "./Pages/Initiatives";
@@ -20,7 +19,6 @@ const App: React.FC = () => {
       <main className="w-full bg-white">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
           <Route path="/people" element={<People />} />
           <Route path="/publications" element={<Publications />} />
           <Route path="/initiatives" element={<Initiatives />} />
