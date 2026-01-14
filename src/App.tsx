@@ -1,3 +1,5 @@
+// USD AI Research Lab - Main Application Component
+// Last updated: 2026-01-14
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
