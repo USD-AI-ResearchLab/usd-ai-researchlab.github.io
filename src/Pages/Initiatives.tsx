@@ -1,10 +1,9 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageLayout from '../components/PageLayout';
 
 const Initiatives: React.FC = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
   
   const staggerChildren = {
     animate: {
@@ -104,16 +103,39 @@ const Initiatives: React.FC = () => {
 
         {/* Main Grid Container */}
         <div className="relative w-full max-w-[1600px] mx-auto px-4 lg:px-8">
-          <div className="relative">
-            {/* Grid Cards Container */}
-            <div 
-              ref={scrollContainerRef}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 py-4"
-            >
+          {/* Agreements/MOUs Section */}
+          <div className="mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
+              Agreements/MOUs
+            </h2>
+            <div className="relative">
+              {/* Grid Cards Container */}
+              <div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 py-4"
+              >
+                {/* Placeholder cards for MOUs section */}
+                <div className="w-full bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden relative flex items-center justify-center min-h-60">
+                  <p className="text-gray-500 text-center px-6">MOUs and partnerships coming soon</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Leading Conferences Section */}
+          <div className="mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
+              Leading Conferences
+            </h2>
+            <div className="relative">
+              {/* Grid Cards Container */}
+              <div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 py-4"
+              >
               {categories.map((category, index) => {
                 const perCardFallback = DEFAULT_BANNERS[category.title] || FALLBACK_BANNER;
 
                 return (
+              
                   <motion.div
                     key={index}
                     className="w-full bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden relative"
@@ -244,6 +266,7 @@ const Initiatives: React.FC = () => {
                   </motion.div>
                 );
               })}
+              </div>
             </div>
           </div>
         </div>
