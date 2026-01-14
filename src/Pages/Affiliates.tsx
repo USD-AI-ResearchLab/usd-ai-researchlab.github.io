@@ -64,7 +64,7 @@ const Affiliates: React.FC = () => {
 
   return (
     <PageLayout
-      title="Affiliates & Partners"
+      title="Affiliates"
     >
       <motion.div 
         className="px-8 pt-0 pb-16 w-full"

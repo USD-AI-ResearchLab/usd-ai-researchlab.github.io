@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
 
   return (
     <PageLayout
-      title="Contact Us"
+      title="Contact"
     >
       <motion.div 
         className="w-full px-4 py-8"

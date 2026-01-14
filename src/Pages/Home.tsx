@@ -228,15 +228,21 @@ const AnimatedStatCard: React.FC<{
       </h3>
       {!isText ? (
         <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">
-          {animatedValue}
           {suffix && !hideSuffix && suffix === 'M+' ? (
             <>
+              <span className="text-lg sm:text-xl lg:text-2xl text-gray-900">$</span>
+              <span className="text-lg sm:text-xl lg:text-2xl text-gray-900">{animatedValue}</span>
               <span className="text-lg sm:text-xl lg:text-2xl text-gray-900">M</span>
               <span className="text-sm sm:text-base text-red-600 align-super">+</span>
             </>
-          ) : suffix && !hideSuffix ? (
-            <span className="text-sm sm:text-base text-red-600 align-super">{suffix}</span>
-          ) : null}
+          ) : (
+            <>
+              {animatedValue}
+              {suffix && !hideSuffix ? (
+                <span className="text-sm sm:text-base text-red-600 align-super">{suffix}</span>
+              ) : null}
+            </>
+          )}
         </p>
       ) : null}
       <p className={`${isText ? 'text-xs sm:text-sm lg:text-base' : 'text-xs sm:text-sm'} text-gray-600 leading-tight`}>
