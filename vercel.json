@@ -4,6 +4,7 @@
   "devCommand": "vite",
   "installCommand": "npm ci",
   "framework": null,
+  "nodeVersion": "20.x",
   "rewrites": [
     {
       "source": "/(.*)",
