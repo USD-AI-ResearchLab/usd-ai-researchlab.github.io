@@ -251,7 +251,7 @@ const AnimatedStatCard: React.FC<{
     </div>
   );
 
-  const cardClass = "bg-gradient-to-br from-gray-50 to-white p-3 sm:p-4 lg:p-5 xl:p-5 rounded-lg border border-gray-200 shadow-sm h-[120px] sm:h-[140px] lg:h-[160px] flex flex-col justify-between";
+  const cardClass = "stat-card bg-gradient-to-br from-gray-50 to-white p-3 sm:p-4 lg:p-5 xl:p-5 rounded-lg border border-gray-200 shadow-sm h-[120px] sm:h-[140px] lg:h-[160px] flex flex-col justify-between";
 
   return (
     <div className={cardClass}>
@@ -380,6 +380,22 @@ const Home: React.FC = () => {
           100% { 
             background-position: 0% 0%; 
           }
+        }
+        
+        /* Remove selection and focus effects on stat cards */
+        .stat-card {
+          user-select: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+        }
+        
+        .stat-card:focus {
+          outline: none;
+        }
+        
+        .stat-card:focus-visible {
+          outline: none;
         }
         
         /* Hero Section: Black-Red-Black gradient */
