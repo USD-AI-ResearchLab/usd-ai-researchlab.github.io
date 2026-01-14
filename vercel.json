@@ -6,6 +6,11 @@
   "env": {
     "VITE_API_URL": "https://ai-research-lab.org/"
   },
+  "preview": {
+    "env": {
+      "VITE_API_URL": "https://preview-usd-ai-researchlab.vercel.app/"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
