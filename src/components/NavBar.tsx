@@ -453,10 +453,6 @@ const NavBar: React.FC = () => {
         isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}>
         
-        <Link to="/" onClick={toggleMenu}>
-          <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Home</div>
-        </Link>
-        
         <Link to="/people" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">People</div>
         </Link>
