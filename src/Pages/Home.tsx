@@ -218,7 +218,7 @@ const AnimatedStatCard: React.FC<{
   isText?: boolean;
   href?: string;
   hideSuffix?: boolean;
-}> = ({ title, value, suffix = '', subtitle, isText = false, href, hideSuffix = false }) => {
+}> = ({ title, value, suffix = '', subtitle, isText = false, hideSuffix = false }) => {
   const animatedValue = useCountUp(value, 2500);
 
   const cardContent = (
