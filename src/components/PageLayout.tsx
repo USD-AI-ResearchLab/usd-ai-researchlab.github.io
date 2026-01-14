@@ -13,7 +13,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   children
 }) => {
   return (
-    <main className="relative min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8 pt-[140px] pb-12 bg-white">
+    <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-12 bg-white mt-[120px]">
       <div className="w-full max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,7 +24,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           {/* Subtle ring border */}
           <div className="absolute inset-0 rounded-3xl ring-1 ring-red-200/40 pointer-events-none"></div>
           
-          <div className="relative bg-white">
+          <div className="relative py-4 px-3 lg:px-4 bg-white">
             <div className="relative z-10">
               {/* Header Section */}
               {(title || subtitle) && (
