@@ -43,35 +43,6 @@ const animations = {
 };
 
 // ========================================================================================
-// STYLE CONFIGURATIONS
-// ========================================================================================
-const styles = {
-  // Perfect Black-Red-Black gradient
-  blackRedBlackGradient: {
-    fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-    fontWeight: '300',
-    background: 'linear-gradient(90deg, #000000 0%, #dc2626 30%, #ef4444 50%, #dc2626 70%, #000000 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-    color: 'transparent',
-    textFillColor: 'transparent',
-    backgroundSize: '300% 100%',
-    animation: 'gradientFlow 4s ease-in-out infinite',
-    // Fallback for browsers that don't support background-clip
-    backgroundImage: 'linear-gradient(90deg, #000000 0%, #dc2626 30%, #ef4444 50%, #dc2626 70%, #000000 100%)',
-    display: 'inline-block',
-    lineHeight: '1.1'
-  },
-  
-  elegantQuote: {
-    fontStyle: 'italic',
-    fontWeight: '500',
-    fontSize: '36px'
-  }
-};
-
-// ========================================================================================
 // HERO COMPONENTS
 // ========================================================================================
 const HeroLogo: React.FC = () => (
