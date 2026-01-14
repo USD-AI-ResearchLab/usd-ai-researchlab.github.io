@@ -5,6 +5,7 @@
   "installCommand": "npm ci",
   "framework": null,
   "nodeVersion": "20.x",
+  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/(.*)",
