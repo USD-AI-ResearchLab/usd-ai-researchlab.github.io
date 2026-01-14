@@ -222,8 +222,8 @@ const AnimatedStatCard: React.FC<{
   const animatedValue = useCountUp(value, 2500);
 
   const cardContent = (
-    <div className="space-y-1 sm:space-y-2">
-      <h3 className="font-semibold text-red-700 text-xs sm:text-sm group-hover:text-red-600 transition-colors duration-300">
+    <div className="space-y-1 sm:space-y-2 select-none">
+      <h3 className="font-semibold text-red-700 text-xs sm:text-sm">
         {title}
       </h3>
       {!isText ? (
@@ -251,17 +251,7 @@ const AnimatedStatCard: React.FC<{
     </div>
   );
 
-  const cardClass = "bg-gradient-to-br from-gray-50 to-white p-3 sm:p-4 lg:p-5 xl:p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 group hover:border-red-200 h-[120px] sm:h-[140px] lg:h-[160px] flex flex-col justify-between";
-
-  if (href) {
-    return (
-      <Link to={href} className="block">
-        <div className={`${cardClass} cursor-pointer`}>
-          {cardContent}
-        </div>
-      </Link>
-    );
-  }
+  const cardClass = "bg-gradient-to-br from-gray-50 to-white p-3 sm:p-4 lg:p-5 xl:p-5 rounded-lg border border-gray-200 shadow-sm h-[120px] sm:h-[140px] lg:h-[160px] flex flex-col justify-between";
 
   return (
     <div className={cardClass}>
@@ -334,7 +324,6 @@ const PublicationsSection: React.FC = () => (
           value={300}
           suffix="+"
           subtitle="Peer-Reviewed Articles"
-          href="/publications"
         />
         
         <AnimatedStatCard 
@@ -342,7 +331,6 @@ const PublicationsSection: React.FC = () => (
           value={12}
           suffix="+"
           subtitle="Published Works"
-          href="/publications"
           hideSuffix={true}
         />
         
@@ -351,7 +339,6 @@ const PublicationsSection: React.FC = () => (
           value={12}
           suffix="+"
           subtitle="International Events"
-          href="/initiatives"
         />
         
         <AnimatedStatCard 
@@ -359,7 +346,6 @@ const PublicationsSection: React.FC = () => (
           value={8}
           suffix="M+"
           subtitle="SDBOR, DOD, NSF, Department Of Education"
-          href="/contact"
         />
       </div>
     </div>
