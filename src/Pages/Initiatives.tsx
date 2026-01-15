@@ -80,7 +80,7 @@ const Initiatives: React.FC = () => {
 
   return (
     <PageLayout
-      title="Initiatives "
+      title="Initiatives & Conferences"
     >
       <motion.div 
         className="w-full px-4 py-8"
@@ -108,14 +108,21 @@ const Initiatives: React.FC = () => {
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
               Agreements/MOUs
             </h2>
-            <div className="relative">
-              {/* Grid Cards Container */}
-              <div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 py-4"
-              >
-                {/* Placeholder cards for MOUs section */}
-                <div className="w-full bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden relative flex items-center justify-center min-h-60">
-                  <p className="text-gray-500 text-center px-6">MOUs and partnerships coming soon</p>
+            
+            {/* MOUs List */}
+            <div className="space-y-6">
+              {/* MOU Item 1 */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex gap-6">
+                  <div className="text-3xl font-bold text-logo-red min-w-fit">1</div>
+                  <div className="flex-1">
+                    <p className="text-gray-700 leading-relaxed mb-3">
+                      <span className="font-semibold">(December 2024)</span> The AI Research Lab signed an agreement with the <span className="font-semibold">Thumbay Institute for AI in Healthcare</span> at <span className="font-semibold">Gulf Medical University, UAE.</span>
+                    </p>
+                    <p className="text-gray-600 italic text-sm">
+                      Looking for a collaboration? Don't hesitate to reach out.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
