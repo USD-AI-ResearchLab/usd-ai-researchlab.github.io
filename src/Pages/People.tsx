@@ -289,7 +289,7 @@ const People: React.FC = () => {
 
   return (
     <PageLayout
-      title="Our Team"
+      title="People"
     >
       <motion.div 
         className="w-full px-4 py-8"
