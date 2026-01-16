@@ -113,7 +113,7 @@ const DirectorPhoto: React.FC = () => (
     <a href="https://kc-santosh.org" target="_blank" rel="noopener noreferrer" className="no-underline">
       <div className="relative group cursor-pointer">
         {/* Enhanced photo container */}
-        <div className="relative w-full md:w-64 lg:w-80 xl:w-96 min-h-96 md:min-h-0 flex justify-center md:justify-start">
+        <div className="relative w-full md:w-56 lg:w-64 flex justify-center md:justify-start">
           <img 
             src="/faculty/kc-santosh.jpg" 
             alt="Prof. KC Santosh - Founding Director"
