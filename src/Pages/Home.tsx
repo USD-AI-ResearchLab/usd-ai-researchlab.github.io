@@ -106,18 +106,18 @@ const HeroTagline: React.FC = () => (
 // ========================================================================================
 const DirectorPhoto: React.FC = () => (
   <motion.div 
-    className="relative w-full md:flex-shrink-0 rounded-t-lg md:rounded-t-none md:rounded-l-lg overflow-hidden"
+    className="relative flex-shrink-0 rounded-t-lg md:rounded-t-none md:rounded-l-lg overflow-hidden"
     variants={animations.fadeIn}
     {...animations.scaleHover}
   >
     <a href="https://kc-santosh.org" target="_blank" rel="noopener noreferrer" className="no-underline">
       <div className="relative group cursor-pointer">
         {/* Enhanced photo container */}
-        <div className="relative w-full">
+        <div className="relative w-full md:w-56 lg:w-64 flex justify-center md:justify-start">
           <img 
             src="/faculty/kc-santosh.jpg" 
             alt="Prof. KC Santosh - Founding Director"
-            className="w-full h-auto md:w-40 md:h-full lg:w-48 object-cover shadow-none transition-all duration-500"
+            className="w-full h-auto md:h-full object-cover shadow-none transition-all duration-500"
           />
         </div>
       </div>
