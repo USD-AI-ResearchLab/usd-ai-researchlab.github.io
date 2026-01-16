@@ -441,7 +441,7 @@ const Home: React.FC = () => {
         }
       `}</style>
       
-      <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-12 bg-white mt-24 md:mt-32">
+      <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 bg-white mt-24 md:mt-32">
         {/* Stable Card Container */}
         <motion.div 
           className="w-full max-w-7xl"
