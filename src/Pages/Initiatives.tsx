@@ -84,14 +84,6 @@ const Initiatives: React.FC = () => {
     >
       <motion.div 
         className="w-full px-4 py-8"
-        initial={{ opacity: 0 }}
-        animate={{ 
-          opacity: 1,
-          transition: {
-            duration: 1,
-            ease: "easeOut"
-          }
-        }}
         initial="initial"
         animate="animate"
         variants={staggerChildren}
