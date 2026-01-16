@@ -63,7 +63,7 @@ export const facultyData: Person[] = [
   },
   {
     name: "Deepika Nuthalapati",
-    role: "Research Associate | USD AI Research",
+    role: "Research Associate, Department of Computer Science, USD | Member, USD AI Research",
     photo: profileImage6,
     memberKey: "deepika-nuthalapati"
   }
