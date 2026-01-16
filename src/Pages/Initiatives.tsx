@@ -92,14 +92,10 @@ const Initiatives: React.FC = () => {
             ease: "easeOut"
           }
         }}
+        initial="initial"
+        animate="animate"
+        variants={staggerChildren}
       >
-        <motion.div 
-          className="w-full px-4 py-8"
-          initial="initial"
-          animate="animate"
-          variants={staggerChildren}
-        >
-        </motion.div>
 
         {/* Main Grid Container */}
         <div className="relative w-full max-w-[1600px] mx-auto px-4 lg:px-8">
