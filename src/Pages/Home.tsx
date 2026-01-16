@@ -284,7 +284,7 @@ const HeroSection: React.FC = () => (
 
 const DirectorSection: React.FC = () => (
   <motion.section 
-    className="mb-4 mt-2"
+    className="mb-4 mt-6 md:mt-8 lg:mt-10"
     variants={animations.staggerContainer}
     initial="initial"
     animate="animate"
@@ -298,7 +298,7 @@ const DirectorSection: React.FC = () => (
           transition: { duration: 0.3 }
         }}
       >
-        <div className="flex flex-col md:flex-row md:items-stretch">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
           <DirectorPhoto />
           <div className="flex-1 px-4 md:px-5 lg:px-6 py-3 lg:py-4">
             <DirectorMessage />
