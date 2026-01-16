@@ -222,12 +222,12 @@ const AnimatedStatCard: React.FC<{
   const animatedValue = useCountUp(value, 2500);
 
   const cardContent = (
-    <div className="space-y-0 sm:space-y-0.5 lg:space-y-1 select-none">
-      <h3 className="font-semibold text-red-700 text-xs sm:text-xs md:text-sm leading-tight">
+    <div className="space-y-0 sm:space-y-0.5 lg:space-y-1 select-none overflow-hidden">
+      <h3 className="font-semibold text-red-700 text-xs sm:text-xs md:text-sm leading-tight truncate">
         {title}
       </h3>
       {!isText ? (
-        <p className="text-sm sm:text-base md:text-lg lg:text-2xl font-bold text-gray-900 leading-tight">
+        <p className="text-sm sm:text-base md:text-lg lg:text-2xl font-bold text-gray-900 leading-tight truncate">
           {suffix && !hideSuffix && suffix === 'M+' ? (
             <>
               <span className="text-sm sm:text-base md:text-lg lg:text-2xl text-gray-900">$</span>
@@ -245,13 +245,13 @@ const AnimatedStatCard: React.FC<{
           )}
         </p>
       ) : null}
-      <p className={`${isText ? 'text-xs sm:text-xs md:text-xs lg:text-sm' : 'text-xs sm:text-xs md:text-xs'} text-gray-600 leading-tight`}>
+      <p className={`${isText ? 'text-xs sm:text-xs md:text-xs lg:text-sm' : 'text-xs sm:text-xs md:text-xs'} text-gray-600 leading-tight line-clamp-2`}>
         {subtitle}
       </p>
     </div>
   );
 
-  const cardClass = "stat-card bg-gradient-to-br from-gray-50 to-white p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-5 rounded-lg border border-gray-200 shadow-sm h-24 sm:h-28 md:h-32 lg:h-40 flex flex-col justify-between";
+  const cardClass = "stat-card bg-gradient-to-br from-gray-50 to-white p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-5 rounded-lg border border-gray-200 shadow-sm h-24 sm:h-28 md:h-32 lg:h-40 flex flex-col justify-between overflow-hidden";
 
   return (
     <div className={cardClass}>
