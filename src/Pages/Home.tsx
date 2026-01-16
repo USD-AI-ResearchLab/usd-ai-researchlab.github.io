@@ -222,36 +222,36 @@ const AnimatedStatCard: React.FC<{
   const animatedValue = useCountUp(value, 2500);
 
   const cardContent = (
-    <div className="space-y-1 sm:space-y-2 select-none">
-      <h3 className="font-semibold text-red-700 text-xs sm:text-sm">
+    <div className="space-y-0 sm:space-y-0.5 lg:space-y-1 select-none">
+      <h3 className="font-semibold text-red-700 text-xs sm:text-xs md:text-sm leading-tight">
         {title}
       </h3>
       {!isText ? (
-        <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">
+        <p className="text-sm sm:text-base md:text-lg lg:text-2xl font-bold text-gray-900 leading-tight">
           {suffix && !hideSuffix && suffix === 'M+' ? (
             <>
-              <span className="text-lg sm:text-xl lg:text-2xl text-gray-900">$</span>
-              <span className="text-lg sm:text-xl lg:text-2xl text-gray-900">{animatedValue}</span>
-              <span className="text-lg sm:text-xl lg:text-2xl text-gray-900">M</span>
-              <span className="text-sm sm:text-base text-red-600 align-super">+</span>
+              <span className="text-sm sm:text-base md:text-lg lg:text-2xl text-gray-900">$</span>
+              <span className="text-sm sm:text-base md:text-lg lg:text-2xl text-gray-900">{animatedValue}</span>
+              <span className="text-sm sm:text-base md:text-lg lg:text-2xl text-gray-900">M</span>
+              <span className="text-xs sm:text-xs md:text-sm text-red-600 align-super">+</span>
             </>
           ) : (
             <>
               {animatedValue}
               {suffix && !hideSuffix ? (
-                <span className="text-sm sm:text-base text-red-600 align-super">{suffix}</span>
+                <span className="text-xs sm:text-xs md:text-sm text-red-600 align-super">{suffix}</span>
               ) : null}
             </>
           )}
         </p>
       ) : null}
-      <p className={`${isText ? 'text-xs sm:text-sm lg:text-base' : 'text-xs sm:text-sm'} text-gray-600 leading-tight`}>
+      <p className={`${isText ? 'text-xs sm:text-xs md:text-xs lg:text-sm' : 'text-xs sm:text-xs md:text-xs'} text-gray-600 leading-tight`}>
         {subtitle}
       </p>
     </div>
   );
 
-  const cardClass = "stat-card bg-gradient-to-br from-gray-50 to-white p-3 sm:p-4 lg:p-5 xl:p-5 rounded-lg border border-gray-200 shadow-sm h-[120px] sm:h-[140px] lg:h-[160px] flex flex-col justify-between";
+  const cardClass = "stat-card bg-gradient-to-br from-gray-50 to-white p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-5 rounded-lg border border-gray-200 shadow-sm h-24 sm:h-28 md:h-32 lg:h-40 flex flex-col justify-between";
 
   return (
     <div className={cardClass}>
