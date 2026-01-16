@@ -1,7 +1,7 @@
 // USD AI Research Lab - Main Application Component
 // Last updated: 2026-01-14
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Home from "./Pages/Home";
@@ -15,6 +15,13 @@ import AISymposium2025 from "./Pages/AISymposium2025";
 import SponsorCardDemo from "./Pages/SponsorCardDemo";
 
 const App: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Scroll to top when route changes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
+
   return (
     <div className="min-h-screen w-full bg-white">
       <NavBar />
