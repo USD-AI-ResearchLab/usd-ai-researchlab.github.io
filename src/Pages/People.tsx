@@ -205,9 +205,9 @@ const People: React.FC = () => {
     const displayEnd = Math.min(endIndex, totalItems);
 
     return (
-      <div className="flex flex-col items-center gap-6 mt-12 mb-8">
+      <div className="flex flex-col items-center gap-4 sm:gap-6 mt-8 sm:mt-12 mb-6 sm:mb-8">
         {/* Results info */}
-        <div className="text-sm text-gray-600 text-center">
+        <div className="text-xs sm:text-sm text-gray-600 text-center px-2">
           Showing <span className="font-medium">{displayStart}-{displayEnd}</span> of{' '}
           <span className="font-medium">{totalItems}</span> {totalItems === 1 ? 'person' : 'people'}
           {selectedCategory !== 'All' && (
@@ -218,62 +218,64 @@ const People: React.FC = () => {
           )}
         </div>
 
-        {/* Pagination controls */}
-        <div className="flex items-center justify-center gap-1">
-          {/* Previous button */}
-          <button
-            onClick={() => setCurrentPage(Math.max(1, validCurrentPage - 1))}
-            disabled={validCurrentPage === 1}
-            className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-              validCurrentPage === 1
-                ? 'text-gray-400 cursor-not-allowed bg-white border border-gray-200'
-                : 'text-gray-700 hover:text-red-600 hover:bg-white hover:shadow-md bg-white border border-gray-300'
-            }`}
-          >
-            ← Previous
-          </button>
-          
-          {/* Page numbers */}
-          {pageRange.map((page, index) => {
-            if (page === '...') {
+        {/* Pagination controls - scrollable on mobile */}
+        <div className="overflow-x-auto sm:overflow-x-visible pb-2 sm:pb-0 -mx-4 sm:mx-0 px-4 sm:px-0 w-full sm:w-auto">
+          <div className="flex items-center justify-center gap-1 sm:gap-2 flex-nowrap">
+            {/* Previous button */}
+            <button
+              onClick={() => setCurrentPage(Math.max(1, validCurrentPage - 1))}
+              disabled={validCurrentPage === 1}
+              className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
+                validCurrentPage === 1
+                  ? 'text-gray-400 cursor-not-allowed bg-white border border-gray-200'
+                  : 'text-gray-700 hover:text-red-600 hover:bg-white hover:shadow-md bg-white border border-gray-300'
+              }`}
+            >
+              ← Prev
+            </button>
+            
+            {/* Page numbers */}
+            {pageRange.map((page, index) => {
+              if (page === '...') {
+                return (
+                  <span key={`ellipsis-${index}`} className="px-1 sm:px-2 py-1 text-gray-400 text-xs sm:text-sm flex-shrink-0">
+                    ...
+                  </span>
+                );
+              }
+              
+              const pageNumber = Number(page);
+              const isCurrentPage = pageNumber === validCurrentPage;
+              
               return (
-                <span key={`ellipsis-${index}`} className="px-3 py-2 text-gray-400 text-sm">
-                  ...
-                </span>
+                <button
+                  key={pageNumber}
+                  onClick={() => setCurrentPage(pageNumber)}
+                  disabled={isCurrentPage}
+                  className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 flex-shrink-0 ${
+                    isCurrentPage
+                      ? 'bg-red-600 text-white shadow-sm cursor-default'
+                      : 'text-gray-700 hover:text-red-600 hover:bg-white hover:shadow-md bg-white border border-gray-300'
+                  }`}
+                >
+                  {pageNumber}
+                </button>
               );
-            }
+            })}
             
-            const pageNumber = Number(page);
-            const isCurrentPage = pageNumber === validCurrentPage;
-            
-            return (
-              <button
-                key={pageNumber}
-                onClick={() => setCurrentPage(pageNumber)}
-                disabled={isCurrentPage}
-                className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-                  isCurrentPage
-                    ? 'bg-red-600 text-white shadow-sm cursor-default'
-                    : 'text-gray-700 hover:text-red-600 hover:bg-white hover:shadow-md bg-white border border-gray-300'
-                }`}
-              >
-                {pageNumber}
-              </button>
-            );
-          })}
-          
-          {/* Next button */}
-          <button
-            onClick={() => setCurrentPage(Math.min(totalPages, validCurrentPage + 1))}
-            disabled={validCurrentPage === totalPages}
-            className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
-              validCurrentPage === totalPages
-                ? 'text-gray-400 cursor-not-allowed bg-white border border-gray-200'
-                : 'text-gray-700 hover:text-red-600 hover:bg-white hover:shadow-md bg-white border border-gray-300'
-            }`}
-          >
-            Next →
-          </button>
+            {/* Next button */}
+            <button
+              onClick={() => setCurrentPage(Math.min(totalPages, validCurrentPage + 1))}
+              disabled={validCurrentPage === totalPages}
+              className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
+                validCurrentPage === totalPages
+                  ? 'text-gray-400 cursor-not-allowed bg-white border border-gray-200'
+                  : 'text-gray-700 hover:text-red-600 hover:bg-white hover:shadow-md bg-white border border-gray-300'
+              }`}
+            >
+              Next →
+            </button>
+          </div>
         </div>
 
         {/* Page info for large datasets */}
@@ -304,46 +306,56 @@ const People: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Category Filters */}
-        <motion.div className="mb-8" variants={fadeInUp}>
-          <div className="flex items-center gap-4 flex-wrap">
-            <span className="text-lg font-medium text-gray-700">Filter by:</span>
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 border-2 ${
-                    selectedCategory === category
-                      ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
-                      : 'text-gray-600 bg-white border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-50'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
+        {/* Category Filters - Scrollable on mobile */}
+        <motion.div className="mb-6 sm:mb-8" variants={fadeInUp}>
+          <div className="flex flex-col gap-2 sm:gap-4">
+            <div className="flex sm:flex-row sm:items-center gap-2 sm:gap-4">
+              <span className="text-xs sm:text-lg font-medium text-gray-700 whitespace-nowrap">Filter by:</span>
+            </div>
+            {/* Scrollable container for mobile */}
+            <div className="overflow-x-auto sm:overflow-x-visible pb-2 sm:pb-0 -mx-4 sm:mx-0 px-4 sm:px-0">
+              <div className="flex flex-nowrap sm:flex-wrap gap-1 sm:gap-2">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-200 border-2 flex-shrink-0 sm:flex-shrink ${
+                      selectedCategory === category
+                        ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
+                        : 'text-gray-600 bg-white border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-50'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Letter Filter */}
-        <motion.div className="mb-8" variants={fadeInUp}>
-          <div className="flex items-center gap-4 flex-wrap">
-            <span className="text-lg font-medium text-gray-700">Start with:</span>
-            <div className="flex flex-wrap gap-2">
-              {letters.map((letter) => (
-                <button
-                  key={letter}
-                  onClick={() => setSelectedLetter(letter)}
-                  className={`px-3 py-2 text-sm font-medium rounded transition-all duration-200 border-2 ${
-                    selectedLetter === letter
-                      ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
-                      : 'text-gray-600 bg-white border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-50'
-                  }`}
-                >
-                  {letter}
-                </button>
-              ))}
+        {/* Letter Filter - Scrollable on mobile */}
+        <motion.div className="mb-6 sm:mb-8" variants={fadeInUp}>
+          <div className="flex flex-col gap-2 sm:gap-4">
+            <div className="flex sm:flex-row sm:items-center gap-2 sm:gap-4">
+              <span className="text-xs sm:text-lg font-medium text-gray-700 whitespace-nowrap">Start with:</span>
+            </div>
+            {/* Scrollable container for mobile, flex-wrap for desktop */}
+            <div className="overflow-x-auto sm:overflow-x-visible pb-2 sm:pb-0 -mx-4 sm:mx-0 px-4 sm:px-0">
+              <div className="flex gap-1 sm:gap-2 sm:flex-wrap">
+                {letters.map((letter) => (
+                  <button
+                    key={letter}
+                    onClick={() => setSelectedLetter(letter)}
+                    className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded transition-all duration-200 border-2 flex-shrink-0 sm:flex-shrink ${
+                      selectedLetter === letter
+                        ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
+                        : 'text-gray-600 bg-white border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-50'
+                    }`}
+                  >
+                    {letter}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>
@@ -352,7 +364,7 @@ const People: React.FC = () => {
         {paginatedData.length > 0 ? (
           <div className="w-full">
             <motion.div 
-              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+              className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
               initial="initial"
               animate="animate"
               variants={staggerChildren}
