@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import bgimage from "../assets/logo-copy.svg";
+import mobileLogoImage from "../assets/RealLogo.png";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -53,13 +54,14 @@ const NavBar: React.FC = () => {
         top: 0,
         left: 0,
         width: '100%',
-        height: '120px',
+        height: 'auto',
+        minHeight: '80px',
         backgroundColor: '#C53030',
         backdropFilter: 'blur(16px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '0 20px',
+        padding: '12px 20px',
         boxShadow: '0 3px 15px rgba(0, 0, 0, 0.15)',
         zIndex: 50
       }}>
@@ -449,9 +451,22 @@ const NavBar: React.FC = () => {
       </div>
 
       {/* Mobile menu */}
-      <div className={`fixed top-[120px] left-0 w-64 min-h-screen bg-white/95 backdrop-blur-xl flex flex-col items-start justify-start gap-6 pt-8 pl-6 pr-4 pb-8 md:hidden transition-all duration-300 ease-in-out shadow-xl overflow-y-auto z-40 ${
+      <div className={`fixed top-20 left-0 w-64 min-h-screen bg-white/95 backdrop-blur-xl flex flex-col items-start justify-start gap-6 pt-8 pl-6 pr-4 pb-8 md:hidden transition-all duration-300 ease-in-out shadow-xl overflow-y-auto z-40 ${
         isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}>
+        
+        <Link to="/" onClick={toggleMenu}>
+          <img 
+            src={mobileLogoImage}
+            alt="USD AI Research Lab"
+            style={{
+              width: '80px',
+              height: '80px',
+              objectFit: 'contain',
+              cursor: 'pointer'
+            }}
+          />
+        </Link>
         
         <Link to="/people" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">People</div>

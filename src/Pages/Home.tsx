@@ -58,7 +58,7 @@ const HeroLogo: React.FC = () => (
         <motion.img 
           src={logoImage} 
           alt="USD AI Research Lab Logo" 
-          className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-full xl:h-auto object-contain mx-auto"
+          className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain mx-auto"
         />
       </Link>
     </div>
@@ -67,7 +67,7 @@ const HeroLogo: React.FC = () => (
 
 const HeroTitle: React.FC = () => (
   <motion.h1 
-    className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight"
+    className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight"
     variants={animations.fadeInUp}
     style={{
       fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -75,7 +75,7 @@ const HeroTitle: React.FC = () => (
       display: 'block'
     }}
   >
-    <span className="gradient-text-hero text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl" style={{ fontWeight: '700' }}>USD AI Research</span>
+    <span className="gradient-text-hero text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl" style={{ fontWeight: '700' }}>USD AI Research</span>
     <span className="gradient-text-hero text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl ml-2" style={{ fontWeight: '400' }}>(EST.2015)</span>
   </motion.h1>
 );
@@ -117,7 +117,7 @@ const DirectorPhoto: React.FC = () => (
           <img 
             src="/faculty/kc-santosh.jpg" 
             alt="Prof. KC Santosh - Founding Director"
-            className="w-40 h-full md:w-44 lg:w-48 object-cover shadow-none transition-all duration-500"
+            className="w-32 h-full md:w-40 lg:w-48 object-cover shadow-none transition-all duration-500"
           />
         </div>
       </div>
@@ -441,7 +441,7 @@ const Home: React.FC = () => {
         }
       `}</style>
       
-      <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-12 bg-white mt-[120px]">
+      <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-12 bg-white mt-24 md:mt-32">
         {/* Stable Card Container */}
         <motion.div 
           className="w-full max-w-7xl"
