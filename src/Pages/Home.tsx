@@ -105,24 +105,23 @@ const HeroTagline: React.FC = () => (
 // DIRECTOR COMPONENTS
 // ========================================================================================
 const DirectorPhoto: React.FC = () => (
-  <motion.div 
-    className="relative flex-shrink-0 rounded-t-lg md:rounded-t-none md:rounded-l-lg overflow-hidden"
-    variants={animations.fadeIn}
-    {...animations.scaleHover}
-  >
-    <a href="https://kc-santosh.org" target="_blank" rel="noopener noreferrer" className="no-underline">
-      <div className="relative group cursor-pointer">
-        {/* Enhanced photo container */}
-        <div className="relative w-full md:w-56 lg:w-64 flex justify-center md:justify-start">
+  <div className="w-full md:w-auto flex justify-center md:justify-start mb-3 md:mb-0">
+    <motion.div 
+      className="relative flex-shrink-0 rounded-t-lg md:rounded-t-none md:rounded-l-lg overflow-hidden"
+      variants={animations.fadeIn}
+      {...animations.scaleHover}
+    >
+      <a href="https://kc-santosh.org" target="_blank" rel="noopener noreferrer" className="no-underline">
+        <div className="relative group cursor-pointer w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56">
           <img 
             src="/faculty/kc-santosh.jpg" 
             alt="Prof. KC Santosh - Founding Director"
-            className="w-full h-auto md:h-full object-cover shadow-none transition-all duration-500"
+            className="w-full h-full object-cover shadow-none transition-all duration-500"
           />
         </div>
-      </div>
-    </a>
-  </motion.div>
+      </a>
+    </motion.div>
+  </div>
 );
 
 const DirectorMessage: React.FC = () => (
