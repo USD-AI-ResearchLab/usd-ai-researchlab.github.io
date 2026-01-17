@@ -75,28 +75,27 @@ const HeroTitle: React.FC = () => (
       display: 'block'
     }}
   >
-    <span className="gradient-text-hero text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl" style={{ fontWeight: '700' }}>USD AI Research</span>
-    <span className="gradient-text-hero text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl ml-2" style={{ fontWeight: '400' }}>(EST.2015)</span>
+    <span className="gradient-text-hero text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl" style={{ fontWeight: '700' }}>USD AI Research</span>
   </motion.h1>
 );
 
 const HeroTagline: React.FC = () => (
   <motion.div 
-    className="text-center"
+    className="text-center max-w-4xl mx-auto"
     variants={animations.fadeInUp}
   >
     <motion.p 
-      className="gradient-text-hero text-xs sm:text-sm md:text-base lg:text-lg font-light leading-relaxed mb-0"
+      className="gradient-text-hero text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold leading-relaxed mb-0"
       variants={animations.fadeInUp}
       style={{
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-        fontWeight: '300',
+        fontWeight: '600',
         overflow: 'visible',
         whiteSpace: 'normal',
         wordWrap: 'break-word'
       }}
     >
-      Leading artificial intelligence research and engineering to shape South Dakota's innovation future and technological leadership!
+      Leading artificial intelligence research and engineering<br />to shape South Dakota's innovation future and technological leadership!
     </motion.p>
   </motion.div>
 );
@@ -131,18 +130,18 @@ const DirectorMessage: React.FC = () => (
   >
     <div>
       <motion.h3 
-        className="gradient-text-director text-base md:text-lg lg:text-xl font-bold leading-tight mb-2 tracking-tight text-left"
+        className="gradient-text-director text-lg md:text-xl lg:text-2xl font-bold leading-tight mb-3 tracking-tight text-left"
         variants={animations.fadeInUp}
       >
         AI4ALL: Building Sustainable Machine Intelligence for All
       </motion.h3>
       
       <motion.p 
-        className="gradient-text-director text-xs md:text-sm lg:text-base font-normal mb-2 leading-relaxed text-left"
+        className="gradient-text-director text-sm md:text-base lg:text-lg font-bold mb-3 leading-relaxed text-left"
         variants={animations.fadeInUp}
         style={{
           fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-          fontWeight: '400'
+          fontWeight: '700'
         }}
       >
         Our vision is to advance sustainable, human-centered machine intelligence that is accessible, responsible, and impactful across communities. AI4ALL is committed to building AI ecosystems that empower talent, reduce barriers, and ensure AI innovation benefits society at large.
@@ -161,7 +160,7 @@ const DirectorMessage: React.FC = () => (
     </div>
     
     <motion.div 
-      className="space-y-0.5 mt-auto"
+      className="space-y-1 mt-8 md:mt-10 lg:mt-12"
       variants={animations.fadeInUp}
     >
       <div className="gradient-text-director text-sm lg:text-base font-bold text-left">
@@ -250,7 +249,7 @@ const AnimatedStatCard: React.FC<{
     </div>
   );
 
-  const cardClass = "stat-card bg-gradient-to-br from-gray-50 to-white p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-5 rounded-lg border border-gray-200 shadow-sm h-24 sm:h-28 md:h-32 lg:h-40 flex flex-col justify-between overflow-hidden";
+  const cardClass = "stat-card bg-gradient-to-br from-gray-50 to-white p-1.5 sm:p-2 md:p-2.5 lg:p-3 xl:p-4 rounded-lg border border-gray-200 shadow-sm h-20 sm:h-24 md:h-28 lg:h-32 flex flex-col justify-between overflow-hidden";
 
   return (
     <div className={cardClass}>
@@ -264,10 +263,10 @@ const AnimatedStatCard: React.FC<{
 // ========================================================================================
 const HeroSection: React.FC = () => (
   <motion.section 
-    className="mb-4"
+    className="mb-2"
     variants={animations.staggerContainer}
   >
-    <div className="flex flex-col items-center justify-center gap-2 lg:gap-4">
+    <div className="flex flex-col items-center justify-center gap-2 lg:gap-3">
       {/* Logo */}
       <div className="flex-shrink-0 w-auto">
         <HeroLogo />
@@ -284,7 +283,7 @@ const HeroSection: React.FC = () => (
 
 const DirectorSection: React.FC = () => (
   <motion.section 
-    className="mb-4 mt-6 md:mt-8 lg:mt-10"
+    className="mb-2 mt-4 md:mt-5 lg:mt-6"
     variants={animations.staggerContainer}
     initial="initial"
     animate="animate"
@@ -311,13 +310,13 @@ const DirectorSection: React.FC = () => (
 
 const PublicationsSection: React.FC = () => (
   <motion.section 
-    className="mb-2 md:mb-3 lg:mb-4"
+    className="mt-0 md:mt-0 lg:mt-0 mb-0 md:mb-0 lg:mb-0"
     variants={animations.fadeInUp}
     initial="initial"
     animate="animate"
   >
     <div className="flex-shrink-0 w-full">
-      <div className="grid grid-cols-4 gap-1 sm:gap-1 lg:gap-2 xl:gap-2">
+      <div className="grid grid-cols-4 gap-0.5 sm:gap-1 lg:gap-1.5 xl:gap-1.5">
         <AnimatedStatCard 
           title="Published Research"
           value={300}
