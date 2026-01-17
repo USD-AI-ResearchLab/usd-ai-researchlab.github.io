@@ -340,7 +340,7 @@ const PublicationsSection: React.FC = () => (
         />
         
         <AnimatedStatCard 
-          title="Funding Sources"
+          title="Funding"
           value={8}
           suffix="M+"
           subtitle="SDBOR, DOD, NSF, Department Of Education"

@@ -48,7 +48,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
             >
               {/* Header Section */}
               {(title || subtitle) && (
-                <section className="text-center py-6 sm:py-7 md:py-8 lg:py-10 px-4 sm:px-6 md:px-8 lg:px-10 pb-2">
+                <section className="text-center py-4 sm:py-5 md:py-6 lg:py-7 px-4 sm:px-6 md:px-8 lg:px-10 pb-1">
                   <motion.div 
                     className="flex flex-col items-center justify-center"
                     variants={{
@@ -60,7 +60,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
                       {title}
                     </h1>
                     {subtitle && (
-                      <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mt-4 font-light">
+                      <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mt-2 font-light">
                         {subtitle}
                       </p>
                     )}
@@ -73,7 +73,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="px-4 sm:px-6 md:px-8 lg:px-10 py-0 sm:py-0 md:py-0 lg:py-0"
+                className="px-4 sm:px-6 md:px-8 lg:px-10 py-0"
               >
                 {children}
               </motion.div>
