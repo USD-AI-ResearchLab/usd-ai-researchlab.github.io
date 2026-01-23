@@ -97,7 +97,7 @@ const Opportunities: React.FC = () => {
       title="Career Opportunities"
     >
       <motion.div 
-        className="w-full px-4 py-8"
+        className="w-full px-4 py-8 bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl shadow-md"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
@@ -133,7 +133,9 @@ const Opportunities: React.FC = () => {
                   onClick={() => toggleSection(position.id)}
                   className="w-full flex items-center gap-3 p-6 bg-gray-100 hover:bg-gray-150 transition-colors duration-200 text-left"
                 >
-                  <h3 className="text-xl font-normal text-gray-900 flex-grow">{position.title}</h3>
+                  <h3 className={`text-xl font-normal flex-grow transition-all duration-300 ${
+                    openSections[position.id] ? 'text-logo-red' : 'text-gray-900'
+                  }`}>{position.title}</h3>
                   <svg 
                     className={`w-5 h-5 text-gray-600 transition-transform duration-200 flex-shrink-0 ${openSections[position.id] ? 'rotate-180' : ''}`}
                     fill="none" 
@@ -193,7 +195,7 @@ const Opportunities: React.FC = () => {
 
           {/* Important Notes */}
           <motion.div variants={fadeInUp} className="mt-12 p-6 bg-gray-100 border border-gray-200 rounded-lg">
-            <h3 className="text-xl font-light mb-4 text-black">Important Notes</h3>
+            <h3 className="text-xl font-light mb-4 text-logo-red">Important Notes</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <h4 className="text-base font-medium text-black mb-2">Review Process</h4>
@@ -211,7 +213,7 @@ const Opportunities: React.FC = () => {
 
           {/* Research Collaborations & Partnerships */}
           <motion.div variants={fadeInUp} className="mt-12 bg-gray-100 border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-light mb-4 text-black">
+            <h3 className="text-xl font-light mb-4 text-logo-red">
               Research Collaborations & Partnerships
             </h3>
             <div className="space-y-4">
@@ -235,7 +237,7 @@ const Opportunities: React.FC = () => {
 
           {/* Contact Information */}
           <motion.div variants={fadeInUp} className="mt-12 bg-gray-100 border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-light mb-4 text-black">
+            <h3 className="text-xl font-light mb-4 text-logo-red">
               Contact Us
             </h3>
             <div className="space-y-4">

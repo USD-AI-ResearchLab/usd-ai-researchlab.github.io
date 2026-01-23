@@ -220,7 +220,7 @@ const AnimatedStatCard: React.FC<{
     </div>
   );
 
-  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 rounded-lg shadow-sm h-auto flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-md`;
+  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 rounded-xl shadow-md h-auto flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg bg-white/30 backdrop-blur-lg border border-white/40`;
 
   return (
     <div className={cardClass}>
@@ -234,7 +234,7 @@ const AnimatedStatCard: React.FC<{
 // ========================================================================================
 const HeroSection: React.FC = () => (
   <motion.section 
-    className="mb-2"
+    className="mb-8 bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl p-8 shadow-md"
     variants={animations.staggerContainer}
   >
     <div className="flex flex-col items-center justify-center gap-0">
@@ -254,15 +254,15 @@ const HeroSection: React.FC = () => (
 
 const DirectorSection: React.FC = () => (
   <motion.section 
-    className="mb-2 mt-4 md:mt-5 lg:mt-6"
+    className="mb-12 mt-4 md:mt-5 lg:mt-6"
     variants={animations.staggerContainer}
     initial="initial"
     animate="animate"
   >
     <div className="relative">
-      {/* Main Card */}
+      {/* Main Card - Glassmorphic Style */}
       <motion.div 
-        className="relative rounded-lg shadow-md border overflow-hidden director-card"
+        className="relative rounded-xl shadow-md border overflow-hidden bg-white/30 backdrop-blur-lg border-white/40 p-8"
         whileHover={{ 
           boxShadow: '0 10px 20px rgba(220, 38, 38, 0.15)',
           transition: { duration: 0.3 }
@@ -286,7 +286,7 @@ const PublicationsSection: React.FC = () => (
     initial="initial"
     animate="animate"
   >
-    <div className="flex-shrink-0 w-full">
+    <div className="flex-shrink-0 w-full bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl p-8 mb-12">
       <div className="grid grid-cols-4 gap-0.5 sm:gap-1 lg:gap-1.5 xl:gap-1.5">
         <AnimatedStatCard 
           title="Published Research"
@@ -418,7 +418,7 @@ const Home: React.FC = () => {
           transition={{ duration: 0.4 }}
         >
           <motion.div
-            className="relative bg-gray-100 rounded-3xl shadow-2xl overflow-hidden"
+            className="relative bg-white/30 backdrop-blur-lg rounded-3xl shadow-2xl overflow-hidden border border-white/40"
             style={{
               transformStyle: 'preserve-3d',
               rotateX,
@@ -430,7 +430,7 @@ const Home: React.FC = () => {
             <div className="absolute inset-0 rounded-3xl ring-1 ring-red-200/40 pointer-events-none" />
             
             {/* Content wrapper */}
-            <div className="relative py-4 px-3 lg:px-4 bg-gray-100">
+            <div className="relative py-4 px-3 lg:px-4">
               {/* Keep background purely white */}
               {/* <BackgroundElements /> */}
               

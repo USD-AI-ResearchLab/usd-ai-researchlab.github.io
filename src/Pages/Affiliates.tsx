@@ -67,7 +67,7 @@ const Affiliates: React.FC = () => {
       title="Affiliates"
     >
       <motion.div 
-        className="px-8 pt-0 pb-16 w-full"
+        className="px-8 pt-0 pb-16 w-full bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl shadow-md"
         initial="initial"
         animate="animate"
         variants={{

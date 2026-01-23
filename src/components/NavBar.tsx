@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import bgimage from "../assets/logo-copy.svg";
-import mobileLogoImage from "../assets/RealLogo.png";
+import mobileLogoImage from "../assets/logo.svg";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

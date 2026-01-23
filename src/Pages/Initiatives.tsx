@@ -83,16 +83,16 @@ const Initiatives: React.FC = () => {
       title="Initiatives & Conferences"
     >
       <motion.div 
-        className="w-full px-4 py-8"
+        className="w-full bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl shadow-md"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
 
         {/* Main Grid Container */}
-        <div className="relative w-full max-w-[1600px] mx-auto px-4 lg:px-8">
+        <div className="relative w-full px-4 py-8 lg:px-8">
           {/* Agreements/MOUs Section */}
-          <div className="mb-12">
+          <div className="mb-12 bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl p-8 shadow-md">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
               Agreements/MOUs
             </h2>
@@ -117,7 +117,7 @@ const Initiatives: React.FC = () => {
           </div>
 
           {/* Leading Conferences Section */}
-          <div className="mb-12">
+          <div className="mb-12 bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl p-8 shadow-md">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
               Leading Conferences
             </h2>
