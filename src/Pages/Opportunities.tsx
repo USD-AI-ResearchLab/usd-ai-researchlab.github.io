@@ -32,6 +32,7 @@ const Opportunities: React.FC = () => {
     {
       id: 'phd',
       title: 'PhD Students',
+      cardNumber: 1,
       requirements: 'Strong foundations in ML, computer vision, NLP, statistics, probability, or applied mathematics. MSc or equivalent required.',
       applicationRequirements: [
         'CV',
@@ -47,6 +48,7 @@ const Opportunities: React.FC = () => {
     {
       id: 'postdoc',
       title: 'Postdoctoral Researchers',
+      cardNumber: 2,
       requirements: 'Proven track record with publications at top ML/AI venues (NeurIPS, ICML, ICLR, AAAI, IJCAI, AISTATS). Evidence of research independence and leadership potential.',
       applicationRequirements: [
         'CV including publication list',
@@ -63,6 +65,7 @@ const Opportunities: React.FC = () => {
     {
       id: 'masters',
       title: "Master's Students",
+      cardNumber: 3,
       requirements: 'Interest in AI research through thesis projects, independent studies, or research assistantships. Strong programming skills and coursework in ML or related areas preferred.',
       applicationRequirements: [
         'CV and academic transcripts',
@@ -74,9 +77,18 @@ const Opportunities: React.FC = () => {
     {
       id: 'undergraduate',
       title: 'Undergraduate Students',
+      cardNumber: 4,
       requirements: 'Strong academic performance and completion of relevant coursework in computer science, mathematics, or statistics.',
       description: 'Gain hands-on research experience through independent study projects, summer research programs, or senior capstone projects.',
       note: 'Contact us to discuss available opportunities and project alignment.'
+    },
+    {
+      id: 'research-visits',
+      title: 'Research Visits & Internships',
+      cardNumber: 5,
+      requirements: 'Open to researchers and students from all levels seeking short-term or long-term research collaborations.',
+      description: 'Whether you are a visiting scholar, intern, or collaborative researcher, we welcome inquiries for research visits and internship opportunities.',
+      note: 'Please include your research background, duration of visit/internship, and research interests in your inquiry.'
     }
   ];
 
@@ -91,7 +103,7 @@ const Opportunities: React.FC = () => {
         variants={staggerChildren}
       >
         {/* Main Content Section */}
-        <motion.div className="mb-16" variants={fadeInUp}>
+        <motion.div className="mb-8 bg-gray-100 rounded-lg p-6 border border-gray-200" variants={fadeInUp}>
           <div className="space-y-4 mb-12">
             <p className="body-text-18 text-black leading-relaxed font-thin">
               We are continuously looking for highly motivated and talented people to contribute to our research in AI, machine learning, and computer vision. Our positions are competitive and limited to maintain a focused, research-driven group.
@@ -107,19 +119,21 @@ const Opportunities: React.FC = () => {
           </div>
           
           {/* Position Categories with Dropdowns */}
-          <div className="space-y-4">
+          <div className="space-y-2">
             {positionTypes.map((position) => (
               <motion.div 
                 key={position.id}
                 variants={fadeInUp}
-                className="border border-gray-200 rounded-lg overflow-hidden"
+                className={`border-2 rounded-lg overflow-hidden transition-all duration-300 ${
+                  openSections[position.id] ? 'border-red-600' : 'border-gray-200'
+                }`}
               >
                 {/* Header */}
                 <button
                   onClick={() => toggleSection(position.id)}
-                  className="w-full flex items-center gap-3 p-6 bg-white hover:bg-gray-50 transition-colors duration-200 text-left"
+                  className="w-full flex items-center gap-3 p-6 bg-gray-100 hover:bg-gray-150 transition-colors duration-200 text-left"
                 >
-                  <h3 className="text-xl font-light text-black flex-grow">{position.title}</h3>
+                  <h3 className="text-xl font-normal text-gray-900 flex-grow">{position.title}</h3>
                   <svg 
                     className={`w-5 h-5 text-gray-600 transition-transform duration-200 flex-shrink-0 ${openSections[position.id] ? 'rotate-180' : ''}`}
                     fill="none" 
@@ -137,7 +151,7 @@ const Opportunities: React.FC = () => {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="p-6 bg-white border-t border-gray-100"
+                    className="p-6 bg-gray-100 border-t border-gray-100"
                   >
                     {/* Requirements */}
                     <div className="mb-6">
@@ -175,59 +189,10 @@ const Opportunities: React.FC = () => {
                 )}
               </motion.div>
             ))}
-
-            {/* Research Visits/Internships - Dropdown Card Section */}
-            <motion.div
-              variants={fadeInUp}
-              className="border border-gray-200 rounded-lg overflow-hidden"
-            >
-              {/* Header */}
-              <button
-                onClick={() => toggleSection('research-visits')}
-                className="w-full flex items-center gap-3 p-6 bg-white hover:bg-gray-50 transition-colors duration-200 text-left"
-              >
-                <h3 className="text-xl font-light text-black flex-grow">Research Visits & Internships</h3>
-                <svg 
-                  className={`w-5 h-5 text-gray-600 transition-transform duration-200 flex-shrink-0 ${openSections['research-visits'] ? 'rotate-180' : ''}`}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {/* Content */}
-              {openSections['research-visits'] && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="p-6 bg-white border-t border-gray-100"
-                >
-                  {/* Information */}
-                  <div className="mb-6">
-                    <h4 className="text-base font-medium text-black mb-3">Availability</h4>
-                    <p className="text-base text-gray-700 mb-4">
-                      Research visits are very limited and typically only possible through existing collaborations or funded programs (summer schools, fellowships, mobility grants).
-                    </p>
-                  </div>
-
-                  {/* Important Notice */}
-                  <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg">
-                    <h4 className="text-base font-medium text-red-800 mb-2">Important Notice</h4>
-                    <p className="text-base text-red-700">
-                      Currently not responding to emails regarding research visits/internships.
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-            </motion.div>
           </div>
 
           {/* Important Notes */}
-          <motion.div variants={fadeInUp} className="mt-12 p-6 bg-white border border-gray-200 rounded-lg">
+          <motion.div variants={fadeInUp} className="mt-12 p-6 bg-gray-100 border border-gray-200 rounded-lg">
             <h3 className="text-xl font-light mb-4 text-black">Important Notes</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
@@ -245,7 +210,7 @@ const Opportunities: React.FC = () => {
           </motion.div>
 
           {/* Research Collaborations & Partnerships */}
-          <motion.div variants={fadeInUp} className="mt-12 bg-white border border-gray-200 rounded-lg p-6">
+          <motion.div variants={fadeInUp} className="mt-12 bg-gray-100 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-light mb-4 text-black">
               Research Collaborations & Partnerships
             </h3>
@@ -269,7 +234,7 @@ const Opportunities: React.FC = () => {
           </motion.div>
 
           {/* Contact Information */}
-          <motion.div variants={fadeInUp} className="mt-12 bg-white border border-gray-200 rounded-lg p-6">
+          <motion.div variants={fadeInUp} className="mt-12 bg-gray-100 border border-gray-200 rounded-lg p-6">
             <h3 className="text-xl font-light mb-4 text-black">
               Contact Us
             </h3>

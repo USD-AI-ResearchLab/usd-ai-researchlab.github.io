@@ -95,7 +95,7 @@ const NewsCarousel: React.FC = () => {
   return (
     <div className="w-full py-8 px-4">
       <div 
-        className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative overflow-hidden backdrop-blur-sm"
+        className="bg-gray-100 rounded-2xl shadow-xl border border-gray-100 p-8 relative overflow-hidden backdrop-blur-sm"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -105,7 +105,7 @@ const NewsCarousel: React.FC = () => {
         {/* Navigation buttons */}
         <button 
           onClick={goToPrevious}
-          className="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
+          className="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-gray-100 rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
           aria-label="Previous news item"
         >
           <svg className="w-5 h-5 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,7 +115,7 @@ const NewsCarousel: React.FC = () => {
 
         <button 
           onClick={goToNext}
-          className="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
+          className="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-gray-100 rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition-all duration-300 hover:shadow-xl group z-10"
           aria-label="Next news item"
         >
           <svg className="w-5 h-5 text-gray-600 group-hover:text-red-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -15,7 +15,6 @@ const profileImage2 = "/faculty/rodrigue-rizk.jpg"; // Dr. Rodrigue Rizk
 const profileImage3 = "/faculty/longwei-wang.jpeg"; // Dr. Longwei Wang
 const profileImage4 = "/faculty/srikanth-baride.jpg"; // Dr. Srikanth Baride
 const profileImage5 = "/faculty/nand-yadav.jpg"; // Dr. Nand K Yadav
-const profileImage6 = "/faculty/deepika-nuthalapati.jpg"; // Deepika Nuthalapati
 
 export const facultyData: Person[] = [
   {
@@ -60,11 +59,5 @@ export const facultyData: Person[] = [
     memberKey: "nand-yadav",
     url: "https://www.linkedin.com/in/nand-k-yadav-891883262/",
     scholarUrl: "https://scholar.google.com/citations?hl=en&user=MYuCzcsAAAAJ"
-  },
-  {
-    name: "Deepika Nuthalapati",
-    role: "Research Associate, Department of Computer Science, USD | Member, USD AI Research",
-    photo: profileImage6,
-    memberKey: "deepika-nuthalapati"
   }
 ];

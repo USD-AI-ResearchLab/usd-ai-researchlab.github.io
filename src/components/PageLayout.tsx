@@ -13,7 +13,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   children
 }) => {
   return (
-    <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 bg-white mt-24 md:mt-32">
+    <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 bg-transparent mt-24 md:mt-32">
       {/* Stable Card Container - matching Home page style */}
       <motion.div 
         className="w-full max-w-7xl"
@@ -22,7 +22,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         transition={{ duration: 0.4 }}
       >
         <motion.div
-          className="relative bg-white rounded-3xl shadow-2xl overflow-hidden"
+          className="relative glass-card rounded-3xl overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -31,7 +31,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           <div className="absolute inset-0 rounded-3xl ring-1 ring-red-200/40 pointer-events-none" />
           
           {/* Content wrapper */}
-          <div className="relative py-4 px-3 lg:px-4 bg-white">
+          <div className="relative py-4 px-3 lg:px-4 glass-card-inner">
             <motion.div 
               className="relative z-10"
               initial="initial"
@@ -56,7 +56,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
                       animate: { opacity: 1, y: 0 }
                     }}
                   >
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-red-600 tracking-tight break-words">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-red-600 tracking-tight break-words">
                       {title}
                     </h1>
                     {subtitle && (

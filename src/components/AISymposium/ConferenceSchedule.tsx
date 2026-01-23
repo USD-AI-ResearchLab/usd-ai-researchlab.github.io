@@ -62,7 +62,7 @@ const ConferenceSchedule: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+    <div className="bg-gray-100 rounded-lg shadow-md p-6 mb-8">
       <button
         onClick={() => setIsScheduleOpen(!isScheduleOpen)}
         className="w-full flex justify-between items-center text-left"

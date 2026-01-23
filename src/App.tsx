@@ -23,9 +23,9 @@ const App: React.FC = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen w-full bg-white">
+    <div className="min-h-screen w-full bg-gray-100">
       <NavBar />
-      <main className="w-full bg-white">
+      <main className="w-full min-h-screen main-with-bg">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/people" element={<People />} />

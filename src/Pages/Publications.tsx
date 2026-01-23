@@ -107,7 +107,7 @@ const Publications: React.FC = () => {
       <div className="w-full">
         
         {/* Books Section */}
-        <div className="w-full mb-16">
+        <div className="w-full mb-16 bg-gray-100 rounded-lg p-8 border border-gray-200">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
             Books
           </h2>
@@ -115,7 +115,7 @@ const Publications: React.FC = () => {
         </div>
 
         {/* Research Papers Section */}
-        <div className="w-full mb-16 relative">
+        <div className="w-full mb-16 relative bg-gray-100 rounded-lg p-8 border border-gray-200">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
             Research Papers
           </h2>
@@ -175,7 +175,7 @@ const Publications: React.FC = () => {
               return (
                 <div
                   key={actualIndex}
-                  className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+                  className="bg-gray-100 border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
                   onMouseEnter={() => handleMouseEnter(actualIndex)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -279,7 +279,7 @@ const Publications: React.FC = () => {
                 className={`px-3 py-1 rounded ${
                   currentPage === 1
                     ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-white text-red-600 border border-red-600 hover:bg-red-50 transition-colors'
+                    : 'bg-gray-100 text-red-600 border border-red-600 hover:bg-red-50 transition-colors'
                 }`}
               >
                 Previous
@@ -293,7 +293,7 @@ const Publications: React.FC = () => {
                   className={`px-3 py-1 rounded transition-colors ${
                     pageNum === currentPage
                       ? 'bg-red-600 text-white'
-                      : 'bg-white text-red-600 border border-red-600 hover:bg-red-50'
+                      : 'bg-gray-100 text-red-600 border border-red-600 hover:bg-red-50'
                   }`}
                 >
                   {pageNum}
@@ -307,7 +307,7 @@ const Publications: React.FC = () => {
                 className={`px-3 py-1 rounded ${
                   currentPage === totalPages
                     ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-white text-red-600 border border-red-600 hover:bg-red-50 transition-colors'
+                    : 'bg-gray-100 text-red-600 border border-red-600 hover:bg-red-50 transition-colors'
                 }`}
               >
                 Next

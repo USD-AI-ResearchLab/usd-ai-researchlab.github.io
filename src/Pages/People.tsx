@@ -5,6 +5,7 @@ import PersonCard from '../components/PersonCard';
 import { facultyData, Person } from '../data/faculty';
 import { studentsData } from '../data/students';
 import { alumniData } from '../data/alumni';
+import { staffData } from '../data/staff';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
 
 const People: React.FC = () => {
@@ -49,7 +50,7 @@ const People: React.FC = () => {
   };
 
   const letters = ['All', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-  const categories = ['All', 'Faculty', 'Postdoc', 'PhD Students', 'Masters Students', 'Current', 'Alumni'];
+  const categories = ['All', 'Faculty', 'Postdoc', 'PhD Students', 'Masters Students', 'Current', 'Alumni', 'Staff', 'External Collaboration'];
 
   // Filter and get current data based on selection
   const getCurrentData = () => {
@@ -94,13 +95,23 @@ const People: React.FC = () => {
         break;
         
       case 'Current':
-        // Current = faculty + students (not alumni)
-        categoryFilteredData = [...facultyData, ...studentsData];
+        // Current = faculty + students + staff (not alumni)
+        categoryFilteredData = [...facultyData, ...studentsData, ...staffData];
         break;
         
       case 'Alumni':
         // Alumni = just alumni data
         categoryFilteredData = alumniData;
+        break;
+        
+      case 'Staff':
+        // Staff = staff data only
+        categoryFilteredData = staffData;
+        break;
+        
+      case 'External Collaboration':
+        // External Collaboration = staff members (can be extended later)
+        categoryFilteredData = staffData;
         break;
         
       default:
@@ -227,8 +238,8 @@ const People: React.FC = () => {
               disabled={validCurrentPage === 1}
               className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
                 validCurrentPage === 1
-                  ? 'text-gray-400 cursor-not-allowed bg-white border border-gray-200'
-                  : 'text-gray-700 hover:text-red-600 hover:bg-white hover:shadow-md bg-white border border-gray-300'
+                  ? 'text-gray-400 cursor-not-allowed bg-gray-100 border border-gray-300'
+                  : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md bg-gray-100 border border-gray-300'
               }`}
             >
               ← Prev
@@ -255,7 +266,7 @@ const People: React.FC = () => {
                   className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 flex-shrink-0 ${
                     isCurrentPage
                       ? 'bg-red-600 text-white shadow-sm cursor-default'
-                      : 'text-gray-700 hover:text-red-600 hover:bg-white hover:shadow-md bg-white border border-gray-300'
+                      : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md bg-gray-100 border border-gray-300'
                   }`}
                 >
                   {pageNumber}
@@ -269,8 +280,8 @@ const People: React.FC = () => {
               disabled={validCurrentPage === totalPages}
               className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
                 validCurrentPage === totalPages
-                  ? 'text-gray-400 cursor-not-allowed bg-white border border-gray-200'
-                  : 'text-gray-700 hover:text-red-600 hover:bg-white hover:shadow-md bg-white border border-gray-300'
+                  ? 'text-gray-400 cursor-not-allowed bg-gray-100 border border-gray-300'
+                  : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md bg-gray-100 border border-gray-300'
               }`}
             >
               Next →
@@ -300,7 +311,7 @@ const People: React.FC = () => {
         variants={staggerChildren}
       >
         {/* Team Description */}
-        <motion.div className="mb-8" variants={fadeInUp}>
+        <motion.div className="mb-8 bg-gray-100 rounded-lg p-6 border border-gray-200" variants={fadeInUp}>
           <p className="text-lg text-black leading-relaxed mb-4 font-thin">
             Meet the brilliant minds behind our AI research lab - faculty, students, and alumni who are shaping the future of artificial intelligence.
           </p>
@@ -319,10 +330,13 @@ const People: React.FC = () => {
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
+                    disabled={category === 'External Collaboration'}
                     className={`px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-200 border-2 flex-shrink-0 sm:flex-shrink ${
-                      selectedCategory === category
+                      category === 'External Collaboration'
+                        ? 'text-gray-400 bg-gray-200 border-gray-400 cursor-not-allowed opacity-50'
+                        : selectedCategory === category
                         ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
-                        : 'text-gray-600 bg-white border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-50'
+                        : 'text-gray-600 bg-gray-100 border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-150'
                     }`}
                   >
                     {category}
@@ -349,7 +363,7 @@ const People: React.FC = () => {
                     className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded transition-all duration-200 border-2 flex-shrink-0 sm:flex-shrink ${
                       selectedLetter === letter
                         ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
-                        : 'text-gray-600 bg-white border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-50'
+                        : 'text-gray-600 bg-gray-100 border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-150'
                     }`}
                   >
                     {letter}
@@ -443,7 +457,7 @@ const People: React.FC = () => {
                       setSelectedLetter('All');
                       setCurrentPage(1);
                     }}
-                    className="px-6 py-3 text-sm font-medium text-red-600 bg-white border border-red-600 rounded-lg hover:bg-red-50 transition-colors"
+                    className="px-6 py-3 text-sm font-medium text-red-600 bg-gray-100 border border-red-600 rounded-lg hover:bg-red-50 transition-colors"
                   >
                     Clear Letter Filter
                   </button>

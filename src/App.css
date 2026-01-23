@@ -222,7 +222,7 @@ html, body {
   width: 100%;
   min-height: 100%;
   overflow-x: hidden;
-  background: #ffffff;
+  background: #f5f5f5;
   background-image: none !important;
   background-size: auto;
   color: black;
@@ -231,7 +231,7 @@ html, body {
 #root {
   min-height: 100vh;
   width: 100%;
-  background: #ffffff;
+  background: #f5f5f5;
 }
 
 .heading-red {
@@ -418,6 +418,61 @@ div.border-logo-red {
 
 .scrollbar-thumb-red-400::-webkit-scrollbar-thumb:hover {
   background: rgb(248 113 113);
+}
+
+/* Updated stat cards with red border and selection effect */
+.stat-card {
+  background-color: rgba(245, 245, 245, 0.98);
+  border: 2px solid transparent !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+  transition: all 300ms ease;
+}
+
+.stat-card:hover {
+  border-color: #C53030 !important;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Transparent director card - no blur effect */
+.director-card {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Glass card with frosted glass effect */
+.glass-card {
+  background: rgba(200, 200, 200, 0.25) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(200, 200, 200, 0.3) !important;
+}
+
+.glass-card-inner {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Main background image for all pages */
+.main-with-bg {
+  background-image: url('/images/building-bg.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Override any inline styles from Home page */
+.main-with-bg[style] {
+  background-image: url('/images/building-bg.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
 }
 
 /* Force GitHub Pages rebuild */

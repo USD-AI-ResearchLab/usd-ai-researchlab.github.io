@@ -26,7 +26,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({
   if (type === 'basic') {
     return (
       <motion.div 
-        className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow group cursor-pointer"
+        className="flex items-center justify-center p-4 bg-gray-100 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow group cursor-pointer"
         variants={fadeInUp}
         whileHover={{ y: -2, transition: { duration: 0.2 } }}
         onClick={() => website && window.open(website, '_blank')}
@@ -44,7 +44,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({
   if (type === 'detailed') {
     return (
       <motion.div 
-        className="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-all duration-300 group cursor-pointer transform hover:-translate-y-1"
+        className="bg-gray-100 rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-all duration-300 group cursor-pointer transform hover:-translate-y-1"
         variants={fadeInUp}
         onClick={() => website && window.open(website, '_blank')}
       >
@@ -85,7 +85,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({
   if (type === 'featured') {
     return (
       <motion.div 
-        className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg border-2 border-red-100 p-8 hover:shadow-xl transition-all duration-300 group cursor-pointer relative overflow-hidden"
+        className="bg-gradient-to-br from-gray-100 to-gray-50 rounded-2xl shadow-lg border-2 border-red-100 p-8 hover:shadow-xl transition-all duration-300 group cursor-pointer relative overflow-hidden"
         variants={fadeInUp}
         whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
         onClick={() => website && window.open(website, '_blank')}
@@ -94,7 +94,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({
         <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-red-100 to-transparent opacity-50 rounded-bl-full"></div>
         
         <div className="relative flex flex-col items-center text-center space-y-6">
-          <div className="w-24 h-24 bg-white rounded-2xl shadow-md flex items-center justify-center p-4 group-hover:shadow-lg transition-shadow border border-red-100">
+          <div className="w-24 h-24 bg-gray-100 rounded-2xl shadow-md flex items-center justify-center p-4 group-hover:shadow-lg transition-shadow border border-red-100">
             <img 
               src={imageSrc} 
               alt={name} 

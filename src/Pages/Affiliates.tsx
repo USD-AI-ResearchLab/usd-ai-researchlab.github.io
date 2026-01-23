@@ -95,7 +95,7 @@ const Affiliates: React.FC = () => {
             {/* Navigation Arrows */}
             <button 
               onClick={goToPrevious}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-gray-100 shadow-lg rounded-full p-3 hover:bg-gray-150 transition-colors duration-200"
               disabled={categories.length <= 1}
               aria-label="Previous category"
               title="Previous category"
@@ -106,11 +106,11 @@ const Affiliates: React.FC = () => {
             </button>
 
             {/* Multiple Cards Display - Full Width */}
-            <div className="flex justify-center items-center min-h-[400px] px-16 gap-8">
+            <div className="flex justify-center items-center min-h-[400px] px-16 gap-8 py-8">
               {currentCategory.cards.map((card, index) => (
                 <motion.div 
                   key={`${currentCategoryIndex}-${index}`}
-                  className="flex flex-col items-center p-8 flex-1 min-w-[300px] max-w-[400px] transition-all duration-300 group cursor-pointer hover:scale-105"
+                  className="flex flex-col items-center flex-1 min-w-[300px] max-w-[400px] transition-all duration-300 group cursor-pointer hover:scale-105 bg-gray-100 rounded-lg border border-gray-200 p-8"
                   style={{ height: '360px' }}
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -126,7 +126,7 @@ const Affiliates: React.FC = () => {
                     style={{ textDecoration: 'none', color: 'inherit' }}
                   >
                     {/* Logo Container */}
-                    <div className="p-6 mb-6 flex items-center justify-center w-full transition-colors" style={{ height: '160px' }}>
+                    <div className="flex items-center justify-center w-full transition-colors mb-4" style={{ height: '160px' }}>
                       <img 
                         src={card.image} 
                         alt={card.alt} 
@@ -158,7 +158,7 @@ const Affiliates: React.FC = () => {
             {/* Right Arrow */}
             <button 
               onClick={goToNext}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-gray-100 shadow-lg rounded-full p-3 hover:bg-gray-150 transition-colors duration-200"
               disabled={categories.length <= 1}
               aria-label="Next category"
               title="Next category"
@@ -187,12 +187,12 @@ const Affiliates: React.FC = () => {
 
         {/* Partnership Information */}
         <motion.div 
-          className="p-12 transition-all duration-500"
+          className="p-12 transition-all duration-500 bg-gray-100 rounded-lg border border-gray-200"
           variants={fadeInUp}
           whileHover={{ y: -8, transition: { duration: 0.4 } }}
         >
           <div className="text-left">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-light mb-8 text-gray-900 tracking-tight">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-light mb-8 text-logo-red tracking-tight">
               Partnership Opportunities
             </h3>
             <p className="text-gray-700 leading-relaxed mb-8 text-lg">

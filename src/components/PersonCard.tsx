@@ -16,11 +16,11 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, scholar
   const imageUrl = photo;
 
   const CardContent = () => (
-    <div className="person-card bg-white rounded-xl shadow-lg p-6 text-center h-full flex flex-col items-center justify-between border-2 border-transparent hover:border-logo-red">
+    <div className="person-card bg-gray-100 rounded-xl shadow-lg p-6 text-center h-full flex flex-col items-center justify-between border-2 border-transparent hover:border-logo-red">
       <div className="flex flex-col items-center flex-1">
         {/* Photo - Only show if showAvatar is true AND imageUrl exists (no placeholders) */}
         {showAvatar && imageUrl && (
-          <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-gray-100 shadow-lg bg-white">
+          <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-gray-100 shadow-lg bg-gray-100">
             <img
               src={imageUrl}
               alt={name}

@@ -87,7 +87,7 @@ const BooksRowDisplay = () => {
 
   return (
     <div className="flex gap-4 my-8">
-      <div className="bg-white border rounded-lg border-gray-200 p-5 w-full">        
+      <div className="bg-gray-100 border rounded-lg border-gray-200 p-5 w-full">        
         <div 
           className="relative" 
           onMouseEnter={handleMouseEnter}
@@ -95,7 +95,7 @@ const BooksRowDisplay = () => {
         >
           <button 
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/80 hover:bg-white shadow-lg"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-gray-100/80 hover:bg-gray-100 shadow-lg"
           >
             <ChevronLeft />
           </button>
@@ -132,7 +132,7 @@ const BooksRowDisplay = () => {
 
           <button 
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/80 hover:bg-white shadow-lg"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-gray-100/80 hover:bg-gray-100 shadow-lg"
           >
             <ChevronRight />
           </button>

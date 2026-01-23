@@ -2,7 +2,7 @@ import React from 'react';
 
 const SymposiumNavbar: React.FC = () => {
   return (
-    <div className="flex justify-center py-4 px-6 bg-white">
+    <div className="flex justify-center py-4 px-6 bg-gray-100">
       <div className="text-center">
         <h1 className="text-3xl sm:text-5xl font-bold text-logo-red leading-tight">
           7<sup className="text-xl align-top">th</sup> Artificial Intelligence Symposium*

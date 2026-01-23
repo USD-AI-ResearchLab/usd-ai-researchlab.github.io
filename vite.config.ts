@@ -5,6 +5,11 @@ import tailwindcss from '@tailwindcss/vite';
 // Configuration for Vercel deployment
 export default defineConfig({
   base: '/',
+  server: {
+    hmr: {
+      overlay: false
+    }
+  },
   plugins: [
     react(),
     tailwindcss(),

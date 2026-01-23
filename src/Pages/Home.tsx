@@ -53,7 +53,7 @@ const HeroLogo: React.FC = () => (
     {/* Removed glowing background effect to keep the hero area pure white */}
     {/* <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-red-400/30 to-red-500/20 rounded-full blur-3xl scale-110 animate-pulse" /> */}
     
-    <div className="relative bg-white p-0">
+    <div className="relative bg-transparent p-0">
       <Link to="/" style={{ textDecoration: 'none' }}>
         <motion.img 
           src={logoImage} 
@@ -69,13 +69,8 @@ const HeroTitle: React.FC = () => (
   <motion.h1 
     className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight"
     variants={animations.fadeInUp}
-    style={{
-      fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-      fontWeight: '300',
-      display: 'block'
-    }}
   >
-    <span className="gradient-text-hero text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl" style={{ fontWeight: '700' }}>USD AI Research</span>
+    <span className="gradient-text-hero text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">USD AI Research</span>
   </motion.h1>
 );
 
@@ -137,22 +132,22 @@ const DirectorMessage: React.FC = () => (
       </motion.h3>
       
       <motion.p 
-        className="gradient-text-director text-sm md:text-base lg:text-lg font-bold mb-3 leading-relaxed text-left"
+        className="gradient-text-director text-xs md:text-sm lg:text-base font-normal mb-1 leading-relaxed text-left"
         variants={animations.fadeInUp}
         style={{
           fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-          fontWeight: '700'
+          fontWeight: '400'
         }}
       >
         Our vision is to advance sustainable, human-centered machine intelligence that is accessible, responsible, and impactful across communities. AI4ALL is committed to building AI ecosystems that empower talent, reduce barriers, and ensure AI innovation benefits society at large.
       </motion.p>
 
       <motion.p 
-        className="gradient-text-director text-xs md:text-sm lg:text-base font-normal mb-2 leading-relaxed text-left"
+        className="gradient-text-director text-xs md:text-sm lg:text-base font-bold mb-2 leading-relaxed text-left"
         variants={animations.fadeInUp}
         style={{
           fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-          fontWeight: '400'
+          fontWeight: '700'
         }}
       >
         #HumanAI #ExplainableAI #EthicalAI #SustainableAI #EcosystemAI #AI4ALL
@@ -160,7 +155,7 @@ const DirectorMessage: React.FC = () => (
     </div>
     
     <motion.div 
-      className="space-y-1 mt-8 md:mt-10 lg:mt-12"
+      className="space-y-0 mt-4 md:mt-5 lg:mt-6"
       variants={animations.fadeInUp}
     >
       <div className="gradient-text-director text-sm lg:text-base font-bold text-left">
@@ -176,80 +171,56 @@ const DirectorMessage: React.FC = () => (
 // ========================================================================================
 // CUSTOM HOOKS
 // ========================================================================================
-const useCountUp = (end: number, duration: number = 2000) => {
-  const [count, setCount] = useState(0);
-  
-  useEffect(() => {
-    let startTime: number;
-    let animationFrame: number;
-    
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = (timestamp - startTime) / duration;
-      
-      if (progress < 1) {
-        setCount(Math.floor(end * progress));
-        animationFrame = requestAnimationFrame(animate);
-      } else {
-        setCount(end);
-      }
-    };
-    
-    animationFrame = requestAnimationFrame(animate);
-    
-    return () => {
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
-      }
-    };
-  }, [end, duration]);
-
-  return count;
-};
 
 // Animated stat card component
 const AnimatedStatCard: React.FC<{
   title: string;
   value: number;
   suffix?: string;
-  subtitle: string;
+  subtitle?: string;
   isText?: boolean;
   href?: string;
   hideSuffix?: boolean;
 }> = ({ title, value, suffix = '', subtitle, isText = false, hideSuffix = false }) => {
-  const animatedValue = useCountUp(value, 2500);
 
   const cardContent = (
-    <div className="space-y-0 sm:space-y-0.5 lg:space-y-1 select-none overflow-hidden">
-      <h3 className="font-semibold text-red-700 text-xs sm:text-xs md:text-sm leading-tight truncate">
+    <div className="space-y-1 sm:space-y-1 md:space-y-1.5 lg:space-y-2 select-none overflow-hidden w-full flex flex-col">
+      {/* Title */}
+      <h3 className="font-bold text-gray-900 text-xs sm:text-sm md:text-base lg:text-lg leading-tight text-center">
         {title}
       </h3>
+      
+      {/* Number Display */}
       {!isText ? (
-        <p className="text-sm sm:text-base md:text-lg lg:text-2xl font-bold text-gray-900 leading-tight truncate">
+        <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-center">
           {suffix && !hideSuffix && suffix === 'M+' ? (
             <>
-              <span className="text-sm sm:text-base md:text-lg lg:text-2xl text-gray-900">$</span>
-              <span className="text-sm sm:text-base md:text-lg lg:text-2xl text-gray-900">{animatedValue}</span>
-              <span className="text-sm sm:text-base md:text-lg lg:text-2xl text-gray-900">M</span>
-              <span className="text-xs sm:text-xs md:text-sm text-red-600 align-super">+</span>
+              <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-red-600">$</span>
+              <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-red-600">{value}</span>
+              <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-red-600">M</span>
+              <span className="text-xs sm:text-sm md:text-base text-gray-900 align-super">+</span>
             </>
           ) : (
             <>
-              {animatedValue}
+              <span className="text-red-600">{value}</span>
               {suffix && !hideSuffix ? (
-                <span className="text-xs sm:text-xs md:text-sm text-red-600 align-super">{suffix}</span>
+                <span className="text-xs sm:text-sm md:text-base text-gray-900 align-super">{suffix}</span>
               ) : null}
             </>
           )}
         </p>
       ) : null}
-      <p className={`${isText ? 'text-xs sm:text-xs md:text-xs lg:text-sm' : 'text-xs sm:text-xs md:text-xs'} text-gray-600 leading-tight line-clamp-2`}>
-        {subtitle}
-      </p>
+      
+      {/* Subtitle */}
+      {subtitle && (
+        <p className="text-xs sm:text-xs md:text-sm lg:text-sm text-gray-700 leading-tight text-center font-normal">
+          {subtitle}
+        </p>
+      )}
     </div>
   );
 
-  const cardClass = "stat-card bg-gradient-to-br from-gray-50 to-white p-1.5 sm:p-2 md:p-2.5 lg:p-3 xl:p-4 rounded-lg border border-gray-200 shadow-sm h-20 sm:h-24 md:h-28 lg:h-32 flex flex-col justify-between overflow-hidden";
+  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 rounded-lg shadow-sm h-auto flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-md`;
 
   return (
     <div className={cardClass}>
@@ -266,7 +237,7 @@ const HeroSection: React.FC = () => (
     className="mb-2"
     variants={animations.staggerContainer}
   >
-    <div className="flex flex-col items-center justify-center gap-2 lg:gap-3">
+    <div className="flex flex-col items-center justify-center gap-0">
       {/* Logo */}
       <div className="flex-shrink-0 w-auto">
         <HeroLogo />
@@ -291,7 +262,7 @@ const DirectorSection: React.FC = () => (
     <div className="relative">
       {/* Main Card */}
       <motion.div 
-        className="relative bg-white rounded-lg shadow-md border border-red-100/50 overflow-hidden"
+        className="relative rounded-lg shadow-md border overflow-hidden director-card"
         whileHover={{ 
           boxShadow: '0 10px 20px rgba(220, 38, 38, 0.15)',
           transition: { duration: 0.3 }
@@ -327,9 +298,8 @@ const PublicationsSection: React.FC = () => (
         <AnimatedStatCard 
           title="Books"
           value={12}
-          suffix="+"
+          suffix=""
           subtitle="Published Works"
-          hideSuffix={true}
         />
         
         <AnimatedStatCard 
@@ -359,7 +329,7 @@ const Home: React.FC = () => {
   const rotateY = 0;
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-transparent">
       {/* Custom CSS for gradient animation */}
       <style>{`
         @keyframes gradientFlow {
@@ -439,7 +409,7 @@ const Home: React.FC = () => {
         }
       `}</style>
       
-      <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 bg-white mt-24 md:mt-32">
+      <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 mt-24 md:mt-32">
         {/* Stable Card Container */}
         <motion.div 
           className="w-full max-w-7xl"
@@ -448,7 +418,7 @@ const Home: React.FC = () => {
           transition={{ duration: 0.4 }}
         >
           <motion.div
-            className="relative bg-white rounded-3xl shadow-2xl overflow-hidden"
+            className="relative bg-gray-100 rounded-3xl shadow-2xl overflow-hidden"
             style={{
               transformStyle: 'preserve-3d',
               rotateX,
@@ -460,7 +430,7 @@ const Home: React.FC = () => {
             <div className="absolute inset-0 rounded-3xl ring-1 ring-red-200/40 pointer-events-none" />
             
             {/* Content wrapper */}
-            <div className="relative py-4 px-3 lg:px-4 bg-white">
+            <div className="relative py-4 px-3 lg:px-4 bg-gray-100">
               {/* Keep background purely white */}
               {/* <BackgroundElements /> */}
               
