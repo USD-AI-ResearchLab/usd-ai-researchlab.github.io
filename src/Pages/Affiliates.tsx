@@ -105,11 +105,11 @@ const Affiliates: React.FC = () => {
             </button>
 
             {/* Multiple Cards Display - Full Width */}
-            <div className="flex justify-center items-center min-h-[400px] px-16 gap-8 py-8">
+            <div className="flex justify-center items-center flex-wrap min-h-[400px] px-4 md:px-8 gap-8 py-8">
               {currentCategory.cards.map((card, index) => (
                 <motion.div 
                   key={`${currentCategoryIndex}-${index}`}
-                  className="flex flex-col items-center flex-1 min-w-[300px] max-w-[400px] transition-all duration-300 group cursor-pointer hover:scale-105 bg-gray-100 rounded-lg border border-gray-200 p-8"
+                  className="flex flex-col items-center flex-1 min-w-[280px] max-w-[350px] lg:min-w-[300px] lg:max-w-[400px] transition-all duration-300 group cursor-pointer hover:scale-105 bg-gray-100 rounded-lg border border-gray-200 p-8"
                   style={{ height: '360px' }}
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
