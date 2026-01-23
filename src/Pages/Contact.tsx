@@ -25,7 +25,7 @@ const Contact: React.FC = () => {
       title="Contact"
     >
       <motion.div 
-        className="w-full px-4 py-8 bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl shadow-md"
+        className="w-full px-4 py-8 bg-gray-100 rounded-xl"
         initial="initial"
         animate="animate"
         variants={staggerChildren}

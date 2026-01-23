@@ -305,7 +305,7 @@ const People: React.FC = () => {
       title="People"
     >
       <motion.div 
-        className="w-full px-4 py-8"
+        className="w-full px-4 py-8 bg-gray-100 rounded-xl"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
