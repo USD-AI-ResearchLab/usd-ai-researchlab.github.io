@@ -104,21 +104,21 @@ const Affiliates: React.FC = () => {
               </svg>
             </button>
 
-            {/* Multiple Cards Display - Full Width */}
-            <div className="flex justify-center items-center flex-wrap min-h-[400px] px-4 md:px-8 gap-8 py-8">
-              {currentCategory.cards.map((card, index) => (
+            {/* Single Card Display */}
+            <div className="flex justify-center items-center min-h-[400px] px-2 sm:px-4 md:px-6 py-8 w-full overflow-hidden">
+              {currentCategory.cards.length > 0 && (
                 <motion.div 
-                  key={`${currentCategoryIndex}-${index}`}
-                  className="flex flex-col items-center flex-1 min-w-[280px] max-w-[350px] lg:min-w-[300px] lg:max-w-[400px] transition-all duration-300 group cursor-pointer hover:scale-105 bg-gray-100 rounded-lg border border-gray-200 p-8"
+                  key={`${currentCategoryIndex}-0`}
+                  className="flex flex-col items-center min-w-[240px] max-w-[260px] sm:min-w-[280px] sm:max-w-[300px] md:min-w-[320px] md:max-w-[380px] transition-all duration-300 group cursor-pointer hover:scale-105 bg-gray-100 rounded-lg border border-gray-200 p-4 sm:p-5 md:p-6 overflow-hidden"
                   style={{ height: '360px' }}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.03, y: -6, transition: { duration: 0.3 } }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.5 }}
+                  whileHover={{ scale: 1.05, y: -6, transition: { duration: 0.3 } }}
                 >
                   <a 
-                    href={card.url} 
+                    href={currentCategory.cards[0].url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="flex flex-col items-center justify-between h-full w-full no-underline"
@@ -127,16 +127,16 @@ const Affiliates: React.FC = () => {
                     {/* Logo Container */}
                     <div className="flex items-center justify-center w-full transition-colors mb-4" style={{ height: '160px' }}>
                       <img 
-                        src={card.image} 
-                        alt={card.alt} 
+                        src={currentCategory.cards[0].image} 
+                        alt={currentCategory.cards[0].alt} 
                         className="max-h-32 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     
                     {/* Company Name */}
-                    <div className="flex-1 flex items-center justify-center w-full">
-                      <h3 className="text-xl text-gray-800 text-center font-semibold leading-tight px-3 group-hover:text-logo-red transition-colors duration-300">
-                        {card.name}
+                    <div className="flex-1 flex items-center justify-center w-full px-1 overflow-hidden">
+                      <h3 className="text-sm sm:text-base md:text-lg text-gray-800 text-center font-semibold leading-snug group-hover:text-logo-red transition-colors duration-300 line-clamp-3">
+                        {currentCategory.cards[0].name}
                       </h3>
                     </div>
 
@@ -151,7 +151,7 @@ const Affiliates: React.FC = () => {
                     </div>
                   </a>
                 </motion.div>
-              ))}
+              )}
             </div>
 
             {/* Right Arrow */}
@@ -183,11 +183,27 @@ const Affiliates: React.FC = () => {
             ))}
           </div>
         </motion.div>
+      </motion.div>
 
-        {/* Partnership Information */}
+      {/* Partnership Information - Separate Section */}
+      <motion.div 
+        className="px-8 py-16 w-full bg-gray-100 rounded-xl mt-8"
+        initial="initial"
+        animate="animate"
+        variants={{
+          animate: {
+            transition: {
+              staggerChildren: 0.2
+            }
+          }
+        }}
+      >
         <motion.div 
-          className="p-12 transition-all duration-500 bg-gray-100 rounded-lg border border-gray-200"
-          variants={fadeInUp}
+          className="p-12 transition-all duration-500 bg-gray-100"
+          variants={{
+            initial: { opacity: 0, y: 30 },
+            animate: { opacity: 1, y: 0, transition: { duration: 0.7 } }
+          }}
           whileHover={{ y: -8, transition: { duration: 0.4 } }}
         >
           <div className="text-left">
