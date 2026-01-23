@@ -21,7 +21,6 @@ const Affiliates: React.FC = () => {
   ];
 
   const professionalOrganizations = [
-    { name: "IEEE USA", image: "/images/sponsor/ieee_usa.png", url: "https://www.ieeeusa.org/", alt: "IEEE USA" },
     { name: "IEEE", image: "/images/sponsor/IEEE.png", url: "https://www.ieee.org/", alt: "IEEE" }
   ];
 
