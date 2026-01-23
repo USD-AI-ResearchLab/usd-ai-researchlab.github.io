@@ -6,5 +6,5 @@
 ✅ **Auto Deploy:** GitHub Actions Workflow Active  
 ✅ **Manual Deploy:** gh-pages package working  
 
-Last Updated: Fri Dec 12 11:23:42 CST 2025
+Last Updated: Wed Jan 22 2026 - Pages rebuilt with latest styling updates (Affiliates cards, vite config fix)
 
