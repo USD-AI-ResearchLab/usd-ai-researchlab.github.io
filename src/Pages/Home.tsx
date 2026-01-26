@@ -47,7 +47,7 @@ const animations = {
 // ========================================================================================
 const HeroLogo: React.FC = () => (
   <motion.div 
-    className="relative mb-0"
+    className="relative -mb-8 md:-mb-12 lg:-mb-16"
     variants={animations.fadeIn}
   >
     {/* Removed glowing background effect to keep the hero area pure white */}
@@ -220,7 +220,7 @@ const AnimatedStatCard: React.FC<{
     </div>
   );
 
-  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 rounded-xl shadow-md h-auto flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg bg-gray-100`;
+  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 rounded-xl shadow-md h-auto flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg bg-gray-100 border border-gray-200`;
 
   return (
     <div className={cardClass}>
@@ -234,7 +234,7 @@ const AnimatedStatCard: React.FC<{
 // ========================================================================================
 const HeroSection: React.FC = () => (
   <motion.section 
-    className="mb-8 bg-gray-100 rounded-xl p-8"
+    className="mb-8 bg-gray-100 rounded-xl p-8 shadow-md border border-gray-200"
     variants={animations.staggerContainer}
   >
     <div className="flex flex-col items-center justify-center gap-0">
@@ -262,7 +262,7 @@ const DirectorSection: React.FC = () => (
     <div className="relative">
       {/* Main Card - Glassmorphic Style */}
       <motion.div 
-        className="relative rounded-xl shadow-md border overflow-hidden bg-gray-100 p-8"
+        className="relative rounded-xl shadow-md border border-gray-200 overflow-hidden bg-gray-100 p-8"
         whileHover={{ 
           boxShadow: '0 10px 20px rgba(220, 38, 38, 0.15)',
           transition: { duration: 0.3 }
@@ -286,7 +286,7 @@ const PublicationsSection: React.FC = () => (
     initial="initial"
     animate="animate"
   >
-    <div className="flex-shrink-0 w-full bg-gray-100 rounded-xl p-8 mb-12">
+    <div className="flex-shrink-0 w-full bg-gray-100 rounded-xl p-8 mb-12 shadow-md border border-gray-200">
       <div className="grid grid-cols-4 gap-0.5 sm:gap-1 lg:gap-1.5 xl:gap-1.5">
         <AnimatedStatCard 
           title="Published Research"
@@ -409,7 +409,7 @@ const Home: React.FC = () => {
         }
       `}</style>
       
-      <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 mt-24 md:mt-32">
+      <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 mt-24 md:mt-32 bg-white/10 backdrop-blur-sm rounded-3xl shadow-lg">
         {/* Stable Card Container */}
         <motion.div 
           className="w-full max-w-7xl"
@@ -418,7 +418,7 @@ const Home: React.FC = () => {
           transition={{ duration: 0.4 }}
         >
           <motion.div
-            className="relative bg-transparent rounded-3xl overflow-hidden"
+            className="relative bg-white/5 backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 shadow-md"
             style={{
               transformStyle: 'preserve-3d',
               rotateX,
