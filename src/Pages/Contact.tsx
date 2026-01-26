@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import PageLayout from '../components/PageLayout';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
-import usdLogo from '../assets/logo.svg';
+import usdLogo from '../assets/RealLogo.png';
 
 const Contact: React.FC = () => {
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -25,7 +25,7 @@ const Contact: React.FC = () => {
       title="Contact"
     >
       <motion.div 
-        className="w-full px-4 py-8 bg-gray-100 rounded-xl"
+        className="w-full px-4 py-8"
         initial="initial"
         animate="animate"
         variants={staggerChildren}

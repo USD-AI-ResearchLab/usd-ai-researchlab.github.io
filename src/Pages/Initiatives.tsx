@@ -32,35 +32,35 @@ const Initiatives: React.FC = () => {
       link: "https://rtip2r-conference.org/2025/",
       isExternal: true,
       image: "/images/conferences/rtip2r-new.svg",
-      description: "Real-Time Image Processing for Recognition conference showcasing advances in computer vision and pattern recognition."
+      description: "Leading conference on Recent Trends in Image Processing and Pattern Recognition attracting cutting-edge research on image processing, pattern recognition, computer vision, and machine learning."
     },
     {
       title: "AI Engineering",
       link: "https://www.aiengineering-conference.org",
       isExternal: true,
       image: "/images/conferences/ai-engineering-new.svg",
-      description: "Conference focused on engineering aspects of AI systems, deployment, and scalability challenges."
+      description: "Conference on AI Engineering and Innovation with keynotes and technical sessions across healthcare, agriculture, energy, and automation. All papers submitted to IEEE Xplore with publication opportunities."
     },
     {
       title: "2AI Conference",
       link: "https://www.2ai-conference.org",
       isExternal: true,
       image: "/images/conferences/applied-ai-new.svg",
-      description: "Conference on Applied Artificial Intelligence emphasizing practical AI solutions across industries."
+      description: "International Conference on Applied Artificial Intelligence focused on sustainable AI solutions, pattern recognition, computer vision, and real-world applications across healthcare, imaging, and IoT domains."
     },
     {
       title: "CVMI Conference",
       link: "https://cvmi2024.iiita.ac.in/",
       isExternal: true,
       image: "/images/conferences/cvmi-new.svg",
-      description: "Computer Vision and Machine Intelligence conference exploring the intersection of vision and intelligence."
+      description: "IEEE Computer Vision and Machine Intelligence Conference on pattern recognition, computer vision, and biometrics. Papers submitted to IEEE Xplore with IAPR Best Paper Awards and PhD Dissertation recognition."
     },
     {
       title: "Big Data Africa Symposium",
       link: "https://bigdataafricasymposium.org/symposium-2026/",
       isExternal: true,
       image: "/images/conferences/big-data-africa-new.svg",
-      description: "Symposium focused on big data analytics, AI applications, and digital transformation across Africa."
+      description: "Symposium on data-driven AI for healthcare, climate, agriculture, and security across Africa. Features keynotes, hands-on sessions, youth workshops, and opportunities for transforming research into sustainable impact."
     }
   ];
 
@@ -190,7 +190,55 @@ const Initiatives: React.FC = () => {
 
                       {/* Action */}
                       <div className="mt-6 relative z-30">
-                        {category.isExternal ? (
+                        {category.title === "RTIP2R Conference" ? (
+                          <div className="space-y-3">
+                            <a href="https://rtip2r-conference.org/" target="_blank" rel="noopener noreferrer" className="block">
+                              <span className="inline-flex items-center px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200">
+                                Learn More
+                                <svg 
+                                  className="w-4 h-4 ml-2" 
+                                  fill="none" 
+                                  stroke="currentColor" 
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                              </span>
+                            </a>
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                              <a href="https://rtip2r-conference.org/2025/" target="_blank" rel="noopener noreferrer">
+                                <span className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
+                                  2025
+                                </span>
+                              </a>
+                              <a href="https://rtip2r-conference.org/2024/" target="_blank" rel="noopener noreferrer">
+                                <span className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
+                                  2024
+                                </span>
+                              </a>
+                              <a href="https://rtip2r-conference.org/2023/" target="_blank" rel="noopener noreferrer">
+                                <span className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
+                                  2023
+                                </span>
+                              </a>
+                              <a href="https://rtip2r-conference.org/2022/" target="_blank" rel="noopener noreferrer">
+                                <span className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
+                                  2022
+                                </span>
+                              </a>
+                              <a href="https://rtip2r-conference.org/2021/" target="_blank" rel="noopener noreferrer">
+                                <span className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
+                                  2021
+                                </span>
+                              </a>
+                              <a href="https://rtip2r-conference.org/2018/" target="_blank" rel="noopener noreferrer">
+                                <span className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
+                                  2018
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        ) : category.isExternal ? (
                           <a
                             href={category.link}
                             target="_blank"
