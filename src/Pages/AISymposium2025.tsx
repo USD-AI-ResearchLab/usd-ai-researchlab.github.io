@@ -1,13 +1,15 @@
 // cSpell: disable
 
-import React, { useState, useEffect } from "react";
-import AnimatedAIBanner from '../components/AnimatedAIBanner';
-import StatsComponent from '../components/StatsComponent';
-import RegistrationInfo from '../components/RegistrationInfo';
-import ConferenceSchedule from '../components/ConferenceSchedule';
-import CommitteeMembers from '../components/CommitteeMembers';
-import Speakers from '../components/Speakers';
-import FloatingScrollArrows from "../components/FloatingScrollArrows";
+import React, { useState, useEffect, Suspense, lazy } from "react";
+
+// Lazy load heavy components
+const AnimatedAIBanner = lazy(() => import('../components/AnimatedAIBanner'));
+const StatsComponent = lazy(() => import('../components/StatsComponent'));
+const RegistrationInfo = lazy(() => import('../components/RegistrationInfo'));
+const ConferenceSchedule = lazy(() => import('../components/ConferenceSchedule'));
+const CommitteeMembers = lazy(() => import('../components/CommitteeMembers'));
+const Speakers = lazy(() => import('../components/Speakers'));
+const FloatingScrollArrows = lazy(() => import("../components/FloatingScrollArrows"));
 
 const AISymposium2025: React.FC = () => {
   const [showGoToTop, setShowGoToTop] = useState(false);
@@ -91,7 +93,9 @@ const AISymposium2025: React.FC = () => {
 
         {/* Animated AI Symposium Banner */}
         <div className="mb-8">
-          <AnimatedAIBanner />
+          <Suspense fallback={<div className="h-32 bg-gray-100 animate-pulse rounded-lg"></div>}>
+            <AnimatedAIBanner />
+          </Suspense>
         </div>
 
         {/* Combined "Download" + "Welcome" Card */}
@@ -156,7 +160,9 @@ const AISymposium2025: React.FC = () => {
         </div>
 
         {/* Known for Excellence - Stats Component */}
-        <StatsComponent stats={symposiumStats} />
+        <Suspense fallback={<div className="h-24 bg-gray-100 animate-pulse rounded-lg mb-8"></div>}>
+          <StatsComponent stats={symposiumStats} />
+        </Suspense>
 
         {/* Location Information */}
         <div className="bg-gray-100 rounded-lg shadow-md p-6 mb-8">

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import PageLayout from '../components/PageLayout';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
+import LazyMap from '../components/LazyMap';
+import LazyImage from '../components/LazyImage';
 import usdLogo from '../assets/RealLogo.png';
 
 const Contact: React.FC = () => {
-  const [mapLoaded, setMapLoaded] = useState(false);
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -86,34 +87,23 @@ const Contact: React.FC = () => {
           <motion.div variants={fadeInUp} className="mt-16 bg-gray-100 border border-gray-200 rounded-lg overflow-hidden shadow-md">
             {/* Logo Header */}
             <div className="bg-gradient-to-r from-gray-200 to-gray-100 p-6 flex items-center gap-4 border-b border-gray-200">
-              <img src={usdLogo} alt="University of South Dakota" className="h-16 w-auto" />
+              <LazyImage 
+                src={usdLogo} 
+                alt="University of South Dakota" 
+                className="h-16 w-auto" 
+              />
               <div>
                 <h4 className="text-xl font-light text-black">Visit Us</h4>
                 <p className="text-sm text-gray-600">University of South Dakota - Computer Science Department</p>
               </div>
             </div>
             {/* Map */}
-            <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gray-100">
-              {!mapLoaded && (
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-gray-100 animate-pulse z-20 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-logo-red"></div>
-                    <p className="mt-4 text-gray-600 font-light">Loading map...</p>
-                  </div>
-                </div>
-              )}
-              <iframe
-                width="100%"
-                height="100%"
-                frameBorder={0}
-                className="border-0"
+            <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[500px]">
+              <LazyMap
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2931.5769!2d-96.40150332812499!3d42.77628670000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8787fa9c703b26e5%3A0x8c5f5f5f5f5f5f5f!2s414%20E%20Clark%20St%2C%20Vermillion%2C%20SD%2057069%2C%20USA!5e0!3m2!1sen!2sus!4v1610000000000"
-                allowFullScreen={true}
-                loading="eager"
-                referrerPolicy="no-referrer-when-downgrade"
                 title="University of South Dakota - Computer Science Department Location - You are here"
-                onLoad={() => setMapLoaded(true)}
-              ></iframe>
+                className="w-full h-full"
+              />
               {/* "You are here" indicator */}
               <div className="absolute top-2 sm:top-3 md:top-4 left-2 sm:left-3 md:left-4 bg-logo-red text-white px-2 sm:px-3 md:px-3 py-1 sm:py-2 md:py-2 rounded-lg shadow-lg text-xs sm:text-sm md:text-sm font-medium z-10">
                 📍 You are here

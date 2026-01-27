@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyImage from './LazyImage';
 
 interface PersonCardProps {
   name: string;
@@ -21,24 +22,12 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, scholar
         {/* Photo - Only show if showAvatar is true AND imageUrl exists (no placeholders) */}
         {showAvatar && imageUrl && (
           <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-gray-100 shadow-lg bg-gray-100">
-            <img
+            <LazyImage
               src={imageUrl}
               alt={name}
-              className="person-card-image w-full h-full object-cover"
-              style={{
-                filter: 'contrast(1.02) brightness(1.01) saturate(1.05)',
-                objectPosition: 'center 25%'
-              }}
+              className="person-card-image w-full h-full object-cover rounded-full"
               onLoad={() => {
                 console.log(`✅ Image loaded successfully for ${name}:`, imageUrl);
-              }}
-              onError={(e) => {
-                console.error(`❌ Image failed to load for ${name}:`, imageUrl);
-                // Hide the entire image container if it fails to load (no placeholder)
-                const parent = e.currentTarget.parentElement;
-                if (parent) {
-                  parent.style.display = 'none';
-                }
               }}
             />
           </div>
