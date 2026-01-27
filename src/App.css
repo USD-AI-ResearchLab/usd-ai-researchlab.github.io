@@ -459,7 +459,7 @@ div.border-logo-red {
 
 /* Main background image for all pages */
 .main-with-bg {
-  background-image: url('/images/building-bg.jpg') !important;
+  background-image: url('/images/building-bg.jpeg') !important;
   background-size: cover !important;
   background-position: center !important;
   background-attachment: fixed !important;
@@ -468,7 +468,7 @@ div.border-logo-red {
 
 /* Override any inline styles from Home page */
 .main-with-bg[style] {
-  background-image: url('/images/building-bg.jpg') !important;
+  background-image: url('/images/building-bg.jpeg') !important;
   background-size: cover !important;
   background-position: center !important;
   background-attachment: fixed !important;
