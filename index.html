@@ -5,7 +5,15 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=5" />
     <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg?v=5" />
     <link rel="apple-touch-icon" href="/favicon.svg?v=5" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <!-- Mobile optimizations -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#C53030">
+    <meta name="format-detection" content="telephone=no">
+    
     <title>USD AI Research - University of South Dakota</title>
     <meta name="description" content="USD AI Research - Pioneering artificial intelligence research at the University of South Dakota. Explore our faculty, publications, initiatives, and AI symposium." />
     <meta name="keywords" content="USD AI Research, University of South Dakota, artificial intelligence, AI research, machine learning, computer science, faculty, publications" />
@@ -32,10 +40,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.google.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://unpkg.com">
     
-    <!-- Preload critical assets -->
-    <link rel="preload" href="/src/assets/logo.svg" as="image" type="image/svg+xml">
-    <link rel="preload" href="/images/building-bg.jpeg" as="image" type="image/jpeg">
+    <!-- Mobile-specific preloads -->
+    <link rel="preload" href="/src/assets/logo.svg" as="image" type="image/svg+xml" media="(min-width: 768px)">
+    <link rel="preload" href="/images/building-bg.jpeg" as="image" type="image/jpeg" media="(min-width: 768px)">
+    
+    <!-- Mobile-first CSS preload -->
+    <link rel="preload" as="style" href="/src/App.css" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Font loading optimization for mobile -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Ubuntu+Mono:wght@400;700&family=Yanone+Kaffeesatz:wght@200;300;400;500;600;700&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- BoxIcons for modern icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>

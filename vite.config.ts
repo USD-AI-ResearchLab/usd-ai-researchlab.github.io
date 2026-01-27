@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import tailwindcss from '@tailwindcss/vite';
 
-// Advanced configuration for maximum performance
+// Advanced configuration for maximum performance across all devices
 export default defineConfig({
   base: '/',
   server: {
@@ -17,14 +17,20 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    target: 'es2020',
+    target: ['es2019', 'chrome64', 'firefox67', 'safari12'], // Better browser support
     minify: 'terser',
     cssMinify: true,
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
-        pure_funcs: ['console.log'],
+        pure_funcs: ['console.log', 'console.warn'],
+        unsafe_arrows: true,
+        unsafe_methods: true,
+        passes: 3, // Multiple compression passes for smaller bundles
+      },
+      mangle: {
+        safari10: true, // Better Safari compatibility
       },
     },
     rollupOptions: {
@@ -34,7 +40,7 @@ export default defineConfig({
           'react-vendor': ['react', 'react-dom'],
           // Router
           'react-router': ['react-router-dom'],
-          // Animations
+          // Animations - split further for mobile
           'animations': ['framer-motion'],
         },
         assetFileNames: (assetInfo) => {
@@ -46,14 +52,17 @@ export default defineConfig({
           if (/woff2?|eot|ttf|otf/i.test(ext)) {
             return `assets/fonts/[name]-[hash][extname]`;
           }
+          if (/css/i.test(ext)) {
+            return `assets/css/[name]-[hash][extname]`;
+          }
           return `assets/[name]-[hash][extname]`;
         },
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js'
       }
     },
-    chunkSizeWarningLimit: 600,
-    assetsInlineLimit: 2048, // Inline smaller assets
+    chunkSizeWarningLimit: 400, // Smaller chunks for mobile
+    assetsInlineLimit: 1024, // Smaller inline limit for mobile performance
   },
   optimizeDeps: {
     include: [

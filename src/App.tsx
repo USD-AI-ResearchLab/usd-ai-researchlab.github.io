@@ -4,6 +4,8 @@ import React, { useEffect, Suspense, lazy } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import useDeviceOptimization, { getAnimationPreferences } from "./hooks/useDeviceOptimization";
+import usePerformanceMonitoring from "./hooks/usePerformanceMonitoring";
 
 // Lazy load pages for better performance
 const Home = lazy(() => import("./Pages/Home"));
@@ -16,20 +18,80 @@ const Opportunities = lazy(() => import("./Pages/Opportunities"));
 const AISymposium2025 = lazy(() => import("./Pages/AISymposium2025"));
 const SponsorCardDemo = lazy(() => import("./Pages/SponsorCardDemo"));
 
-// Loading component
-const LoadingSpinner = () => (
-  <div className="min-h-screen flex items-center justify-center">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
-  </div>
-);
+// Device-optimized loading component
+const LoadingSpinner: React.FC = () => {
+  const deviceInfo = useDeviceOptimization();
+  const animationPrefs = getAnimationPreferences(deviceInfo);
+  
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        {animationPrefs.enableAnimations ? (
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+        ) : (
+          <div className="w-12 h-12 bg-red-600 rounded-full mx-auto mb-4"></div>
+        )}
+        <p className="text-gray-600">
+          {deviceInfo.connectionSpeed === 'slow' ? 'Loading...' : 'Loading page...'}
+        </p>
+      </div>
+    </div>
+  );
+};
 
 const App: React.FC = () => {
   const location = useLocation();
+  const deviceInfo = useDeviceOptimization();
+  const animationPrefs = getAnimationPreferences(deviceInfo);
+  
+  // Monitor performance across devices
+  usePerformanceMonitoring();
 
   useEffect(() => {
-    // Scroll to top when route changes
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [location.pathname]);
+    // Optimized scroll behavior based on device
+    const scrollBehavior = animationPrefs.enableAnimations ? 'smooth' : 'auto';
+    window.scrollTo({ top: 0, behavior: scrollBehavior });
+  }, [location.pathname, animationPrefs.enableAnimations]);
+
+  useEffect(() => {
+    // Device-specific performance optimizations
+    if (deviceInfo.isSlowDevice || deviceInfo.connectionSpeed === 'slow') {
+      // Disable expensive CSS features on slow devices
+      document.documentElement.style.setProperty('--disable-backdrop-blur', 'none');
+      document.documentElement.style.setProperty('--animation-duration', '0.2s');
+    } else {
+      document.documentElement.style.setProperty('--animation-duration', '0.6s');
+    }
+    
+    // Add device class to body for CSS optimizations
+    document.body.className = `
+      ${deviceInfo.isMobile ? 'mobile-device' : ''} 
+      ${deviceInfo.isTablet ? 'tablet-device' : ''} 
+      ${deviceInfo.isDesktop ? 'desktop-device' : ''} 
+      ${deviceInfo.isSlowDevice ? 'slow-device' : 'fast-device'}
+      ${deviceInfo.connectionSpeed === 'slow' ? 'slow-connection' : ''}
+    `.trim();
+  }, [deviceInfo]);
+
+  // Preload critical resources for faster navigation
+  useEffect(() => {
+    if (!deviceInfo.isSlowDevice && deviceInfo.connectionSpeed !== 'slow') {
+      // Preload critical images
+      const criticalImages = [
+        '/src/assets/logo.svg',
+        '/images/building-bg.jpeg',
+        '/faculty/kc-santosh.jpg'
+      ];
+      
+      criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+      });
+    }
+  }, [deviceInfo.isSlowDevice, deviceInfo.connectionSpeed]);
 
   return (
     <div className="min-h-screen w-full bg-gray-100">

@@ -1,5 +1,51 @@
 @import "tailwindcss";
 
+/* Device-specific performance optimizations */
+
+/* Fast devices - full animations */
+.fast-device {
+  --animation-duration: 0.6s;
+  --backdrop-blur: blur(12px);
+}
+
+/* Slow devices - reduced animations */
+.slow-device {
+  --animation-duration: 0.2s;
+  --backdrop-blur: none;
+}
+
+.slow-device * {
+  animation-duration: 0.2s !important;
+  transition-duration: 0.2s !important;
+}
+
+.slow-device .backdrop-blur-sm,
+.slow-device .backdrop-blur-md,
+.slow-device .backdrop-blur-lg {
+  backdrop-filter: none !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Slow connection - simplified visuals */
+.slow-connection .animate-pulse,
+.slow-connection .animate-spin {
+  animation: none !important;
+}
+
+.slow-connection .shadow-lg,
+.slow-connection .shadow-xl {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Mobile optimizations */
+.mobile-device {
+  --scroll-behavior: auto;
+}
+
+.mobile-device img {
+  image-rendering: optimizeSpeed;
+}
+
 /* Animation delay classes for background patterns */
 .animate-pulse-delay-2 {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;

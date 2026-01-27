@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import useDeviceOptimization from '../hooks/useDeviceOptimization';
 
 interface LazyImageProps {
   src: string;
@@ -19,6 +20,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
   const [isInView, setIsInView] = useState(false);
   const [error, setError] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
+  const deviceInfo = useDeviceOptimization();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,7 +30,10 @@ const LazyImage: React.FC<LazyImageProps> = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { 
+        threshold: deviceInfo.isMobile ? 0.05 : 0.1, // Earlier loading on mobile
+        rootMargin: deviceInfo.isMobile ? '50px' : '25px' // Larger margin on mobile
+      }
     );
 
     if (imgRef.current) {
@@ -36,7 +41,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [deviceInfo.isMobile]);
 
   const handleImageLoad = () => {
     setIsLoaded(true);
@@ -47,19 +52,27 @@ const LazyImage: React.FC<LazyImageProps> = ({
     setError(true);
   };
 
+  // Optimize image loading based on device
+  const optimizedImageProps = {
+    loading: 'lazy' as const,
+    decoding: 'async' as const,
+  };
+
   return (
     <div ref={imgRef} className={`relative ${className}`}>
       {!isInView && (
         <div className="w-full h-full bg-gray-200 animate-pulse rounded">
           <div className="flex items-center justify-center h-full">
-            <div className="text-gray-400 text-sm">Loading...</div>
+            <div className="text-gray-400 text-sm">
+              {deviceInfo.connectionSpeed === 'slow' ? 'Loading...' : 'Loading image...'}
+            </div>
           </div>
         </div>
       )}
       
       {isInView && (
         <>
-          {placeholder && !isLoaded && (
+          {placeholder && !isLoaded && !deviceInfo.isSlowDevice && (
             <img
               src={placeholder}
               alt={alt}
@@ -69,18 +82,18 @@ const LazyImage: React.FC<LazyImageProps> = ({
           
           {error ? (
             <div className="w-full h-full bg-gray-100 flex items-center justify-center rounded">
-              <span className="text-gray-400 text-sm">Failed to load image</span>
+              <span className="text-gray-400 text-sm">Failed to load</span>
             </div>
           ) : (
             <img
               src={src}
               alt={alt}
-              className={`w-full h-full object-cover transition-opacity duration-500 ${
+              className={`w-full h-full object-cover transition-opacity duration-${deviceInfo.isSlowDevice ? '200' : '500'} ${
                 isLoaded ? 'opacity-100' : 'opacity-0'
               } ${className}`}
               onLoad={handleImageLoad}
               onError={handleImageError}
-              loading="lazy"
+              {...optimizedImageProps}
             />
           )}
         </>
