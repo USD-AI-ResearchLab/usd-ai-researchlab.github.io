@@ -90,8 +90,8 @@ const NavBar: React.FC = () => {
               src={bgimage} 
               alt="AI Lab Logo"
               style={{
-                width: '100px',
-                height: '100px',
+                width: '110px',
+                height: '110px',
                 objectFit: 'contain',
                 cursor: 'pointer',
                 transition: 'none',

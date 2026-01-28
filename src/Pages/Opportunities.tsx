@@ -97,13 +97,14 @@ const Opportunities: React.FC = () => {
       title="Career Opportunities"
     >
       <motion.div 
-        className="w-full px-4 py-8 bg-gray-100 rounded-xl"
+        className="w-full px-4 py-8 rounded-xl"
+        style={{ backgroundColor: '#ededed' }}
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
         {/* Main Content Section */}
-        <motion.div className="mb-8 bg-gray-100 rounded-lg p-6 border border-gray-200" variants={fadeInUp}>
+        <motion.div className="mb-8 rounded-lg p-6 border border-gray-200" style={{ backgroundColor: '#ededed' }} variants={fadeInUp}>
           <div className="space-y-4 mb-12">
             <p className="body-text-18 text-black leading-relaxed font-thin">
               We are continuously looking for highly motivated and talented people to contribute to our research in AI, machine learning, and computer vision. Our positions are competitive and limited to maintain a focused, research-driven group.
@@ -125,19 +126,20 @@ const Opportunities: React.FC = () => {
                 key={position.id}
                 variants={fadeInUp}
                 className={`border-2 rounded-lg overflow-hidden transition-all duration-300 ${
-                  openSections[position.id] ? 'border-red-600' : 'border-gray-200'
+                  openSections[position.id] ? 'border-red-600' : 'border-red-600'
                 }`}
               >
                 {/* Header */}
                 <button
                   onClick={() => toggleSection(position.id)}
-                  className="w-full flex items-center gap-3 p-6 bg-gray-100 hover:bg-gray-150 transition-colors duration-200 text-left"
+                  className="w-full flex items-center gap-3 p-6 hover:bg-red-700 transition-colors duration-200 text-left"
+                  style={{ backgroundColor: '#C53030' }}
                 >
                   <h3 className={`text-xl font-normal flex-grow transition-all duration-300 ${
-                    openSections[position.id] ? 'text-logo-red' : 'text-gray-900'
+                    openSections[position.id] ? 'text-white' : 'text-white'
                   }`}>{position.title}</h3>
                   <svg 
-                    className={`w-5 h-5 text-gray-600 transition-transform duration-200 flex-shrink-0 ${openSections[position.id] ? 'rotate-180' : ''}`}
+                    className={`w-5 h-5 text-white transition-transform duration-200 flex-shrink-0 ${openSections[position.id] ? 'rotate-180' : ''}`}
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
@@ -153,7 +155,8 @@ const Opportunities: React.FC = () => {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="p-6 bg-gray-100 border-t border-gray-100"
+                    className="p-6 border-t border-gray-100"
+                    style={{ backgroundColor: '#ffffff' }}
                   >
                     {/* Requirements */}
                     <div className="mb-6">
@@ -194,7 +197,7 @@ const Opportunities: React.FC = () => {
           </div>
 
           {/* Important Notes */}
-          <motion.div variants={fadeInUp} className="mt-12 p-6 bg-gray-100 border border-gray-200 rounded-lg">
+          <motion.div variants={fadeInUp} className="mt-12 p-6 border border-gray-200 rounded-lg" style={{ backgroundColor: '#ededed' }}>
             <h3 className="text-xl font-light mb-4 text-logo-red">Important Notes</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
@@ -212,7 +215,7 @@ const Opportunities: React.FC = () => {
           </motion.div>
 
           {/* Research Collaborations & Partnerships */}
-          <motion.div variants={fadeInUp} className="mt-12 bg-gray-100 border border-gray-200 rounded-lg p-6">
+          <motion.div variants={fadeInUp} className="mt-12 border border-gray-200 rounded-lg p-6" style={{ backgroundColor: '#ededed' }}>
             <h3 className="text-xl font-light mb-4 text-logo-red">
               Research Collaborations & Partnerships
             </h3>
@@ -236,7 +239,7 @@ const Opportunities: React.FC = () => {
           </motion.div>
 
           {/* Contact Information */}
-          <motion.div variants={fadeInUp} className="mt-12 bg-gray-100 border border-gray-200 rounded-lg p-6">
+          <motion.div variants={fadeInUp} className="mt-12 border border-gray-200 rounded-lg p-6" style={{ backgroundColor: '#ededed' }}>
             <h3 className="text-xl font-light mb-4 text-logo-red">
               Contact Us
             </h3>

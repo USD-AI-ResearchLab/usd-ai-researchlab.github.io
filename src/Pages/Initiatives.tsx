@@ -92,7 +92,7 @@ const Initiatives: React.FC = () => {
         {/* Main Grid Container */}
         <div className="relative w-full px-4 py-8 lg:px-8">
           {/* Agreements/MOUs Section */}
-          <div className="mb-12 bg-gray-100 rounded-xl p-8 shadow-md">
+          <div className="mb-12 rounded-xl p-8 shadow-md" style={{ backgroundColor: '#ededed' }}>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
               Agreements/MOUs
             </h2>
@@ -100,7 +100,7 @@ const Initiatives: React.FC = () => {
             {/* MOUs List */}
             <div className="space-y-6">
               {/* MOU Item 1 */}
-              <div className="bg-gray-100 border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow" style={{ backgroundColor: '#ededed' }}>
                 <div className="flex gap-6">
                   <div className="text-3xl font-bold text-logo-red min-w-fit">1</div>
                   <div className="flex-1">
@@ -117,7 +117,7 @@ const Initiatives: React.FC = () => {
           </div>
 
           {/* Leading Conferences Section */}
-          <div className="mb-12 bg-gray-100 rounded-xl p-8 shadow-md">
+          <div className="mb-12 rounded-xl p-8 shadow-md" style={{ backgroundColor: '#ededed' }}>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
               Leading Conferences
             </h2>
@@ -133,7 +133,8 @@ const Initiatives: React.FC = () => {
               
                   <motion.div
                     key={index}
-                    className="w-full bg-gray-100 border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden relative"
+                    className="w-full border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden relative"
+                    style={{ backgroundColor: '#ededed' }}
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ 
                       opacity: 1, 

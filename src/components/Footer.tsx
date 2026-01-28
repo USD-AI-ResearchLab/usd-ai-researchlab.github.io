@@ -13,7 +13,8 @@ const Footer: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '20px 50px',
-        boxShadow: '0 -3px 15px rgba(0, 0, 0, 0.15)'
+        boxShadow: '0 -3px 15px rgba(0, 0, 0, 0.15)',
+        border: 'none',
       }}
     >
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-6 md:gap-0">

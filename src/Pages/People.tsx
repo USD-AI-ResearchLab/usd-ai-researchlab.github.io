@@ -238,9 +238,10 @@ const People: React.FC = () => {
               disabled={validCurrentPage === 1}
               className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
                 validCurrentPage === 1
-                  ? 'text-gray-400 cursor-not-allowed bg-gray-100 border border-gray-300'
-                  : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md bg-gray-100 border border-gray-300'
+                  ? 'text-gray-400 cursor-not-allowed border border-gray-300'
+                  : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md border border-gray-300'
               }`}
+              style={{ backgroundColor: '#ededed' }}
             >
               ← Prev
             </button>
@@ -266,8 +267,9 @@ const People: React.FC = () => {
                   className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 flex-shrink-0 ${
                     isCurrentPage
                       ? 'bg-red-600 text-white shadow-sm cursor-default'
-                      : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md bg-gray-100 border border-gray-300'
+                      : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md border border-gray-300'
                   }`}
+                  style={!isCurrentPage ? { backgroundColor: '#ededed' } : undefined}
                 >
                   {pageNumber}
                 </button>
@@ -280,9 +282,10 @@ const People: React.FC = () => {
               disabled={validCurrentPage === totalPages}
               className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
                 validCurrentPage === totalPages
-                  ? 'text-gray-400 cursor-not-allowed bg-gray-100 border border-gray-300'
-                  : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md bg-gray-100 border border-gray-300'
+                  ? 'text-gray-400 cursor-not-allowed border border-gray-300'
+                  : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md border border-gray-300'
               }`}
+              style={{ backgroundColor: '#ededed' }}
             >
               Next →
             </button>
@@ -305,13 +308,14 @@ const People: React.FC = () => {
       title="People"
     >
       <motion.div 
-        className="w-full px-4 py-8 bg-gray-100 rounded-xl"
+        className="w-full px-4 py-8 rounded-xl"
+        style={{ backgroundColor: '#ededed' }}
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
         {/* Team Description */}
-        <motion.div className="mb-8 bg-gray-100 rounded-lg p-6 border border-gray-200" variants={fadeInUp}>
+        <motion.div className="mb-8 rounded-lg p-6 border border-gray-200" style={{ backgroundColor: '#ededed' }} variants={fadeInUp}>
           <p className="text-lg text-black leading-relaxed mb-4 font-thin">
             Meet the brilliant minds behind our AI research lab - faculty, students, and alumni who are shaping the future of artificial intelligence.
           </p>
@@ -336,8 +340,9 @@ const People: React.FC = () => {
                         ? 'text-gray-400 bg-gray-200 border-gray-400 cursor-not-allowed opacity-50'
                         : selectedCategory === category
                         ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
-                        : 'text-gray-600 bg-gray-100 border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-150'
+                        : 'text-gray-600 border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-150'
                     }`}
+                    style={category !== 'External Collaboration' && selectedCategory !== category ? { backgroundColor: '#ededed' } : undefined}
                   >
                     {category}
                   </button>
@@ -363,8 +368,9 @@ const People: React.FC = () => {
                     className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded transition-all duration-200 border-2 flex-shrink-0 sm:flex-shrink ${
                       selectedLetter === letter
                         ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
-                        : 'text-gray-600 bg-gray-100 border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-150'
+                        : 'text-gray-600 border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-150'
                     }`}
+                    style={selectedLetter !== letter ? { backgroundColor: '#ededed' } : undefined}
                   >
                     {letter}
                   </button>
@@ -457,7 +463,8 @@ const People: React.FC = () => {
                       setSelectedLetter('All');
                       setCurrentPage(1);
                     }}
-                    className="px-6 py-3 text-sm font-medium text-red-600 bg-gray-100 border border-red-600 rounded-lg hover:bg-red-50 transition-colors"
+                    className="px-6 py-3 text-sm font-medium text-red-600 border border-red-600 rounded-lg hover:bg-red-50 transition-colors"
+                    style={{ backgroundColor: '#ededed' }}
                   >
                     Clear Letter Filter
                   </button>

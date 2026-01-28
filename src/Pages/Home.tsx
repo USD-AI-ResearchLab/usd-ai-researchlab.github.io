@@ -47,7 +47,6 @@ const animations = {
 // ========================================================================================
 const HeroLogo: React.FC = () => (
   <motion.div 
-    className="relative -mb-8 md:-mb-12 lg:-mb-16"
     variants={animations.fadeIn}
   >
     {/* Removed glowing background effect to keep the hero area pure white */}
@@ -58,7 +57,7 @@ const HeroLogo: React.FC = () => (
         <motion.img 
           src={logoImage} 
           alt="USD AI Research Lab Logo" 
-          className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-contain mx-auto"
+          className="w-auto h-[250px] object-contain mx-auto"
         />
       </Link>
     </div>
@@ -67,7 +66,7 @@ const HeroLogo: React.FC = () => (
 
 const HeroTitle: React.FC = () => (
   <motion.h1 
-    className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight"
+    className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight mb-4"
     variants={animations.fadeInUp}
   >
     <span className="gradient-text-hero text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">USD AI Research</span>
@@ -220,10 +219,10 @@ const AnimatedStatCard: React.FC<{
     </div>
   );
 
-  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 rounded-xl shadow-md h-auto flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg bg-gray-100 border border-gray-200`;
+  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 rounded-xl shadow-md h-auto flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg border border-gray-200`;
 
   return (
-    <div className={cardClass}>
+    <div className={cardClass} style={{ backgroundColor: '#ededed' }}>
       {cardContent}
     </div>
   );
@@ -234,7 +233,8 @@ const AnimatedStatCard: React.FC<{
 // ========================================================================================
 const HeroSection: React.FC = () => (
   <motion.section 
-    className="mb-8 bg-gray-100 rounded-xl p-8 shadow-md border border-gray-200"
+    className="mb-8 rounded-xl p-8 shadow-md border border-gray-200"
+    style={{ backgroundColor: '#ededed' }}
     variants={animations.staggerContainer}
   >
     <div className="flex flex-col items-center justify-center gap-0">
@@ -262,7 +262,8 @@ const DirectorSection: React.FC = () => (
     <div className="relative">
       {/* Main Card - Glassmorphic Style */}
       <motion.div 
-        className="relative rounded-xl shadow-md border border-gray-200 overflow-hidden bg-gray-100 p-8"
+        className="relative rounded-xl shadow-md border border-gray-200 overflow-hidden p-8"
+        style={{ backgroundColor: '#ededed' }}
         whileHover={{ 
           boxShadow: '0 10px 20px rgba(220, 38, 38, 0.15)',
           transition: { duration: 0.3 }
@@ -286,7 +287,7 @@ const PublicationsSection: React.FC = () => (
     initial="initial"
     animate="animate"
   >
-    <div className="flex-shrink-0 w-full bg-gray-100 rounded-xl p-8 mb-12 shadow-md border border-gray-200">
+    <div className="flex-shrink-0 w-full rounded-xl p-8 mb-12 shadow-md border border-gray-200" style={{ backgroundColor: '#ededed' }}>
       <div className="grid grid-cols-4 gap-0.5 sm:gap-1 lg:gap-1.5 xl:gap-1.5">
         <AnimatedStatCard 
           title="Published Research"
@@ -418,7 +419,7 @@ const Home: React.FC = () => {
           transition={{ duration: 0.4 }}
         >
           <motion.div
-            className="relative bg-white/5 backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 shadow-md"
+            className="relative bg-white/90 rounded-3xl overflow-hidden border border-white/10 shadow-md"
             style={{
               transformStyle: 'preserve-3d',
               rotateX,

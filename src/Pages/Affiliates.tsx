@@ -66,7 +66,8 @@ const Affiliates: React.FC = () => {
       title="Affiliates"
     >
       <motion.div 
-        className="px-8 pt-0 pb-16 w-full bg-gray-100 rounded-xl py-8"
+        className="px-8 pt-0 pb-16 w-full rounded-xl py-8"
+        style={{ backgroundColor: '#ededed' }}
         initial="initial"
         animate="animate"
         variants={{
@@ -94,7 +95,8 @@ const Affiliates: React.FC = () => {
             {/* Navigation Arrows */}
             <button 
               onClick={goToPrevious}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-gray-100 shadow-lg rounded-full p-3 hover:bg-gray-150 transition-colors duration-200"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 shadow-lg rounded-full p-3 hover:bg-gray-150 transition-colors duration-200"
+              style={{ backgroundColor: '#ededed' }}
               disabled={categories.length <= 1}
               aria-label="Previous category"
               title="Previous category"
@@ -109,8 +111,8 @@ const Affiliates: React.FC = () => {
               {currentCategory.cards.length > 0 && (
                 <motion.div 
                   key={`${currentCategoryIndex}-0`}
-                  className="flex flex-col items-center min-w-[240px] max-w-[260px] sm:min-w-[280px] sm:max-w-[300px] md:min-w-[320px] md:max-w-[380px] transition-all duration-300 group cursor-pointer hover:scale-105 bg-gray-100 rounded-lg border border-gray-200 p-4 sm:p-5 md:p-6 overflow-hidden"
-                  style={{ height: '360px' }}
+                  className="flex flex-col items-center min-w-[240px] max-w-[260px] sm:min-w-[280px] sm:max-w-[300px] md:min-w-[320px] md:max-w-[380px] transition-all duration-300 group cursor-pointer hover:scale-105 rounded-lg border border-gray-200 p-4 sm:p-5 md:p-6 overflow-hidden"
+                  style={{ height: '360px', backgroundColor: '#ededed' }}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
@@ -157,7 +159,8 @@ const Affiliates: React.FC = () => {
             {/* Right Arrow */}
             <button 
               onClick={goToNext}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-gray-100 shadow-lg rounded-full p-3 hover:bg-gray-150 transition-colors duration-200"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 shadow-lg rounded-full p-3 hover:bg-gray-150 transition-colors duration-200"
+              style={{ backgroundColor: '#ededed' }}
               disabled={categories.length <= 1}
               aria-label="Next category"
               title="Next category"
@@ -187,7 +190,8 @@ const Affiliates: React.FC = () => {
 
       {/* Partnership Information - Separate Section */}
       <motion.div 
-        className="px-8 py-16 w-full bg-gray-100 rounded-xl mt-8"
+        className="px-8 py-16 w-full rounded-xl mt-8"
+        style={{ backgroundColor: '#ededed' }}
         initial="initial"
         animate="animate"
         variants={{
@@ -199,7 +203,8 @@ const Affiliates: React.FC = () => {
         }}
       >
         <motion.div 
-          className="p-12 transition-all duration-500 bg-gray-100"
+          className="p-12 transition-all duration-500"
+          style={{ backgroundColor: '#ededed' }}
           variants={{
             initial: { opacity: 0, y: 30 },
             animate: { opacity: 1, y: 0, transition: { duration: 0.7 } }

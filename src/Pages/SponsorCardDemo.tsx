@@ -59,7 +59,7 @@ const SponsorCardDemo: React.FC = () => {
   ];
 
   return (
-    <div className="pt-32 pb-32 min-h-screen bg-gray-100">
+    <div className="pt-32 pb-32 min-h-screen" style={{ backgroundColor: '#ededed' }}>
       <motion.div 
         className="w-full px-4 py-8"
         initial="initial"
@@ -67,7 +67,7 @@ const SponsorCardDemo: React.FC = () => {
         variants={staggerChildren}
       >
         {/* Header */}
-        <motion.div className="text-center mb-16 bg-gray-100 rounded-lg p-8 border border-gray-200" variants={fadeInUp}>
+        <motion.div className="text-center mb-16 rounded-lg p-8 border border-gray-200" style={{ backgroundColor: '#ededed' }} variants={fadeInUp}>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-thin mb-4 text-logo-red">
             Three Different Card Styles
           </h1>
@@ -85,7 +85,7 @@ const SponsorCardDemo: React.FC = () => {
               <p className="text-gray-600 mb-6">Clean, minimal cards focusing on logo display with subtle hover effects. Perfect for sponsor logos sections.</p>
             </div>
             
-            <div className="bg-gray-100 rounded-xl shadow-lg border border-gray-200 p-8">
+            <div className="rounded-xl shadow-lg border border-gray-200 p-8" style={{ backgroundColor: '#ededed' }}>
               <div className="grid grid-cols-3 gap-6 items-center justify-items-center">
                 {sponsors.slice(0, 6).map((sponsor, index) => (
                   <SponsorCard 

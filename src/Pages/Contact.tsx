@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
         variants={staggerChildren}
       >
         {/* Content Section */}
-        <motion.div className="mb-16 bg-gray-100 rounded-lg p-6 border border-gray-200 shadow-md" variants={fadeInUp}>
+        <motion.div className="mb-16 rounded-lg p-6 border border-gray-200 shadow-md" style={{ backgroundColor: '#ededed' }} variants={fadeInUp}>
           <p className="text-lg text-gray-700 leading-relaxed mb-8 font-thin">
             Get in touch with the USD AI Research team. We welcome collaboration opportunities, inquiries about our research, and partnerships.
           </p>
@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 mt-12">
             
             {/* Lab Director Contact */}
-            <motion.div variants={fadeInUp} className="bg-gray-100 border border-gray-200 rounded-lg p-6 shadow-md">
+            <motion.div variants={fadeInUp} className="border border-gray-200 rounded-lg p-6 shadow-md" style={{ backgroundColor: '#ededed' }}>
               <h3 className="text-xl font-light mb-4 text-black">
                 Contact Info
               </h3>
@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
             </motion.div>
 
             {/* General Lab Contact */}
-            <motion.div variants={fadeInUp} className="bg-gray-100 border border-gray-200 rounded-lg p-6 shadow-md">
+            <motion.div variants={fadeInUp} className="border border-gray-200 rounded-lg p-6 shadow-md" style={{ backgroundColor: '#ededed' }}>
               <h3 className="text-xl font-light mb-4 text-black">
                 Location
               </h3>
@@ -84,7 +84,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Map Section */}
-          <motion.div variants={fadeInUp} className="mt-16 bg-gray-100 border border-gray-200 rounded-lg overflow-hidden shadow-md">
+          <motion.div variants={fadeInUp} className="mt-16 border border-gray-200 rounded-lg overflow-hidden shadow-md" style={{ backgroundColor: '#ededed' }}>
             {/* Logo Header */}
             <div className="bg-gradient-to-r from-gray-200 to-gray-100 p-6 flex items-center gap-4 border-b border-gray-200">
               <LazyImage 

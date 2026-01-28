@@ -488,13 +488,13 @@ div.border-logo-red {
   box-shadow: none !important;
 }
 
-/* Glass card with frosted glass effect */
+/* Glass card with white 0.9 opacity */
 .glass-card {
-  background: rgba(200, 200, 200, 0.25) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
-  border: 1px solid rgba(200, 200, 200, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .glass-card-inner {

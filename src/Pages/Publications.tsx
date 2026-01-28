@@ -107,7 +107,7 @@ const Publications: React.FC = () => {
       <div className="w-full">
         
         {/* Books Section */}
-        <div className="w-full mb-16 bg-gray-100 rounded-lg p-8 border border-gray-200">
+        <div className="w-full mb-16 rounded-lg p-8 border border-gray-200" style={{ backgroundColor: '#ededed' }}>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
             Books
           </h2>
@@ -115,7 +115,7 @@ const Publications: React.FC = () => {
         </div>
 
         {/* Research Papers Section */}
-        <div className="w-full mb-16 relative bg-gray-100 rounded-lg p-8 border border-gray-200">
+        <div className="w-full mb-16 relative rounded-lg p-8 border border-gray-200" style={{ backgroundColor: '#ededed' }}>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
             Research Papers
           </h2>
@@ -151,8 +151,9 @@ const Publications: React.FC = () => {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     selectedCategory === category
                       ? 'bg-red-600 text-white shadow-md'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'text-gray-700 hover:bg-gray-200'
                   }`}
+                  style={selectedCategory !== category ? { backgroundColor: '#ededed' } : undefined}
                 >
                   {category}
                 </button>
@@ -175,7 +176,8 @@ const Publications: React.FC = () => {
               return (
                 <div
                   key={actualIndex}
-                  className="bg-gray-100 border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+                  className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
+                  style={{ backgroundColor: '#ededed' }}
                   onMouseEnter={() => handleMouseEnter(actualIndex)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -278,9 +280,10 @@ const Publications: React.FC = () => {
                 disabled={currentPage === 1}
                 className={`px-3 py-1 rounded ${
                   currentPage === 1
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-gray-100 text-red-600 border border-red-600 hover:bg-red-50 transition-colors'
+                    ? 'text-gray-400 cursor-not-allowed'
+                    : 'text-red-600 border border-red-600 hover:bg-red-50 transition-colors'
                 }`}
+                style={{ backgroundColor: '#ededed' }}
               >
                 Previous
               </button>
@@ -293,8 +296,9 @@ const Publications: React.FC = () => {
                   className={`px-3 py-1 rounded transition-colors ${
                     pageNum === currentPage
                       ? 'bg-red-600 text-white'
-                      : 'bg-gray-100 text-red-600 border border-red-600 hover:bg-red-50'
+                      : 'text-red-600 border border-red-600 hover:bg-red-50'
                   }`}
+                  style={pageNum !== currentPage ? { backgroundColor: '#ededed' } : undefined}
                 >
                   {pageNum}
                 </button>
@@ -306,9 +310,10 @@ const Publications: React.FC = () => {
                 disabled={currentPage === totalPages}
                 className={`px-3 py-1 rounded ${
                   currentPage === totalPages
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-gray-100 text-red-600 border border-red-600 hover:bg-red-50 transition-colors'
+                    ? 'text-gray-400 cursor-not-allowed'
+                    : 'text-red-600 border border-red-600 hover:bg-red-50 transition-colors'
                 }`}
+                style={{ backgroundColor: '#ededed' }}
               >
                 Next
               </button>

@@ -68,8 +68,9 @@ const AISymposium2025: React.FC = () => {
 
   return (
     <div 
-      className="bg-gray-100 pb-32 min-h-screen"
+      className="pb-32 min-h-screen"
       style={{
+        backgroundColor: '#ededed',
         backgroundImage: "url('/images/pattern.svg')",
         backgroundAttachment: "fixed",
         fontFamily: 'Ubuntu, sans-serif'
@@ -77,7 +78,7 @@ const AISymposium2025: React.FC = () => {
     >
       <div className="mx-auto px-4 sm:px-6 py-6 max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-7xl" style={{ paddingTop: '140px' }}>
         {/* Symposium Navbar */}
-        <div className="flex justify-center py-6 px-6 bg-gray-100 mb-8 rounded-lg">
+        <div className="flex justify-center py-6 px-6 mb-8 rounded-lg" style={{ backgroundColor: '#ededed' }}>
           <div className="text-center">
             <h1 className="text-2xl sm:text-4xl font-bold leading-normal mb-2" style={{ fontFamily: 'Ubuntu, sans-serif', color: '#C53030' }}>
               7th Artificial Intelligence Symposium
@@ -93,13 +94,13 @@ const AISymposium2025: React.FC = () => {
 
         {/* Animated AI Symposium Banner */}
         <div className="mb-8">
-          <Suspense fallback={<div className="h-32 bg-gray-100 animate-pulse rounded-lg"></div>}>
+          <Suspense fallback={<div className="h-32 animate-pulse rounded-lg" style={{ backgroundColor: '#ededed' }}></div>}>
             <AnimatedAIBanner />
           </Suspense>
         </div>
 
         {/* Combined "Download" + "Welcome" Card */}
-        <div className="bg-gray-100 rounded-lg shadow-md p-6 mb-8">
+        <div className="rounded-lg shadow-md p-6 mb-8" style={{ backgroundColor: '#ededed' }}>
           {/* Download heading */}
           <div className="border-l-4 pl-4 mb-6" style={{ borderColor: '#C53030' }}>
             <h1 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: 'Ubuntu, sans-serif', color: '#C53030' }}>
@@ -160,12 +161,12 @@ const AISymposium2025: React.FC = () => {
         </div>
 
         {/* Known for Excellence - Stats Component */}
-        <Suspense fallback={<div className="h-24 bg-gray-100 animate-pulse rounded-lg mb-8"></div>}>
+        <Suspense fallback={<div className="h-24 animate-pulse rounded-lg mb-8" style={{ backgroundColor: '#ededed' }}></div>}>
           <StatsComponent stats={symposiumStats} />
         </Suspense>
 
         {/* Location Information */}
-        <div className="bg-gray-100 rounded-lg shadow-md p-6 mb-8">
+        <div className="rounded-lg shadow-md p-6 mb-8" style={{ backgroundColor: '#ededed' }}>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             Event Details
           </h2>
@@ -212,7 +213,7 @@ const AISymposium2025: React.FC = () => {
         <CommitteeMembers />
 
         {/* Sponsors Section */}
-        <div className="bg-gray-100 rounded-lg shadow-md p-6 mb-8">
+        <div className="rounded-lg shadow-md p-6 mb-8" style={{ backgroundColor: '#ededed' }}>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             Our Sponsors
           </h2>
@@ -261,11 +262,11 @@ const AISymposium2025: React.FC = () => {
 
               <div className="flex flex-wrap justify-center gap-4 mb-6">
                 {/* Bronze Sponsor */}
-                <div className="rounded-lg overflow-hidden shadow bg-gray-100 flex flex-col w-[200px]">
+                <div className="rounded-lg overflow-hidden shadow flex flex-col w-[200px]" style={{ backgroundColor: '#ededed' }}>
                   <div className="py-2 px-3 font-semibold text-white bg-yellow-700 text-center text-sm">
                     Bronze Sponsors
                   </div>
-                  <div className="bg-gray-100 border border-gray-200 p-2 flex items-center justify-center h-24">
+                  <div className="border border-gray-200 p-2 flex items-center justify-center h-24" style={{ backgroundColor: '#ededed' }}>
                     <img 
                       src="/images/sponsor/Area.png" 
                       alt="Area Direct Companies" 
@@ -280,11 +281,11 @@ const AISymposium2025: React.FC = () => {
                 </div>
 
                 {/* Silver Sponsors */}
-                <div className="rounded-lg overflow-hidden shadow bg-gray-100 flex flex-col w-[200px]">
+                <div className="rounded-lg overflow-hidden shadow flex flex-col w-[200px]" style={{ backgroundColor: '#ededed' }}>
                   <div className="py-2 px-3 font-semibold text-white bg-gray-400 text-center text-sm">
                     Silver Sponsors
                   </div>
-                  <div className="bg-gray-100 border border-gray-200 p-2 flex justify-around items-center h-24">
+                  <div className="border border-gray-200 p-2 flex justify-around items-center h-24" style={{ backgroundColor: '#ededed' }}>
                     <div className="flex items-center">
                       <img 
                         src="/images/sponsor/ieee_usa.png" 
@@ -301,11 +302,11 @@ const AISymposium2025: React.FC = () => {
                 </div>
 
                 {/* Partners */}
-                <div className="rounded-lg overflow-hidden shadow bg-gray-100 flex flex-col w-[380px]">
+                <div className="rounded-lg overflow-hidden shadow flex flex-col w-[380px]" style={{ backgroundColor: '#ededed' }}>
                   <div className="py-2 px-3 font-semibold text-white bg-gray-700 text-center text-sm">
                     Industry Partners
                   </div>
-                  <div className="bg-gray-100 border border-gray-200 px-2 py-1 flex items-center justify-center gap-2 h-24">
+                  <div className="border border-gray-200 px-2 py-1 flex items-center justify-center gap-2 h-24" style={{ backgroundColor: '#ededed' }}>
                     <div className="flex items-center">
                       <img 
                         src="/images/sponsor/Area.png" 
@@ -433,7 +434,7 @@ const AISymposium2025: React.FC = () => {
                 ))}
               </div>
 
-              <div className="bg-gray-100 border border-gray-200 p-6 rounded-lg">
+              <div className="border border-gray-200 p-6 rounded-lg" style={{ backgroundColor: '#ededed' }}>
                 <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
                   Ready to Sponsor?
                 </h3>
@@ -454,7 +455,7 @@ const AISymposium2025: React.FC = () => {
         </div>
 
         {/* Past Events */}
-        <div className="bg-gray-100 rounded-lg shadow-md p-6 mb-8">
+        <div className="rounded-lg shadow-md p-6 mb-8" style={{ backgroundColor: '#ededed' }}>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
             Past Events
           </h2>
@@ -466,7 +467,8 @@ const AISymposium2025: React.FC = () => {
             <a
               target="_blank"
               href="https://www.usd.edu/Academics/Colleges-and-Schools/college-of-arts-sciences/computer-science/Artificial-Intelligence-Symposium"
-              className="block py-2 px-4 bg-gray-100 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+              className="block py-2 px-4 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+              style={{ backgroundColor: '#ededed' }}
               rel="noopener noreferrer"
             >
               <div className="flex items-center text-gray-800 font-medium">
@@ -476,7 +478,8 @@ const AISymposium2025: React.FC = () => {
             <a
               target="_blank"
               href="https://www.usd.edu/academics/colleges-and-schools/college-of-arts-sciences/south-dakotan-arts-and-sciences/usd-to-host-third-annual-ai-symposium"
-              className="block py-2 px-4 bg-gray-100 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+              className="block py-2 px-4 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+              style={{ backgroundColor: '#ededed' }}
               rel="noopener noreferrer"
             >
               <div className="flex items-center text-gray-800 font-medium">
@@ -486,7 +489,8 @@ const AISymposium2025: React.FC = () => {
             <a
               target="_blank"
               href="https://www.usd.edu/academics/colleges-and-schools/college-of-arts-sciences/south-dakotan-arts-and-sciences/usd-to-host-artificial-intelligence-symposium-march-22"
-              className="block py-2 px-4 bg-gray-100 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+              className="block py-2 px-4 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+              style={{ backgroundColor: '#ededed' }}
               rel="noopener noreferrer"
             >
               <div className="flex items-center text-gray-800 font-medium">
@@ -496,7 +500,8 @@ const AISymposium2025: React.FC = () => {
             <a
               target="_blank"
               href="https://www.usd.edu/the-south-dakotan/usd-to-host-first-ai-symposium-march-16-18"
-              className="block py-2 px-4 bg-gray-100 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+              className="block py-2 px-4 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+              style={{ backgroundColor: '#ededed' }}
               rel="noopener noreferrer"
             >
               <div className="flex items-center text-gray-800 font-medium">
@@ -507,7 +512,7 @@ const AISymposium2025: React.FC = () => {
         </div>
 
         {/* Key Benefits */}
-        <div className="bg-gray-100 rounded-lg shadow-md p-6 mb-8">
+        <div className="rounded-lg shadow-md p-6 mb-8" style={{ backgroundColor: '#ededed' }}>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">Why Attend</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="flex items-start">
