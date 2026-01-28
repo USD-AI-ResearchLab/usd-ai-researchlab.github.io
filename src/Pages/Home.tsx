@@ -219,7 +219,7 @@ const AnimatedStatCard: React.FC<{
     </div>
   );
 
-  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 rounded-xl shadow-md h-auto flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg border border-gray-200`;
+  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 h-auto flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300`;
 
   return (
     <div className={cardClass} style={{ backgroundColor: '#ededed' }}>
@@ -233,8 +233,7 @@ const AnimatedStatCard: React.FC<{
 // ========================================================================================
 const HeroSection: React.FC = () => (
   <motion.section 
-    className="mb-8 rounded-xl p-8 shadow-md border border-gray-200"
-    style={{ backgroundColor: '#ededed' }}
+    className="mb-8"
     variants={animations.staggerContainer}
   >
     <div className="flex flex-col items-center justify-center gap-0">
@@ -262,8 +261,7 @@ const DirectorSection: React.FC = () => (
     <div className="relative">
       {/* Main Card - Glassmorphic Style */}
       <motion.div 
-        className="relative rounded-xl shadow-md border border-gray-200 overflow-hidden p-8"
-        style={{ backgroundColor: '#ededed' }}
+        className="relative overflow-hidden"
         whileHover={{ 
           boxShadow: '0 10px 20px rgba(220, 38, 38, 0.15)',
           transition: { duration: 0.3 }
@@ -287,7 +285,7 @@ const PublicationsSection: React.FC = () => (
     initial="initial"
     animate="animate"
   >
-    <div className="flex-shrink-0 w-full rounded-xl p-8 mb-12 shadow-md border border-gray-200" style={{ backgroundColor: '#ededed' }}>
+    <div className="flex-shrink-0 w-full mb-12" style={{ backgroundColor: '#ededed' }}>
       <div className="grid grid-cols-4 gap-0.5 sm:gap-1 lg:gap-1.5 xl:gap-1.5">
         <AnimatedStatCard 
           title="Published Research"
@@ -410,7 +408,7 @@ const Home: React.FC = () => {
         }
       `}</style>
       
-      <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 mt-24 md:mt-32 rounded-3xl">
+      <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 mt-20 rounded-3xl">
         {/* Stable Card Container */}
         <motion.div 
           className="w-full max-w-7xl"

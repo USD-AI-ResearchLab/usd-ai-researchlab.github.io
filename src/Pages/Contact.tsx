@@ -32,17 +32,17 @@ const Contact: React.FC = () => {
         variants={staggerChildren}
       >
         {/* Content Section */}
-        <motion.div className="mb-16 rounded-lg p-6 border border-gray-200 shadow-md" style={{ backgroundColor: '#ededed' }} variants={fadeInUp}>
+        <motion.div className="mb-16" variants={fadeInUp}>
           <p className="text-lg text-gray-700 leading-relaxed mb-8 font-thin">
             Get in touch with the USD AI Research team. We welcome collaboration opportunities, inquiries about our research, and partnerships.
           </p>
 
           {/* Professional Contact Information */}
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
             
             {/* Lab Director Contact */}
-            <motion.div variants={fadeInUp} className="border border-gray-200 rounded-lg p-6 shadow-md" style={{ backgroundColor: '#ededed' }}>
-              <h3 className="text-xl font-light mb-4 text-black">
+            <motion.div variants={fadeInUp}>
+              <h3 className="text-xl font-light mb-4 text-logo-red">
                 Contact Info
               </h3>
               <div className="space-y-3">
@@ -62,8 +62,8 @@ const Contact: React.FC = () => {
             </motion.div>
 
             {/* General Lab Contact */}
-            <motion.div variants={fadeInUp} className="border border-gray-200 rounded-lg p-6 shadow-md" style={{ backgroundColor: '#ededed' }}>
-              <h3 className="text-xl font-light mb-4 text-black">
+            <motion.div variants={fadeInUp}>
+              <h3 className="text-xl font-light mb-4 text-logo-red">
                 Location
               </h3>
               <div className="space-y-3">
@@ -86,14 +86,14 @@ const Contact: React.FC = () => {
           {/* Map Section */}
           <motion.div variants={fadeInUp} className="mt-16 border border-gray-200 rounded-lg overflow-hidden shadow-md" style={{ backgroundColor: '#ededed' }}>
             {/* Logo Header */}
-            <div className="bg-gradient-to-r from-gray-200 to-gray-100 p-6 flex items-center gap-4 border-b border-gray-200">
+            <div className="flex items-center gap-4">
               <LazyImage 
                 src={usdLogo} 
                 alt="University of South Dakota" 
                 className="h-16 w-auto" 
               />
               <div>
-                <h4 className="text-xl font-light text-black">Visit Us</h4>
+                <h4 className="text-xl font-light text-logo-red">Visit Us</h4>
                 <p className="text-sm text-gray-600">University of South Dakota - Computer Science Department</p>
               </div>
             </div>

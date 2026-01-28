@@ -15,6 +15,14 @@ const nandYadav = "/faculty/nand-yadav.jpg";
 
 export const staffData: Person[] = [
   {
+    name: "Dr. Nand K Yadav",
+    role: "Postdoc, Department of Computer Science, USD | Member, USD AI Research",
+    photo: nandYadav,
+    memberKey: "nand-yadav",
+    url: "https://www.linkedin.com/in/nand-k-yadav-891883262/",
+    scholarUrl: "https://scholar.google.com/citations?hl=en&user=MYuCzcsAAAAJ"
+  },
+  {
     name: "Deepika Nuthalapati",
     role: "Research Associate, Department of Computer Science, USD | Member, USD AI Research",
     photo: deepikaPhoto,
@@ -28,13 +36,5 @@ export const staffData: Person[] = [
     url: "https://www.linkedin.com/in/srikanth-baride",
     scholarUrl: "https://scholar.google.com/citations?hl=en&user=Sy_2zJcAAAAJ",
     dblpUrl: "https://dblp.org/pid/93/9638"
-  },
-  {
-    name: "Dr. Nand K Yadav",
-    role: "Postdoc, Department of Computer Science, USD | Member, USD AI Research",
-    photo: nandYadav,
-    memberKey: "nand-yadav",
-    url: "https://www.linkedin.com/in/nand-k-yadav-891883262/",
-    scholarUrl: "https://scholar.google.com/citations?hl=en&user=MYuCzcsAAAAJ"
   }
 ];

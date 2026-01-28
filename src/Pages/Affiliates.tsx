@@ -190,8 +190,7 @@ const Affiliates: React.FC = () => {
 
       {/* Partnership Information - Separate Section */}
       <motion.div 
-        className="px-8 py-16 w-full rounded-xl mt-8"
-        style={{ backgroundColor: '#ededed' }}
+        className="w-full mt-8"
         initial="initial"
         animate="animate"
         variants={{
@@ -203,8 +202,7 @@ const Affiliates: React.FC = () => {
         }}
       >
         <motion.div 
-          className="p-12 transition-all duration-500"
-          style={{ backgroundColor: '#ededed' }}
+          className="transition-all duration-500"
           variants={{
             initial: { opacity: 0, y: 30 },
             animate: { opacity: 1, y: 0, transition: { duration: 0.7 } }

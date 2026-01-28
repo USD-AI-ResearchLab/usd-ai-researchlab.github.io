@@ -54,8 +54,45 @@ const People: React.FC = () => {
 
   // Filter and get current data based on selection
   const getCurrentData = () => {
-    // Get all data first
-    const allData = [...facultyData, ...studentsData, ...alumniData];
+    // Helper function to remove duplicates and maintain desired order
+    const removeDuplicates = (people: Person[]) => {
+      const seen = new Set();
+      const result: Person[] = [];
+      
+      // First, add people in priority order to maintain Deepika (staff) next to Nand
+      const priorityOrder = [
+        'kc-santosh',
+        'rodrigue-rizk', 
+        'longwei-wang',
+        'srikanth-baride',
+        'nand-yadav',
+        'deepika-nuthalapati', // Staff Deepika (Research Associate) right after Nand
+        'deepika-nuthalapati-alumni' // Alumni Deepika comes later
+      ];
+      
+      // Add priority people first
+      for (const memberKey of priorityOrder) {
+        const person = people.find(p => p.memberKey === memberKey);
+        if (person && !seen.has(person.memberKey || person.name)) {
+          seen.add(person.memberKey || person.name);
+          result.push(person);
+        }
+      }
+      
+      // Add remaining people
+      for (const person of people) {
+        const key = person.memberKey || person.name;
+        if (!seen.has(key)) {
+          seen.add(key);
+          result.push(person);
+        }
+      }
+      
+      return result;
+    };
+
+    // Get all data first - combine all sources and remove duplicates with proper ordering
+    const allData = removeDuplicates([...facultyData, ...studentsData, ...alumniData, ...staffData]);
     
     // If both filters are "All", return everything
     if (selectedCategory === 'All' && selectedLetter === 'All') {
@@ -95,8 +132,8 @@ const People: React.FC = () => {
         break;
         
       case 'Current':
-        // Current = faculty + students + staff (not alumni)
-        categoryFilteredData = [...facultyData, ...studentsData, ...staffData];
+        // Current = faculty + students + staff (not alumni) - remove duplicates
+        categoryFilteredData = removeDuplicates([...facultyData, ...studentsData, ...staffData]);
         break;
         
       case 'Alumni':
@@ -308,14 +345,12 @@ const People: React.FC = () => {
       title="People"
     >
       <motion.div 
-        className="w-full px-4 py-8 rounded-xl"
-        style={{ backgroundColor: '#ededed' }}
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
         {/* Team Description */}
-        <motion.div className="mb-8 rounded-lg p-6 border border-gray-200" style={{ backgroundColor: '#ededed' }} variants={fadeInUp}>
+        <motion.div className="rounded-lg p-6 border border-gray-200" style={{ backgroundColor: '#ededed' }} variants={fadeInUp}>
           <p className="text-lg text-black leading-relaxed mb-4 font-thin">
             Meet the brilliant minds behind our AI research lab - faculty, students, and alumni who are shaping the future of artificial intelligence.
           </p>
@@ -380,6 +415,8 @@ const People: React.FC = () => {
           </div>
         </motion.div>
 
+
+
         {/* People Grid */}
         {paginatedData.length > 0 ? (
           <div className="w-full">
@@ -411,14 +448,7 @@ const People: React.FC = () => {
               ))}
             </motion.div>
           </div>
-        ) : (
-          <div className="text-center py-8">
-            <p className="text-red-500 font-bold">NO PAGINATED DATA AVAILABLE!</p>
-            <p className="text-sm text-gray-500">
-              Total filtered: {totalItems}, Current page: {validCurrentPage}
-            </p>
-          </div>
-        )}
+        ) : null}
 
         {/* Smart Empty State */}
         {totalItems === 0 && (

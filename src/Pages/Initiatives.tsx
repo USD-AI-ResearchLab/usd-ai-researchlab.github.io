@@ -92,7 +92,7 @@ const Initiatives: React.FC = () => {
         {/* Main Grid Container */}
         <div className="relative w-full px-4 py-8 lg:px-8">
           {/* Agreements/MOUs Section */}
-          <div className="mb-12 rounded-xl p-8 shadow-md" style={{ backgroundColor: '#ededed' }}>
+          <div className="mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
               Agreements/MOUs
             </h2>
@@ -117,7 +117,7 @@ const Initiatives: React.FC = () => {
           </div>
 
           {/* Leading Conferences Section */}
-          <div className="mb-12 rounded-xl p-8 shadow-md" style={{ backgroundColor: '#ededed' }}>
+          <div className="mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
               Leading Conferences
             </h2>

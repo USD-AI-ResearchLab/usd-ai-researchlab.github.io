@@ -132,7 +132,7 @@ export const alumniData: AlumnusData[] = [
     degree: "Master's",
     year: "2024",
     role: "Master's Graduate | Computer Science",
-    memberKey: "deepika-nuthalapati"
+    memberKey: "deepika-nuthalapati-alumni"
   },
   {
     name: "Satya Mouli Dhangati",

@@ -97,14 +97,12 @@ const Opportunities: React.FC = () => {
       title="Career Opportunities"
     >
       <motion.div 
-        className="w-full px-4 py-8 rounded-xl"
-        style={{ backgroundColor: '#ededed' }}
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
         {/* Main Content Section */}
-        <motion.div className="mb-8 rounded-lg p-6 border border-gray-200" style={{ backgroundColor: '#ededed' }} variants={fadeInUp}>
+        <motion.div className="mb-8" variants={fadeInUp}>
           <div className="space-y-4 mb-12">
             <p className="body-text-18 text-black leading-relaxed font-thin">
               We are continuously looking for highly motivated and talented people to contribute to our research in AI, machine learning, and computer vision. Our positions are competitive and limited to maintain a focused, research-driven group.
@@ -197,7 +195,7 @@ const Opportunities: React.FC = () => {
           </div>
 
           {/* Important Notes */}
-          <motion.div variants={fadeInUp} className="mt-12 p-6 border border-gray-200 rounded-lg" style={{ backgroundColor: '#ededed' }}>
+          <motion.div variants={fadeInUp} className="mt-12">
             <h3 className="text-xl font-light mb-4 text-logo-red">Important Notes</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
@@ -215,7 +213,7 @@ const Opportunities: React.FC = () => {
           </motion.div>
 
           {/* Research Collaborations & Partnerships */}
-          <motion.div variants={fadeInUp} className="mt-12 border border-gray-200 rounded-lg p-6" style={{ backgroundColor: '#ededed' }}>
+          <motion.div variants={fadeInUp} className="mt-12">
             <h3 className="text-xl font-light mb-4 text-logo-red">
               Research Collaborations & Partnerships
             </h3>
@@ -230,16 +228,11 @@ const Opportunities: React.FC = () => {
                 <li>Proposed collaboration timeline and objectives</li>
                 <li>Available resources and funding (if applicable)</li>
               </ul>
-              <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                <p className="text-sm text-gray-600">
-                  <strong>For general inquiries:</strong> Please use the subject line "USD AI Lab - [Your Topic]" to help us route your message appropriately.
-                </p>
-              </div>
             </div>
           </motion.div>
 
           {/* Contact Information */}
-          <motion.div variants={fadeInUp} className="mt-12 border border-gray-200 rounded-lg p-6" style={{ backgroundColor: '#ededed' }}>
+          <motion.div variants={fadeInUp} className="mt-12">
             <h3 className="text-xl font-light mb-4 text-logo-red">
               Contact Us
             </h3>

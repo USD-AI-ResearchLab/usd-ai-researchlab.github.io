@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer 
-      className="text-white border-t border-gray-200" 
+      className="text-white" 
       style={{ 
         backgroundColor: '#C53030',
         minHeight: '120px',

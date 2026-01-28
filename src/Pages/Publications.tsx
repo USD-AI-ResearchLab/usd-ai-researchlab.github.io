@@ -107,7 +107,7 @@ const Publications: React.FC = () => {
       <div className="w-full">
         
         {/* Books Section */}
-        <div className="w-full mb-16 rounded-lg p-8 border border-gray-200" style={{ backgroundColor: '#ededed' }}>
+        <div className="w-full mb-16">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
             Books
           </h2>
@@ -115,7 +115,7 @@ const Publications: React.FC = () => {
         </div>
 
         {/* Research Papers Section */}
-        <div className="w-full mb-16 relative rounded-lg p-8 border border-gray-200" style={{ backgroundColor: '#ededed' }}>
+        <div className="w-full mb-16 relative">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
             Research Papers
           </h2>
