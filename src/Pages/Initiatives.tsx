@@ -102,7 +102,7 @@ const Initiatives: React.FC = () => {
               {/* MOU Item 1 */}
               <div className="py-4">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 mt-1">
+                  <div className="flex-shrink-0 mt-0.5">
                     <svg 
                       className="w-6 h-6 text-logo-red" 
                       fill="currentColor" 
@@ -141,7 +141,7 @@ const Initiatives: React.FC = () => {
               
                   <motion.div
                     key={index}
-                    className="w-full border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden relative bg-gray-200"
+                    className="w-full overflow-hidden relative"
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ 
                       opacity: 1, 
