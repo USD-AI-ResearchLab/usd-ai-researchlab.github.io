@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Background -->
+  <rect width="100" height="100" fill="#cc4940" rx="10"/>
+  
+  <!-- USD Letters -->
+  <text x="50" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">USD</text>
+  
+  <!-- AI Symbol -->
+  <circle cx="25" cy="65" r="8" fill="white" opacity="0.9"/>
+  <circle cx="75" cy="65" r="8" fill="white" opacity="0.9"/>
+  <path d="M 35 75 Q 50 85 65 75" stroke="white" stroke-width="3" fill="none" opacity="0.9"/>
+  
+  <!-- Neural Network Pattern -->
+  <circle cx="25" cy="65" r="2" fill="#cc4940"/>
+  <circle cx="75" cy="65" r="2" fill="#cc4940"/>
+  <circle cx="50" cy="75" r="2" fill="#cc4940"/>
+  <line x1="25" y1="65" x2="50" y2="75" stroke="#cc4940" stroke-width="1"/>
+  <line x1="75" y1="65" x2="50" y2="75" stroke="#cc4940" stroke-width="1"/>
+</svg>

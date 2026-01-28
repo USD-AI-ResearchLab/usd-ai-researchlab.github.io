@@ -1,0 +1,13 @@
+<!-- This is a placeholder - replace with actual CVMI Conference logo/image -->
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5B21B6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#grad7)"/>
+  <text x="200" y="130" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle">CVMI</text>
+  <text x="200" y="160" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Computer Vision &amp;</text>
+  <text x="200" y="180" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Machine Intelligence</text>
+</svg>
