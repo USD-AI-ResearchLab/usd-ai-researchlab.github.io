@@ -66,7 +66,7 @@ const Affiliates: React.FC = () => {
       title="Affiliates"
     >
       <motion.div 
-        className="px-8 pt-0 pb-16 w-full rounded-xl py-8 bg-gray-200"
+        className="px-8 pt-0 pb-8 w-full"
         initial="initial"
         animate="animate"
         variants={{
@@ -79,13 +79,13 @@ const Affiliates: React.FC = () => {
       >
         {/* Multi-Card Carousel */}
         <motion.div 
-          className="relative mb-20 transition-all duration-500"
+          className="relative mb-8 transition-all duration-500"
           variants={fadeInUp}
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
           <div className="text-center mb-8">
-            <span className="inline-block px-6 py-2 text-logo-red rounded-full text-lg font-semibold">
+            <span className="inline-block px-6 py-2 text-logo-red rounded-full text-xl font-light">
               {currentCategory.name}
             </span>
           </div>
@@ -94,23 +94,23 @@ const Affiliates: React.FC = () => {
             {/* Navigation Arrows */}
             <button 
               onClick={goToPrevious}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 shadow-lg rounded-full p-3 hover:bg-gray-150 transition-colors duration-200 bg-gray-200"
+              className="absolute left-1 sm:left-4 top-1/2 transform -translate-y-1/2 z-10 p-1 sm:p-2 hover:bg-gray-100 transition-colors duration-200 rounded"
               disabled={categories.length <= 1}
               aria-label="Previous category"
               title="Previous category"
             >
-              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
             {/* Multiple Cards Display */}
-            <div className="flex justify-center items-center min-h-[350px] w-full overflow-hidden px-2">
-              <div className="flex flex-nowrap gap-3 max-w-full">
+            <div className="flex justify-center items-center min-h-[350px] w-full overflow-x-auto px-2 sm:overflow-hidden">
+              <div className="flex flex-nowrap gap-2 sm:gap-3 max-w-full">
                 {currentCategory.cards.map((card, index) => (
                   <motion.div 
                     key={`${currentCategoryIndex}-${index}`}
-                    className="flex flex-col items-center w-[200px] h-72 transition-all duration-300 group cursor-pointer hover:scale-105 p-2 overflow-hidden flex-shrink-0 bg-gray-200"
+                    className="flex flex-col items-center w-[140px] sm:w-[180px] md:w-[200px] h-64 sm:h-72 transition-all duration-300 group cursor-pointer hover:scale-105 p-2 overflow-hidden flex-shrink-0"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
@@ -124,26 +124,26 @@ const Affiliates: React.FC = () => {
                       className="flex flex-col items-center justify-between h-full w-full no-underline text-current"
                     >
                       {/* Logo Container */}
-                      <div className="flex items-center justify-center w-full transition-colors mb-3 h-32">
+                      <div className="flex items-center justify-center w-full transition-colors mb-2 sm:mb-3 h-20 sm:h-28 md:h-32">
                         <img 
                           src={card.image} 
                           alt={card.alt} 
-                          className="max-h-24 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                          className="max-h-16 sm:max-h-20 md:max-h-24 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
                         />
                       </div>
                       
                       {/* Company Name */}
                       <div className="flex-1 flex items-center justify-center w-full px-1 overflow-hidden">
-                        <h3 className="text-sm sm:text-base md:text-lg text-gray-800 text-center font-semibold leading-snug group-hover:text-logo-red transition-colors duration-300 line-clamp-3">
+                        <h3 className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-800 text-center font-semibold leading-tight group-hover:text-logo-red transition-colors duration-300 line-clamp-2 sm:line-clamp-3">
                           {card.name}
                         </h3>
                       </div>
 
                       {/* Visit Website Indicator */}
-                      <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="flex items-center text-logo-red text-sm font-medium">
+                      <div className="mt-2 sm:mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="flex items-center text-logo-red text-xs sm:text-sm font-medium">
                           Visit Website
-                          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
                         </div>
@@ -157,26 +157,26 @@ const Affiliates: React.FC = () => {
             {/* Right Arrow */}
             <button 
               onClick={goToNext}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 shadow-lg rounded-full p-3 hover:bg-gray-150 transition-colors duration-200 bg-gray-200"
+              className="absolute right-1 sm:right-4 top-1/2 transform -translate-y-1/2 z-10 p-1 sm:p-2 hover:bg-gray-100 transition-colors duration-200 rounded"
               disabled={categories.length <= 1}
               aria-label="Next category"
               title="Next category"
             >
-              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
               </svg>
             </button>
           </div>
 
           {/* Navigation dots - 3 categories */}
-          <div className="flex justify-center mt-8 space-x-3">
+          <div className="flex justify-center mt-1 space-x-2">
             {categories.map((_, index) => (
               <div
                 key={index}
-                className={`w-4 h-4 rounded-full transition-all duration-300 cursor-pointer ${
+                className={`w-6 h-1 transition-all duration-300 cursor-pointer ${
                   index === currentCategoryIndex 
-                    ? 'bg-logo-red shadow-lg transform scale-110' 
-                    : 'bg-gray-300 hover:bg-gray-400 hover:scale-105'
+                    ? 'bg-logo-red shadow-md' 
+                    : 'bg-gray-300 hover:bg-gray-500'
                 }`}
                 onClick={() => goToCategory(index)}
               />
@@ -187,7 +187,7 @@ const Affiliates: React.FC = () => {
 
       {/* Partnership Information - Separate Section */}
       <motion.div 
-        className="w-full mt-8"
+        className="w-full"
         initial="initial"
         animate="animate"
         variants={{
@@ -222,7 +222,7 @@ const Affiliates: React.FC = () => {
                 className="inline-flex items-center text-logo-red hover:text-logo-red-light transition-colors duration-300 text-lg font-medium underline hover:no-underline"
               >
                 <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 usd.airesearch.lab@gmail.com
               </a>

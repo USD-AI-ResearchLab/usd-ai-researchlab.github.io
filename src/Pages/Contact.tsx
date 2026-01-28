@@ -2,9 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import PageLayout from '../components/PageLayout';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
-import LazyMap from '../components/LazyMap';
 import LazyImage from '../components/LazyImage';
-import usdLogo from '../assets/RealLogo.png';
+import mainLogo from '../assets/logo.svg';
 
 const Contact: React.FC = () => {
   const fadeInUp = {
@@ -42,19 +41,19 @@ const Contact: React.FC = () => {
             
             {/* Lab Director Contact */}
             <motion.div variants={fadeInUp}>
-              <h3 className="text-xl font-light mb-4 text-logo-red">
+              <h3 className="text-xl font-light mb-4 text-red-600">
                 Contact Info
               </h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <span className="text-gray-600 font-medium min-w-[80px]">Email:</span>
-                  <a href="mailto:usd.airesearch.lab@gmail.com" className="text-logo-red underline">
+                  <a href="mailto:usd.airesearch.lab@gmail.com" className="text-red-600 underline">
                     usd.airesearch.lab@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="text-gray-600 font-medium min-w-[80px]">LinkedIn:</span>
-                  <a href="https://www.linkedin.com/company/kc-ai/" target="_blank" rel="noopener noreferrer" className="text-logo-red underline">
+                  <a href="https://www.linkedin.com/company/kc-ai/" target="_blank" rel="noopener noreferrer" className="text-red-600 underline">
                     linkedin.com/company/kc-ai
                   </a>
                 </div>
@@ -63,7 +62,7 @@ const Contact: React.FC = () => {
 
             {/* General Lab Contact */}
             <motion.div variants={fadeInUp}>
-              <h3 className="text-xl font-light mb-4 text-logo-red">
+              <h3 className="text-xl font-light mb-4 text-red-600">
                 Location
               </h3>
               <div className="space-y-3">
@@ -80,33 +79,49 @@ const Contact: React.FC = () => {
               </div>
             </motion.div>
 
-
           </div>
 
           {/* Map Section */}
-          <motion.div variants={fadeInUp} className="mt-16 bg-gray-200">
+          <motion.div variants={fadeInUp} className="mt-16">
             {/* Logo Header */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 mb-6">
               <LazyImage 
-                src={usdLogo} 
-                alt="University of South Dakota" 
+                src={mainLogo} 
+                alt="USD AI Research Lab" 
                 className="h-16 w-auto" 
               />
               <div>
-                <h4 className="text-xl font-light text-logo-red">Visit Us</h4>
+                <h4 className="text-xl font-light text-red-600">Visit Us</h4>
                 <p className="text-sm text-gray-600">University of South Dakota - Computer Science Department</p>
               </div>
             </div>
-            {/* Map */}
-            <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[500px]">
-              <LazyMap
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2931.5769!2d-96.40150332812499!3d42.77628670000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8787fa9c703b26e5%3A0x8c5f5f5f5f5f5f5f!2s414%20E%20Clark%20St%2C%20Vermillion%2C%20SD%2057069%2C%20USA!5e0!3m2!1sen!2sus!4v1610000000000"
-                title="University of South Dakota - Computer Science Department Location - You are here"
-                className="w-full h-full"
+            
+            {/* Map Section */}
+            <div className="w-full h-64 sm:h-80 md:h-96 bg-gray-100 rounded-lg overflow-hidden shadow-lg relative">
+              <iframe
+                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=414%20E%20Clark%20St,%20Vermillion,%20SD%2057069+(University%20of%20South%20Dakota%20Computer%20Science)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                width="100%"
+                height="100%"
+                className="border-0"
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="University of South Dakota Computer Science Department - 414 E Clark St, Vermillion, SD"
               />
               {/* "You are here" indicator */}
-              <div className="absolute top-2 sm:top-3 md:top-4 left-2 sm:left-3 md:left-4 bg-logo-red text-white px-2 sm:px-3 md:px-3 py-1 sm:py-2 md:py-2 rounded-lg shadow-lg text-xs sm:text-sm md:text-sm font-medium z-10">
-                📍 You are here
+              <div className="absolute top-2 left-2 bg-red-600 text-white px-3 py-2 rounded-lg shadow-lg text-sm font-medium z-10 pointer-events-none">
+                📍 USD Computer Science - 414 E Clark St
+              </div>
+              {/* Direct Maps Link */}
+              <div className="absolute bottom-2 right-2">
+                <a
+                  href="https://www.google.com/maps/search/414+E+Clark+St,+Vermillion,+SD+57069"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-red-600 px-3 py-2 rounded-lg shadow-lg text-xs font-medium hover:bg-red-50 transition-colors"
+                >
+                  View Larger Map
+                </a>
               </div>
             </div>
           </motion.div>
