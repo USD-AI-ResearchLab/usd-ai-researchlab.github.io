@@ -22,6 +22,7 @@
 .slow-device .backdrop-blur-sm,
 .slow-device .backdrop-blur-md,
 .slow-device .backdrop-blur-lg {
+  -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
   background-color: rgba(255, 255, 255, 0.95) !important;
 }
@@ -290,7 +291,7 @@ h1.heading-red {
 
 .hide-scrollbar {
   -ms-overflow-style: none;
-  scrollbar-width: none;
+  /* Remove scrollbar-width for better browser compatibility */
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
@@ -428,12 +429,7 @@ div.border-logo-red {
   font-family: 'Ubuntu', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif !important;
 }
 
-/* Custom scrollbar styles for LinkedIn section */
-.scrollbar-thin {
-  scrollbar-width: thin;
-  scrollbar-color: rgb(252 165 165) rgb(243 244 246);
-}
-
+/* Custom scrollbar styles for LinkedIn section - webkit only for better compatibility */
 .scrollbar-thin::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -482,8 +478,8 @@ div.border-logo-red {
 /* Transparent director card - no blur effect */
 .director-card {
   background: transparent !important;
-  backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
   border: none !important;
   box-shadow: none !important;
 }
@@ -491,16 +487,16 @@ div.border-logo-red {
 /* Glass card with white 0.9 opacity */
 .glass-card {
   background: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .glass-card-inner {
   background: transparent !important;
-  backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
 
 /* Main background image for all pages */
