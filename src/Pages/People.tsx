@@ -350,7 +350,7 @@ const People: React.FC = () => {
         variants={staggerChildren}
       >
         {/* Team Description */}
-        <motion.div className="rounded-lg p-6 border border-gray-200" style={{ backgroundColor: '#ededed' }} variants={fadeInUp}>
+        <motion.div className="" variants={fadeInUp}>
           <p className="text-lg text-black leading-relaxed mb-4 font-thin">
             Meet the brilliant minds behind our AI research lab - faculty, students, and alumni who are shaping the future of artificial intelligence.
           </p>

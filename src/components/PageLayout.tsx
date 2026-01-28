@@ -13,7 +13,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   children
 }) => {
   return (
-    <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 bg-transparent mt-20">
+    <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 bg-transparent">
       {/* Stable Card Container - matching Home page style */}
       <motion.div 
         className="w-full max-w-7xl"
@@ -56,7 +56,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
                       animate: { opacity: 1, y: 0 }
                     }}
                   >
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-red-600 tracking-tight break-words">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-red-600 tracking-tight break-words">
                       {title}
                     </h1>
                     {subtitle && (

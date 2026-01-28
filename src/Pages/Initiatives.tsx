@@ -80,7 +80,7 @@ const Initiatives: React.FC = () => {
 
   return (
     <PageLayout
-      title="Initiatives & Conferences"
+      title="Initiatives"
     >
       <motion.div 
         className="w-full px-4 py-8"
