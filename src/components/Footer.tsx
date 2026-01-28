@@ -5,17 +5,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer 
-      className="text-white" 
-      style={{ 
-        backgroundColor: '#C53030',
-        minHeight: '120px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '20px 50px',
-        boxShadow: '0 -3px 15px rgba(0, 0, 0, 0.15)',
-        border: 'none',
-      }}
+      className="text-white bg-red-700 min-h-[120px] flex items-center justify-center py-5 px-12 border-none shadow-md"
     >
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-6 md:gap-0">
         {/* Social Media Icons - Left Side */}

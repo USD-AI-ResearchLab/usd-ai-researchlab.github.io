@@ -151,9 +151,8 @@ const Publications: React.FC = () => {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     selectedCategory === category
                       ? 'bg-red-600 text-white shadow-md'
-                      : 'text-gray-700 hover:bg-gray-200'
+                      : `text-gray-700 hover:bg-gray-200 ${selectedCategory !== category ? 'bg-gray-200' : ''}`
                   }`}
-                  style={selectedCategory !== category ? { backgroundColor: '#ededed' } : undefined}
                 >
                   {category}
                 </button>
@@ -176,8 +175,7 @@ const Publications: React.FC = () => {
               return (
                 <div
                   key={actualIndex}
-                  className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
-                  style={{ backgroundColor: '#ededed' }}
+                  className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 bg-gray-200"
                   onMouseEnter={() => handleMouseEnter(actualIndex)}
                   onMouseLeave={handleMouseLeave}
                 >
@@ -278,12 +276,11 @@ const Publications: React.FC = () => {
               <button
                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
-                className={`px-3 py-1 rounded ${
+                className={`px-3 py-1 rounded bg-gray-200 ${
                   currentPage === 1
                     ? 'text-gray-400 cursor-not-allowed'
                     : 'text-red-600 border border-red-600 hover:bg-red-50 transition-colors'
                 }`}
-                style={{ backgroundColor: '#ededed' }}
               >
                 Previous
               </button>
@@ -296,9 +293,8 @@ const Publications: React.FC = () => {
                   className={`px-3 py-1 rounded transition-colors ${
                     pageNum === currentPage
                       ? 'bg-red-600 text-white'
-                      : 'text-red-600 border border-red-600 hover:bg-red-50'
+                      : `text-red-600 border border-red-600 hover:bg-red-50 ${pageNum !== currentPage ? 'bg-gray-200' : ''}`
                   }`}
-                  style={pageNum !== currentPage ? { backgroundColor: '#ededed' } : undefined}
                 >
                   {pageNum}
                 </button>
@@ -312,8 +308,7 @@ const Publications: React.FC = () => {
                   currentPage === totalPages
                     ? 'text-gray-400 cursor-not-allowed'
                     : 'text-red-600 border border-red-600 hover:bg-red-50 transition-colors'
-                }`}
-                style={{ backgroundColor: '#ededed' }}
+                } bg-gray-200`}
               >
                 Next
               </button>

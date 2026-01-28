@@ -100,7 +100,7 @@ const Initiatives: React.FC = () => {
             {/* MOUs List */}
             <div className="space-y-6">
               {/* MOU Item 1 */}
-              <div className="border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow" style={{ backgroundColor: '#ededed' }}>
+              <div className="border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow bg-gray-200">
                 <div className="flex gap-6">
                   <div className="text-3xl font-bold text-logo-red min-w-fit">1</div>
                   <div className="flex-1">
@@ -133,8 +133,7 @@ const Initiatives: React.FC = () => {
               
                   <motion.div
                     key={index}
-                    className="w-full border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden relative"
-                    style={{ backgroundColor: '#ededed' }}
+                    className="w-full border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden relative bg-gray-200"
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ 
                       opacity: 1, 

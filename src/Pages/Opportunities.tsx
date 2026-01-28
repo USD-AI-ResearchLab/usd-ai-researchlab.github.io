@@ -130,8 +130,7 @@ const Opportunities: React.FC = () => {
                 {/* Header */}
                 <button
                   onClick={() => toggleSection(position.id)}
-                  className="w-full flex items-center gap-3 p-6 hover:bg-red-700 transition-colors duration-200 text-left"
-                  style={{ backgroundColor: '#C53030' }}
+                  className="w-full flex items-center gap-3 p-6 hover:bg-red-700 transition-colors duration-200 text-left bg-red-700"
                 >
                   <h3 className={`text-xl font-normal flex-grow transition-all duration-300 ${
                     openSections[position.id] ? 'text-white' : 'text-white'
@@ -153,8 +152,7 @@ const Opportunities: React.FC = () => {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="p-6 border-t border-gray-100"
-                    style={{ backgroundColor: '#ffffff' }}
+                    className="p-6 border-t border-gray-100 bg-white"
                   >
                     {/* Requirements */}
                     <div className="mb-6">

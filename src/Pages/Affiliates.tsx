@@ -66,8 +66,7 @@ const Affiliates: React.FC = () => {
       title="Affiliates"
     >
       <motion.div 
-        className="px-8 pt-0 pb-16 w-full rounded-xl py-8"
-        style={{ backgroundColor: '#ededed' }}
+        className="px-8 pt-0 pb-16 w-full rounded-xl py-8 bg-gray-200"
         initial="initial"
         animate="animate"
         variants={{
@@ -95,8 +94,7 @@ const Affiliates: React.FC = () => {
             {/* Navigation Arrows */}
             <button 
               onClick={goToPrevious}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 shadow-lg rounded-full p-3 hover:bg-gray-150 transition-colors duration-200"
-              style={{ backgroundColor: '#ededed' }}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 shadow-lg rounded-full p-3 hover:bg-gray-150 transition-colors duration-200 bg-gray-200"
               disabled={categories.length <= 1}
               aria-label="Previous category"
               title="Previous category"
@@ -106,61 +104,60 @@ const Affiliates: React.FC = () => {
               </svg>
             </button>
 
-            {/* Single Card Display */}
-            <div className="flex justify-center items-center min-h-[400px] px-2 sm:px-4 md:px-6 py-8 w-full overflow-hidden">
-              {currentCategory.cards.length > 0 && (
-                <motion.div 
-                  key={`${currentCategoryIndex}-0`}
-                  className="flex flex-col items-center min-w-[240px] max-w-[260px] sm:min-w-[280px] sm:max-w-[300px] md:min-w-[320px] md:max-w-[380px] transition-all duration-300 group cursor-pointer hover:scale-105 rounded-lg border border-gray-200 p-4 sm:p-5 md:p-6 overflow-hidden"
-                  style={{ height: '360px', backgroundColor: '#ededed' }}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.5 }}
-                  whileHover={{ scale: 1.05, y: -6, transition: { duration: 0.3 } }}
-                >
-                  <a 
-                    href={currentCategory.cards[0].url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="flex flex-col items-center justify-between h-full w-full no-underline"
-                    style={{ textDecoration: 'none', color: 'inherit' }}
+            {/* Multiple Cards Display */}
+            <div className="flex justify-center items-center min-h-[350px] w-full overflow-hidden px-2">
+              <div className="flex flex-nowrap gap-3 max-w-full">
+                {currentCategory.cards.map((card, index) => (
+                  <motion.div 
+                    key={`${currentCategoryIndex}-${index}`}
+                    className="flex flex-col items-center w-[200px] h-72 transition-all duration-300 group cursor-pointer hover:scale-105 p-2 overflow-hidden flex-shrink-0 bg-gray-200"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -6, transition: { duration: 0.3 } }}
                   >
-                    {/* Logo Container */}
-                    <div className="flex items-center justify-center w-full transition-colors mb-4" style={{ height: '160px' }}>
-                      <img 
-                        src={currentCategory.cards[0].image} 
-                        alt={currentCategory.cards[0].alt} 
-                        className="max-h-32 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                    
-                    {/* Company Name */}
-                    <div className="flex-1 flex items-center justify-center w-full px-1 overflow-hidden">
-                      <h3 className="text-sm sm:text-base md:text-lg text-gray-800 text-center font-semibold leading-snug group-hover:text-logo-red transition-colors duration-300 line-clamp-3">
-                        {currentCategory.cards[0].name}
-                      </h3>
-                    </div>
-
-                    {/* Visit Website Indicator */}
-                    <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="flex items-center text-logo-red text-sm font-medium">
-                        Visit Website
-                        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
+                    <a 
+                      href={card.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="flex flex-col items-center justify-between h-full w-full no-underline text-current"
+                    >
+                      {/* Logo Container */}
+                      <div className="flex items-center justify-center w-full transition-colors mb-3 h-32">
+                        <img 
+                          src={card.image} 
+                          alt={card.alt} 
+                          className="max-h-24 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
                       </div>
-                    </div>
-                  </a>
-                </motion.div>
-              )}
+                      
+                      {/* Company Name */}
+                      <div className="flex-1 flex items-center justify-center w-full px-1 overflow-hidden">
+                        <h3 className="text-sm sm:text-base md:text-lg text-gray-800 text-center font-semibold leading-snug group-hover:text-logo-red transition-colors duration-300 line-clamp-3">
+                          {card.name}
+                        </h3>
+                      </div>
+
+                      {/* Visit Website Indicator */}
+                      <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="flex items-center text-logo-red text-sm font-medium">
+                          Visit Website
+                          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                  </motion.div>
+                ))}
+              </div>
             </div>
 
             {/* Right Arrow */}
             <button 
               onClick={goToNext}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 shadow-lg rounded-full p-3 hover:bg-gray-150 transition-colors duration-200"
-              style={{ backgroundColor: '#ededed' }}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 shadow-lg rounded-full p-3 hover:bg-gray-150 transition-colors duration-200 bg-gray-200"
               disabled={categories.length <= 1}
               aria-label="Next category"
               title="Next category"

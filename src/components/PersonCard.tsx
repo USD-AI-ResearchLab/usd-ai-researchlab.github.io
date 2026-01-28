@@ -17,11 +17,11 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, scholar
   const imageUrl = photo;
 
   const CardContent = () => (
-    <div className="person-card bg-gray-100 rounded-xl shadow-lg p-6 text-center h-full flex flex-col items-center justify-between border-2 border-transparent hover:border-logo-red">
+    <div className="person-card p-6 text-center h-full flex flex-col items-center justify-between">
       <div className="flex flex-col items-center flex-1">
         {/* Photo - Only show if showAvatar is true AND imageUrl exists (no placeholders) */}
         {showAvatar && imageUrl && (
-          <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-gray-100 shadow-lg bg-gray-100">
+          <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
             <LazyImage
               src={imageUrl}
               alt={name}
@@ -34,7 +34,7 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, scholar
         )}
         
         {/* Name - Adjust spacing based on whether photo is shown */}
-        <h3 className={`text-lg font-semibold line-clamp-2 leading-tight ${showAvatar && imageUrl ? 'mb-3' : 'mb-6'}`} style={{ color: 'var(--logo-red, #C53030)' }}>{name}</h3>
+        <h3 className={`text-lg font-semibold line-clamp-2 leading-tight text-logo-red ${showAvatar && imageUrl ? 'mb-3' : 'mb-6'}`}>{name}</h3>
       </div>
       
       {/* Role */}
@@ -84,6 +84,7 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, scholar
         href={url} 
         target="_blank" 
         rel="noopener noreferrer"
+        title={`View ${name}'s profile`}
         className="block hover:scale-105 transition-transform duration-200"
       >
         <CardContent />

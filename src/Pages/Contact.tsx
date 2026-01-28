@@ -84,7 +84,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Map Section */}
-          <motion.div variants={fadeInUp} className="mt-16 border border-gray-200 rounded-lg overflow-hidden shadow-md" style={{ backgroundColor: '#ededed' }}>
+          <motion.div variants={fadeInUp} className="mt-16 bg-gray-200">
             {/* Logo Header */}
             <div className="flex items-center gap-4">
               <LazyImage 

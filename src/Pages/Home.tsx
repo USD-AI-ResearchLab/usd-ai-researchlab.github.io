@@ -53,7 +53,7 @@ const HeroLogo: React.FC = () => (
     {/* <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-red-400/30 to-red-500/20 rounded-full blur-3xl scale-110 animate-pulse" /> */}
     
     <div className="relative bg-transparent p-0">
-      <Link to="/" style={{ textDecoration: 'none' }}>
+      <Link to="/" className="no-underline">
         <motion.img 
           src={logoImage} 
           alt="USD AI Research Lab Logo" 
@@ -79,15 +79,8 @@ const HeroTagline: React.FC = () => (
     variants={animations.fadeInUp}
   >
     <motion.p 
-      className="gradient-text-hero text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold leading-relaxed mb-0"
+      className="gradient-text-hero text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold leading-relaxed mb-0 font-sans break-words"
       variants={animations.fadeInUp}
-      style={{
-        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-        fontWeight: '600',
-        overflow: 'visible',
-        whiteSpace: 'normal',
-        wordWrap: 'break-word'
-      }}
     >
       Leading artificial intelligence research and engineering<br />to shape South Dakota's innovation future and technological leadership!
     </motion.p>
@@ -222,7 +215,7 @@ const AnimatedStatCard: React.FC<{
   const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 h-auto flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300`;
 
   return (
-    <div className={cardClass} style={{ backgroundColor: '#ededed' }}>
+    <div className={cardClass} data-bg="gray">
       {cardContent}
     </div>
   );
@@ -285,7 +278,7 @@ const PublicationsSection: React.FC = () => (
     initial="initial"
     animate="animate"
   >
-    <div className="flex-shrink-0 w-full mb-12" style={{ backgroundColor: '#ededed' }}>
+    <div className="flex-shrink-0 w-full mb-12 bg-gray-200">
       <div className="grid grid-cols-4 gap-0.5 sm:gap-1 lg:gap-1.5 xl:gap-1.5">
         <AnimatedStatCard 
           title="Published Research"
@@ -363,6 +356,11 @@ const Home: React.FC = () => {
         
         .stat-card:focus-visible {
           outline: none;
+        }
+        
+        /* Custom background color for stat cards */
+        .stat-card[data-bg="gray"] {
+          background-color: #ededed;
         }
         
         /* Hero Section: Black-Red-Black gradient */

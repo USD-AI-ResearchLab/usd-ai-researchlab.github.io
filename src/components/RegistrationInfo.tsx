@@ -30,8 +30,7 @@ const RegistrationInfo: React.FC = () => {
               href="https://events.vtools.ieee.org/event/register/487885"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline"
-              style={{ color: '#C53030' }}
+              className="underline text-red-700"
               onMouseEnter={(e) => e.currentTarget.style.color = '#A02727'}
               onMouseLeave={(e) => e.currentTarget.style.color = '#C53030'}
             >

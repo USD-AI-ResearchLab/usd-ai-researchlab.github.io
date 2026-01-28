@@ -273,12 +273,11 @@ const People: React.FC = () => {
             <button
               onClick={() => setCurrentPage(Math.max(1, validCurrentPage - 1))}
               disabled={validCurrentPage === 1}
-              className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
+              className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 whitespace-nowrap flex-shrink-0 bg-gray-200 ${
                 validCurrentPage === 1
                   ? 'text-gray-400 cursor-not-allowed border border-gray-300'
                   : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md border border-gray-300'
               }`}
-              style={{ backgroundColor: '#ededed' }}
             >
               ← Prev
             </button>
@@ -304,9 +303,8 @@ const People: React.FC = () => {
                   className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 flex-shrink-0 ${
                     isCurrentPage
                       ? 'bg-red-600 text-white shadow-sm cursor-default'
-                      : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md border border-gray-300'
+                      : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md border border-gray-300 bg-gray-200'
                   }`}
-                  style={!isCurrentPage ? { backgroundColor: '#ededed' } : undefined}
                 >
                   {pageNumber}
                 </button>
@@ -321,8 +319,7 @@ const People: React.FC = () => {
                 validCurrentPage === totalPages
                   ? 'text-gray-400 cursor-not-allowed border border-gray-300'
                   : 'text-gray-700 hover:text-red-600 hover:bg-gray-100 hover:shadow-md border border-gray-300'
-              }`}
-              style={{ backgroundColor: '#ededed' }}
+              } bg-gray-200`}
             >
               Next →
             </button>
@@ -375,9 +372,8 @@ const People: React.FC = () => {
                         ? 'text-gray-400 bg-gray-200 border-gray-400 cursor-not-allowed opacity-50'
                         : selectedCategory === category
                         ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
-                        : 'text-gray-600 border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-150'
+                        : `text-gray-600 border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-150 ${category !== 'External Collaboration' && selectedCategory !== category ? 'bg-gray-200' : ''}`
                     }`}
-                    style={category !== 'External Collaboration' && selectedCategory !== category ? { backgroundColor: '#ededed' } : undefined}
                   >
                     {category}
                   </button>
@@ -403,9 +399,8 @@ const People: React.FC = () => {
                     className={`px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded transition-all duration-200 border-2 flex-shrink-0 sm:flex-shrink ${
                       selectedLetter === letter
                         ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
-                        : 'text-gray-600 border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-150'
+                        : `text-gray-600 border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-150 ${selectedLetter !== letter ? 'bg-gray-200' : ''}`
                     }`}
-                    style={selectedLetter !== letter ? { backgroundColor: '#ededed' } : undefined}
                   >
                     {letter}
                   </button>
@@ -493,8 +488,7 @@ const People: React.FC = () => {
                       setSelectedLetter('All');
                       setCurrentPage(1);
                     }}
-                    className="px-6 py-3 text-sm font-medium text-red-600 border border-red-600 rounded-lg hover:bg-red-50 transition-colors"
-                    style={{ backgroundColor: '#ededed' }}
+                    className="px-6 py-3 text-sm font-medium text-red-600 border border-red-600 rounded-lg hover:bg-red-50 transition-colors bg-gray-200"
                   >
                     Clear Letter Filter
                   </button>
