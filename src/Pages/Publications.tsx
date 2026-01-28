@@ -102,9 +102,9 @@ const Publications: React.FC = () => {
     <PageLayout
       title="Publications"
     >
-      <div className="w-full px-4 py-8">
+      <div className="w-full px-4 sm:px-6 py-8">
       
-      <div className="w-full">
+      <div className="w-full max-w-7xl mx-auto">
         
         {/* Books Section */}
         <div className="w-full mb-16">
@@ -128,7 +128,7 @@ const Publications: React.FC = () => {
                 placeholder="Search papers by title, author, or keywords..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-base"
+                className="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm sm:text-base"
               />
               <svg
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
@@ -148,7 +148,7 @@ const Publications: React.FC = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  className={`px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${
                     selectedCategory === category
                       ? 'bg-red-600 text-white shadow-md'
                       : `text-gray-700 hover:bg-gray-200 ${selectedCategory !== category ? 'bg-gray-200' : ''}`

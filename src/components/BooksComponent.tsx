@@ -86,24 +86,24 @@ const BooksRowDisplay = () => {
   const handleMouseLeave = () => setAutoScrollEnabled(true);
 
   return (
-    <div className="flex gap-4 my-8">
-      <div className="bg-gray-100 border rounded-lg border-gray-200 p-5 w-full">        
-        <div 
-          className="relative" 
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+    <div className="my-8">
+      <div 
+        className="relative" 
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <button 
+          onClick={() => scroll('left')}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-600 hover:text-red-600 transition-colors"
+          aria-label="Scroll books left"
         >
-          <button 
-            onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-gray-100/80 hover:bg-gray-100 shadow-lg"
-          >
-            <ChevronLeft />
-          </button>
+          <ChevronLeft />
+        </button>
 
-          <div 
-            ref={scrollContainerRef}
-            className="flex overflow-x-auto gap-4 px-8 py-0 scroll-smooth hide-scrollbar"
-          >
+        <div 
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto gap-4 px-8 py-0 scroll-smooth hide-scrollbar"
+        >
             {bookListing.map((book, index) => (
               <div 
                 key={index}
@@ -115,28 +115,34 @@ const BooksRowDisplay = () => {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <div className="w-[150px] h-[200px] relative">
+                  <div className="w-[120px] sm:w-[150px] h-[160px] sm:h-[200px] relative overflow-hidden rounded-lg shadow-lg bg-white">
                     <img
                       src={book.src}
                       alt="Book cover"
-                      className="w-full h-full object-contain rounded-lg shadow-lg"
-                      style={{ 
-                        objectFit: 'contain'
+                      className="w-full h-full object-contain p-1"
+                      loading="lazy"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-gray-100 text-gray-400 text-xs">Image not available</div>';
+                        }
                       }}
                     />
                   </div>
                 </a>
               </div>
             ))}
-          </div>
-
-          <button 
-            onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-gray-100/80 hover:bg-gray-100 shadow-lg"
-          >
-            <ChevronRight />
-          </button>
         </div>
+
+        <button 
+          onClick={() => scroll('right')}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-600 hover:text-red-600 transition-colors"
+          aria-label="Scroll books right"
+        >
+          <ChevronRight />
+        </button>
       </div>
       
       <style dangerouslySetInnerHTML={{

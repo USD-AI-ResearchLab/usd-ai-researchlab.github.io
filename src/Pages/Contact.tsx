@@ -25,35 +25,35 @@ const Contact: React.FC = () => {
       title="Contact"
     >
       <motion.div 
-        className="w-full px-4 py-8"
+        className="w-full px-4 sm:px-6 py-8"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
         {/* Content Section */}
-        <motion.div className="mb-16" variants={fadeInUp}>
-          <p className="text-lg text-gray-700 leading-relaxed mb-8 font-thin">
+        <motion.div className="mb-16 max-w-6xl mx-auto" variants={fadeInUp}>
+          <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-8 font-thin">
             Get in touch with the USD AI Research team. We welcome collaboration opportunities, inquiries about our research, and partnerships.
           </p>
 
           {/* Professional Contact Information */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-12">
             
             {/* Lab Director Contact */}
-            <motion.div variants={fadeInUp}>
-              <h3 className="text-xl font-light mb-4 text-red-600">
+            <motion.div variants={fadeInUp} className="min-w-0">
+              <h3 className="text-lg sm:text-xl font-light mb-4 text-red-600">
                 Contact Info
               </h3>
               <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <span className="text-gray-600 font-medium min-w-[80px]">Email:</span>
-                  <a href="mailto:usd.airesearch.lab@gmail.com" className="text-red-600 underline">
+                <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-3">
+                  <span className="text-gray-600 font-medium sm:min-w-[80px] flex-shrink-0">Email:</span>
+                  <a href="mailto:usd.airesearch.lab@gmail.com" className="text-red-600 underline break-all">
                     usd.airesearch.lab@gmail.com
                   </a>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-gray-600 font-medium min-w-[80px]">LinkedIn:</span>
-                  <a href="https://www.linkedin.com/company/kc-ai/" target="_blank" rel="noopener noreferrer" className="text-red-600 underline">
+                <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-3">
+                  <span className="text-gray-600 font-medium sm:min-w-[80px] flex-shrink-0">LinkedIn:</span>
+                  <a href="https://www.linkedin.com/company/kc-ai/" target="_blank" rel="noopener noreferrer" className="text-red-600 underline break-all">
                     linkedin.com/company/kc-ai
                   </a>
                 </div>
@@ -61,14 +61,14 @@ const Contact: React.FC = () => {
             </motion.div>
 
             {/* General Lab Contact */}
-            <motion.div variants={fadeInUp}>
-              <h3 className="text-xl font-light mb-4 text-red-600">
+            <motion.div variants={fadeInUp} className="min-w-0">
+              <h3 className="text-lg sm:text-xl font-light mb-4 text-red-600">
                 Location
               </h3>
               <div className="space-y-3">
-                <div className="flex items-start space-x-3">
-                  <span className="text-gray-600 font-medium min-w-[80px]">Address:</span>
-                  <div className="text-gray-700">
+                <div className="flex flex-col sm:flex-row sm:items-start space-y-1 sm:space-y-0 sm:space-x-3">
+                  <span className="text-gray-600 font-medium sm:min-w-[80px] flex-shrink-0">Address:</span>
+                  <div className="text-gray-700 leading-relaxed">
                     <div>University of South Dakota</div>
                     <div>Department of Computer Science</div>
                     <div>414 E Clark St</div>
@@ -84,13 +84,15 @@ const Contact: React.FC = () => {
           {/* Map Section */}
           <motion.div variants={fadeInUp} className="mt-16">
             {/* Logo Header */}
-            <div className="flex items-center gap-4 mb-6">
-              <LazyImage 
-                src={mainLogo} 
-                alt="USD AI Research Lab" 
-                className="h-16 w-auto" 
-              />
-              <div>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+              <div className="flex-shrink-0">
+                <LazyImage 
+                  src={mainLogo} 
+                  alt="USD AI Research Lab" 
+                  className="w-auto h-12 sm:h-16 max-w-full object-contain" 
+                />
+              </div>
+              <div className="flex-1">
                 <h4 className="text-xl font-light text-red-600">Visit Us</h4>
                 <p className="text-sm text-gray-600">University of South Dakota - Computer Science Department</p>
               </div>
@@ -109,8 +111,9 @@ const Contact: React.FC = () => {
                 title="University of South Dakota Computer Science Department - 414 E Clark St, Vermillion, SD"
               />
               {/* "You are here" indicator */}
-              <div className="absolute top-2 left-2 bg-red-600 text-white px-3 py-2 rounded-lg shadow-lg text-sm font-medium z-10 pointer-events-none">
-                📍 USD Computer Science - 414 E Clark St
+              <div className="absolute top-2 left-2 bg-red-600 text-white px-2 py-1 sm:px-3 sm:py-2 rounded-lg shadow-lg text-xs sm:text-sm font-medium z-10 pointer-events-none max-w-[calc(100%-1rem)]">
+                <span className="hidden sm:inline">📍 USD Computer Science - 414 E Clark St</span>
+                <span className="sm:hidden">📍 USD CS - 414 E Clark St</span>
               </div>
               {/* Direct Maps Link */}
               <div className="absolute bottom-2 right-2">
@@ -118,9 +121,10 @@ const Contact: React.FC = () => {
                   href="https://www.google.com/maps/search/414+E+Clark+St,+Vermillion,+SD+57069"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-red-600 px-3 py-2 rounded-lg shadow-lg text-xs font-medium hover:bg-red-50 transition-colors"
+                  className="bg-white text-red-600 px-2 py-1 sm:px-3 sm:py-2 rounded-lg shadow-lg text-xs font-medium hover:bg-red-50 transition-colors whitespace-nowrap"
                 >
-                  View Larger Map
+                  <span className="hidden sm:inline">View Larger Map</span>
+                  <span className="sm:hidden">View Map</span>
                 </a>
               </div>
             </div>
