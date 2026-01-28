@@ -20,6 +20,21 @@ export const studentsData: Person[] = [
     url: "https://www.linkedin.com/in/moinak-bose-mdastudent/"
   },
   {
+    name: "Kiran Prasannan Nair",
+    role: "PhD Student | Computer Science",
+    memberKey: "kiran-prasannan-nair"
+  },
+  {
+    name: "Smriti Regmi",
+    role: "PhD Student | Computer Science",
+    memberKey: "smriti-regmi"
+  },
+  {
+    name: "Debra Han",
+    role: "PhD Student | Computer Science",
+    memberKey: "debra-han"
+  },
+  {
     name: "Puskal Khadka",
     role: "M.S. Computer Science | Graduate Assistant",
     memberKey: "puskal-khadka"
