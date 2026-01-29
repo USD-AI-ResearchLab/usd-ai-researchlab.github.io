@@ -1,0 +1,316 @@
+/* NavBar Styles */
+
+/* Main Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #C53030;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  margin: 0;
+  z-index: 50;
+}
+
+/* Container */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 32px;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  align-items: center;
+  gap: 32px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Logo */
+.nav-logo {
+  text-decoration: none;
+}
+
+.nav-logo img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: none;
+  filter: none;
+  transform: none;
+}
+
+/* Nav Links */
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-link-text {
+  font-size: 18px;
+  font-weight: 300;
+  color: white;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+  text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+}
+
+.nav-link-text:hover {
+  color: #f0f0f0;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Hamburger Button */
+.hamburger-button {
+  font-size: 28px;
+  padding: 8px;
+  transition: all 0.3s ease;
+  position: absolute;
+  right: 20px;
+}
+
+/* Mobile Menu - Textured Glass Effect */
+.mobile-menu-container {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 280px;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+  padding: 32px 24px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 
+              0 0 0 1px rgba(255, 255, 255, 0.15);
+  overflow-y: auto;
+  z-index: 40;
+  
+  /* Semi-transparent background with exact #e8e8e8 shade - shows pattern but prevents text overlap */
+  background: rgba(232, 232, 232, 0.85);
+  
+  /* Remove borders for clean transparent look */
+}
+
+/* Remove textured overlay - no pseudo-element needed */
+
+/* Hide on desktop */
+@media (min-width: 768px) {
+  .mobile-menu-container {
+    display: none;
+  }
+}
+
+.mobile-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* Dropdown Styles */
+.dropdown-container {
+  position: relative;
+  display: none;
+}
+
+.dropdown-trigger {
+  text-decoration: none;
+}
+
+.dropdown-trigger-text {
+  font-size: 18px;
+  font-weight: 300;
+  color: white;
+  transition: color 0.2s;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.dropdown-trigger-text:hover {
+  color: #f0f0f0;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.98);
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 200px;
+  z-index: 1000;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-item {
+  text-decoration: none;
+}
+
+.dropdown-item-text {
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+  transition: all 0.2s;
+}
+
+.dropdown-item-text:hover {
+  background-color: rgba(197, 48, 48, 0.08);
+  color: #f0f0f0;
+}
+
+.conferences-container {
+  position: relative;
+}
+
+.conferences-trigger {
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.conferences-trigger.active {
+  color: #f0f0f0;
+  background-color: rgba(197, 48, 48, 0.08);
+}
+
+.conferences-trigger.inactive {
+  color: white;
+  background-color: transparent;
+}
+
+.conferences-dropdown {
+  position: absolute;
+  top: 0;
+  left: calc(100% - 4px);
+  background-color: rgba(255, 255, 255, 0.98);
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 180px;
+  z-index: 1001;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.hidden-section {
+  display: none;
+}
+
+/* Dropdown menu dynamic positioning */
+.dropdown-menu-dynamic {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.98);
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 200px;
+  z-index: 1000;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-item-dynamic {
+  text-decoration: none;
+}
+
+.dropdown-item-text-dynamic {
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+  transition: all 0.2s;
+}
+
+.dropdown-item-text-dynamic:hover {
+  background-color: rgba(197, 48, 48, 0.08);
+  color: #f0f0f0;
+}
+
+.conferences-container-dynamic {
+  position: relative;
+}
+
+.conferences-trigger-dynamic {
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.conferences-trigger-active {
+  color: #f0f0f0;
+  background-color: rgba(197, 48, 48, 0.08);
+}
+
+.conferences-trigger-inactive {
+  color: white;
+  background-color: transparent;
+}
+
+.conferences-dropdown-dynamic {
+  position: absolute;
+  top: 0;
+  left: calc(100% - 4px);
+  background-color: rgba(255, 255, 255, 0.98);
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 180px;
+  z-index: 1001;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile Menu Link Styles for Textured Glass */
+.mobile-menu-container a {
+  text-decoration: none;
+  width: 100%;
+}
+
+.mobile-menu-container .text-lg {
+  font-size: 18px;
+  font-weight: 300;
+  color: #2d3748;
+  transition: all 0.3s ease;
+  padding: 8px 0;
+  position: relative;
+}
+
+.mobile-menu-container .text-lg:hover {
+  color: #C53030;
+  transform: translateX(8px);
+}
+
+.mobile-menu-container .text-lg::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 0;
+  background: linear-gradient(to bottom, #C53030, #E53E3E);
+  transition: height 0.3s ease;
+}
+
+.mobile-menu-container .text-lg:hover::before {
+  height: 20px;
+}

@@ -94,7 +94,7 @@ const App: React.FC = () => {
   }, [deviceInfo.isSlowDevice, deviceInfo.connectionSpeed]);
 
   return (
-    <div className="min-h-screen w-full bg-gray-100 pt-20">
+    <div className="min-h-screen w-full">
       <NavBar />
       <main className="w-full min-h-screen main-with-bg">
         <Suspense fallback={<LoadingSpinner />}>
