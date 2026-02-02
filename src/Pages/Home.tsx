@@ -117,14 +117,14 @@ const DirectorMessage: React.FC = () => (
   >
     <div>
       <motion.h3 
-        className="gradient-text-director text-lg md:text-xl lg:text-2xl font-bold leading-tight mb-3 tracking-tight text-left"
+        className="gradient-text-director text-black-force text-lg md:text-xl lg:text-2xl font-bold leading-tight mb-3 tracking-tight text-left"
         variants={animations.fadeInUp}
       >
         AI4ALL: Building Sustainable Machine Intelligence for All
       </motion.h3>
       
       <motion.p 
-        className="gradient-text-director text-xs md:text-sm lg:text-base font-normal mb-1 leading-relaxed text-left"
+        className="gradient-text-director text-black-force text-xs md:text-sm lg:text-base font-normal mb-1 leading-relaxed text-left"
         variants={animations.fadeInUp}
         style={{
           fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -135,7 +135,7 @@ const DirectorMessage: React.FC = () => (
       </motion.p>
 
       <motion.p 
-        className="gradient-text-director text-xs md:text-sm lg:text-base font-bold mb-2 leading-relaxed text-left"
+        className="gradient-text-director text-black-force text-xs md:text-sm lg:text-base font-bold mb-2 leading-relaxed text-left"
         variants={animations.fadeInUp}
         style={{
           fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -150,10 +150,10 @@ const DirectorMessage: React.FC = () => (
       className="space-y-0 mt-4 md:mt-5 lg:mt-6"
       variants={animations.fadeInUp}
     >
-      <div className="gradient-text-director text-sm lg:text-base font-bold text-left">
+      <div className="gradient-text-director text-black-force text-sm lg:text-base font-bold text-left">
         Prof. KC (Casey) Santosh
       </div>
-      <div className="gradient-text-director text-xs lg:text-sm font-normal text-left">
+      <div className="gradient-text-director text-black-force text-xs lg:text-sm font-normal text-left">
         Inaugural Director, USD AI Research
       </div>
     </motion.div>
@@ -291,7 +291,6 @@ const PublicationsSection: React.FC = () => (
           title="Books"
           value={12}
           suffix=""
-          subtitle="Published Works"
         />
         
         <AnimatedStatCard 
@@ -388,6 +387,14 @@ const Home: React.FC = () => {
           animation: gradientFlow 6s ease-in-out infinite;
           white-space: normal;
           word-wrap: break-word;
+        }
+        
+        /* Force black text override for specific elements */
+        .text-black-force {
+          color: #000 !important;
+          -webkit-text-fill-color: #000 !important;
+          background: none !important;
+          animation: none !important;
         }
         
         /* Fallback for unsupported browsers */
