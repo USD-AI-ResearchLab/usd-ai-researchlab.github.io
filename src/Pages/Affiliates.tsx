@@ -217,15 +217,27 @@ const Affiliates: React.FC = () => {
               <p className="text-gray-700 leading-relaxed text-base mb-4">
                 For partnership inquiries, please contact us at:
               </p>
-              <a 
-                href="mailto:usd.airesearch.lab@gmail.com" 
-                className="inline-flex items-center text-logo-red hover:text-logo-red-light transition-colors duration-300 text-lg font-medium underline hover:no-underline"
-              >
-                <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                usd.airesearch.lab@gmail.com
-              </a>
+              <div className="flex items-center justify-start">
+                <a 
+                  href="mailto:usd.airesearch.lab@gmail.com" 
+                  className="inline-flex items-center text-logo-red hover:text-logo-red-light transition-colors duration-300 text-lg font-medium underline hover:no-underline"
+                >
+                  <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  usd.airesearch.lab@gmail.com
+                </a>
+                <span className="text-gray-400 text-lg mx-3">|</span>
+                <a 
+                  href="mailto:kc.santosh@usd.edu" 
+                  className="inline-flex items-center text-logo-red hover:text-logo-red-light transition-colors duration-300 text-lg font-medium underline hover:no-underline"
+                >
+                  <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  kc.santosh@usd.edu
+                </a>
+              </div>
             </div>
           </div>
         </motion.div>

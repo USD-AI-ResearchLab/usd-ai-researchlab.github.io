@@ -47,9 +47,15 @@ const Contact: React.FC = () => {
               <div className="space-y-3">
                 <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-3">
                   <span className="text-gray-600 font-medium sm:min-w-[80px] flex-shrink-0">Email:</span>
-                  <a href="mailto:usd.airesearch.lab@gmail.com" className="text-red-600 underline break-all">
-                    usd.airesearch.lab@gmail.com
-                  </a>
+                  <div className="flex items-center justify-start">
+                    <a href="mailto:usd.airesearch.lab@gmail.com" className="text-red-600 underline">
+                      usd.airesearch.lab@gmail.com
+                    </a>
+                    <span className="text-gray-400 text-sm mx-3">|</span>
+                    <a href="mailto:kc.santosh@usd.edu" className="text-red-600 underline">
+                      kc.santosh@usd.edu
+                    </a>
+                  </div>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-3">
                   <span className="text-gray-600 font-medium sm:min-w-[80px] flex-shrink-0">LinkedIn:</span>
@@ -84,12 +90,12 @@ const Contact: React.FC = () => {
           {/* Map Section */}
           <motion.div variants={fadeInUp} className="mt-16">
             {/* Logo Header */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
-              <div className="flex-shrink-0">
+            <div className="flex flex-row items-center gap-4 mb-6">
+              <div className="flex-shrink-0 max-w-[120px]">
                 <LazyImage 
                   src={mainLogo} 
                   alt="USD AI Research Lab" 
-                  className="w-auto h-12 sm:h-16 max-w-full object-contain" 
+                  className="w-full h-auto max-h-8 object-contain" 
                 />
               </div>
               <div className="flex-1">
