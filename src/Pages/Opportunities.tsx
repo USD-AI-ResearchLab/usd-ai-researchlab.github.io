@@ -3,6 +3,14 @@ import { motion } from 'framer-motion';
 import PageLayout from '../components/PageLayout';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
 
+interface CurrentOpening {
+  title: string;
+  deadline: string;
+  description: string;
+  fundingStatus: string;
+  jobLink?: string;
+}
+
 const Opportunities: React.FC = () => {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
 
@@ -29,6 +37,21 @@ const Opportunities: React.FC = () => {
   };
 
   const positionTypes = [
+    {
+      id: 'current-openings',
+      title: 'Current Openings',
+      cardNumber: 0,
+      isCurrentOpenings: true,
+      currentOpenings: [
+        {
+          title: 'Computational Scientists in Biomedical and Clinical AI Research',
+          deadline: 'Open until filled',
+          description: 'The USD Artificial Intelligence (ᗩ𝕀) Research, USD Computer Science Department at the University of South Dakota (USD) is seeking Computational Scientists in Biomedical and Clinical AI Research (Biomedical AI Scientists) to support ongoing projects within the South Dakota Biomedical Computation Collaborative (SDBCC), a federally funded program (www.sd-bcc.org). The research of this position will focus on foundational machine learning models on large-scale biomedical and clinical datasets, including single- and multi-omics (genomics, transcriptomics, proteomics, etc.), medical imaging, and electronic health records, with a strong commitment to AI Standards and Innovation.',
+          fundingStatus: 'Federally funded position',
+          jobLink: 'https://yourfuture.sdbor.edu/postings/46923'
+        }
+      ]
+    },
     {
       id: 'phd',
       title: 'PhD Students',
@@ -152,16 +175,53 @@ const Opportunities: React.FC = () => {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="p-6 border-t border-gray-100 bg-white"
+                    className="p-6"
                   >
+                    {/* Current Openings Display */}
+                    {position.isCurrentOpenings && position.currentOpenings && (
+                      <div>
+                        <ul className="space-y-6">
+                          {position.currentOpenings.map((opening: CurrentOpening, index: number) => (
+                            <li key={index} className="flex items-start">
+                              <span className="w-2 h-2 bg-red-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                              <div className="flex-1">
+                                <div className="flex items-center gap-3 mb-2">
+                                  <h4 className="text-lg font-semibold text-gray-900">{opening.title}</h4>
+                                  <span className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded-full">
+                                    {opening.deadline}
+                                  </span>
+                                </div>
+                                <p className="text-gray-700 mb-3 leading-relaxed text-sm">{opening.description}</p>
+                                {opening.jobLink && (
+                                  <a 
+                                    href={opening.jobLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center px-3 py-1.5 bg-red-600 text-white text-sm font-medium rounded hover:bg-red-700 transition-colors"
+                                  >
+                                    Apply Now
+                                    <svg className="w-3 h-3 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                  </a>
+                                )}
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
                     {/* Requirements */}
-                    <div className="mb-6">
-                      <h4 className="text-base font-medium text-black mb-3">Requirements</h4>
-                      <p className="text-base text-gray-700 leading-relaxed">{position.requirements}</p>
-                      {position.description && (
-                        <p className="text-base text-gray-700 leading-relaxed mt-2">{position.description}</p>
-                      )}
-                    </div>
+                    {!position.isCurrentOpenings && (
+                      <div className="mb-6">
+                        <h4 className="text-base font-medium text-black mb-3">Requirements</h4>
+                        <p className="text-base text-gray-700 leading-relaxed">{position.requirements}</p>
+                        {position.description && (
+                          <p className="text-base text-gray-700 leading-relaxed mt-2">{position.description}</p>
+                        )}
+                      </div>
+                    )}
 
                     {/* Application Requirements */}
                     {position.applicationRequirements && (
