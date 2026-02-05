@@ -17,7 +17,7 @@ const Affiliates: React.FC = () => {
   ];
 
   const academicPartners = [
-    { name: "South Dakota Biomedical Computing Consortium (SDBCC)", image: "/images/sponsor/SD-BCC.png", url: "https://www.sdbcc.org/", alt: "South Dakota Biomedical Computing Consortium" }
+    { name: "South Dakota Biomedical Computing Consortium (SDBCC)", image: "/images/sponsor/SD-BCC.png", url: "https://sd-bcc.org", alt: "South Dakota Biomedical Computing Consortium" }
   ];
 
   const professionalOrganizations = [
