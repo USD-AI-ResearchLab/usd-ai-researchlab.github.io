@@ -35,6 +35,16 @@ export const studentsData: Person[] = [
     memberKey: "debra-han"
   },
   {
+    name: "Carrie Minette",
+    role: "PhD Student | Computer Science",
+    memberKey: "carrie-minette"
+  },
+  {
+    name: "Ifrat Ikhtear Uddin",
+    role: "PhD Student | Computer Science (starts from fall 2026)",
+    memberKey: "ifrat-ikhtear-uddin"
+  },
+  {
     name: "Puskal Khadka",
     role: "M.S. Computer Science | Graduate Assistant",
     memberKey: "puskal-khadka"
@@ -43,10 +53,5 @@ export const studentsData: Person[] = [
     name: "Sai Shankar Swarna",
     role: "M.S. Computer Science | Teaching Assistant",
     memberKey: "sai-shankar-swarna"
-  },
-  {
-    name: "Ifrat Ikhtear Uddin",
-    role: "M.S. Computer Science | Research Assistant",
-    memberKey: "ifrat-ikhtear-uddin"
   }
 ];
