@@ -6,6 +6,7 @@ import { facultyData, Person } from '../data/faculty';
 import { studentsData } from '../data/students';
 import { alumniData } from '../data/alumni';
 import { staffData } from '../data/staff';
+import { collaboratorsData } from '../data/collaborators';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
 
 const People: React.FC = () => {
@@ -92,7 +93,7 @@ const People: React.FC = () => {
     };
 
     // Get all data first - combine all sources and remove duplicates with proper ordering
-    const allData = removeDuplicates([...facultyData, ...studentsData, ...alumniData, ...staffData]);
+    const allData = removeDuplicates([...facultyData, ...studentsData, ...alumniData, ...staffData, ...collaboratorsData]);
     
     // If both filters are "All", return everything
     if (selectedCategory === 'All' && selectedLetter === 'All') {
@@ -147,8 +148,8 @@ const People: React.FC = () => {
         break;
         
       case 'External Collaboration':
-        // External Collaboration = staff members (can be extended later)
-        categoryFilteredData = staffData;
+        // External Collaboration = collaborators from external institutions
+        categoryFilteredData = collaboratorsData;
         break;
         
       default:
@@ -366,13 +367,10 @@ const People: React.FC = () => {
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
-                    disabled={category === 'External Collaboration'}
                     className={`px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-200 border-2 flex-shrink-0 sm:flex-shrink ${
-                      category === 'External Collaboration'
-                        ? 'text-gray-400 bg-gray-200 border-gray-400 cursor-not-allowed opacity-50'
-                        : selectedCategory === category
+                      selectedCategory === category
                         ? 'text-logo-red bg-red-50 border-logo-red hover:bg-red-100'
-                        : `text-gray-600 border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-150 ${category !== 'External Collaboration' && selectedCategory !== category ? 'bg-gray-200' : ''}`
+                        : 'text-gray-600 border-gray-300 hover:text-gray-800 hover:border-gray-400 hover:bg-gray-150 bg-gray-200'
                     }`}
                   >
                     {category}

@@ -39,7 +39,7 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, scholar
       
       {/* Role */}
       <div className="mt-auto">
-        <p className="text-sm font-medium text-gray-800 line-clamp-3 leading-relaxed mb-3">
+        <p className="text-sm font-medium text-gray-800 line-clamp-4 leading-relaxed mb-3 text-center whitespace-pre-line">
           {role}
         </p>
         
