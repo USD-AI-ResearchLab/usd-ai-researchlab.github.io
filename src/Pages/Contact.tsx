@@ -63,6 +63,12 @@ const Contact: React.FC = () => {
                     linkedin.com/company/kc-ai
                   </a>
                 </div>
+                <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-3">
+                  <span className="text-gray-600 font-medium sm:min-w-[80px] flex-shrink-0">GitHub:</span>
+                  <a href="https://github.com/USD-AI-ResearchLab/" target="_blank" rel="noopener noreferrer" className="text-red-600 underline break-all">
+                    github.com/USD-AI-ResearchLab
+                  </a>
+                </div>
               </div>
             </motion.div>
 
