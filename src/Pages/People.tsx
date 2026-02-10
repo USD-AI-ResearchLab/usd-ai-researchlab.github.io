@@ -51,7 +51,7 @@ const People: React.FC = () => {
   };
 
   const letters = ['All', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-  const categories = ['All', 'Faculty', 'Postdoc', 'PhD Students', 'Masters Students', 'Current', 'Alumni', 'Staff', 'External Collaboration'];
+  const categories = ['All', 'Faculty', 'Postdoc', 'PhD Students', 'Masters Students', 'Undergraduate Students', 'Current', 'Alumni', 'Staff', 'External Collaboration'];
 
   // Filter and get current data based on selection
   const getCurrentData = () => {
@@ -129,6 +129,16 @@ const People: React.FC = () => {
         // Masters = only CURRENT Masters students (from studentsData), not alumni
         categoryFilteredData = studentsData.filter(person => 
           person.role?.toLowerCase().includes('m.s.')
+        );
+        break;
+        
+      case 'Undergraduate Students':
+        // Undergraduate = only undergraduate students (from studentsData)
+        categoryFilteredData = studentsData.filter(person => 
+          person.role?.toLowerCase().includes('undergrad') || 
+          person.role?.toLowerCase().includes('undergraduate') ||
+          person.role?.toLowerCase().includes('b.s.') ||
+          person.role?.toLowerCase().includes('bachelor')
         );
         break;
         
@@ -455,6 +465,7 @@ const People: React.FC = () => {
                  selectedCategory === 'Faculty' ? '👨‍🏫' :
                  selectedCategory === 'PhD Students' ? '🔬' :
                  selectedCategory === 'Masters Students' ? '📚' :
+                 selectedCategory === 'Undergraduate Students' ? '🎒' :
                  selectedCategory === 'Postdoc' ? '🧑‍💼' : '🔍'}
               </div>
               <h3 className="text-2xl font-medium text-gray-900 mb-3">

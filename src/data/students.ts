@@ -81,5 +81,12 @@ export const studentsData: Person[] = [
     name: "Dipika Ranabhat",
     role: "M.S. Computer Science | Research Assistant",
     memberKey: "dipika-ranabhat"
+  },
+  
+  // Undergraduate Students
+  {
+    name: "Harshith Reddy Nalla",
+    role: "Undergraduate | Research Assistant",
+    memberKey: "harshith-reddy-nalla"
   }
 ];
