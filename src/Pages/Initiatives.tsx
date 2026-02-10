@@ -99,7 +99,38 @@ const Initiatives: React.FC = () => {
             
             {/* MOUs List */}
             <div className="space-y-6">
-              {/* MOU Item 1 */}
+              {/* MOU Item 1 - SDBCC */}
+              <div className="py-4">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <svg 
+                      className="w-6 h-6 text-logo-red" 
+                      fill="currentColor" 
+                      viewBox="0 0 640 512"
+                    >
+                      <path d="M323.4 85.2l-96.8 78.4c-16.1 13.19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L550.2 352H592c26.5 0 48-21.5 48-48V176c0-26.5-21.5-48-48-48H516c-3.3 0-6.5 1.1-9.2 3.1L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.9-96.1l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64.8 215.7 69.6 200 80L128 128H48c-26.5 0-48 21.5-48 48v4 V304c0 26.5 21.5 48 48 48h108.2l91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123z"/>
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-gray-700 leading-relaxed mb-3">
+                      <span className="font-semibold">South Dakota Biomedical Computation Consortium (SDBCC):</span> A $6.5M Department of Education (DoEd) collaboration between <span className="font-semibold">USD Computer Science</span>, <span className="font-semibold">USD Sanford School of Medicine</span>, and <span className="font-semibold">SD School of Mines & Technology</span>. The partnership leverages $0.746M from the South Dakota Board of Regents (SDBOR) to advance biomedical computation research and education across South Dakota.
+                    </p>
+                    <a 
+                      href="https://sd-bcc.org" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 bg-logo-red text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
+                    >
+                      Visit SDBCC
+                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* MOU Item 2 */}
               <div className="py-4">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 mt-0.5">
@@ -115,9 +146,17 @@ const Initiatives: React.FC = () => {
                     <p className="text-gray-700 leading-relaxed mb-3">
                       <span className="font-semibold">(December 2024)</span> The AI Research Lab signed an agreement with the <span className="font-semibold">Thumbay Institute for AI in Healthcare</span> at <span className="font-semibold">Gulf Medical University, UAE.</span>
                     </p>
-                    <p className="text-gray-600 italic text-sm">
-                      Looking for a collaboration? Don't hesitate to reach out.
-                    </p>
+                    <a 
+                      href="https://gmu.ac.ae/tiaih_news/thumbay-institute-for-ai-in-healthcare-signs-mou-with-2ai-research-lab-university-of-south-dakota/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 bg-logo-red text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
+                    >
+                      View MOU News
+                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
