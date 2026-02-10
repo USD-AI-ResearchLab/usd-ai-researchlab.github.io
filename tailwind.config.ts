@@ -14,6 +14,7 @@ const config: Config = {
       },
       fontFamily: {
         cursive: ['"Pacifico"', 'cursive'],
+        ubuntu: ['"Ubuntu"', 'sans-serif'],
       },
       keyframes: {
         wave: {

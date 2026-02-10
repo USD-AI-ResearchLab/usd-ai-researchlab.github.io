@@ -114,6 +114,113 @@ const Publications: React.FC = () => {
           <BooksComponent />
         </div>
 
+        {/* Few Samples Section */}
+        <div className="w-full mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-6">
+            Few samples
+          </h2>
+          <div className="p-4 rounded-lg">
+            <div className="max-w-none">
+              <ul className="space-y-2 text-gray-700 font-ubuntu text-sm leading-snug">
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  C Wall, L Wang, R Rizk, KC Santosh: <span className="text-gray-800">Winsor-CAM: Human-Tunable Visual Explanations from Deep Networks via Layer-Wise Winsorization</span>, <strong className="text-blue-700">IEEE Transactions on Pattern Analysis & Machine Intelligence</strong> <span className="text-green-700">(2025, revision 2)</span>. <a href="http://arxiv.org/abs/2401.10000" target="_blank" rel="noopener noreferrer" className="bg-blue-100 text-blue-700 hover:bg-blue-200 px-1 py-0.5 rounded text-xs underline">arXiv</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  A Jain, SR Dubey, SK Singh, KC Santosh, BB Chaudhuri: <span className="text-gray-800">Non-Uniform Illumination Attack for Fooling Convolutional Neural Networks</span>, <strong className="text-blue-700">IEEE Transactions on Artificial Intelligence</strong> <span className="text-green-700">(2025)</span>. <a href="https://doi.org/10.1109/TAI.2024.3500000" target="_blank" rel="noopener noreferrer" className="bg-green-100 text-green-700 hover:bg-green-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  L Wang, I Uddin, KC Santosh: <span className="text-gray-800">Expert-Guided Explainable Few-Shot Learning with Active Sample Selection for Medical Image Analysis</span>, <strong className="text-blue-700">IEEE Journal of Biomedical and Health Informatics</strong> <span className="text-green-700">(2025)</span>.
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  A Vettoruzzo, MR Bouguelia, J Vanschoren, T Rognvaldsson, KC Santosh: <span className="text-gray-800">Advances and Challenges in Meta-Learning: A Technical Review</span>, <strong className="text-blue-700">IEEE Transactions on Pattern Analysis & Machine Intelligence</strong> <span className="text-green-700">(2024)</span>. <a href="https://doi.org/10.1109/TPAMI.2024.3380000" target="_blank" rel="noopener noreferrer" className="bg-purple-100 text-purple-700 hover:bg-purple-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  KC Santosh and S. Antani: <span className="text-gray-800">Multimodal Learning in Medical Imaging and Informatics</span>, <strong className="text-blue-700">IEEE Journal of Biomedical & Health Informatics</strong> <span className="text-green-700">(2023)</span>. <a href="https://doi.org/10.1109/JBHI.2023.3275000" target="_blank" rel="noopener noreferrer" className="bg-indigo-100 text-indigo-700 hover:bg-indigo-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  KC Santosh, S Ghosh, D GhoshRoy: <span className="text-gray-800">Deep Learning for Covid-19 Screening using Chest X-rays in 2020: A Systematic Review</span>, <strong className="text-blue-700">International Journal of Pattern Recognition & Artificial Intelligence</strong>, <span className="text-orange-600">World Scientific (2022)</span>. <a href="https://doi.org/10.1142/S0218001422500434" target="_blank" rel="noopener noreferrer" className="bg-pink-100 text-pink-700 hover:bg-pink-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  Md S Kamal, L Chowdhury, S Hasan, N Dey, and KC Santosh: <span className="text-gray-800">Explainable AI for Glaucoma Prediction Analysis to Understand Risk Factors in Treatment Planning</span>, <strong className="text-blue-700">IEEE Transactions on Instrumentation & Measurement</strong> <span className="text-green-700">(2022)</span>. <a href="https://doi.org/10.1109/TIM.2022.3187700" target="_blank" rel="noopener noreferrer" className="bg-yellow-100 text-yellow-800 hover:bg-yellow-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  KC Santosh, S Allu, S Rajaraman, S Antani: <span className="text-gray-800">Advances in Deep Learning for Tuberculosis Screening using Chest X-rays: The last 5-Year Systematic Review</span>, <strong className="text-blue-700">Journal of Medical Systems</strong>, <span className="text-orange-600">Springer</span> <span className="text-green-700">(2022)</span>. <a href="https://doi.org/10.1007/s10916-022-01838-6" target="_blank" rel="noopener noreferrer" className="bg-teal-100 text-teal-700 hover:bg-teal-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  KC Santosh, S Ghosh: <span className="text-gray-800">Covid-19 versus Lung Cancer: Understanding chest CT images through Deep Ensemble Neural Networks</span>, <strong className="text-blue-700">International Journal of Artificial Intelligence Tools</strong>, <span className="text-orange-600">World Scientific</span> <span className="text-green-700">(2022)</span>. <a href="https://doi.org/10.1142/S0218213022500087" target="_blank" rel="noopener noreferrer" className="bg-orange-100 text-orange-700 hover:bg-orange-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  KC Santosh, S Ghosh: <span className="text-gray-800">Covid-19 medical imaging tools: how big data is big?</span>, <strong className="text-blue-700">Journal of Medical Systems</strong>, <span className="text-orange-600">Springer</span> <span className="text-green-700">(2021)</span>. <a href="https://doi.org/10.1007/s10916-021-01747-2" target="_blank" rel="noopener noreferrer" className="bg-cyan-100 text-cyan-700 hover:bg-cyan-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  KC Santosh: <span className="text-gray-800">COVID-19 Prediction Models and Unexploited Data</span>, <strong className="text-blue-700">Journal of Medical Systems</strong>, <span className="text-orange-600">Springer</span> <span className="text-green-700">(2020)</span>. <a href="https://doi.org/10.1007/s10916-020-01645-z" target="_blank" rel="noopener noreferrer" className="bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  KC Santosh: <span className="text-gray-800">AI-driven tools for coronavirus outbreak: Need of active learning and cross-population train/test models on multitudinal/multimodal data</span>, <strong className="text-blue-700">Journal of Medical Systems</strong>, <span className="text-orange-600">Springer</span> <span className="text-green-700">(2020)</span>. <a href="https://doi.org/10.1007/s10916-020-01562-1" target="_blank" rel="noopener noreferrer" className="bg-rose-100 text-rose-700 hover:bg-rose-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  S Ghosh, A Pal, S Jaiswal, KC Santosh, N Das, M Nassipuri: <span className="text-gray-800">segFast-02: Semantic-based image segmentation using encoder-decoder compression architecture</span>, <strong className="text-blue-700">International Journal of Machine Learning & Cybernetics</strong>, <span className="text-orange-600">Springer</span> <span className="text-green-700">(2019)</span>. <a href="https://doi.org/10.1007/s13042-019-00972-z" target="_blank" rel="noopener noreferrer" className="bg-violet-100 text-violet-700 hover:bg-violet-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  KC Santosh, L Wendling: <span className="text-gray-800">Angular relational signature-based chest radiograph image view classification</span>, <strong className="text-blue-700">Medical & Biological Engineering & Computing</strong>, <span className="text-orange-600">Springer</span> <span className="text-green-700">(2018)</span>. <a href="https://doi.org/10.1007/s11517-018-1890-0" target="_blank" rel="noopener noreferrer" className="bg-amber-100 text-amber-700 hover:bg-amber-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  KC Santosh, S Antani: <span className="text-gray-800">Automated chest X-ray screening: can lung section symmetry help detect pulmonary abnormalities?</span>, <strong className="text-blue-700">IEEE Transactions on Medical Imaging</strong> <span className="text-green-700">(2018)</span>. <a href="https://doi.org/10.1109/TMI.2017.2775636" target="_blank" rel="noopener noreferrer" className="bg-lime-100 text-lime-700 hover:bg-lime-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  KC Santosh, P Roy: <span className="text-gray-800">Arrow detection in biomedical images using sequential classifier</span>, <strong className="text-blue-700">International Journal of Machine Learning & Cybernetics</strong>, <span className="text-orange-600">Springer</span> <span className="text-green-700">(2018)</span>. <a href="https://doi.org/10.1007/s13042-016-0623-y" target="_blank" rel="noopener noreferrer" className="bg-slate-100 text-slate-700 hover:bg-slate-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  M Bouguelia, S Nowaczyk, KC Santosh, A Verikas: <span className="text-gray-800">Agreeing to disagree: active learning with noisy labels without crowdsourcing</span>, <strong className="text-blue-700">International Journal of Machine Learning & Cybernetics</strong>, <span className="text-orange-600">Springer</span> <span className="text-green-700">(2018)</span>.
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  KC Santosh, L Wendling, S Antani, G Thoma: <span className="text-gray-800">Overlaid Arrow Detection for Labeling Biomedical Image Regions</span>, <strong className="text-blue-700">IEEE Intelligent Systems</strong> <span className="text-gray-600">(special issue: Pattern Recognition)</span> <span className="text-green-700">(2016)</span>. <a href="https://doi.org/10.1109/MIS.2016.24" target="_blank" rel="noopener noreferrer" className="bg-indigo-100 text-indigo-700 hover:bg-indigo-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+                
+                <li className="relative pl-6 p-2 rounded hover:border-l-4 hover:border-red-500 transition-all duration-200">
+                  <span className="absolute left-2 top-2 text-red-600 font-bold text-base">•</span>
+                  KC Santosh: <span className="text-gray-800">g-DICE: Graph mining-based Document Information Content Exploitation</span>, <strong className="text-blue-700">International Journal on Document Analysis and Recognition</strong>, <span className="text-orange-600">Springer</span> <span className="text-green-700">(2015)</span>. <a href="https://doi.org/10.1007/s10032-015-0249-2" target="_blank" rel="noopener noreferrer" className="bg-pink-100 text-pink-700 hover:bg-pink-200 px-1 py-0.5 rounded text-xs underline">DOI</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         {/* Research Papers Section */}
         <div className="w-full mb-16 relative">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
