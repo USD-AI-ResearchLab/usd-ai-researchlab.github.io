@@ -284,7 +284,7 @@ const PublicationsSection: React.FC = () => (
     initial="initial"
     animate="animate"
   >
-    <div className="flex-shrink-0 w-full mb-8 bg-gray-200">
+    <div className="flex-shrink-0 w-full mb-8 bg-transparent">
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-0.5 sm:gap-1 lg:gap-1.5 xl:gap-1.5">
         <AnimatedStatCard 
           title="Published Research"
@@ -304,7 +304,7 @@ const PublicationsSection: React.FC = () => (
           title="Published Books"
           value={12}
           suffix=""
-          subtitle="(Including 3 Text Books)"
+          subtitle="(Including 3 Textbooks)"
         />
         
         <AnimatedStatCard 
@@ -366,7 +366,7 @@ const Home: React.FC = () => {
         
         /* Custom background color for stat cards */
         .stat-card[data-bg="gray"] {
-          background-color: #ededed;
+          background-color: #c0c0c0;
         }
         
         /* Hero Section: Black-Red-Black gradient */
