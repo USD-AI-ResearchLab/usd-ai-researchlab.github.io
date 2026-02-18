@@ -66,7 +66,7 @@ const HeroLogo: React.FC = () => (
 
 const HeroTitle: React.FC = () => (
   <motion.h1 
-    className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight mb-4"
+    className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight mb-4 mt-4 sm:mt-6 md:mt-8"
     variants={animations.fadeInUp}
   >
     <span className="gradient-text-hero text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">USD AI Research</span>
@@ -176,8 +176,8 @@ const AnimatedStatCard: React.FC<{
 }> = ({ title, value, suffix = '', subtitle, isText = false, hideSuffix = false }) => {
 
   const cardContent = (
-    <div className="h-full flex flex-col justify-center space-y-1">
-      {/* Number Display */}
+    <div className="h-full flex flex-col justify-start pt-2 space-y-1">
+      {/* Number Display - Fixed position */}
       {!isText ? (
         <div className="text-center">
           <div className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-bold leading-none">
@@ -287,7 +287,7 @@ const PublicationsSection: React.FC = () => (
     <div className="flex-shrink-0 w-full mb-8 bg-gray-200">
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-0.5 sm:gap-1 lg:gap-1.5 xl:gap-1.5">
         <AnimatedStatCard 
-          title="Publish Research Article Peer-review"
+          title="Published Research"
           value={300}
           suffix="+"
           subtitle="Peer-Reviewed Articles"
@@ -301,7 +301,7 @@ const PublicationsSection: React.FC = () => (
         />
         
         <AnimatedStatCard 
-          title="published Books"
+          title="Published Books"
           value={12}
           suffix=""
           subtitle="Including 3 Text Books"
