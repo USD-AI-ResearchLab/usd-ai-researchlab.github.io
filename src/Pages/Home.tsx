@@ -429,7 +429,7 @@ const Home: React.FC = () => {
           transition={{ duration: 0.4 }}
         >
           <motion.div
-            className="relative bg-white/90 rounded-3xl overflow-hidden border border-white/10 shadow-md"
+            className="relative bg-gray-300/90 rounded-3xl overflow-hidden border border-white/10 shadow-md"
             style={{
               transformStyle: 'preserve-3d',
               rotateX,

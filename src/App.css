@@ -521,9 +521,9 @@ div.border-logo-red {
   box-shadow: none !important;
 }
 
-/* Glass card with white 0.9 opacity */
+/* Glass card with light grey 0.9 opacity */
 .glass-card {
-  background: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(225, 225, 225, 0.9) !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
