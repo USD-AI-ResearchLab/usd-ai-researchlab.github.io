@@ -297,7 +297,7 @@ const PublicationsSection: React.FC = () => (
           title="Leading Conference Events"
           value={12}
           suffix="+"
-          subtitle="(International, IEEE, Springer, Elscvier)"
+          subtitle="(International, IEEE, Springer, Elsevier)"
         />
         
         <AnimatedStatCard 
