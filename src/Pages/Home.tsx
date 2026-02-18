@@ -290,28 +290,28 @@ const PublicationsSection: React.FC = () => (
           title="Published Research"
           value={300}
           suffix="+"
-          subtitle="Peer-Reviewed Articles"
+          subtitle="(Peer-Reviewed Articles)"
         />
         
         <AnimatedStatCard 
           title="Leading Conference Events"
           value={12}
           suffix="+"
-          subtitle="International, IEEE, Springer, Elscvier"
+          subtitle="(International, IEEE, Springer, Elscvier)"
         />
         
         <AnimatedStatCard 
           title="Published Books"
           value={12}
           suffix=""
-          subtitle="Including 3 Text Books"
+          subtitle="(Including 3 Text Books)"
         />
         
         <AnimatedStatCard 
           title="Funding"
           value={8}
           suffix="M+"
-          subtitle="SDBOR, DOD, NSF, Department Of Education"
+          subtitle="(SDBOR, DOD, NSF, Department Of Education)"
         />
       </div>
     </div>
