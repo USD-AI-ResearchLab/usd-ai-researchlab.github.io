@@ -19,7 +19,7 @@ export const collaboratorsData: Person[] = [
     // Research focus: Machine Learning, Computer Vision, Signal Processing
   },
   {
-    name: "Akram Bennour, PhD",
+    name: "Dr. Akram Bennour",
     role: "Professor of Computer Science\nLarbi Tebessi University\nLAMIS Laboratory\nAlgeria",
     url: "https://sites.google.com/view/akram-bennour/biography?authuser=0",
     scholarUrl: "https://scholar.google.com/citations?hl=fr&user=t4hzC-cAAAAJ",

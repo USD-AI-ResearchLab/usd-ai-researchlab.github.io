@@ -176,43 +176,49 @@ const AnimatedStatCard: React.FC<{
 }> = ({ title, value, suffix = '', subtitle, isText = false, hideSuffix = false }) => {
 
   const cardContent = (
-    <div className="space-y-1 sm:space-y-1 md:space-y-1.5 lg:space-y-2 select-none overflow-hidden w-full flex flex-col">
-      {/* Title */}
-      <h3 className="font-bold text-gray-900 text-xs sm:text-sm md:text-base lg:text-lg leading-tight text-center">
-        {title}
-      </h3>
-      
+    <div className="h-full flex flex-col justify-center space-y-1">
       {/* Number Display */}
       {!isText ? (
-        <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-center">
-          {suffix && !hideSuffix && suffix === 'M+' ? (
-            <>
-              <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-red-600">$</span>
-              <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-red-600">{value}</span>
-              <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-red-600">M</span>
-              <span className="text-xs sm:text-sm md:text-base text-gray-900 align-super">+</span>
-            </>
-          ) : (
-            <>
-              <span className="text-red-600">{value}</span>
-              {suffix && !hideSuffix ? (
-                <span className="text-xs sm:text-sm md:text-base text-gray-900 align-super">{suffix}</span>
-              ) : null}
-            </>
-          )}
-        </p>
+        <div className="text-center">
+          <div className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-bold leading-none">
+            {suffix && !hideSuffix && suffix === 'M+' ? (
+              <>
+                <span className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-red-600">$</span>
+                <span className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-red-600">{value}</span>
+                <span className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-red-600">M</span>
+                <span className="text-xs sm:text-sm text-gray-900 align-super">+</span>
+              </>
+            ) : (
+              <>
+                <span className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-red-600">{value}</span>
+                {suffix && !hideSuffix ? (
+                  <span className="text-xs sm:text-sm text-gray-900 align-super">{suffix}</span>
+                ) : null}
+              </>
+            )}
+          </div>
+        </div>
       ) : null}
       
+      {/* Title */}
+      <div className="text-center">
+        <h3 className="font-bold text-gray-900 text-xs sm:text-sm leading-tight px-1">
+          {title}
+        </h3>
+      </div>
+      
       {/* Subtitle */}
-      {subtitle && (
-        <p className="text-xs sm:text-xs md:text-sm lg:text-sm text-gray-700 leading-tight text-center font-normal">
-          {subtitle}
-        </p>
-      )}
+      <div className="text-center">
+        {subtitle && (
+          <p className="text-xs text-gray-700 leading-tight font-normal px-1">
+            {subtitle}
+          </p>
+        )}
+      </div>
     </div>
   );
 
-  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 h-auto flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300`;
+  const cardClass = `stat-card p-1 sm:p-2 md:p-3 lg:p-3 h-32 sm:h-36 md:h-40 lg:h-44 flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300`;
 
   return (
     <div className={cardClass} data-bg="gray">
@@ -273,31 +279,32 @@ const DirectorSection: React.FC = () => (
 
 const PublicationsSection: React.FC = () => (
   <motion.section 
-    className="mt-0 md:mt-0 lg:mt-0 mb-0 md:mb-0 lg:mb-0"
+    className="-mt-2 sm:-mt-4 md:-mt-6 lg:-mt-8 mb-0 md:mb-0 lg:mb-0"
     variants={animations.fadeInUp}
     initial="initial"
     animate="animate"
   >
-    <div className="flex-shrink-0 w-full mb-12 bg-gray-200">
-      <div className="grid grid-cols-4 gap-0.5 sm:gap-1 lg:gap-1.5 xl:gap-1.5">
+    <div className="flex-shrink-0 w-full mb-8 bg-gray-200">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-0.5 sm:gap-1 lg:gap-1.5 xl:gap-1.5">
         <AnimatedStatCard 
-          title="Published Research"
+          title="Publish Research Article Peer-review"
           value={300}
           suffix="+"
           subtitle="Peer-Reviewed Articles"
         />
         
         <AnimatedStatCard 
-          title="Books"
+          title="Leading Conference Events"
           value={12}
-          suffix=""
+          suffix="+"
+          subtitle="International, IEEE, Springer, Elscvier"
         />
         
         <AnimatedStatCard 
-          title="Leading Conferences"
+          title="published Books"
           value={12}
-          suffix="+"
-          subtitle="International Events"
+          suffix=""
+          subtitle="Including 3 Text Books"
         />
         
         <AnimatedStatCard 

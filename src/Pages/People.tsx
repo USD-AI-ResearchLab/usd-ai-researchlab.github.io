@@ -51,7 +51,7 @@ const People: React.FC = () => {
   };
 
   const letters = ['All', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-  const categories = ['All', 'Faculty', 'Postdoc', 'PhD Students', 'Masters Students', 'Undergraduate Students', 'Current', 'Alumni', 'Staff', 'External Collaboration'];
+  const categories = ['All', 'Faculty', 'Postdoc', 'PhD Students', 'Masters Students', 'Undergraduate Students', 'Current', 'Alumni', 'Staff', 'External Collaborators'];
 
   // Filter and get current data based on selection
   const getCurrentData = () => {
@@ -157,8 +157,8 @@ const People: React.FC = () => {
         categoryFilteredData = staffData;
         break;
         
-      case 'External Collaboration':
-        // External Collaboration = collaborators from external institutions
+      case 'External Collaborators':
+        // External Collaborators = collaborators from external institutions
         categoryFilteredData = collaboratorsData;
         break;
         
