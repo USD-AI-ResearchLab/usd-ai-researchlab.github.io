@@ -13,10 +13,17 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
     
-    <!-- HTTPS enforcement -->
+    <!-- HTTPS enforcement and domain handling -->
     <script>
+      // HTTPS enforcement
       if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
         location.replace(`https:${location.href.substring(location.protocol.length)}`);
+      }
+      
+      // Handle domain redirects - redirect any usd-ai-research.org to ai-research-lab.org
+      if (location.hostname === 'usd-ai-research.org' || location.hostname === 'www.usd-ai-research.org') {
+        const newUrl = `https://ai-research-lab.org${location.pathname}${location.search}${location.hash}`;
+        location.replace(newUrl);
       }
     </script>
     
@@ -32,6 +39,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ai-research-lab.org/" />
     <meta property="og:site_name" content="USD AI Research Lab" />
+    
+    <!-- Alternative domain handling -->
+    <link rel="alternate" href="https://ai-research-lab.org/" hreflang="en" />
+    <meta name="alternate-domain" content="usd-ai-research.org" />
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
