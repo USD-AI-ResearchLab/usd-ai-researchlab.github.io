@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // Advanced configuration for maximum performance across all devices
 export default defineConfig({
-  base: '/',
+  base: process.env.NODE_ENV === 'production' ? '/' : '/',
   server: {
     hmr: {
       overlay: false
