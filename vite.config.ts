@@ -17,17 +17,16 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    target: ['es2018', 'chrome63', 'firefox60', 'safari11'], // Broader browser support
+    target: ['es2018', 'chrome63', 'firefox60', 'safari11.1', 'edge16'], // Modern browser support with React compatibility
     minify: 'terser',
     cssMinify: true,
     terserOptions: {
       compress: {
-        drop_console: true,
+        drop_console: false, // Keep console for debugging
         drop_debugger: true,
-        pure_funcs: ['console.log', 'console.warn'],
-        unsafe_arrows: true,
-        unsafe_methods: true,
-        passes: 3, // Multiple compression passes for smaller bundles
+        pure_funcs: ['console.warn'],
+        ecma: 2018, // Use ECMAScript 2018 for modern features
+        passes: 2,
       },
       mangle: {
         safari10: true, // Better Safari compatibility
@@ -77,5 +76,11 @@ export default defineConfig({
   esbuild: {
     // Remove unused imports automatically
     treeShaking: true,
-  }
+    // Better browser compatibility
+    target: 'es2018',
+    supported: {
+      'bigint': false,
+      'top-level-await': false,
+    },
+  },
 });

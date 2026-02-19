@@ -2,14 +2,16 @@ import { createRoot } from 'react-dom/client'
 import './App.css'
 import { AppWithErrorHandling } from './AppWrapper'
 
-// Error handling for better cross-browser compatibility
-window.addEventListener('error', (e) => {
-  console.error('Global error:', e.error);
-});
+// Safari-compatible error handling
+if (typeof window !== 'undefined') {
+  window.addEventListener('error', function(e) {
+    console.error('Global error:', e.error);
+  });
 
-window.addEventListener('unhandledrejection', (e) => {
-  console.error('Unhandled promise rejection:', e.reason);
-});
+  window.addEventListener('unhandledrejection', function(e) {
+    console.error('Unhandled promise rejection:', e.reason);
+  });
+}
 
 console.log('Main.tsx loaded');
 const root = document.getElementById('root');

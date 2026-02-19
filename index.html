@@ -5,30 +5,126 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260210143000" />
     <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg?v=20260210143000" />
     <link rel="apple-touch-icon" href="/favicon.svg?v=20260210143000" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Cross-browser compatibility and responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     
-    <!-- Mobile optimizations -->
+    <!-- Enhanced browser support -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="USD AI Research">
     <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileColor" content="#1e3a8a">
+    
+    <!-- Cross-browser polyfills and compatibility -->
+    <script>
+      // Basic polyfills for older browsers
+      if (!Array.prototype.includes) {
+        Array.prototype.includes = function(searchElement) {
+          return this.indexOf(searchElement) !== -1;
+        };
+      }
+      
+      if (!String.prototype.includes) {
+        String.prototype.includes = function(search, start) {
+          if (typeof start !== 'number') start = 0;
+          if (start + search.length > this.length) return false;
+          else return this.indexOf(search, start) !== -1;
+        };
+      }
+      
+      // Object.assign polyfill
+      if (typeof Object.assign != 'function') {
+        Object.assign = function(target) {
+          if (target == null) throw new TypeError('Cannot convert undefined or null to object');
+          var to = Object(target);
+          for (var index = 1; index < arguments.length; index++) {
+            var nextSource = arguments[index];
+            if (nextSource != null) {
+              for (var nextKey in nextSource) {
+                if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                  to[nextKey] = nextSource[nextKey];
+                }
+              }
+            }
+          }
+          return to;
+        };
+      }
+      
+      // Promise polyfill for very old browsers
+      if (typeof Promise === 'undefined') {
+        window.Promise = function(executor) {
+          var self = this;
+          this.state = 'pending';
+          this.value = undefined;
+          this.handlers = [];
+          
+          function resolve(value) {
+            if (self.state === 'pending') {
+              self.state = 'fulfilled';
+              self.value = value;
+              self.handlers.forEach(function(handler) { handler.onFulfilled(value); });
+              self.handlers = [];
+            }
+          }
+          
+          function reject(reason) {
+            if (self.state === 'pending') {
+              self.state = 'rejected';
+              self.value = reason;
+              self.handlers.forEach(function(handler) { handler.onRejected(reason); });
+              self.handlers = [];
+            }
+          }
+          
+          this.then = function(onFulfilled, onRejected) {
+            return new Promise(function(resolve, reject) {
+              if (self.state === 'fulfilled') {
+                try { resolve(onFulfilled ? onFulfilled(self.value) : self.value); }
+                catch(e) { reject(e); }
+              } else if (self.state === 'rejected') {
+                try { reject(onRejected ? onRejected(self.value) : self.value); }
+                catch(e) { reject(e); }
+              } else {
+                self.handlers.push({
+                  onFulfilled: function(value) {
+                    try { resolve(onFulfilled ? onFulfilled(value) : value); }
+                    catch(e) { reject(e); }
+                  },
+                  onRejected: function(reason) {
+                    try { reject(onRejected ? onRejected(reason) : reason); }
+                    catch(e) { reject(e); }
+                  }
+                });
+              }
+            });
+          };
+          
+          try { executor(resolve, reject); }
+          catch(e) { reject(e); }
+        };
+      }
+    </script>
     
     <!-- HTTPS enforcement for both domains -->
     <script>
-      // HTTPS enforcement for both GitHub Pages and custom domain
-      if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
-        // Simple redirect without inline styles to avoid warnings
-        location.replace(`https:${location.href.substring(location.protocol.length)}`);
+      // Safari-compatible HTTPS enforcement
+      if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        // Use window.location instead of location for better Safari compatibility
+        window.location.replace('https:' + window.location.href.substring(window.location.protocol.length));
       }
       
-      // Handle www redirects and legacy domain redirects
-      if (location.hostname === 'www.ai-research-lab.org') {
-        const newUrl = `https://ai-research-lab.org${location.pathname}${location.search}${location.hash}`;
-        location.replace(newUrl);
+      // Handle www redirects and legacy domain redirects (Safari-compatible)
+      if (window.location.hostname === 'www.ai-research-lab.org') {
+        var newUrl = 'https://ai-research-lab.org' + window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(newUrl);
       }
-      if (location.hostname === 'usd-ai-research.org' || location.hostname === 'www.usd-ai-research.org') {
-        const newUrl = `https://ai-research-lab.org${location.pathname}${location.search}${location.hash}`;
-        location.replace(newUrl);
+      if (window.location.hostname === 'usd-ai-research.org' || window.location.hostname === 'www.usd-ai-research.org') {
+        var newUrl = 'https://ai-research-lab.org' + window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(newUrl);
       }
     </script>
     
