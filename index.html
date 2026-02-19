@@ -13,28 +13,19 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
     
-    <!-- HTTPS enforcement for both domains -->
+    <!-- HTTPS enforcement and domain handling -->
     <script>
-      // HTTPS enforcement for both GitHub Pages and custom domain
+      // HTTPS enforcement
       if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
-        // Simple redirect without inline styles to avoid warnings
         location.replace(`https:${location.href.substring(location.protocol.length)}`);
       }
       
-      // Handle www redirects and legacy domain redirects
-      if (location.hostname === 'www.ai-research-lab.org') {
-        const newUrl = `https://ai-research-lab.org${location.pathname}${location.search}${location.hash}`;
-        location.replace(newUrl);
-      }
+      // Handle domain redirects - redirect any usd-ai-research.org to ai-research-lab.org
       if (location.hostname === 'usd-ai-research.org' || location.hostname === 'www.usd-ai-research.org') {
         const newUrl = `https://ai-research-lab.org${location.pathname}${location.search}${location.hash}`;
         location.replace(newUrl);
       }
     </script>
-    
-    <!-- HSTS Header simulation for browsers -->
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">/antml:parameter>
-</invoke>
     
     <title>USD AI Research - University of South Dakota</title>
     <meta name="description" content="USD AI Research - Pioneering artificial intelligence research at the University of South Dakota. Explore our faculty, publications, initiatives, and AI symposium." />
@@ -51,6 +42,7 @@
     
     <!-- Alternative domain handling -->
     <link rel="alternate" href="https://ai-research-lab.org/" hreflang="en" />
+    <meta name="alternate-domain" content="usd-ai-research.org" />
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -106,30 +98,13 @@
         }
       }(window.location))
     </script>
-    <!-- Fallback styles -->
-    <link rel="stylesheet" href="/fallback.css">
-    <script type="module" crossorigin src="/assets/js/index-77fVwBRw.js"></script>
+    <script type="module" crossorigin src="/assets/js/index-C9V9iX5O.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/js/react-vendor-BppTWZ7f.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/react-router-BrqNiyZh.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/animations-Bm-zn0Gq.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/react-router-BKxVzD4m.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/animations-rA6OoO4K.js">
     <link rel="stylesheet" crossorigin href="/assets/css/index-hr2qwVO6.css">
   </head>
   <body>
-    <noscript>
-      <div class="noscript-container">
-        <h1>USD AI Research Lab</h1>
-        <p>This website requires JavaScript to run. Please enable JavaScript in your browser settings.</p>
-        <p>You can also visit us directly at: <strong>https://usd-ai-researchlab.github.io</strong></p>
-      </div>
-    </noscript>
-    <div id="root">
-      <!-- Fallback content while React loads -->
-      <div class="loading-container">
-        <div class="loading-content">
-          <h1>USD AI Research Lab</h1>
-          <p>Loading...</p>
-        </div>
-      </div>
-    </div>
+    <div id="root"></div>
   </body>
 </html>
