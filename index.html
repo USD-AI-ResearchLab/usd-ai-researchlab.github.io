@@ -13,11 +13,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
     
-    <!-- HTTPS enforcement for GitHub Pages -->
+    <!-- HTTPS enforcement for both domains -->
     <script>
-      // HTTPS enforcement for GitHub Pages (allows both HTTP and HTTPS)
-      if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname.includes('github.io')) {
-        // Show loading message before redirect for GitHub Pages
+      // HTTPS enforcement for both GitHub Pages and custom domain
+      if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+        // Show loading message before redirect
         document.documentElement.style.cssText = 'background: #f7fafc; margin: 0; padding: 20px; font-family: system-ui, -apple-system, sans-serif;';
         document.documentElement.innerHTML = '<div style="text-align: center; margin-top: 100px;"><h2 style="color: #2d3748;">Redirecting to secure connection...</h2><p style="color: #4a5568;">Please wait while we redirect you to HTTPS</p></div>';
         setTimeout(() => {
@@ -25,12 +25,13 @@
         }, 1000);
       }
       
-      // Handle custom domain redirects to GitHub Pages domain
-      if (location.hostname === 'ai-research-lab.org' || 
-          location.hostname === 'www.ai-research-lab.org' ||
-          location.hostname === 'usd-ai-research.org' || 
-          location.hostname === 'www.usd-ai-research.org') {
-        const newUrl = `https://usd-ai-researchlab.github.io${location.pathname}${location.search}${location.hash}`;
+      // Handle www redirects and legacy domain redirects
+      if (location.hostname === 'www.ai-research-lab.org') {
+        const newUrl = `https://ai-research-lab.org${location.pathname}${location.search}${location.hash}`;
+        location.replace(newUrl);
+      }
+      if (location.hostname === 'usd-ai-research.org' || location.hostname === 'www.usd-ai-research.org') {
+        const newUrl = `https://ai-research-lab.org${location.pathname}${location.search}${location.hash}`;
         location.replace(newUrl);
       }
     </script>
@@ -49,11 +50,11 @@
     <meta property="og:title" content="USD AI Research Lab - University of South Dakota" />
     <meta property="og:description" content="USD AI Research Lab - Pioneering artificial intelligence research at the University of South Dakota. Explore our faculty, publications, initiatives, and AI symposium." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://usd-ai-researchlab.github.io/" />
+    <meta property="og:url" content="https://ai-research-lab.org/" />
     <meta property="og:site_name" content="USD AI Research Lab" />
     
     <!-- Alternative domain handling -->
-    <link rel="alternate" href="https://usd-ai-researchlab.github.io/" hreflang="en" />
+    <link rel="alternate" href="https://ai-research-lab.org/" hreflang="en" />
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -61,7 +62,7 @@
     <meta name="twitter:description" content="USD AI Research Lab - Pioneering artificial intelligence research at the University of South Dakota." />
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://usd-ai-researchlab.github.io/" />
+    <link rel="canonical" href="https://ai-research-lab.org/" />
     
     <!-- Performance optimization preconnects -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
