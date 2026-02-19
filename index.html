@@ -15,9 +15,14 @@
     
     <!-- HTTPS enforcement and domain handling -->
     <script>
-      // HTTPS enforcement
+      // HTTPS enforcement with better user experience
       if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
-        location.replace(`https:${location.href.substring(location.protocol.length)}`);
+        // Show loading message before redirect
+        document.documentElement.style.cssText = 'background: #f7fafc; margin: 0; padding: 20px; font-family: system-ui, -apple-system, sans-serif;';
+        document.documentElement.innerHTML = '<div style="text-align: center; margin-top: 100px;"><h2 style="color: #2d3748;">Redirecting to secure connection...</h2><p style="color: #4a5568;">Please wait while we redirect you to HTTPS</p></div>';
+        setTimeout(() => {
+          location.replace(`https:${location.href.substring(location.protocol.length)}`);
+        }, 1000);
       }
       
       // Handle domain redirects - redirect any usd-ai-research.org to ai-research-lab.org
@@ -25,7 +30,17 @@
         const newUrl = `https://ai-research-lab.org${location.pathname}${location.search}${location.hash}`;
         location.replace(newUrl);
       }
+      
+      // Handle www redirect
+      if (location.hostname === 'www.ai-research-lab.org') {
+        const newUrl = `https://ai-research-lab.org${location.pathname}${location.search}${location.hash}`;
+        location.replace(newUrl);
+      }
     </script>
+    
+    <!-- HSTS Header simulation for browsers -->
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">/antml:parameter>
+</invoke>
     
     <title>USD AI Research - University of South Dakota</title>
     <meta name="description" content="USD AI Research - Pioneering artificial intelligence research at the University of South Dakota. Explore our faculty, publications, initiatives, and AI symposium." />
