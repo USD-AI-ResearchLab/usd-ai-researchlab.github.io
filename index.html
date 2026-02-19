@@ -7,28 +7,30 @@
     <link rel="apple-touch-icon" href="/favicon.svg?v=20260210143000" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     
-    <!-- Mobile optimizations -->
+    <!-- Safari-specific optimizations -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="USD AI Research">
     <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
     
     <!-- HTTPS enforcement for both domains -->
     <script>
-      // HTTPS enforcement for both GitHub Pages and custom domain
-      if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
-        // Simple redirect without inline styles to avoid warnings
-        location.replace(`https:${location.href.substring(location.protocol.length)}`);
+      // Safari-compatible HTTPS enforcement
+      if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        // Use window.location instead of location for better Safari compatibility
+        window.location.replace('https:' + window.location.href.substring(window.location.protocol.length));
       }
       
-      // Handle www redirects and legacy domain redirects
-      if (location.hostname === 'www.ai-research-lab.org') {
-        const newUrl = `https://ai-research-lab.org${location.pathname}${location.search}${location.hash}`;
-        location.replace(newUrl);
+      // Handle www redirects and legacy domain redirects (Safari-compatible)
+      if (window.location.hostname === 'www.ai-research-lab.org') {
+        var newUrl = 'https://ai-research-lab.org' + window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(newUrl);
       }
-      if (location.hostname === 'usd-ai-research.org' || location.hostname === 'www.usd-ai-research.org') {
-        const newUrl = `https://ai-research-lab.org${location.pathname}${location.search}${location.hash}`;
-        location.replace(newUrl);
+      if (window.location.hostname === 'usd-ai-research.org' || window.location.hostname === 'www.usd-ai-research.org') {
+        var newUrl = 'https://ai-research-lab.org' + window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(newUrl);
       }
     </script>
     
@@ -108,10 +110,10 @@
     </script>
     <!-- Fallback styles -->
     <link rel="stylesheet" href="/fallback.css">
-    <script type="module" crossorigin src="/assets/js/index-77fVwBRw.js"></script>
+    <script type="module" crossorigin src="/assets/js/index-Cx285ZW9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/js/react-vendor-BppTWZ7f.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/react-router-BrqNiyZh.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/animations-Bm-zn0Gq.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/react-router-CrFsxRKa.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/animations-CyO2mPQu.js">
     <link rel="stylesheet" crossorigin href="/assets/css/index-hr2qwVO6.css">
   </head>
   <body>

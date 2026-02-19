@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USD AI Research Lab</title>
     <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // This script takes the current url and converts the path and query
-      // string into just a query string, and then redirects the browser
-      // to the new url with just a query string and hash fragment,
-      // which allows the SPA to function correctly with BrowserRouter.
-      var pathToConvert = location.pathname.slice(1);
-      location.replace(
-        location.origin + 
-        '/?/' + 
+      // Single Page Apps for GitHub Pages - Safari Compatible
+      // HashRouter compatible redirect for 404 pages
+      var pathToConvert = window.location.pathname.slice(1);
+      window.location.replace(
+        window.location.origin + 
+        '/#/' + 
         pathToConvert + 
-        (location.search || '') +
-        (location.hash || '')
+        (window.location.search || '') +
+        (window.location.hash || '')
       );
     </script>
   </head>

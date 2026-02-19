@@ -1,1 +1,0 @@
-import{j as a}from"./animations-Bm-zn0Gq.js";const s=({src:s,alt:c,className:o="",onLoad:l})=>a.jsx("div",{className:"relative ".concat(o),children:a.jsx("img",{src:s,alt:c,className:"w-full h-full object-cover ".concat(o),onLoad:()=>{null==l||l()},loading:"eager",decoding:"sync"})});export{s as L};
