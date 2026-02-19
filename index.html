@@ -13,6 +13,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
     
+    <!-- HTTPS enforcement -->
+    <script>
+      if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+        location.replace(`https:${location.href.substring(location.protocol.length)}`);
+      }
+    </script>
+    
     <title>USD AI Research - University of South Dakota</title>
     <meta name="description" content="USD AI Research - Pioneering artificial intelligence research at the University of South Dakota. Explore our faculty, publications, initiatives, and AI symposium." />
     <meta name="keywords" content="USD AI Research, University of South Dakota, artificial intelligence, AI research, machine learning, computer science, faculty, publications" />
