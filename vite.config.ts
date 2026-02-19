@@ -2,9 +2,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import tailwindcss from '@tailwindcss/vite';
 
-// Advanced configuration for maximum performance across all devices
+// Advanced configuration for maximum browser compatibility
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/' : '/',
+  base: '/',
   server: {
     hmr: {
       overlay: false
@@ -17,7 +17,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    target: ['es2019', 'chrome64', 'firefox67', 'safari12'], // Better browser support
+    target: ['es2018', 'chrome63', 'firefox60', 'safari11'], // Broader browser support
     minify: 'terser',
     cssMinify: true,
     terserOptions: {

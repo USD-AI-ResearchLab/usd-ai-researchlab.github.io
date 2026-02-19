@@ -17,12 +17,8 @@
     <script>
       // HTTPS enforcement for both GitHub Pages and custom domain
       if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
-        // Show loading message before redirect
-        document.documentElement.style.cssText = 'background: #f7fafc; margin: 0; padding: 20px; font-family: system-ui, -apple-system, sans-serif;';
-        document.documentElement.innerHTML = '<div style="text-align: center; margin-top: 100px;"><h2 style="color: #2d3748;">Redirecting to secure connection...</h2><p style="color: #4a5568;">Please wait while we redirect you to HTTPS</p></div>';
-        setTimeout(() => {
-          location.replace(`https:${location.href.substring(location.protocol.length)}`);
-        }, 1000);
+        // Simple redirect without inline styles to avoid warnings
+        location.replace(`https:${location.href.substring(location.protocol.length)}`);
       }
       
       // Handle www redirects and legacy domain redirects
@@ -111,9 +107,26 @@
         }
       }(window.location))
     </script>
+    <!-- Fallback styles -->
+    <link rel="stylesheet" href="/fallback.css">
     <script type="module" src="/src/main.tsx"></script>
   </head>
   <body>
-    <div id="root"></div>
+    <noscript>
+      <div class="noscript-container">
+        <h1>USD AI Research Lab</h1>
+        <p>This website requires JavaScript to run. Please enable JavaScript in your browser settings.</p>
+        <p>You can also visit us directly at: <strong>https://usd-ai-researchlab.github.io</strong></p>
+      </div>
+    </noscript>
+    <div id="root">
+      <!-- Fallback content while React loads -->
+      <div class="loading-container">
+        <div class="loading-content">
+          <h1>USD AI Research Lab</h1>
+          <p>Loading...</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
