@@ -11,6 +11,13 @@ if (typeof window !== 'undefined') {
   window.addEventListener('unhandledrejection', function(e) {
     console.error('Unhandled promise rejection:', e.reason);
   });
+  
+  // Handle redirect from 404.html
+  const redirectUrl = sessionStorage.getItem('redirectUrl');
+  if (redirectUrl) {
+    sessionStorage.removeItem('redirectUrl');
+    window.history.replaceState(null, '', redirectUrl);
+  }
 }
 
 console.log('Main.tsx loaded');
