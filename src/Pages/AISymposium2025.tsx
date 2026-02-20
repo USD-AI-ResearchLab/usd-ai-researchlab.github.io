@@ -217,13 +217,9 @@ const AISymposium2025: React.FC = () => {
             <button
               className={`py-2 px-4 font-medium ${
                 activeTab === "current"
-                  ? "border-b-2 text-white"
-                  : "text-gray-600"
+                  ? "border-b-2 text-white tab-current-active"
+                  : "text-gray-600 tab-current-inactive"
               }`}
-              style={{ 
-                borderColor: activeTab === "current" ? '#C53030' : 'transparent',
-                color: activeTab === "current" ? '#C53030' : ''
-              }}
               onClick={() => setActiveTab("current")}
             >
               Current Sponsors
@@ -231,13 +227,9 @@ const AISymposium2025: React.FC = () => {
             <button
               className={`py-2 px-4 font-medium ${
                 activeTab === "become"
-                  ? "border-b-2 text-white"
-                  : "text-gray-600"
+                  ? "border-b-2 text-white tab-become-active"
+                  : "text-gray-600 tab-become-inactive"
               }`}
-              style={{ 
-                borderColor: activeTab === "become" ? '#C53030' : 'transparent',
-                color: activeTab === "become" ? '#C53030' : ''
-              }}
               onClick={() => setActiveTab("become")}
             >
               Become a Sponsor

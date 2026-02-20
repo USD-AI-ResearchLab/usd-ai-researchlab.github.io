@@ -605,4 +605,25 @@ div.border-logo-red {
   background-repeat: no-repeat !important;
 }
 
+/* Tab Navigation Styling */
+.tab-current-active {
+  border-bottom-color: #C53030 !important;
+  color: #C53030 !important;
+}
+
+.tab-current-inactive {
+  border-bottom-color: transparent !important;
+  color: inherit !important;
+}
+
+.tab-become-active {
+  border-bottom-color: #C53030 !important;
+  color: #C53030 !important;
+}
+
+.tab-become-inactive {
+  border-bottom-color: transparent !important;
+  color: inherit !important;
+}
+
 /* Force GitHub Pages rebuild - Updated Jan 28, 2026 */
