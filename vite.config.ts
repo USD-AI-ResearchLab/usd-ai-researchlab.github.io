@@ -17,7 +17,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    target: ['es2018', 'chrome63', 'firefox60', 'safari11.1', 'edge16'], // Modern browser support with React compatibility
+    target: ['es2020', 'chrome80', 'firefox78', 'safari14', 'edge88'], // Updated modern browser support
     minify: 'terser',
     cssMinify: true,
     terserOptions: {
@@ -25,11 +25,11 @@ export default defineConfig({
         drop_console: false, // Keep console for debugging
         drop_debugger: true,
         pure_funcs: ['console.warn'],
-        ecma: 2018, // Use ECMAScript 2018 for modern features
+        ecma: 2020, // Use ECMAScript 2020 for modern features
         passes: 2,
       },
       mangle: {
-        safari10: true, // Better Safari compatibility
+        safari10: false, // Updated Safari compatibility
       },
     },
     rollupOptions: {
