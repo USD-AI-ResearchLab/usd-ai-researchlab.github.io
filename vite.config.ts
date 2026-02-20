@@ -76,10 +76,10 @@ export default defineConfig({
   esbuild: {
     // Remove unused imports automatically
     treeShaking: true,
-    // Better browser compatibility
-    target: 'es2018',
+    // Better browser compatibility - aligned with build target
+    target: 'es2020',
     supported: {
-      'bigint': false,
+      'bigint': true,
       'top-level-await': false,
     },
   },
