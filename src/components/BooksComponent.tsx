@@ -1,5 +1,6 @@
 'use client'
 import { useRef, useEffect, useState } from 'react';
+import '../styles/custom.css';
 
 const BooksRowDisplay = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -96,6 +97,7 @@ const BooksRowDisplay = () => {
           onClick={() => scroll('left')}
           className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-600 hover:text-red-600 transition-colors"
           aria-label="Scroll books left"
+          title="Scroll books left"
         >
           <ChevronLeft />
         </button>
@@ -140,22 +142,11 @@ const BooksRowDisplay = () => {
           onClick={() => scroll('right')}
           className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-600 hover:text-red-600 transition-colors"
           aria-label="Scroll books right"
+          title="Scroll books right"
         >
           <ChevronRight />
         </button>
       </div>
-      
-      <style dangerouslySetInnerHTML={{
-        __html: `
-          .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-          }
-          .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-          }
-        `
-      }} />
     </div>
   );
 };

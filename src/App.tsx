@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import useDeviceOptimization, { getAnimationPreferences } from "./hooks/useDeviceOptimization";
 import usePerformanceMonitoring from "./hooks/usePerformanceMonitoring";
+import './styles/custom.css';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import("./Pages/Home"));

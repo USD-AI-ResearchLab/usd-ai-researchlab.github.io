@@ -1,0 +1,163 @@
+/* Custom styles to avoid inline style warnings */
+
+/* Book component styles */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* scrollbar-width: none; Commented out for better browser compatibility */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom positioning and colors */
+.custom-padding-top {
+  padding-top: 140px;
+}
+
+.custom-red-color {
+  color: #C53030;
+}
+
+/* Glass effect backgrounds */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.glass-effect-dark {
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* Gradient text effects */
+.gradient-text-hero {
+  background: linear-gradient(135deg, #dc2626, #7f1d1d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-director {
+  background: linear-gradient(135deg, #374151, #1f2937);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Background patterns */
+.pattern-bg {
+  background-image: url('/images/pattern.svg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Symposium specific styles */
+.symposium-bg {
+  background-color: #ededed;
+  background-image: url('/images/pattern.svg');
+  background-attachment: fixed;
+  font-family: 'Ubuntu, sans-serif';
+}
+
+.symposium-navbar-bg {
+  background-color: #ededed;
+}
+
+.symposium-title {
+  font-family: 'Ubuntu, sans-serif';
+  color: #C53030;
+}
+
+.symposium-card-bg {
+  background-color: #ededed;
+}
+
+.symposium-border-left {
+  border-left: 4px solid #C53030;
+}
+
+.symposium-icon-bg {
+  background-color: #f8f3f3;
+}
+
+.symposium-icon-color {
+  color: #C53030;
+}
+
+.hidden-fallback {
+  display: none;
+}
+
+/* Conference schedule styles */
+.schedule-toggle-btn {
+  color: #C53030;
+}
+
+.schedule-toggle-btn:hover {
+  color: #A02727;
+}
+
+.schedule-time-block {
+  background-color: #f8f3f3;
+  color: #C53030;
+}
+
+.day-tab-active {
+  border-bottom: 2px solid #C53030;
+  color: #C53030;
+}
+
+.day-tab-inactive {
+  border-bottom: 2px solid transparent;
+}
+
+.schedule-download-link {
+  color: #C53030;
+}
+
+/* Stats component styles */
+.stats-card-bg {
+  background: linear-gradient(to bottom right, #f8f3f3, #f1e8e8);
+}
+
+.stats-number {
+  color: #C53030;
+}
+
+/* White background utility */
+.white-bg {
+  background-color: white;
+}
+
+/* Go to top button */
+.go-to-top-btn {
+  background-color: #C53030;
+}
+
+.go-to-top-btn:hover {
+  background-color: #A02727;
+}
+
+/* Image sizing */
+.sponsor-image-size {
+  width: 180px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.sponsor-image-md {
+  width: 160px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.sponsor-image-lg {
+  width: 200px;
+  height: 100px;
+  object-fit: contain;
+}
