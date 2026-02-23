@@ -66,10 +66,10 @@ const HeroLogo: React.FC = () => (
 
 const HeroTitle: React.FC = () => (
   <motion.h1 
-    className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight mb-4 mt-4 sm:mt-6 md:mt-8"
+    className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight mb-2 mt-1"
     variants={animations.fadeInUp}
   >
-    <span className="gradient-text-hero text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">USD AI Research</span>
+    <span className="gradient-text-hero text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold">USD AI Research</span>
   </motion.h1>
 );
 
@@ -79,7 +79,7 @@ const HeroTagline: React.FC = () => (
     variants={animations.fadeInUp}
   >
     <motion.p 
-      className="gradient-text-hero text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold leading-relaxed mb-0 font-sans break-words"
+      className="gradient-text-hero text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold leading-relaxed mb-0 font-sans break-words"
       variants={animations.fadeInUp}
     >
       Leading artificial intelligence research and engineering<br />to shape South Dakota's innovation future and technological leadership!
