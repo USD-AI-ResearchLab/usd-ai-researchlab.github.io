@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import './NavBar.css';
-import bgimage from "../assets/logo-copy.svg";
+import bgimage from "../assets/logo.svg";
 import mobileLogoImage from "../assets/logo.svg";
 
 const NavBar: React.FC = () => {
