@@ -26,5 +26,22 @@ export const collaboratorsData: Person[] = [
     // Research collaborator from Université de Tebessa, Algeria
     // Research focus: AI, Machine Learning, Image Processing, Pattern Recognition, Medical Image Analysis
     // General Chair for ISPR conferences, Editorial roles in multiple journals
+  },
+  {
+    name: "Dr. Dominick Rizk",
+    role: "Professor\nCatholic University of America\nWashington, DC, USA",
+    scholarUrl: "https://scholar.google.com/citations?user=YOUR_ID&hl=en", // Please provide the actual Google Scholar profile URL
+    // Research collaborator from Catholic University of America, Washington DC
+    // Research focus: Quantum Computing, AI in Nuclear and High Energy Physics, AI in Healthcare, Cybersecurity, HPCA
+    // Center for Advanced Research in Computer Engineering
+  },
+  {
+    name: "Dr. Frederic Rizk",
+    role: "Professor\nDepartment of Electrical Engineering\nUniversity of Texas at Tyler\nTyler, Texas, USA",
+    url: "https://www.uttyler.edu/directory/electrical-engineering/frederic-rizk.php",
+    scholarUrl: "https://scholar.google.com/citations?user=YOUR_ID&hl=en", // Please provide the actual Google Scholar profile URL
+    // Research collaborator from University of Texas at Tyler, Texas
+    // Research focus: Electrical Engineering, Power Systems, Advanced Computing Systems
+    // CAR I SET - Center for Advanced Research in Science, Engineering & Technology
   }
 ];
