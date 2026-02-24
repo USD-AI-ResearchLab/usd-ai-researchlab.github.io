@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import './App.css'
+import './styles/custom.css'
 import { AppWithErrorHandling } from './AppWrapper'
 
 // Safari-compatible error handling

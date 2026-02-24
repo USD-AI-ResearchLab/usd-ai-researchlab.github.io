@@ -25,6 +25,21 @@ const animations = {
     transition: { duration: 0.8 }
   },
   
+  spiralIn: {
+    initial: { 
+      opacity: 0, 
+      scale: 0.8
+    },
+    animate: { 
+      opacity: 1, 
+      scale: 1
+    },
+    transition: { 
+      duration: 1.0,
+      ease: "easeOut"
+    }
+  },
+  
   staggerContainer: {
     initial: {},
     animate: {
@@ -57,7 +72,7 @@ const HeroLogo: React.FC = () => (
         <motion.img 
           src={logoImage} 
           alt="USD AI Research Lab Logo" 
-          className="w-auto h-[250px] object-contain mx-auto"
+          className="w-auto h-[200px] object-contain mx-auto"
         />
       </Link>
     </div>
@@ -66,10 +81,14 @@ const HeroLogo: React.FC = () => (
 
 const HeroTitle: React.FC = () => (
   <motion.h1 
-    className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight mb-2 mt-1"
-    variants={animations.fadeInUp}
+    className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight mb-2 mt-0"
+    variants={animations.spiralIn}
   >
-    <span className="gradient-text-hero text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold">USD AI Research</span>
+    <div 
+      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl hero-flowing-gradient whitespace-nowrap"
+    >
+      USD AI Research
+    </div>
   </motion.h1>
 );
 
@@ -79,7 +98,7 @@ const HeroTagline: React.FC = () => (
     variants={animations.fadeInUp}
   >
     <motion.p 
-      className="gradient-text-hero text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold leading-relaxed mb-0 font-sans break-words"
+      className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold leading-relaxed mb-0 font-sans break-words hero-flowing-gradient"
       variants={animations.fadeInUp}
     >
       Leading artificial intelligence research and engineering<br />to shape South Dakota's innovation future and technological leadership!
@@ -369,20 +388,8 @@ const Home: React.FC = () => {
           background-color: #c0c0c0;
         }
         
-        /* Hero Section: Black-Red-Black gradient */
-        .gradient-text-hero {
-          background: linear-gradient(135deg, #000000 0%, #dc2626 30%, #ef4444 50%, #dc2626 70%, #000000 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          background-size: 200% 200%;
-          animation: gradientFlow 6s ease-in-out infinite;
-          white-space: normal;
-          word-wrap: break-word;
-          display: inline;
-          padding: 0;
-          margin: 0;
-        }
+        /* Hero Section: Use external CSS for animations */
+        /* Moved to custom.css for spiral animations */
         
         /* Director Section: Red-Black-Red gradient */
         .gradient-text-director {
