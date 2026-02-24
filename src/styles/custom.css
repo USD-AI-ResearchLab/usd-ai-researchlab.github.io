@@ -3,27 +3,38 @@
 /* Hero Section Gradient Animations */
 .hero-flowing-gradient {
   background: linear-gradient(
-    90deg,
+    45deg,
     #C53030 0%,
-    #000000 50%,
+    #000000 25%,
+    #C53030 50%,
+    #000000 75%,
     #C53030 100%
   );
-  background-size: 300% 100%;
+  background-size: 400% 400%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: flowingGradient 2s linear infinite !important;
+  animation: wavePattern 5s ease-in-out infinite !important;
   font-weight: bold !important;
   display: inline-block;
 }
 
-@keyframes flowingGradient {
+@keyframes wavePattern {
   0% {
     background-position: 0% 0%;
   }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 0% 50%;
+  }
   100% {
-    background-position: 300% 0%;
+    background-position: 0% 0%;
   }
 }
 
