@@ -29,6 +29,10 @@ const NavBar: React.FC = () => {
               className="logo"
               src={logoImage} 
               alt="AI Lab Logo"
+              style={{
+                filter: 'drop-shadow(0 0 1px white) drop-shadow(0 0 2px white) drop-shadow(0 0 3px white)',
+                WebkitFilter: 'drop-shadow(0 0 1px white) drop-shadow(0 0 2px white) drop-shadow(0 0 3px white)'
+              }}
             />
           </Link>
 
@@ -97,6 +101,10 @@ const NavBar: React.FC = () => {
             src={mobileLogoImage}
             alt="USD AI Research Lab"
             className="mobile-logo"
+            style={{
+              filter: 'drop-shadow(0 0 1px white) drop-shadow(0 0 2px white) drop-shadow(0 0 3px white)',
+              WebkitFilter: 'drop-shadow(0 0 1px white) drop-shadow(0 0 2px white) drop-shadow(0 0 3px white)'
+            }}
           />
         </Link>
         
