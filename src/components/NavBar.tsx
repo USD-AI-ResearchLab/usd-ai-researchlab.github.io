@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import './NavBar.css';
-import bgimage from "../assets/Logo_.svg";
+import logoImage from "../assets/logo.svg";
 import mobileLogoImage from "../assets/logo.svg";
 
 const NavBar: React.FC = () => {
@@ -27,7 +27,7 @@ const NavBar: React.FC = () => {
           <Link to="/" className="nav-logo">
             <img 
               className="logo"
-              src={bgimage} 
+              src={logoImage} 
               alt="AI Lab Logo"
             />
           </Link>

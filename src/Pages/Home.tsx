@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import logoImage from "../assets/logo.svg";
+import logoImage from '../assets/logo.svg';
 
 // ========================================================================================
 // ANIMATION CONFIGURATIONS
@@ -61,21 +60,15 @@ const animations = {
 // HERO COMPONENTS
 // ========================================================================================
 const HeroLogo: React.FC = () => (
-  <motion.div 
-    variants={animations.fadeIn}
+  <motion.div
+    className="flex justify-center mb-4 md:mb-6"
+    variants={animations.spiralIn}
   >
-    {/* Removed glowing background effect to keep the hero area pure white */}
-    {/* <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-red-400/30 to-red-500/20 rounded-full blur-3xl scale-110 animate-pulse" /> */}
-    
-    <div className="relative bg-transparent p-0">
-      <Link to="/" className="no-underline">
-        <motion.img 
-          src={logoImage} 
-          alt="USD AI Research Lab Logo" 
-          className="w-auto h-[200px] object-contain mx-auto"
-        />
-      </Link>
-    </div>
+    <img 
+      src={logoImage} 
+      alt="USD AI Research Lab Logo" 
+      className="h-16 md:h-20 lg:h-24 xl:h-28 w-auto"
+    />
   </motion.div>
 );
 
@@ -256,11 +249,9 @@ const HeroSection: React.FC = () => (
   >
     <div className="flex flex-col items-center justify-center gap-0">
       {/* Logo */}
-      <div className="flex-shrink-0 w-auto">
-        <HeroLogo />
-      </div>
+      <HeroLogo />
       
-      {/* Text Below Logo */}
+      {/* Text Content */}
       <div className="text-center w-full">
         <HeroTitle />
         <HeroTagline />
