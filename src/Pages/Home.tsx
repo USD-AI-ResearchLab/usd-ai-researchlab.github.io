@@ -67,7 +67,7 @@ const HeroLogo: React.FC = () => (
     <img 
       src={logoImage} 
       alt="USD AI Research Lab Logo" 
-      className="h-56 md:h-72 lg:h-96 xl:h-[28rem] w-auto"
+      className="w-[320px] sm:w-[460px] md:w-[600px] lg:w-[780px] xl:w-[940px] h-auto"
     />
   </motion.div>
 );
