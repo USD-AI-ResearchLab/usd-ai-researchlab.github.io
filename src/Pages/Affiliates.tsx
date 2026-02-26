@@ -17,7 +17,10 @@ const Affiliates: React.FC = () => {
   ];
 
   const academicPartners = [
-    { name: "South Dakota Biomedical Computing Consortium (SDBCC)", image: "/images/sponsor/SD-BCC.png", url: "https://sd-bcc.org", alt: "South Dakota Biomedical Computing Consortium" }
+    { name: "South Dakota Biomedical Computing Consortium (SDBCC)", image: "/images/sponsor/SD-BCC.png", url: "https://sd-bcc.org", alt: "South Dakota Biomedical Computing Consortium" },
+    { name: "LAMIS Laboratory", image: "/images/sponsor/Picture0.png", url: "https://lamis.univ-tebessa.dz/", alt: "LAMIS Laboratory" },
+    { name: "CARCE", image: "/images/sponsor/carce_logo.png", url: "#", alt: "CARCE" },
+    { name: "CARISET", image: "/images/sponsor/cariset_logo.png", url: "#", alt: "CARISET" }
   ];
 
   const professionalOrganizations = [
@@ -105,12 +108,12 @@ const Affiliates: React.FC = () => {
             </button>
 
             {/* Multiple Cards Display */}
-            <div className="flex justify-center items-center min-h-[350px] w-full overflow-x-auto px-2 sm:overflow-hidden">
-              <div className="flex flex-nowrap gap-2 sm:gap-3 max-w-full">
+            <div className="flex justify-center items-center min-h-[300px] w-full px-8">
+              <div className="flex flex-nowrap justify-center gap-2 w-full">
                 {currentCategory.cards.map((card, index) => (
                   <motion.div 
                     key={`${currentCategoryIndex}-${index}`}
-                    className="flex flex-col items-center w-[140px] sm:w-[180px] md:w-[200px] h-64 sm:h-72 transition-all duration-300 group cursor-pointer hover:scale-105 p-2 overflow-hidden flex-shrink-0"
+                    className="flex flex-col items-center flex-1 min-w-0 max-w-[160px] h-60 transition-all duration-300 group cursor-pointer hover:scale-105 p-2 overflow-hidden flex-shrink-1"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
@@ -124,11 +127,11 @@ const Affiliates: React.FC = () => {
                       className="flex flex-col items-center justify-between h-full w-full no-underline text-current"
                     >
                       {/* Logo Container */}
-                      <div className="flex items-center justify-center w-full transition-colors mb-2 sm:mb-3 h-20 sm:h-28 md:h-32">
+                      <div className="flex items-center justify-center w-full mb-2 h-20 bg-white rounded-lg shadow-sm border border-gray-100 p-2">
                         <img 
                           src={card.image} 
                           alt={card.alt} 
-                          className="max-h-16 sm:max-h-20 md:max-h-24 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                          className="max-h-14 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
                         />
                       </div>
                       
