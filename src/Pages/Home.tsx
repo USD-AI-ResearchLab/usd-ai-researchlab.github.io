@@ -78,7 +78,7 @@ const HeroTitle: React.FC = () => (
     variants={animations.spiralIn}
   >
     <div 
-      className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl hero-flowing-gradient whitespace-nowrap"
+      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl hero-flowing-gradient whitespace-nowrap"
     >
       USD AI Research
     </div>
@@ -91,7 +91,7 @@ const HeroTagline: React.FC = () => (
     variants={animations.fadeInUp}
   >
     <motion.p 
-      className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold leading-relaxed mb-0 font-sans break-words hero-flowing-gradient"
+      className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold leading-relaxed mb-0 font-sans break-words hero-flowing-gradient"
       variants={animations.fadeInUp}
     >
       Leading artificial intelligence research and engineering<br />to shape South Dakota's innovation future and technological leadership!
