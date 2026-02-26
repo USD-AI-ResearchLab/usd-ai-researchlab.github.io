@@ -67,7 +67,7 @@ const HeroLogo: React.FC = () => (
     <img 
       src={logoImage} 
       alt="USD AI Research Lab Logo" 
-      className="h-16 md:h-20 lg:h-24 xl:h-28 w-auto"
+      className="h-40 md:h-52 lg:h-64 xl:h-72 w-auto"
     />
   </motion.div>
 );
@@ -192,19 +192,19 @@ const AnimatedStatCard: React.FC<{
       {/* Number Display - Fixed position */}
       {!isText ? (
         <div className="text-center">
-          <div className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-bold leading-none">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-none">
             {suffix && !hideSuffix && suffix === 'M+' ? (
               <>
-                <span className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-red-600">$</span>
-                <span className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-red-600">{value}</span>
-                <span className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-red-600">M</span>
-                <span className="text-xs sm:text-sm text-gray-900 align-super">+</span>
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-red-600">$</span>
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-red-600">{value}</span>
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-red-600">M</span>
+                <span className="text-sm sm:text-base text-gray-900 align-super">+</span>
               </>
             ) : (
               <>
-                <span className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-red-600">{value}</span>
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-red-600">{value}</span>
                 {suffix && !hideSuffix ? (
-                  <span className="text-xs sm:text-sm text-gray-900 align-super">{suffix}</span>
+                  <span className="text-sm sm:text-base text-gray-900 align-super">{suffix}</span>
                 ) : null}
               </>
             )}
@@ -214,7 +214,7 @@ const AnimatedStatCard: React.FC<{
       
       {/* Title */}
       <div className="text-center">
-        <h3 className="font-bold text-gray-900 text-xs sm:text-sm leading-tight px-1">
+        <h3 className="font-bold text-gray-900 text-sm sm:text-base leading-tight px-1">
           {title}
         </h3>
       </div>
@@ -222,7 +222,7 @@ const AnimatedStatCard: React.FC<{
       {/* Subtitle */}
       <div className="text-center">
         {subtitle && (
-          <p className="text-xs text-gray-700 leading-tight font-normal px-1">
+          <p className="text-sm text-gray-700 leading-tight font-normal px-1">
             {subtitle}
           </p>
         )}
