@@ -112,14 +112,14 @@ const Initiatives: React.FC = () => {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <p className="text-gray-700 leading-relaxed mb-3">
-                      <span className="font-semibold">South Dakota Biomedical Computation Consortium (SDBCC):</span> A $6.5M Department of Education (DoEd) collaboration between <span className="font-semibold">USD Computer Science</span>, <span className="font-semibold">USD Sanford School of Medicine</span>, and <span className="font-semibold">SD School of Mines & Technology</span>. The partnership leverages $0.746M from the South Dakota Board of Regents (SDBOR) to advance biomedical computation research and education across South Dakota.
+                    <p className="text-gray-800 leading-relaxed mb-3">
+                      <span className="font-semibold">South Dakota Biomedical Computation Consortium (SDBCC):</span> A $6.5M Department of Education (DoEd) collaboration between <span className="font-semibold">USD Computer Science</span>, <span className="font-semibold">USD Sanford School of Medicine</span>, and <span className="font-semibold">SD School of Mines &amp; Technology</span>. The partnership leverages $0.746M from the South Dakota Board of Regents (SDBOR) to advance biomedical computation research and education across South Dakota.
                     </p>
                     <a 
                       href="https://sd-bcc.org" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 bg-logo-red text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
+                      className="inline-flex items-center px-5 py-3 bg-transparent text-black font-semibold text-sm rounded-lg hover:bg-red-600 hover:text-white transition-all"
                     >
                       Visit SDBCC
                       <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,14 +143,14 @@ const Initiatives: React.FC = () => {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <p className="text-gray-700 leading-relaxed mb-3">
+                    <p className="text-gray-800 leading-relaxed mb-3">
                       <span className="font-semibold">(December 2024)</span> The AI Research Lab signed an agreement with the <span className="font-semibold">Thumbay Institute for AI in Healthcare</span> at <span className="font-semibold">Gulf Medical University, UAE.</span>
                     </p>
                     <a 
                       href="https://gmu.ac.ae/tiaih_news/thumbay-institute-for-ai-in-healthcare-signs-mou-with-2ai-research-lab-university-of-south-dakota/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 bg-logo-red text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
+                      className="inline-flex items-center px-5 py-3 bg-transparent text-black font-semibold text-sm rounded-lg hover:bg-red-600 hover:text-white transition-all"
                     >
                       View MOU News
                       <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
