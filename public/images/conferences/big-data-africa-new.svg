@@ -36,11 +36,10 @@
 
   <text x="52" y="100" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="20" font-weight="900" fill="#111827">Big Data Africa</text>
   <text x="52" y="126" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="20" font-weight="900" fill="#111827">Symposium</text>
-  <text x="52" y="149" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="13" font-weight="800" letter-spacing="0.12em" fill="#b45309">ANALYTICS • INNOVATION • IMPACT</text>
 
   <g>
-    <rect x="52" y="160" width="178" height="26" rx="13" fill="#111827"/>
-    <text x="64" y="178" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#ffffff" letter-spacing="0.08em">DATA FOR DEVELOPMENT</text>
+    <rect x="52" y="140" width="140" height="26" rx="13" fill="#111827"/>
+    <text x="64" y="158" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#ffffff" letter-spacing="0.08em">INTERNATIONAL</text>
   </g>
 
   <!-- Animated golden "spark" -->
