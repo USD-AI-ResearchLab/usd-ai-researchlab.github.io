@@ -187,57 +187,50 @@ const AnimatedStatCard: React.FC<{
   hideSuffix?: boolean;
 }> = ({ title, value, suffix = '', subtitle, isText = false, hideSuffix = false }) => {
 
-  const hasPlus = !!suffix && suffix.endsWith('+') && !hideSuffix;
-  const baseSuffix = suffix.replace('+', '');
-
-  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300`;
-
   const cardContent = (
-    <>
-      <div className="h-full flex flex-col justify-start pt-2 space-y-1">
-        {/* Number Display - Fixed position */}
-        {!isText ? (
-          <div className="text-center">
-            <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-none">
-              {/* dollar sign only for monetary stats */}
-              {baseSuffix.includes('M') && (
+    <div className="h-full flex flex-col justify-start pt-2 space-y-1">
+      {/* Number Display - Fixed position */}
+      {!isText ? (
+        <div className="text-center">
+          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-none">
+            {suffix && !hideSuffix && suffix === 'M+' ? (
+              <>
                 <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-red-600">$</span>
-              )}
-
-              <span className="relative inline-block">
                 <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-red-600">{value}</span>
-                {hasPlus && (
-                  <span className="absolute top-0 right-0 translate-x-2 text-gray-900 text-base sm:text-lg">
-                    +
-                  </span>
-                )}
-              </span>
-
-              {baseSuffix && (
-                <span className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-red-600 ${hasPlus ? 'ml-1' : ''}`}>{baseSuffix}</span>
-              )}
-            </div>
+                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-red-600">M</span>
+                <span className="text-base sm:text-lg text-gray-900 align-super">+</span>
+              </>
+            ) : (
+              <>
+                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-red-600">{value}</span>
+                {suffix && !hideSuffix ? (
+                  <span className="text-base sm:text-lg text-gray-900 align-super">{suffix}</span>
+                ) : null}
+              </>
+            )}
           </div>
-        ) : null}
-        
-        {/* Title */}
-        <div className="text-center">
-          <h3 className="font-bold text-gray-900 text-base sm:text-lg md:text-xl leading-tight px-1">
-            {title}
-          </h3>
         </div>
-        
-        {/* Subtitle */}
-        <div className="text-center">
-          {subtitle && (
-            <p className="text-sm sm:text-base text-gray-700 leading-tight font-normal px-1">
-              {subtitle}
-            </p>
-          )}
-        </div>
+      ) : null}
+      
+      {/* Title */}
+      <div className="text-center">
+        <h3 className="font-bold text-gray-900 text-base sm:text-lg md:text-xl leading-tight px-1">
+          {title}
+        </h3>
       </div>
-    </>
+      
+      {/* Subtitle */}
+      <div className="text-center">
+        {subtitle && (
+          <p className="text-sm sm:text-base text-gray-700 leading-tight font-normal px-1">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    </div>
   );
+
+  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 h-44 sm:h-52 md:h-60 lg:h-72 flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300`;
 
   return (
     <div className={cardClass} data-bg="gray">
