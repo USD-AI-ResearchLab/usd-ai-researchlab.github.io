@@ -61,7 +61,7 @@ const animations = {
 // ========================================================================================
 const HeroLogo: React.FC = () => (
   <motion.div
-    className="flex justify-center mb-4 md:mb-6"
+    className="flex justify-center -mb-4 md:-mb-6"
     variants={animations.spiralIn}
   >
     <img 
@@ -74,7 +74,7 @@ const HeroLogo: React.FC = () => (
 
 const HeroTitle: React.FC = () => (
   <motion.h1 
-    className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight mb-2 mt-0"
+    className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight mb-2 mt-0 pt-0"
     variants={animations.spiralIn}
   >
     <div 
@@ -87,11 +87,11 @@ const HeroTitle: React.FC = () => (
 
 const HeroTagline: React.FC = () => (
   <motion.div 
-    className="text-center max-w-4xl mx-auto"
+    className="text-center w-full px-4 mx-auto"
     variants={animations.fadeInUp}
   >
     <motion.p 
-      className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold leading-relaxed mb-0 font-sans break-words hero-flowing-gradient"
+      className="text-[clamp(0.7rem,2.2vw,1.875rem)] font-semibold leading-relaxed mb-0 font-sans whitespace-nowrap hero-flowing-gradient"
       variants={animations.fadeInUp}
     >
       Leading artificial intelligence research and engineering<br />to shape South Dakota's innovation future and technological leadership!
