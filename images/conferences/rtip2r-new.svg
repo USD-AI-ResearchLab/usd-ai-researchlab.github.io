@@ -33,11 +33,10 @@
   <rect x="28" y="54" width="6" height="132" rx="3" fill="url(#accent)"/>
 
   <text x="52" y="106" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="24" font-weight="800" fill="#111827">RTIP2R Conference</text>
-  <text x="52" y="134" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="13" font-weight="700" letter-spacing="0.14em" fill="#be123c">VISION • REAL-TIME • RECOGNITION</text>
 
   <g>
-    <rect x="52" y="150" width="214" height="26" rx="13" fill="#111827"/>
-    <text x="64" y="168" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#ffffff" letter-spacing="0.08em">FAST VISION PIPELINES</text>
+    <rect x="52" y="120" width="140" height="26" rx="13" fill="#111827"/>
+    <text x="64" y="138" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#ffffff" letter-spacing="0.08em">INTERNATIONAL</text>
   </g>
 
   <!-- Animated scan line inside the focus area -->
