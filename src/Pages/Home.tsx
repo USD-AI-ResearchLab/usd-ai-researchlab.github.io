@@ -188,23 +188,23 @@ const AnimatedStatCard: React.FC<{
 }> = ({ title, value, suffix = '', subtitle, isText = false, hideSuffix = false }) => {
 
   const cardContent = (
-    <div className="h-full flex flex-col justify-start pt-2 space-y-1">
+    <div className="h-full flex flex-col justify-start pt-0.5 space-y-0">
       {/* Number Display - Fixed position */}
       {!isText ? (
         <div className="text-center">
-          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-none">
+          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-none">
             {suffix && !hideSuffix && suffix === 'M+' ? (
               <>
-                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-red-600">$</span>
-                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-red-600">{value}</span>
-                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-red-600">M</span>
-                <span className="text-base sm:text-lg text-gray-900 align-super">+</span>
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-red-600">$</span>
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-red-600">{value}</span>
+                <span className="text-sm sm:text-base text-gray-900 relative stat-plus-super">+</span>
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-red-600">M</span>
               </>
             ) : (
               <>
-                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-red-600">{value}</span>
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-red-600">{value}</span>
                 {suffix && !hideSuffix ? (
-                  <span className="text-base sm:text-lg text-gray-900 align-super">{suffix}</span>
+                  <span className="text-sm sm:text-base text-gray-900 relative stat-plus-super">{suffix}</span>
                 ) : null}
               </>
             )}
@@ -214,7 +214,7 @@ const AnimatedStatCard: React.FC<{
       
       {/* Title */}
       <div className="text-center">
-        <h3 className="font-bold text-gray-900 text-base sm:text-lg md:text-xl leading-tight px-1">
+        <h3 className="font-bold text-gray-900 text-sm sm:text-base md:text-lg leading-tight px-1">
           {title}
         </h3>
       </div>
@@ -222,7 +222,7 @@ const AnimatedStatCard: React.FC<{
       {/* Subtitle */}
       <div className="text-center">
         {subtitle && (
-          <p className="text-sm sm:text-base text-gray-700 leading-tight font-normal px-1">
+          <p className="text-xs sm:text-sm text-gray-700 leading-tight font-normal px-1">
             {subtitle}
           </p>
         )}
@@ -230,7 +230,7 @@ const AnimatedStatCard: React.FC<{
     </div>
   );
 
-  const cardClass = `stat-card p-2 sm:p-3 md:p-4 lg:p-5 h-44 sm:h-52 md:h-60 lg:h-72 flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300`;
+  const cardClass = `stat-card p-1 sm:p-1.5 md:p-2 lg:p-3 flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300`;
 
   return (
     <div className={cardClass} data-bg="gray">
@@ -377,6 +377,10 @@ const Home: React.FC = () => {
         /* Custom background color for stat cards */
         .stat-card[data-bg="gray"] {
           background-color: #c0c0c0;
+        }
+        
+        .stat-plus-super {
+          top: -1.5em;
         }
         
         /* Hero Section: Use external CSS for animations */
