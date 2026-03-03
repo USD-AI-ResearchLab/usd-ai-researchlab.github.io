@@ -5,15 +5,109 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260210143000" />
     <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg?v=20260210143000" />
     <link rel="apple-touch-icon" href="/favicon.svg?v=20260210143000" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Cross-browser compatibility and responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     
-    <!-- Safari-specific optimizations -->
+    <!-- Enhanced browser support -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="USD AI Research">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileColor" content="#1e3a8a">
+    
+    <!-- Cross-browser polyfills and compatibility -->
+    <script>
+      // Basic polyfills for older browsers
+      if (!Array.prototype.includes) {
+        Array.prototype.includes = function(searchElement) {
+          return this.indexOf(searchElement) !== -1;
+        };
+      }
+      
+      if (!String.prototype.includes) {
+        String.prototype.includes = function(search, start) {
+          if (typeof start !== 'number') start = 0;
+          if (start + search.length > this.length) return false;
+          else return this.indexOf(search, start) !== -1;
+        };
+      }
+      
+      // Object.assign polyfill
+      if (typeof Object.assign != 'function') {
+        Object.assign = function(target) {
+          if (target == null) throw new TypeError('Cannot convert undefined or null to object');
+          var to = Object(target);
+          for (var index = 1; index < arguments.length; index++) {
+            var nextSource = arguments[index];
+            if (nextSource != null) {
+              for (var nextKey in nextSource) {
+                if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                  to[nextKey] = nextSource[nextKey];
+                }
+              }
+            }
+          }
+          return to;
+        };
+      }
+      
+      // Promise polyfill for very old browsers
+      if (typeof Promise === 'undefined') {
+        window.Promise = function(executor) {
+          var self = this;
+          this.state = 'pending';
+          this.value = undefined;
+          this.handlers = [];
+          
+          function resolve(value) {
+            if (self.state === 'pending') {
+              self.state = 'fulfilled';
+              self.value = value;
+              self.handlers.forEach(function(handler) { handler.onFulfilled(value); });
+              self.handlers = [];
+            }
+          }
+          
+          function reject(reason) {
+            if (self.state === 'pending') {
+              self.state = 'rejected';
+              self.value = reason;
+              self.handlers.forEach(function(handler) { handler.onRejected(reason); });
+              self.handlers = [];
+            }
+          }
+          
+          this.then = function(onFulfilled, onRejected) {
+            return new Promise(function(resolve, reject) {
+              if (self.state === 'fulfilled') {
+                try { resolve(onFulfilled ? onFulfilled(self.value) : self.value); }
+                catch(e) { reject(e); }
+              } else if (self.state === 'rejected') {
+                try { reject(onRejected ? onRejected(self.value) : self.value); }
+                catch(e) { reject(e); }
+              } else {
+                self.handlers.push({
+                  onFulfilled: function(value) {
+                    try { resolve(onFulfilled ? onFulfilled(value) : value); }
+                    catch(e) { reject(e); }
+                  },
+                  onRejected: function(reason) {
+                    try { reject(onRejected ? onRejected(reason) : reason); }
+                    catch(e) { reject(e); }
+                  }
+                });
+              }
+            });
+          };
+          
+          try { executor(resolve, reject); }
+          catch(e) { reject(e); }
+        };
+      }
+    </script>
     
     <!-- HTTPS enforcement for both domains -->
     <script>
@@ -35,8 +129,7 @@
     </script>
     
     <!-- HSTS Header simulation for browsers -->
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">/antml:parameter>
-</invoke>
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
     
     <title>USD AI Research - University of South Dakota</title>
     <meta name="description" content="USD AI Research - Pioneering artificial intelligence research at the University of South Dakota. Explore our faculty, publications, initiatives, and AI symposium." />
@@ -70,7 +163,7 @@
     <link rel="dns-prefetch" href="https://unpkg.com">
     
     <!-- Mobile-specific preloads -->
-    <link rel="preload" href="/assets/images/logo-Dzaogj1s.svg" as="image" type="image/svg+xml" media="(min-width: 768px)">
+    <link rel="preload" href="/assets/images/logo-BHzomKBk.svg" as="image" type="image/svg+xml" media="(min-width: 768px)">
     <link rel="preload" href="/images/building-bg.jpeg" as="image" type="image/jpeg" media="(min-width: 768px)">
     
     <!-- Mobile-first CSS preload -->
@@ -110,11 +203,11 @@
     </script>
     <!-- Fallback styles -->
     <link rel="stylesheet" href="/fallback.css">
-    <script type="module" crossorigin src="/assets/js/index-Cx285ZW9.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/js/react-vendor-BppTWZ7f.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/react-router-CrFsxRKa.js">
-    <link rel="modulepreload" crossorigin href="/assets/js/animations-CyO2mPQu.js">
-    <link rel="stylesheet" crossorigin href="/assets/css/index-hr2qwVO6.css">
+    <script type="module" crossorigin src="/assets/js/index-DPQGcEWu.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/js/react-vendor-B9AVPlLH.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/react-router-BJTHuDS8.js">
+    <link rel="modulepreload" crossorigin href="/assets/js/animations-BRgxYAPW.js">
+    <link rel="stylesheet" crossorigin href="/assets/css/index-BC6TnZVM.css">
   </head>
   <body>
     <noscript>
