@@ -180,7 +180,7 @@ const Initiatives: React.FC = () => {
               
                   <motion.div
                     key={index}
-                    className="w-full overflow-hidden relative"
+                    className="w-full overflow-hidden relative bg-white rounded-2xl shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300"
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ 
                       opacity: 1, 
@@ -195,11 +195,11 @@ const Initiatives: React.FC = () => {
                     whileTap={{ scale: 0.99 }}
                   >
                     {/* Banner Image */}
-                    <div className="relative h-44 overflow-hidden">
+                    <div className="relative h-48 overflow-hidden bg-gray-50 rounded-t-2xl">
                       <img
                         src={category.image || perCardFallback}
                         alt={category.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                         onError={(e) => {
                           const img = e.currentTarget;
                           if (img.src.endsWith(perCardFallback) || img.src.endsWith(FALLBACK_BANNER)) return;
