@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import './NavBar.css';
-import logoImage from "../assets/logo.svg";
-import mobileLogoImage from "../assets/logo.svg";
+import logoImage from "../assets/logo_original_backup_with_outline.svg";
+import mobileLogoImage from "../assets/logo_original_backup_with_outline.svg";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -29,10 +29,6 @@ const NavBar: React.FC = () => {
               className="logo"
               src={logoImage} 
               alt="AI Lab Logo"
-              style={{
-                filter: 'drop-shadow(0 0 1px white) drop-shadow(0 0 2px white) drop-shadow(0 0 3px white)',
-                WebkitFilter: 'drop-shadow(0 0 1px white) drop-shadow(0 0 2px white) drop-shadow(0 0 3px white)'
-              }}
             />
           </Link>
 
@@ -101,10 +97,6 @@ const NavBar: React.FC = () => {
             src={mobileLogoImage}
             alt="USD AI Research Lab"
             className="mobile-logo"
-            style={{
-              filter: 'drop-shadow(0 0 1px white) drop-shadow(0 0 2px white) drop-shadow(0 0 3px white)',
-              WebkitFilter: 'drop-shadow(0 0 1px white) drop-shadow(0 0 2px white) drop-shadow(0 0 3px white)'
-            }}
           />
         </Link>
         
