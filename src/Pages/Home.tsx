@@ -61,7 +61,8 @@ const animations = {
 // ========================================================================================
 const HeroLogo: React.FC = () => (
   <motion.div
-    className="flex justify-center -mb-4 md:-mb-6"
+    className="flex justify-center overflow-hidden"
+    style={{ marginBottom: '-2%' }}
     variants={animations.spiralIn}
   >
     <img 
@@ -244,7 +245,7 @@ const AnimatedStatCard: React.FC<{
 // ========================================================================================
 const HeroSection: React.FC = () => (
   <motion.section 
-    className="mb-8"
+    className="mb-4"
     variants={animations.staggerContainer}
   >
     <div className="flex flex-col items-center justify-center gap-0">
@@ -289,7 +290,7 @@ const DirectorSection: React.FC = () => (
 
 const PublicationsSection: React.FC = () => (
   <motion.section 
-    className="-mt-2 sm:-mt-4 md:-mt-6 lg:-mt-8 mb-0 md:mb-0 lg:mb-0"
+    className="mt-0 mb-0"
     variants={animations.fadeInUp}
     initial="initial"
     animate="animate"
