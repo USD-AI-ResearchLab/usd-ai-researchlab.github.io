@@ -26,9 +26,6 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, scholar
               src={imageUrl}
               alt={name}
               className="person-card-image w-full h-full object-cover rounded-full"
-              onLoad={() => {
-                console.log(`✅ Image loaded successfully for ${name}:`, imageUrl);
-              }}
             />
           </div>
         )}

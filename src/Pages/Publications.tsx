@@ -178,9 +178,13 @@ const Publications: React.FC = () => {
             {expandedYears.has(section.year) && (
               <div className="pl-1">
                 {section.summary && (
-                  <p className="text-gray-700 font-medium text-sm mb-1" dangerouslySetInnerHTML={{
-                    __html: section.summary.replace(/(\d+ journal articles)/g, '<strong>$1</strong>').replace(/(\d+ conference proceedings)/g, '<strong>$1</strong>').replace(/(\d+ book chapters?)/g, '<strong>$1</strong>')
-                  }} />
+                  <p className="text-gray-700 font-medium text-sm mb-1">
+                    {section.summary.split(/(\d+ journal articles|\d+ conference proceedings|\d+ book chapters?)/).map((part, i) =>
+                      /^\d+ (journal articles|conference proceedings|book chapters?)$/.test(part)
+                        ? <strong key={i}>{part}</strong>
+                        : <span key={i}>{part}</span>
+                    )}
+                  </p>
                 )}
                 <ul className="space-y-0.5 text-gray-700 font-ubuntu text-sm leading-snug">
                   {section.publications.map((pub, idx) => (

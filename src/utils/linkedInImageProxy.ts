@@ -40,8 +40,6 @@ export class LinkedInImageProxy {
       'thoyajakasha-kristipati': 'https://robohash.org/thoyajakasha?set=set1&size=400x400'
     };
 
-    console.log('🖼️ Providing high-resolution team member images');
-    // Return immediately - Lorem Picsum URLs are reliable and fast
     return workingImageUrls;
   }
 

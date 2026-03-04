@@ -18,7 +18,6 @@ const FloatingScrollArrows: React.FC = () => {
     return () => window.removeEventListener('resize', checkScrollable);
   }, []);
   const scrollToTop = () => {
-    console.log('Scroll up clicked');
     // Scroll up by one viewport height instead of all the way to top
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
     const scrollAmount = window.innerHeight * 0.8; // 80% of viewport height
@@ -29,15 +28,13 @@ const FloatingScrollArrows: React.FC = () => {
         top: newPosition, 
         behavior: 'smooth' 
       });
-    } catch (error) {
-      console.log('Smooth scroll failed, using fallback:', error);
+    } catch {
       document.body.scrollTop = newPosition;
       document.documentElement.scrollTop = newPosition;
     }
   };
 
   const scrollToBottom = () => {
-    console.log('Scroll down clicked');
     // Scroll down by one viewport height instead of all the way to bottom
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
     const scrollAmount = window.innerHeight * 0.8; // 80% of viewport height
@@ -49,8 +46,7 @@ const FloatingScrollArrows: React.FC = () => {
         top: newPosition,
         behavior: 'smooth'
       });
-    } catch (error) {
-      console.log('Smooth scroll down failed, using fallback:', error);
+    } catch {
       document.body.scrollTop = newPosition;
       document.documentElement.scrollTop = newPosition;
     }

@@ -15,7 +15,6 @@ export const useLinkedInImages = (): UseLinkedInImagesReturn => {
 
   const fetchImages = async () => {
     try {
-      console.log('🔄 Fetching LinkedIn images...');
       setLoading(true);
       setError(null);
       
@@ -24,7 +23,6 @@ export const useLinkedInImages = (): UseLinkedInImagesReturn => {
       localStorage.removeItem('linkedinImagesTimestamp');
       
       const imageUrls = await linkedInImageProxy.getTeamMemberImages();
-      console.log('✅ Got image URLs:', imageUrls);
       setImages(imageUrls);
       
       // Store in localStorage for caching
@@ -32,7 +30,6 @@ export const useLinkedInImages = (): UseLinkedInImagesReturn => {
       localStorage.setItem('linkedinImagesTimestamp', Date.now().toString());
       
     } catch (err) {
-      console.error('❌ Error fetching images:', err);
       setError(err instanceof Error ? err.message : 'Failed to fetch images');
     } finally {
       setLoading(false);

@@ -5,6 +5,7 @@ import '../styles/custom.css';
 const BooksRowDisplay = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [autoScrollEnabled, setAutoScrollEnabled] = useState(true);
+  const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
   
   const bookListing = [
     { href: "https://usd-ai-researchlab.github.io/#/publications", src: "/images/books/book3.png" },
@@ -118,20 +119,21 @@ const BooksRowDisplay = () => {
                   className="block"
                 >
                   <div className="w-[120px] sm:w-[150px] h-[160px] sm:h-[200px] relative overflow-hidden rounded-lg bg-transparent">
-                    <img
-                      src={book.src}
-                      alt="Book cover"
-                      className="w-full h-full object-contain p-1"
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent) {
-                          parent.innerHTML = '<div class="w-full h-full flex items-center justify-center text-gray-400 text-xs">Image not available</div>';
-                        }
-                      }}
-                    />
+                    {failedImages.has(index) ? (
+                      <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">
+                        Image not available
+                      </div>
+                    ) : (
+                      <img
+                        src={book.src}
+                        alt="Book cover"
+                        className="w-full h-full object-contain p-1"
+                        loading="lazy"
+                        onError={() => {
+                          setFailedImages(prev => new Set(prev).add(index));
+                        }}
+                      />
+                    )}
                   </div>
                 </a>
               </div>

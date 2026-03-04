@@ -21,14 +21,10 @@ if (typeof window !== 'undefined') {
   }
 }
 
-console.log('Main.tsx loaded');
 const root = document.getElementById('root');
-console.log('Root element:', root);
 
 if (!root) {
   throw new Error('Root element not found');
 }
 
 createRoot(root).render(<AppWithErrorHandling />);
-
-console.log('App rendered');

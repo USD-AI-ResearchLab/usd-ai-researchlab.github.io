@@ -514,30 +514,4 @@ export const alumniData: AlumnusData[] = [
     role: "Master's Graduate | Computer Science",
     memberKey: "nikul-vyas"
   },
-
-  // TODO: Add more alumni if needed
-  // Please provide the alumni data to complete this list
-  // 
-  // Template for adding new alumni:
-  // {
-  //   name: "Alumni Name",
-  //   degree: "PhD" or "Master's", 
-  //   year: "YYYY",
-  //   role: "PhD Graduate | Computer Science" or "Master's Graduate | Computer Science",
-  //   memberKey: "alumni-name-kebab-case",
-  //   currentPosition: "Optional: Current job title",
-  //   linkedin: "Optional: LinkedIn URL"
-  // },
-  //
-  // YEARS TO ADD (estimated):
-  // - 2022 graduates
-  // - 2021 graduates  
-  // - 2020 graduates
-  // - 2019 graduates
-  // - 2018 graduates
-  // - 2017 graduates
-  // - Earlier years...
-  //
-  // Please provide the names and details for these missing alumni
-
 ];

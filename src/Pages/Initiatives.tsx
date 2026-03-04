@@ -361,18 +361,6 @@ const Initiatives: React.FC = () => {
           </div>
         </div>
 
-        {/* Hide Scrollbar Styles */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-            .hide-scrollbar {
-              -ms-overflow-style: none;
-              scrollbar-width: none;
-            }
-            .hide-scrollbar::-webkit-scrollbar {
-              display: none;
-            }
-          `
-        }} />
       </motion.div>
     </PageLayout>
   );
