@@ -40,12 +40,6 @@ export const studentsData: Person[] = [
     role: "PhD Student | Computer Science",
     memberKey: "carrie-minette"
   },
-  {
-    name: "Ifrat Ikhtear Uddin",
-    role: "PhD Student | Computer Science (starts from fall 2026)",
-    memberKey: "ifrat-ikhtear-uddin-phd"
-  },
-  
   // Masters Students
   {
     name: "Puskal Khadka",
