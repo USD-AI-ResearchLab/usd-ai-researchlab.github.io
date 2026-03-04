@@ -87,7 +87,7 @@ const BooksRowDisplay = () => {
   const handleMouseLeave = () => setAutoScrollEnabled(true);
 
   return (
-    <div className="my-8">
+    <div className="my-1">
       <div 
         className="relative" 
         onMouseEnter={handleMouseEnter}
@@ -109,7 +109,7 @@ const BooksRowDisplay = () => {
             {bookListing.map((book, index) => (
               <div 
                 key={index}
-                className="flex-shrink-0 transition-transform hover:scale-105 h-[280px] flex items-center"
+                className="flex-shrink-0 transition-transform hover:scale-105 h-[210px] flex items-center"
               >
                 <a 
                   href={book.href}
@@ -117,7 +117,7 @@ const BooksRowDisplay = () => {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <div className="w-[120px] sm:w-[150px] h-[160px] sm:h-[200px] relative overflow-hidden rounded-lg shadow-lg bg-white">
+                  <div className="w-[120px] sm:w-[150px] h-[160px] sm:h-[200px] relative overflow-hidden rounded-lg bg-transparent">
                     <img
                       src={book.src}
                       alt="Book cover"
@@ -128,7 +128,7 @@ const BooksRowDisplay = () => {
                         target.style.display = 'none';
                         const parent = target.parentElement;
                         if (parent) {
-                          parent.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-gray-100 text-gray-400 text-xs">Image not available</div>';
+                          parent.innerHTML = '<div class="w-full h-full flex items-center justify-center text-gray-400 text-xs">Image not available</div>';
                         }
                       }}
                     />
