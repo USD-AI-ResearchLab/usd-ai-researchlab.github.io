@@ -192,24 +192,6 @@ export const PUBLICATIONS: Publication[] = [
     codeUrl: "#"
   },
   {
-    title: "Covid-19 Imaging Tools: How Big Data is Big?",
-    authors: "KC Santosh, Soumyajit Ghosh",
-    description: "Analysis of imaging tools and data size considerations for COVID‑19.",
-    venue: "Journal of Medical Systems (Springer)",
-    year: "2021",
-    paperUrl: "https://doi.org/10.1007/s10916-021-01747-2",
-    codeUrl: "#"
-  },
-  {
-    title: "Shallow Convolutional Neural Network for COVID-19 Outbreak Screening Using Chest X-rays",
-    authors: "Himansu Mukherjee, Soumyajit Ghosh, Ankita Dhar, Sk Md Obaidullah, KC Santosh, Kaushik Roy",
-    description: "Light‑weight CNN for CXR screening.",
-    venue: "Cognitive Computation (Springer)",
-    year: "2021",
-    paperUrl: "https://doi.org/10.1007/s12559-020-09775-9",
-    codeUrl: "#"
-  },
-  {
     title: "Deep neural network to detect COVID-19: one architecture for both CT Scans and Chest X-rays",
     authors: "Himansu Mukherjee, Soumyajit Ghosh, Ankita Dhar, Sk Md Obaidullah, KC Santosh, Kaushik Roy",
     description: "Single DNN architecture trained on both CT and CXR.",
