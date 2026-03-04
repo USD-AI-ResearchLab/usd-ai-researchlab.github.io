@@ -35,7 +35,7 @@ export const PUBLICATIONS: Publication[] = [
     description: "Comprehensive technical overview of meta‑learning and related areas.",
     venue: "IEEE Transactions on Pattern Analysis and Machine Intelligence",
     year: "2024",
-    paperUrl: "https://doi.org/10.1109/TPAMI.2024.3361491",
+    paperUrl: "https://doi.org/10.1109/TPAMI.2024.3357847",
     codeUrl: "#"
   },
   {

@@ -38,14 +38,16 @@ export const FEW_SAMPLES: SamplePublication[] = [
     authors: "L Wang, I Uddin, KC Santosh",
     title: "Expert-Guided Explainable Few-Shot Learning with Active Sample Selection for Medical Image Analysis",
     venue: "IEEE Journal of Biomedical and Health Informatics",
-    year: "2025"
+    year: "2025",
+    linkUrl: "https://doi.org/10.1109/JBHI.2025.3650334",
+    linkLabel: "DOI"
   },
   {
     authors: "A Vettoruzzo, MR Bouguelia, J Vanschoren, T Rognvaldsson, KC Santosh",
     title: "Advances and Challenges in Meta-Learning: A Technical Review",
     venue: "IEEE Transactions on Pattern Analysis & Machine Intelligence",
     year: "2024",
-    linkUrl: "https://doi.org/10.1109/TPAMI.2024.3361491",
+    linkUrl: "https://doi.org/10.1109/TPAMI.2024.3357847",
     linkLabel: "DOI"
   },
   {
@@ -61,7 +63,7 @@ export const FEW_SAMPLES: SamplePublication[] = [
     title: "Deep Learning for Covid-19 Screening using Chest X-rays in 2020: A Systematic Review",
     venue: "International Journal of Pattern Recognition & Artificial Intelligence, World Scientific",
     year: "2022",
-    linkUrl: "https://doi.org/10.1142/S0218001422500434",
+    linkUrl: "https://doi.org/10.1142/S0218001422520103",
     linkLabel: "DOI"
   },
   {
@@ -69,7 +71,7 @@ export const FEW_SAMPLES: SamplePublication[] = [
     title: "Explainable AI for Glaucoma Prediction Analysis to Understand Risk Factors in Treatment Planning",
     venue: "IEEE Transactions on Instrumentation & Measurement",
     year: "2022",
-    linkUrl: "https://doi.org/10.1109/TIM.2022.3187700",
+    linkUrl: "https://doi.org/10.1109/TIM.2022.3171613",
     linkLabel: "DOI"
   },
   {
@@ -148,7 +150,9 @@ export const FEW_SAMPLES: SamplePublication[] = [
     authors: "M Bouguelia, S Nowaczyk, KC Santosh, Antanas Verikas",
     title: "Agreeing to disagree: active learning with noisy labels without crowdsourcing",
     venue: "International Journal of Machine Learning & Cybernetics, Springer",
-    year: "2018"
+    year: "2018",
+    linkUrl: "https://doi.org/10.1007/s13042-017-0645-0",
+    linkLabel: "DOI"
   },
   {
     authors: "KC Santosh, L Wendling, S Antani, G Thoma",
@@ -214,7 +218,9 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         authors: "L Wang, I Uddin, KC Santosh",
         title: "Expert-Guided Explainable Few-Shot Learning with Active Sample Selection for Medical Image Analysis",
         venue: "IEEE Journal of Biomedical and Health Informatics",
-        year: "2025"
+        year: "2025",
+        linkUrl: "https://doi.org/10.1109/JBHI.2025.3650334",
+        linkLabel: "DOI"
       },
       {
         authors: "Shotabdi Roy, Joseph Nuamah, Taylor J Bosch, Richa Barsainya, Maximilian Scherer, Thomas Koeglsperger, KC Santosh, Arun Singh",
@@ -268,7 +274,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Advances and Challenges in Meta-Learning: A Technical Review",
         venue: "IEEE Transactions on Pattern Analysis & Machine Intelligence",
         year: "2024",
-        linkUrl: "https://doi.org/10.1109/TPAMI.2024.3361491",
+        linkUrl: "https://doi.org/10.1109/TPAMI.2024.3357847",
         linkLabel: "DOI"
       },
       {
@@ -416,7 +422,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Explainable AI for Glaucoma Prediction Analysis to Understand Risk Factors in Treatment Planning",
         venue: "IEEE Transactions on Instrumentation & Measurement",
         year: "2022",
-        linkUrl: "https://doi.org/10.1109/TIM.2022.3187700",
+        linkUrl: "https://doi.org/10.1109/TIM.2022.3171613",
         linkLabel: "DOI"
       },
       {
@@ -432,7 +438,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Deep Learning for Covid-19 Screening using Chest X-rays in 2020: A Systematic Review",
         venue: "International Journal of Pattern Recognition & Artificial Intelligence, World Scientific",
         year: "2022",
-        linkUrl: "https://doi.org/10.1142/S0218001422500434",
+        linkUrl: "https://doi.org/10.1142/S0218001422520103",
         linkLabel: "DOI"
       },
       {
@@ -943,7 +949,9 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         authors: "M Bouguelia, S Nowaczyk, KC Santosh, Antanas Verikas",
         title: "Agreeing to disagree: active learning with noisy labels without crowdsourcing",
         venue: "International Journal of Machine Learning & Cybernetics, Springer",
-        year: "2018"
+        year: "2018",
+        linkUrl: "https://doi.org/10.1007/s13042-017-0645-0",
+        linkLabel: "DOI"
       }
     ],
     conferenceProceedings: "SPIE Medical Imaging (1), ICRCICN (1), ICSKIMA (1), ICICBA (1), and AISC (3)"
