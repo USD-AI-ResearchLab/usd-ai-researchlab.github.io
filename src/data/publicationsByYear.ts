@@ -193,7 +193,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         venue: "Neurocomputing",
         year: "2025",
         note: "major revision",
-        linkUrl: "https://arxiv.org/abs/2309.01807",
+        linkUrl: "https://arxiv.org/abs/2211.15386",
         linkLabel: "arXiv"
       },
       {
@@ -202,7 +202,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         venue: "IEEE Transactions on Artificial Intelligence",
         year: "2025",
         note: "under review",
-        linkUrl: "https://arxiv.org/abs/2405.02327",
+        linkUrl: "https://arxiv.org/abs/2509.04682",
         linkLabel: "arXiv"
       },
       {
@@ -211,7 +211,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         venue: "European Journal of Neuroscience",
         year: "2025",
         note: "minor revision",
-        linkUrl: "https://arxiv.org/abs/2409.07703",
+        linkUrl: "https://arxiv.org/abs/2507.20862",
         linkLabel: "arXiv"
       },
       {
@@ -243,23 +243,23 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "An algorithmic approach to construct the library of universal logic gates beyond NAND and NOR",
         venue: "Integration, Elsevier",
         year: "2025",
-        linkUrl: "https://www.sciencedirect.com/science/article/pii/S0167926025001713",
-        linkLabel: "URL"
+        linkUrl: "https://doi.org/10.1016/j.vlsi.2025.102514",
+        linkLabel: "DOI"
       },
       {
         authors: "J Dhar, M Haghighat, N Zaidi, F Sohel, B-Q Vo, KC Santosh",
         title: "Towards Building Robust Models for Unimodal and Multimodal Medical Imaging Data",
         venue: "Information Fusion, Elsevier",
         year: "2025",
-        linkUrl: "https://www.sciencedirect.com/science/article/pii/S156625352500884X",
-        linkLabel: "URL"
+        linkUrl: "https://doi.org/10.1016/j.inffus.2025.103822",
+        linkLabel: "DOI"
       },
       {
         authors: "Mohammed A Chowdhury, Rodrigue Rizk, Conroy Chiu, Jing J Zhang, Jamie L Scholl, Taylor J Bosch, Arun Singh, Lee A Baugh, Jeffrey S McGough, KC Santosh, William CW Chen",
         title: "The heart of transformation: exploring artificial intelligence in cardiovascular disease",
         venue: "Biomedicines",
         year: "2025",
-        linkUrl: "https://doi.org/10.3390/biomedicines13010102",
+        linkUrl: "https://doi.org/10.3390/biomedicines13020427",
         linkLabel: "DOI"
       }
     ],
@@ -313,7 +313,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "A Systematic Review on Deep Structured Learning for COVID-19 Screening Using Chest CT from 2020 to 2022",
         venue: "Healthcare, MDPI",
         year: "2023",
-        linkUrl: "https://doi.org/10.3390/healthcare11050683",
+        linkUrl: "https://doi.org/10.3390/healthcare11172388",
         linkLabel: "DOI"
       },
       {
@@ -321,7 +321,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Unboxing industry-standard AI models for male fertility prediction with SHAP",
         venue: "Healthcare, MDPI",
         year: "2023",
-        linkUrl: "https://doi.org/10.3390/healthcare11020187",
+        linkUrl: "https://doi.org/10.3390/healthcare11070929",
         linkLabel: "DOI"
       },
       {
@@ -353,7 +353,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Analyzing Non-biological Foreign Objects in Chest X-rays \u2013 Clinical Significance and AI tools",
         venue: "Healthcare, MDPI",
         year: "2023",
-        linkUrl: "https://doi.org/10.3390/healthcare11030384",
+        linkUrl: "https://doi.org/10.3390/healthcare11030308",
         linkLabel: "DOI"
       },
       {
@@ -361,7 +361,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "eXplainable AI to predict male fertility using extreme gradient boosting algorithm with SMOTE",
         venue: "Electronics, MDPI",
         year: "2023",
-        linkUrl: "https://doi.org/10.3390/electronics12030540",
+        linkUrl: "https://doi.org/10.3390/electronics12010015",
         linkLabel: "DOI"
       }
     ],
@@ -414,7 +414,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Underwater image dehazing using global color features",
         venue: "Engineering Applications of Artificial Intelligence, Elsevier",
         year: "2022",
-        linkUrl: "https://doi.org/10.1016/j.engappai.2021.104534",
+        linkUrl: "https://doi.org/10.1016/j.engappai.2022.105489",
         linkLabel: "DOI"
       },
       {
@@ -485,7 +485,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Balance Your Work-Life: Personal Interactive Web-Interface",
         venue: "International Journal Of Interactive Multimedia And Artificial Intelligence",
         year: "2021",
-        linkUrl: "https://doi.org/10.9781/ijimai.2021.08.014",
+        linkUrl: "http://doi.org/10.9781/ijimai.2021.08.016",
         linkLabel: "DOI"
       },
       {
@@ -508,16 +508,14 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         authors: "A Koilada, N Das, KC Santosh",
         title: "Cervical Cancerous Cell Classification: Opposition-based Harmony Search for Deep Features Selection",
         venue: "Engineering Applications of Artificial Intelligence, Elsevier",
-        year: "2021",
-        linkUrl: "https://doi.org/10.1016/j.engappai.2021.104447",
-        linkLabel: "DOI"
+        year: "2021"
       },
       {
         authors: "H Mukherjee, H Salam, KC Santosh",
         title: "Lung Health Analysis: Adventitious Respiratory Sound Classification Using Filterbank Energies",
         venue: "International Journal of Pattern Recognition & Artificial Intelligence, World Scientific",
         year: "2021",
-        linkUrl: "https://doi.org/10.1142/S0218001421570068",
+        linkUrl: "https://doi.org/10.1142/S0218001421570081",
         linkLabel: "DOI"
       },
       {
@@ -565,7 +563,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Machine Translation using Deep Learning for Universal Networking Language based on their Structure",
         venue: "International Journal of Machine Learning & Cybernetics, Springer",
         year: "2021",
-        linkUrl: "https://doi.org/10.1007/s13042-020-01235-y",
+        linkUrl: "https://doi.org/10.1007/s13042-021-01317-5",
         linkLabel: "DOI"
       },
       {
@@ -581,7 +579,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Colorectal Histology Tumor Detection using Ensemble Deep Neural Network",
         venue: "Engineering Applications of Artificial Intelligence, Elsevier",
         year: "2021",
-        linkUrl: "https://doi.org/10.1016/j.engappai.2021.104437",
+        linkUrl: "https://doi.org/10.1016/j.engappai.2021.104202",
         linkLabel: "DOI"
       },
       {
@@ -589,7 +587,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "5K+ CT Images on Fractured Limbs: A Dataset for Medical Imaging Research",
         venue: "Journal of Medical Systems, Springer",
         year: "2021",
-        linkUrl: "https://doi.org/10.1007/s10916-021-01733-8",
+        linkUrl: "https://doi.org/10.1007/s10916-021-01724-9",
         linkLabel: "DOI"
       }
     ],
@@ -672,7 +670,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "COVID-19: Psychological and Psychosocial Impact, Fear, and Passion",
         venue: "Digital Government: Research and Practice, ACM",
         year: "2020",
-        linkUrl: "https://doi.org/10.1145/3428093",
+        linkUrl: "https://doi.org/10.1145/3428088",
         linkLabel: "DOI"
       },
       {
@@ -680,7 +678,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Niblack Binarization on Document Images: Area Efficient, Low Cost, and Noise Tolerant Stochastic Architecture",
         venue: "International Journal of Pattern Recognition & Artificial Intelligence, World Scientific",
         year: "2020",
-        linkUrl: "https://doi.org/10.1142/S0218001420530043",
+        linkUrl: "https://doi.org/10.1142/S0218001421540136",
         linkLabel: "DOI"
       },
       {
@@ -712,7 +710,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Gradient boosting in crowd ensembles for Q-learning using weight sharing",
         venue: "International Journal of Machine Learning & Cybernetics, Springer",
         year: "2020",
-        linkUrl: "https://doi.org/10.1007/s13042-020-01133-3",
+        linkUrl: "https://doi.org/10.1007/s13042-020-01115-5",
         linkLabel: "DOI"
       },
       {
@@ -771,10 +769,10 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
       },
       {
         authors: "H Mukherjee, A Dhar, Sk Md Obaidullah, KC Santosh, S Phadikar, K Roy",
-        title: "Linear predictive coefficients-based features and extreme learning machine for voice activity detection from audio signal",
+        title: "Linear predictive coefficients-based feature to identify top-7 spoken languages",
         venue: "International Journal of Pattern Recognition & Artificial Intelligence, World Scientific",
         year: "2019",
-        linkUrl: "https://doi.org/10.1142/S0218001419500174",
+        linkUrl: "https://doi.org/10.1142/S0218001420580069",
         linkLabel: "DOI"
       },
       {
@@ -798,7 +796,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "A lazy learning-based language identification from speech using MFCC-2 features",
         venue: "International Journal of Machine Learning & Cybernetics, Springer",
         year: "2019",
-        linkUrl: "https://doi.org/10.1007/s13042-019-00946-1",
+        linkUrl: "https://doi.org/10.1007/s13042-019-00928-3",
         linkLabel: "DOI"
       },
       {
@@ -814,7 +812,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Imperceptible watermark for a game-theoretic watermarking system",
         venue: "International Journal of Machine Learning & Cybernetics, Springer",
         year: "2019",
-        linkUrl: "https://doi.org/10.1007/s13042-019-00960-3",
+        linkUrl: "https://doi.org/10.1007/s13042-018-0813-x",
         linkLabel: "DOI"
       },
       {
@@ -902,7 +900,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Handwritten Indic script identification in multi-script document images: A survey",
         venue: "International Journal of Pattern Recognition & Artificial Intelligence, World Scientific",
         year: "2018",
-        linkUrl: "https://doi.org/10.1142/S0218001418560037",
+        linkUrl: "https://doi.org/10.1142/S0218001418560128",
         linkLabel: "DOI"
       },
       {
@@ -910,7 +908,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Content independent writer identification on Bangla script: A document level approach",
         venue: "International Journal of Pattern Recognition & Artificial Intelligence, World Scientific",
         year: "2018",
-        linkUrl: "https://doi.org/10.1142/S0218001418560050",
+        linkUrl: "https://doi.org/10.1142/S0218001418560116",
         linkLabel: "DOI"
       },
       {
@@ -926,7 +924,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Correspondence: Edge map analysis in chest X-rays for automatic pulmonary abnormality screening",
         venue: "Indian Journal of Tuberculosis, Elsevier",
         year: "2018",
-        linkUrl: "https://doi.org/10.1016/j.ijtb.2017.08.031",
+        linkUrl: "https://doi.org/10.1016/j.ijtb.2016.10.001",
         linkLabel: "DOI"
       },
       {
@@ -965,7 +963,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Line segment-based stitched multipanel figure separation for effective biomedical CBIR",
         venue: "International Journal of Pattern Recognition & Artificial Intelligence, World Scientific",
         year: "2017",
-        linkUrl: "https://doi.org/10.1142/S0218001417570063",
+        linkUrl: "https://doi.org/10.1142/S0218001417570038",
         linkLabel: "DOI"
       },
       {
@@ -981,7 +979,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Foreign Circular Element Detection in Chest X-rays for Effective Automated Pulmonary Abnormality Screening",
         venue: "International Journal of Computer Vision and Image Processing",
         year: "2017",
-        linkUrl: "https://doi.org/10.4018/IJCVIP.2017070102",
+        linkUrl: "https://doi.org/10.4018/IJCVIP.2017040103",
         linkLabel: "DOI"
       },
       {
@@ -989,7 +987,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Word-level Multi-script Indic Document Image Dataset and Baseline Results on Script Identification",
         venue: "International Journal of Computer Vision and Image Processing",
         year: "2017",
-        linkUrl: "https://doi.org/10.4018/IJCVIP.2017040101",
+        linkUrl: "https://doi.org/10.4018/IJCVIP.2017040106",
         linkLabel: "DOI"
       },
       {
@@ -997,8 +995,8 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Separating Indic scripts with mantra for effective handwritten script identification in multiscript documents",
         venue: "International Journal of Pattern Recognition & Artificial Intelligence, World Scientific",
         year: "2017",
-        linkUrl: "https://www.worldscientific.com/doi/abs/10.1142/S021800141753001X",
-        linkLabel: "URL"
+        linkUrl: "https://doi.org/10.1142/S0218001417530032",
+        linkLabel: "DOI"
       }
     ],
     conferenceProceedings: "RTIP2R (7, best paper award (1))"
@@ -1020,7 +1018,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "A Simple and Efficient Arrowhead Detection in Biomedical Images",
         venue: "International Journal of Pattern Recognition & Artificial Intelligence, World Scientific",
         year: "2016",
-        linkUrl: "https://doi.org/10.1142/S0218001416600065",
+        linkUrl: "https://doi.org/10.1142/S0218001416570020",
         linkLabel: "DOI"
       },
       {
@@ -1083,7 +1081,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "RSILC: Rotation and Scale Invariant, Line Colour aware Descriptor",
         venue: "Image and Vision Computing",
         year: "2015",
-        linkUrl: "https://doi.org/10.1016/j.imavis.2014.12.005",
+        linkUrl: "https://doi.org/10.1016/j.imavis.2015.06.010",
         linkLabel: "DOI"
       },
       {
@@ -1122,7 +1120,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "DTW\u2013Radon Shape Descriptor for Pattern Recognition",
         venue: "International Journal of Pattern Recognition and Artificial Intelligence, World Scientific",
         year: "2013",
-        linkUrl: "https://doi.org/10.1142/S0218001413500134",
+        linkUrl: "https://doi.org/10.1142/S0218001413500080",
         linkLabel: "DOI"
       },
       {
@@ -1130,7 +1128,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Relative Positioning of Stroke Based Clustering: A New Approach to On-line Handwritten Devanagari Character Recognition",
         venue: "International Journal of Image & Graphics (IJIG), World Scientific",
         year: "2012",
-        linkUrl: "https://doi.org/10.1142/S0219467812500052",
+        linkUrl: "https://doi.org/10.1142/S0219467812500167",
         linkLabel: "DOI"
       },
       {
@@ -1138,7 +1136,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Symbol Recognition using Spatial Relations",
         venue: "Pattern Recognition Letters (PRL), Elsevier",
         year: "2012",
-        linkUrl: "https://doi.org/10.1016/j.patrec.2011.09.015",
+        linkUrl: "https://doi.org/10.1016/j.patrec.2011.09.040",
         linkLabel: "DOI"
       },
       {
@@ -1146,7 +1144,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "Use of Dynamic Time Warping for Object Shape Classification through Signature",
         venue: "Kathmandu University Journal of Science, Engineering and Technology",
         year: "2010",
-        linkUrl: "https://doi.org/10.3126/kuset.v6i1.3315",
+        linkUrl: "https://www.nepjol.info/index.php/KUSET/article/view/3308/2848",
         linkLabel: "URL"
       },
       {
@@ -1154,7 +1152,7 @@ export const PUBLICATIONS_BY_YEAR: YearSection[] = [
         title: "A Comprehensive Survey on On-line Handwriting Recognition Technology and its Real Application to the Nepalese Natural Handwriting",
         venue: "Kathmandu University Journal of Science, Engineering and Technology",
         year: "2009",
-        linkUrl: "https://doi.org/10.3126/kuset.v5i1.2842",
+        linkUrl: "https://hal.inria.fr/inria-00354242v2",
         linkLabel: "URL"
       },
       {

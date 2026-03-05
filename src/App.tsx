@@ -1,7 +1,7 @@
 // USD AI Research Lab - Main Application Component
 // Last updated: 2026-01-27
 import React, { useEffect, Suspense, lazy } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import useDeviceOptimization, { getAnimationPreferences } from "./hooks/useDeviceOptimization";
@@ -109,6 +109,7 @@ const App: React.FC = () => {
             <Route path="/affiliates" element={<Affiliates />} />
             <Route path="/events/ai-symposium/2025" element={<AISymposium2025 />} />
             <Route path="/sponsor-cards-demo" element={<SponsorCardDemo />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
       </main>
