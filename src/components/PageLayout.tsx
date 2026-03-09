@@ -13,16 +13,16 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   children
 }) => {
   return (
-    <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 bg-transparent">
+    <main className="relative flex items-center justify-center px-4 py-2 md:px-6 md:py-4 lg:px-8 lg:py-6 bg-transparent">
       {/* Stable Card Container - matching Home page style */}
       <motion.div 
-        className="w-full max-w-7xl"
+        className="w-full max-w-7xl mx-auto"
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
       >
         <motion.div
-          className="relative glass-card rounded-3xl overflow-hidden"
+          className="relative glass-card rounded-3xl overflow-visible"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -31,7 +31,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           <div className="absolute inset-0 rounded-3xl ring-1 ring-red-200/40 pointer-events-none" />
           
           {/* Content wrapper */}
-          <div className="relative py-4 px-3 lg:px-4 glass-card-inner">
+          <div className="relative py-4 px-4 md:px-6 lg:px-8 glass-card-inner box-border">
             <motion.div 
               className="relative z-10"
               initial="initial"
@@ -73,7 +73,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="px-4 sm:px-6 md:px-8 lg:px-10 py-0"
+                className="w-full py-0 box-border"
               >
                 {children}
               </motion.div>

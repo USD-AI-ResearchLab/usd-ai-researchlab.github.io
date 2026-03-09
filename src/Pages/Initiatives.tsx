@@ -17,49 +17,49 @@ const Initiatives: React.FC = () => {
     {
       title: "AI Symposium",
       link: "/events/ai-symposium/2025",
-      image: "/images/conferences/ai-symposium-new.svg",
+      image: "/images/conferences/ai-symposium-new.svg?v=2",
       description: "Annual symposium bringing together AI researchers, industry experts, and students to share cutting-edge research and innovations."
     },
     {
       title: "AI Club", 
       link: "https://usdinvolved.usd.edu/organization/ai-club",
       isExternal: true,
-      image: "/images/conferences/ai-club-new.svg",
+      image: "/images/conferences/ai-club-new.svg?v=2",
       description: "Student-led organization fostering AI learning through projects, competitions, and networking opportunities."
     },
     {
       title: "RTIP2R Conference",
       link: "https://rtip2r-conference.org/2025/",
       isExternal: true,
-      image: "/images/conferences/rtip2r-new.svg",
+      image: "/images/conferences/rtip2r-new.svg?v=2",
       description: "Leading conference on Recent Trends in Image Processing and Pattern Recognition attracting cutting-edge research on image processing, pattern recognition, computer vision, and machine learning."
     },
     {
-      title: "AI Engineering",
+      title: "AIEI",
       link: "https://www.aiengineering-conference.org",
       isExternal: true,
-      image: "/images/conferences/ai-engineering-new.svg",
+      image: "/images/conferences/ai-engineering-new.svg?v=2",
       description: "Conference on AI Engineering and Innovation with keynotes and technical sessions across healthcare, agriculture, energy, and automation. All papers submitted to IEEE Xplore with publication opportunities."
     },
     {
       title: "2AI Conference",
       link: "https://www.2ai-conference.org",
       isExternal: true,
-      image: "/images/conferences/applied-ai-new.svg",
+      image: "/images/conferences/applied-ai-new.svg?v=2",
       description: "International Conference on Applied Artificial Intelligence focused on sustainable AI solutions, pattern recognition, computer vision, and real-world applications across healthcare, imaging, and IoT domains."
     },
     {
       title: "CVMI Conference",
       link: "https://cvmi2024.iiita.ac.in/",
       isExternal: true,
-      image: "/images/conferences/cvmi-new.svg",
+      image: "/images/conferences/cvmi-new.svg?v=2",
       description: "IEEE Computer Vision and Machine Intelligence Conference on pattern recognition, computer vision, and biometrics. Papers submitted to IEEE Xplore with IAPR Best Paper Awards and PhD Dissertation recognition."
     },
     {
       title: "Big Data Africa Symposium",
       link: "https://bigdataafricasymposium.org/symposium-2026/",
       isExternal: true,
-      image: "/images/conferences/big-data-africa-new.svg",
+      image: "/images/conferences/big-data-africa-new.svg?v=2",
       description: "Symposium on data-driven AI for healthcare, climate, agriculture, and security across Africa. Features keynotes, hands-on sessions, youth workshops, and opportunities for transforming research into sustainable impact."
     }
   ];
@@ -70,7 +70,7 @@ const Initiatives: React.FC = () => {
     "AI Symposium": "/images/conferences/ai-symposium-new.svg",
     "AI Club": "/images/conferences/ai-club-new.svg",
     "RTIP2R Conference": "/images/conferences/rtip2r-new.svg",
-    "AI Engineering": "/images/conferences/ai-engineering-new.svg",
+    "AIEI": "/images/conferences/ai-engineering-new.svg",
     "2AI Conference": "/images/conferences/applied-ai-new.svg",
     "CVMI Conference": "/images/conferences/cvmi-new.svg",
     "Big Data Africa Symposium": "/images/conferences/big-data-africa-new.svg",
@@ -83,14 +83,14 @@ const Initiatives: React.FC = () => {
       title="Initiatives"
     >
       <motion.div 
-        className="w-full px-4 py-8"
+        className="w-full py-8 overflow-visible"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
 
         {/* Main Grid Container */}
-        <div className="relative w-full px-4 py-8 lg:px-8">
+        <div className="relative w-full py-8 overflow-visible">
           {/* Agreements/MOUs Section */}
           <div className="mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
@@ -168,19 +168,15 @@ const Initiatives: React.FC = () => {
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
               Leading Conferences
             </h2>
-            <div className="relative">
-              {/* Grid Cards Container */}
-              <div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-4"
-              >
+            {/* Grid Cards Container */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full box-border">
               {categories.map((category, index) => {
                 const perCardFallback = DEFAULT_BANNERS[category.title] || FALLBACK_BANNER;
 
                 return (
-              
                   <motion.div
                     key={index}
-                    className="w-full overflow-hidden relative bg-white rounded-2xl shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300"
+                    className="relative bg-white rounded-2xl shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300 box-border"
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ 
                       opacity: 1, 
@@ -192,7 +188,6 @@ const Initiatives: React.FC = () => {
                       }
                     }}
                     whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.99 }}
                   >
                     {/* Banner Image */}
                     <div className="relative h-48 overflow-hidden bg-gray-50 rounded-t-2xl">
@@ -356,7 +351,6 @@ const Initiatives: React.FC = () => {
                   </motion.div>
                 );
               })}
-              </div>
             </div>
           </div>
         </div>

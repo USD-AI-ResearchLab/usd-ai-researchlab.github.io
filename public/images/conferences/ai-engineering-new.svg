@@ -32,11 +32,12 @@
   <rect x="28" y="54" width="6" height="132" rx="3" fill="#111827" opacity="0.12"/>
   <rect x="34" y="54" width="6" height="132" rx="3" fill="url(#accent)"/>
 
-  <text x="56" y="106" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="24" font-weight="800" fill="#111827">AI Engineering</text>
+  <text x="56" y="95" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="22" font-weight="800" fill="#111827">AI Engineering</text>
+  <text x="56" y="118" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="22" font-weight="800" fill="#111827">and Innovation</text>
 
   <g>
-    <rect x="56" y="120" width="140" height="26" rx="13" fill="#111827"/>
-    <text x="68" y="138" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#ffffff" letter-spacing="0.08em">INTERNATIONAL</text>
+    <rect x="56" y="130" width="140" height="26" rx="13" fill="#111827"/>
+    <text x="68" y="148" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#ffffff" letter-spacing="0.08em">INTERNATIONAL</text>
   </g>
 
   <!-- Subtle moving "build" indicator -->
