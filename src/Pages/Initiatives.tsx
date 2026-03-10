@@ -83,14 +83,14 @@ const Initiatives: React.FC = () => {
       title="Initiatives"
     >
       <motion.div 
-        className="w-full py-8 overflow-visible"
+        className="w-full py-4 sm:py-6 md:py-8 overflow-visible px-1 sm:px-2"
         initial="initial"
         animate="animate"
         variants={staggerChildren}
       >
 
         {/* Main Grid Container */}
-        <div className="relative w-full py-8 overflow-visible">
+        <div className="relative w-full py-4 sm:py-6 md:py-8 overflow-visible">
           {/* Agreements/MOUs Section */}
           <div className="mb-8 sm:mb-12">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-4 sm:mb-6 md:mb-8">
@@ -164,19 +164,19 @@ const Initiatives: React.FC = () => {
           </div>
 
           {/* Leading Conferences Section */}
-          <div className="mb-12">
+          <div className="mb-8 sm:mb-12">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-4 sm:mb-6 md:mb-8">
               Leading Conferences
             </h2>
             {/* Grid Cards Container */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 w-full box-border">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-4 md:gap-6 w-full box-border px-1">
               {categories.map((category, index) => {
                 const perCardFallback = DEFAULT_BANNERS[category.title] || FALLBACK_BANNER;
 
                 return (
                   <motion.div
                     key={index}
-                    className="relative bg-white rounded-xl sm:rounded-2xl shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300 box-border"
+                    className="relative bg-white rounded-xl sm:rounded-2xl shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300 box-border w-full"
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ 
                       opacity: 1, 
@@ -190,7 +190,7 @@ const Initiatives: React.FC = () => {
                     whileHover={{ y: -2 }}
                   >
                     {/* Banner Image */}
-                    <div className="relative h-28 sm:h-36 md:h-44 lg:h-48 xl:h-52 overflow-hidden bg-gray-50 rounded-t-xl sm:rounded-t-2xl">
+                    <div className="relative h-32 sm:h-36 md:h-44 lg:h-48 xl:h-52 overflow-hidden bg-gray-50 rounded-t-xl sm:rounded-t-2xl">
                       <img
                         src={category.image || perCardFallback}
                         alt={category.title}
