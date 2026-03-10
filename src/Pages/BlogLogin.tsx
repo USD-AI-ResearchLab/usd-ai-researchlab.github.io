@@ -5,8 +5,6 @@ import { useAuth } from '../hooks/useAuth';
 import {
   getPasswordHint,
   resetPassword,
-  setGitHubToken,
-  hasGitHubToken,
   NeedsRegistrationError,
   getRemainingAttempts,
 } from '../services/blogDatabase';
@@ -25,8 +23,6 @@ const BlogLogin: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [hintDisplay, setHintDisplay] = useState<string | null>(null);
   const [maskedEmail, setMaskedEmail] = useState<string | null>(null);
-  const [showTokenSetup, setShowTokenSetup] = useState(false);
-  const [githubToken, setGithubToken] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [remainingAttempts, setRemainingAttempts] = useState<number | null>(null);
 
@@ -105,11 +101,6 @@ const BlogLogin: React.FC = () => {
     if (!password.trim() || password.length < 6) { setError('Password must be at least 6 characters long.'); return; }
     if (password !== confirmPassword) { setError('Passwords do not match.'); return; }
     if (!passwordHint.trim()) { setError('Please provide a password hint to help you remember.'); return; }
-    if (!hasGitHubToken()) {
-      setError('A GitHub token is required for first-time registration. Ask an admin to set it up, or configure it below.');
-      setShowTokenSetup(true);
-      return;
-    }
 
     setLoading(true);
     try {
@@ -160,11 +151,6 @@ const BlogLogin: React.FC = () => {
     if (!validateEmail(email)) { setError('Only @usd.edu or @coyotes.usd.edu email addresses are allowed.'); return; }
     if (!password.trim() || password.length < 6) { setError('New password must be at least 6 characters long.'); return; }
     if (password !== confirmPassword) { setError('Passwords do not match.'); return; }
-    if (!hasGitHubToken()) {
-      setError('A GitHub token is required to reset passwords. Ask an admin.');
-      setShowTokenSetup(true);
-      return;
-    }
 
     setLoading(true);
     try {
@@ -176,16 +162,6 @@ const BlogLogin: React.FC = () => {
       setError(error.message || 'Password reset failed.');
     }
     setLoading(false);
-  };
-
-  const handleSaveToken = () => {
-    if (githubToken.trim()) {
-      setGitHubToken(githubToken.trim());
-      setGithubToken('');
-      setShowTokenSetup(false);
-      setSuccess('GitHub token saved. You can now proceed.');
-      setError('');
-    }
   };
 
   return (
@@ -398,22 +374,6 @@ const BlogLogin: React.FC = () => {
               </form>
             )}
 
-            {/* GitHub Token Setup */}
-            {showTokenSetup && (
-              <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <h4 className="text-sm font-medium text-gray-900 mb-2">GitHub Token Setup</h4>
-                <p className="text-xs text-gray-600 mb-3">Required for writing data (registration, creating posts, publishing). Admin-only.</p>
-                <div className="flex gap-2">
-                  <input type="password" value={githubToken} onChange={(e) => setGithubToken(e.target.value)}
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500"
-                    placeholder="ghp_..." />
-                  <button onClick={handleSaveToken}
-                    className="px-4 py-2 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">Save</button>
-                </div>
-                {hasGitHubToken() && <p className="mt-2 text-xs text-green-600 font-medium">Token is configured.</p>}
-              </div>
-            )}
-
             {/* Role Info */}
             {mode === 'login' && (
               <div className="mt-6 p-4 bg-gray-50 rounded-lg">
@@ -435,13 +395,6 @@ const BlogLogin: React.FC = () => {
               </div>
             )}
 
-            {/* Admin Token Toggle */}
-            {!showTokenSetup && (
-              <div className="mt-4 text-center">
-                <button type="button" onClick={() => setShowTokenSetup(true)}
-                  className="text-xs text-gray-400 hover:text-gray-600 transition-colors">Admin: Configure GitHub Token</button>
-              </div>
-            )}
           </div>
 
           {/* Back to Blog */}
