@@ -21,7 +21,7 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, role, photo, url, scholar
       <div className="flex flex-col items-center flex-1">
         {/* Photo - Only show if showAvatar is true AND imageUrl exists (no placeholders) */}
         {showAvatar && imageUrl && (
-          <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto mb-2 sm:mb-3 md:mb-4 rounded-full overflow-hidden">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 mx-auto mb-2 sm:mb-3 md:mb-4 rounded-full overflow-hidden">
             <LazyImage
               src={imageUrl}
               alt={name}

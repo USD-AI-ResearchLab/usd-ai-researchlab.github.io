@@ -110,7 +110,7 @@ const BooksRowDisplay = () => {
             {bookListing.map((book, index) => (
               <div 
                 key={index}
-                className="flex-shrink-0 transition-transform hover:scale-105 h-[210px] flex items-center"
+                className="flex-shrink-0 transition-transform hover:scale-105 h-[180px] sm:h-[200px] md:h-[220px] lg:h-[240px] xl:h-[260px] flex items-center"
               >
                 <a 
                   href={book.href}
@@ -118,7 +118,7 @@ const BooksRowDisplay = () => {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <div className="w-[120px] sm:w-[150px] h-[160px] sm:h-[200px] relative overflow-hidden rounded-lg bg-transparent">
+                  <div className="w-[100px] sm:w-[120px] md:w-[140px] lg:w-[160px] xl:w-[180px] h-[140px] sm:h-[160px] md:h-[180px] lg:h-[200px] xl:h-[220px] relative overflow-hidden rounded-lg bg-transparent">
                     {failedImages.has(index) ? (
                       <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">
                         Image not available

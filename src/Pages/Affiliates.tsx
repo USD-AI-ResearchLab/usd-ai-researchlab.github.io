@@ -108,12 +108,12 @@ const Affiliates: React.FC = () => {
             </button>
 
             {/* Multiple Cards Display */}
-            <div className="flex justify-center items-center min-h-[300px] w-full px-8">
-              <div className="flex flex-nowrap justify-center gap-2 w-full">
+            <div className="flex justify-center items-center min-h-[200px] sm:min-h-[250px] md:min-h-[300px] lg:min-h-[350px] xl:min-h-[380px] w-full px-4 sm:px-6 md:px-8">
+              <div className="flex flex-nowrap justify-center gap-2 sm:gap-3 md:gap-4 w-full">
                 {currentCategory.cards.map((card, index) => (
                   <motion.div 
                     key={`${currentCategoryIndex}-${index}`}
-                    className="flex flex-col items-center flex-1 min-w-0 max-w-[160px] h-60 transition-all duration-300 group cursor-pointer hover:scale-105 p-2 overflow-hidden flex-shrink-1"
+                    className="flex flex-col items-center flex-1 min-w-0 max-w-[120px] sm:max-w-[140px] md:max-w-[160px] lg:max-w-[180px] xl:max-w-[200px] h-40 sm:h-48 md:h-56 lg:h-60 xl:h-64 transition-all duration-300 group cursor-pointer hover:scale-105 p-1 sm:p-2 overflow-hidden flex-shrink-1"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
@@ -127,11 +127,11 @@ const Affiliates: React.FC = () => {
                       className="flex flex-col items-center justify-between h-full w-full no-underline text-current"
                     >
                       {/* Logo Container */}
-                      <div className="flex items-center justify-center w-full mb-2 h-20 bg-white rounded-lg shadow-sm border border-gray-100 p-2">
+                      <div className="flex items-center justify-center w-full mb-1 sm:mb-2 h-14 sm:h-16 md:h-20 lg:h-24 xl:h-28 bg-white rounded-lg shadow-sm border border-gray-100 p-1 sm:p-2">
                         <img 
                           src={card.image} 
                           alt={card.alt} 
-                          className="max-h-14 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                          className="max-h-10 sm:max-h-12 md:max-h-14 lg:max-h-16 xl:max-h-20 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
                         />
                       </div>
                       

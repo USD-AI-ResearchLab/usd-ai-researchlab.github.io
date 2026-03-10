@@ -190,7 +190,7 @@ const Initiatives: React.FC = () => {
                     whileHover={{ y: -2 }}
                   >
                     {/* Banner Image */}
-                    <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden bg-gray-50 rounded-t-xl sm:rounded-t-2xl">
+                    <div className="relative h-28 sm:h-36 md:h-44 lg:h-48 xl:h-52 overflow-hidden bg-gray-50 rounded-t-xl sm:rounded-t-2xl">
                       <img
                         src={category.image || perCardFallback}
                         alt={category.title}

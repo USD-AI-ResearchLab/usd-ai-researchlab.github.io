@@ -111,7 +111,7 @@ const Contact: React.FC = () => {
             </div>
             
             {/* Map Section */}
-            <div className="w-full h-64 sm:h-80 md:h-96 bg-gray-100 rounded-lg overflow-hidden shadow-lg relative">
+            <div className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[28rem] bg-gray-100 rounded-lg overflow-hidden shadow-lg relative">
               <iframe
                 src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=414%20E%20Clark%20St,%20Vermillion,%20SD%2057069+(University%20of%20South%20Dakota%20Computer%20Science)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 width="100%"
