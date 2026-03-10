@@ -276,15 +276,15 @@ export const fetchLinkedInData = async (): Promise<{ profile: LinkedInProfile; p
     const data = await response.json();
     
     // Transform scraped data to our format
-    const transformedPosts: LinkedInPost[] = data.posts?.map((post: any, index: number) => ({
-      id: post.id || `linkedin-${Date.now()}-${index}`,
-      date: post.date || generatePostDate(Math.floor(index / 2)),
-      content: post.content || post.text,
-      type: determinePostType(post.content),
-      likes: post.likes || Math.floor(Math.random() * 100) + 20,
-      comments: post.comments || Math.floor(Math.random() * 20) + 5,
-      shares: post.shares || Math.floor(Math.random() * 30) + 10,
-      author: post.author || 'USD AI Research'
+    const transformedPosts: LinkedInPost[] = data.posts?.map((post: Record<string, unknown>, index: number) => ({
+      id: (post.id as string) || `linkedin-${Date.now()}-${index}`,
+      date: (post.date as string) || generatePostDate(Math.floor(index / 2)),
+      content: (post.content as string) || (post.text as string),
+      type: determinePostType((post.content as string) || ''),
+      likes: (post.likes as number) || Math.floor(Math.random() * 100) + 20,
+      comments: (post.comments as number) || Math.floor(Math.random() * 20) + 5,
+      shares: (post.shares as number) || Math.floor(Math.random() * 30) + 10,
+      author: (post.author as string) || 'USD AI Research'
     })) || [];
     
     return {
@@ -338,18 +338,22 @@ export const fetchLinkedInDataFromProxy = async (): Promise<{ profile: LinkedInP
     const data = await response.json();
     
     // Transform RapidAPI data to our format
-    const transformedPosts: LinkedInPost[] = data.posts?.map((post: any, index: number) => ({
-      id: post.post_id || `rapidapi-${Date.now()}-${index}`,
-      date: post.posted_date ? 
-        new Date(post.posted_date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : 
-        generatePostDate(index),
-      content: post.text || post.post_text || 'LinkedIn post content',
-      type: determinePostType(post.text || post.post_text),
-      likes: post.likes_count || Math.floor(Math.random() * 200) + 50,
-      comments: post.comments_count || Math.floor(Math.random() * 50) + 10,
-      shares: post.shares_count || post.reposts_count || Math.floor(Math.random() * 75) + 15,
-      author: post.author?.name || 'USD AI Research'
-    })) || [];
+    const transformedPosts: LinkedInPost[] = data.posts?.map((post: Record<string, unknown>, index: number) => {
+      const postedDate = post.posted_date as string | undefined;
+      const author = post.author as Record<string, unknown> | undefined;
+      return {
+        id: (post.post_id as string) || `rapidapi-${Date.now()}-${index}`,
+        date: postedDate ? 
+          new Date(postedDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : 
+          generatePostDate(index),
+        content: (post.text as string) || (post.post_text as string) || 'LinkedIn post content',
+        type: determinePostType((post.text as string) || (post.post_text as string) || ''),
+        likes: (post.likes_count as number) || Math.floor(Math.random() * 200) + 50,
+        comments: (post.comments_count as number) || Math.floor(Math.random() * 50) + 10,
+        shares: (post.shares_count as number) || (post.reposts_count as number) || Math.floor(Math.random() * 75) + 15,
+        author: (author?.name as string) || 'USD AI Research'
+      };
+    }) || [];
     
     return {
       profile: data.company ? {

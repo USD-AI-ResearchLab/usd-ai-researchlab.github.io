@@ -40,11 +40,13 @@ const useDeviceOptimization = (): DeviceInfo => {
       
       // Connection speed detection
       let connectionSpeed: 'slow' | 'fast' | 'unknown' = 'unknown';
-      const connection = (navigator as { 
+      type NavigatorWithConnection = Navigator & {
         connection?: { effectiveType: string };
         mozConnection?: { effectiveType: string };
         webkitConnection?: { effectiveType: string };
-      }).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
+      };
+      const nav = navigator as NavigatorWithConnection;
+      const connection = nav.connection || nav.mozConnection || nav.webkitConnection;
       
       if (connection) {
         const effectiveType = connection.effectiveType;

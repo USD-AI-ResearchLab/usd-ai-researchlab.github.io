@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { SimpleAuthProvider } from './contexts/SimpleAuthContext';
 import App from './App';
 
 export function AppWithErrorHandling() {
@@ -7,7 +8,9 @@ export function AppWithErrorHandling() {
     return (
       <React.StrictMode>
         <BrowserRouter>
-          <App />
+          <SimpleAuthProvider>
+            <App />
+          </SimpleAuthProvider>
         </BrowserRouter>
       </React.StrictMode>
     );

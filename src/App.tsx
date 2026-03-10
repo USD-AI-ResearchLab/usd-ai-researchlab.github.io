@@ -11,6 +11,9 @@ import './styles/custom.css';
 // Lazy load pages for better performance
 const Home = lazy(() => import("./Pages/Home"));
 const People = lazy(() => import("./Pages/People"));
+const Blog = lazy(() => import("./Pages/Blog"));
+const BlogPost = lazy(() => import("./Pages/BlogPost"));
+const BlogWriteGuide = lazy(() => import("./Pages/BlogWriteGuide"));
 const Publications = lazy(() => import("./Pages/Publications"));
 const Initiatives = lazy(() => import("./Pages/Initiatives"));
 const Contact = lazy(() => import("./Pages/Contact"));
@@ -18,6 +21,9 @@ const Affiliates = lazy(() => import("./Pages/Affiliates"));
 const Opportunities = lazy(() => import("./Pages/Opportunities"));
 const AISymposium2025 = lazy(() => import("./Pages/AISymposium2025"));
 const SponsorCardDemo = lazy(() => import("./Pages/SponsorCardDemo"));
+const BlogLogin = lazy(() => import("./Pages/BlogLogin"));
+const BlogDashboard = lazy(() => import("./Pages/BlogDashboard"));
+const BlogEditor = lazy(() => import("./Pages/BlogEditor"));
 
 // Device-optimized loading component
 const LoadingSpinner: React.FC = () => {
@@ -102,6 +108,13 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/people" element={<People />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/write" element={<BlogWriteGuide />} />
+            <Route path="/blog/login" element={<BlogLogin />} />
+            <Route path="/blog/dashboard" element={<BlogDashboard />} />
+            <Route path="/blog/editor" element={<BlogEditor />} />
+            <Route path="/blog/editor/:id" element={<BlogEditor />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/publications" element={<Publications />} />
             <Route path="/initiatives" element={<Initiatives />} />
             <Route path="/contact" element={<Contact />} />
