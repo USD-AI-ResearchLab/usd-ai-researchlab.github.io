@@ -23,8 +23,8 @@ export const FEW_SAMPLES: SamplePublication[] = [
     title: "Winsor-CAM: Human-Tunable Visual Explanations from Deep Networks via Layer-Wise Winsorization",
     venue: "IEEE Transactions on Pattern Analysis & Machine Intelligence",
     year: "2026",
-    linkUrl: "https://arxiv.org/abs/2507.10846",
-    linkLabel: "arXiv"
+    linkUrl: "https://ieeexplore.ieee.org/abstract/document/11410545",
+    linkLabel: "DOI"
   },
   {
     authors: "A Jain, SR Dubey, SK Singh, KC Santosh, BB Chaudhuri",
