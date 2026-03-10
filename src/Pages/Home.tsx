@@ -68,18 +68,18 @@ const HeroLogo: React.FC = () => (
     <img 
       src={logoImage} 
       alt="USD AI Research Lab Logo" 
-      className="w-[320px] sm:w-[460px] md:w-[600px] lg:w-[780px] xl:w-[940px] h-auto"
+      className="w-[220px] sm:w-[300px] md:w-[380px] lg:w-[450px] xl:w-[520px] h-auto"
     />
   </motion.div>
 );
 
 const HeroTitle: React.FC = () => (
   <motion.h1 
-    className="text-base md:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight leading-tight mb-2 mt-0 pt-0"
+    className="text-base md:text-xl lg:text-2xl xl:text-3xl font-light tracking-tight leading-tight mb-2 mt-0 pt-0"
     variants={animations.spiralIn}
   >
     <div 
-      className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl hero-flowing-gradient whitespace-nowrap"
+      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl hero-flowing-gradient whitespace-nowrap"
     >
       USD AI Research
     </div>
@@ -92,7 +92,7 @@ const HeroTagline: React.FC = () => (
     variants={animations.fadeInUp}
   >
     <motion.p 
-      className="text-[clamp(0.7rem,2.2vw,1.875rem)] font-semibold leading-relaxed mb-0 font-sans whitespace-nowrap hero-flowing-gradient"
+      className="text-[clamp(0.6rem,1.8vw,1.25rem)] font-semibold leading-relaxed mb-0 font-sans whitespace-nowrap hero-flowing-gradient"
       variants={animations.fadeInUp}
     >
       Leading artificial intelligence research and engineering<br />to shape South Dakota's innovation future and technological leadership!
@@ -104,14 +104,14 @@ const HeroTagline: React.FC = () => (
 // DIRECTOR COMPONENTS
 // ========================================================================================
 const DirectorPhoto: React.FC = () => (
-  <div className="w-full md:w-auto flex justify-center md:justify-start mb-3 md:mb-0">
+  <div className="w-full md:w-auto flex justify-center md:justify-start mb-2 sm:mb-3 md:mb-0">
     <motion.div 
       className="relative flex-shrink-0 rounded-t-lg md:rounded-t-none md:rounded-l-lg overflow-hidden"
       variants={animations.fadeIn}
       {...animations.scaleHover}
     >
       <a href="https://kc-santosh.org" target="_blank" rel="noopener noreferrer" className="no-underline">
-        <div className="relative group cursor-pointer w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56">
+        <div className="relative group cursor-pointer w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-56 lg:h-56">
           <img 
             src="/faculty/kc-santosh.jpg" 
             alt="Prof. KC Santosh - Founding Director"
@@ -130,14 +130,14 @@ const DirectorMessage: React.FC = () => (
   >
     <div>
       <motion.h3 
-        className="gradient-text-director text-black-force text-lg md:text-xl lg:text-2xl font-bold leading-tight mb-3 tracking-tight text-left"
+        className="gradient-text-director text-black-force text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold leading-tight mb-2 sm:mb-3 tracking-tight text-left"
         variants={animations.fadeInUp}
       >
         AI4ALL: Building Sustainable Machine Intelligence for All
       </motion.h3>
       
       <motion.p 
-        className="gradient-text-director text-black-force text-xs md:text-sm lg:text-base font-normal mb-1 leading-relaxed text-left"
+        className="gradient-text-director text-black-force text-[10px] sm:text-xs md:text-sm lg:text-base font-normal mb-1 leading-relaxed text-left"
         variants={animations.fadeInUp}
         style={{
           fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -148,7 +148,7 @@ const DirectorMessage: React.FC = () => (
       </motion.p>
 
       <motion.p 
-        className="gradient-text-director text-black-force text-xs md:text-sm lg:text-base font-bold mb-2 leading-relaxed text-left"
+        className="gradient-text-director text-black-force text-[10px] sm:text-xs md:text-sm lg:text-base font-bold mb-1 sm:mb-2 leading-relaxed text-left"
         variants={animations.fadeInUp}
         style={{
           fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
@@ -160,13 +160,13 @@ const DirectorMessage: React.FC = () => (
     </div>
     
     <motion.div 
-      className="space-y-0 mt-4 md:mt-5 lg:mt-6"
+      className="space-y-0 mt-2 sm:mt-3 md:mt-4 lg:mt-5 xl:mt-6"
       variants={animations.fadeInUp}
     >
-      <div className="gradient-text-director text-black-force text-sm lg:text-base font-bold text-left">
+      <div className="gradient-text-director text-black-force text-xs sm:text-sm lg:text-base font-bold text-left">
         Prof. KC (Casey) Santosh
       </div>
-      <div className="gradient-text-director text-black-force text-xs lg:text-sm font-normal text-left">
+      <div className="gradient-text-director text-black-force text-[10px] sm:text-xs lg:text-sm font-normal text-left">
         Inaugural Director, USD AI Research
       </div>
     </motion.div>
@@ -193,19 +193,19 @@ const AnimatedStatCard: React.FC<{
       {/* Number Display - Fixed position */}
       {!isText ? (
         <div className="text-center">
-          <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-none">
+          <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-none">
             {suffix && !hideSuffix && suffix === 'M+' ? (
               <>
-                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-red-600">$</span>
-                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-red-600">{value}</span>
-                <span className="text-sm sm:text-base text-gray-900 relative stat-plus-super">+</span>
-                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-red-600">M</span>
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-red-600">$</span>
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-red-600">{value}</span>
+                <span className="text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-900 relative stat-plus-super">+</span>
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-red-600">M</span>
               </>
             ) : (
               <>
-                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-red-600">{value}</span>
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-red-600">{value}</span>
                 {suffix && !hideSuffix ? (
-                  <span className="text-sm sm:text-base text-gray-900 relative stat-plus-super">{suffix}</span>
+                  <span className="text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-900 relative stat-plus-super">{suffix}</span>
                 ) : null}
               </>
             )}
@@ -215,7 +215,7 @@ const AnimatedStatCard: React.FC<{
       
       {/* Title */}
       <div className="text-center">
-        <h3 className="font-bold text-gray-900 text-sm sm:text-base md:text-lg leading-tight px-1">
+        <h3 className="font-bold text-gray-900 text-[10px] sm:text-xs md:text-sm lg:text-base leading-tight px-0.5 sm:px-1">
           {title}
         </h3>
       </div>
@@ -223,7 +223,7 @@ const AnimatedStatCard: React.FC<{
       {/* Subtitle */}
       <div className="text-center">
         {subtitle && (
-          <p className="text-xs sm:text-sm text-gray-700 leading-tight font-normal px-1">
+          <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm text-gray-700 leading-tight font-normal px-0.5 sm:px-1">
             {subtitle}
           </p>
         )}
@@ -231,7 +231,7 @@ const AnimatedStatCard: React.FC<{
     </div>
   );
 
-  const cardClass = `stat-card p-1 sm:p-1.5 md:p-2 lg:p-3 flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300`;
+  const cardClass = `stat-card p-0.5 sm:p-1 md:p-1.5 lg:p-2 xl:p-3 flex flex-col justify-center overflow-hidden cursor-pointer transition-all duration-300`;
 
   return (
     <div className={cardClass} data-bg="gray">
@@ -263,7 +263,7 @@ const HeroSection: React.FC = () => (
 
 const DirectorSection: React.FC = () => (
   <motion.section 
-    className="mb-12 mt-4 md:mt-5 lg:mt-6"
+    className="mb-8 sm:mb-12 mt-3 sm:mt-4 md:mt-5 lg:mt-6"
     variants={animations.staggerContainer}
     initial="initial"
     animate="animate"
@@ -277,9 +277,9 @@ const DirectorSection: React.FC = () => (
           transition: { duration: 0.3 }
         }}
       >
-        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+        <div className="flex flex-col md:flex-row md:items-center gap-3 sm:gap-4 md:gap-6">
           <DirectorPhoto />
-          <div className="flex-1 px-4 md:px-5 lg:px-6 py-3 lg:py-4">
+          <div className="flex-1 px-2 sm:px-3 md:px-5 lg:px-6 py-2 sm:py-3 lg:py-4">
             <DirectorMessage />
           </div>
         </div>
@@ -423,7 +423,7 @@ const Home: React.FC = () => {
         }
       `}</style>
       
-      <main className="relative flex items-center justify-center p-4 md:p-6 lg:p-8 pt-2 pb-4 md:pb-6 rounded-3xl">
+      <main className="relative flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 pt-2 pb-2 sm:pb-4 md:pb-6 rounded-2xl sm:rounded-3xl">
         {/* Stable Card Container */}
         <motion.div 
           className="w-full max-w-7xl"
@@ -432,7 +432,7 @@ const Home: React.FC = () => {
           transition={{ duration: 0.4 }}
         >
           <motion.div
-            className="relative bg-gray-300/90 rounded-3xl overflow-hidden border border-white/10 shadow-md"
+            className="relative bg-gray-300/90 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-md"
             style={{
               transformStyle: 'preserve-3d',
               rotateX,
@@ -443,7 +443,7 @@ const Home: React.FC = () => {
             {/* Border */}
             
             {/* Content wrapper */}
-            <div className="relative py-4 px-3 lg:px-4">
+            <div className="relative py-3 px-2 sm:py-4 sm:px-3 lg:px-4">
               {/* Keep background purely white */}
               {/* <BackgroundElements /> */}
               

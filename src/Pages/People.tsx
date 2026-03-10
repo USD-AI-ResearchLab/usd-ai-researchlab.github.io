@@ -359,7 +359,7 @@ const People: React.FC = () => {
       >
         {/* Team Description */}
         <motion.div className="" variants={fadeInUp}>
-          <p className="text-lg text-black leading-relaxed mb-4 font-thin">
+          <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed mb-4 font-thin">
             Meet the brilliant minds behind our AI research lab - faculty, students, and alumni who are shaping the future of artificial intelligence.
           </p>
         </motion.div>
@@ -424,7 +424,7 @@ const People: React.FC = () => {
         {paginatedData.length > 0 ? (
           <div className="w-full">
             <motion.div 
-              className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+              className="grid gap-3 sm:gap-4 md:gap-6 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
               initial="initial"
               animate="animate"
               variants={staggerChildren}

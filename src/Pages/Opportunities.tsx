@@ -125,17 +125,17 @@ const Opportunities: React.FC = () => {
         variants={staggerChildren}
       >
         {/* Main Content Section */}
-        <motion.div className="mb-8" variants={fadeInUp}>
-          <div className="space-y-4 mb-12">
-            <p className="body-text-18 text-black leading-relaxed font-thin">
+        <motion.div className="mb-6 sm:mb-8" variants={fadeInUp}>
+          <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12">
+            <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed font-thin">
               We are continuously looking for highly motivated and talented people to contribute to our research in AI, machine learning, and computer vision. Our positions are competitive and limited to maintain a focused, research-driven group.
             </p>
             
-            <p className="body-text-18 text-black leading-relaxed font-thin">
+            <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed font-thin">
               Before applying, please review our recent <a href="#/publications" className="text-logo-red underline">publications</a> to ensure alignment with our research directions.
             </p>
             
-            <p className="body-text-18 text-gray-600 leading-relaxed font-thin italic">
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed font-thin italic">
               Due to high volume, we may not respond to every inquiry individually.
             </p>
           </div>
@@ -153,13 +153,13 @@ const Opportunities: React.FC = () => {
                 {/* Header */}
                 <button
                   onClick={() => toggleSection(position.id)}
-                  className="w-full flex items-center gap-3 p-6 hover:bg-red-700 transition-colors duration-200 text-left bg-red-700"
+                  className="w-full flex items-center gap-2 sm:gap-3 p-3 sm:p-4 md:p-6 hover:bg-red-700 transition-colors duration-200 text-left bg-red-700"
                 >
-                  <h3 className={`text-xl font-normal flex-grow transition-all duration-300 ${
+                  <h3 className={`text-sm sm:text-base md:text-xl font-normal flex-grow transition-all duration-300 ${
                     openSections[position.id] ? 'text-white' : 'text-white'
                   }`}>{position.title}</h3>
                   <svg 
-                    className={`w-5 h-5 text-white transition-transform duration-200 flex-shrink-0 ${openSections[position.id] ? 'rotate-180' : ''}`}
+                    className={`w-4 h-4 sm:w-5 sm:h-5 text-white transition-transform duration-200 flex-shrink-0 ${openSections[position.id] ? 'rotate-180' : ''}`}
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
@@ -175,7 +175,7 @@ const Opportunities: React.FC = () => {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="p-6"
+                    className="p-3 sm:p-4 md:p-6"
                   >
                     {/* Current Openings Display */}
                     {position.isCurrentOpenings && position.currentOpenings && (

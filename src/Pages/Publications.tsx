@@ -119,23 +119,23 @@ const Publications: React.FC = () => {
     <PageLayout
       title="Publications"
     >
-      <div className="w-full px-4 sm:px-6 py-4">
+      <div className="w-full px-2 sm:px-4 md:px-6 py-2 sm:py-4">
       <div className="w-full max-w-7xl mx-auto">
         
         {/* Books Section */}
-        <div className="w-full mb-6">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-3">
+        <div className="w-full mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-2 sm:mb-3">
             Books
           </h2>
           <BooksComponent />
         </div>
 
         {/* Few Samples Section */}
-        <div className="w-full mb-6">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-2">
+        <div className="w-full mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-2">
             Few samples
           </h2>
-          <ul className="space-y-0.5 text-gray-700 font-ubuntu text-sm leading-snug">
+          <ul className="space-y-0.5 text-gray-700 font-ubuntu text-xs sm:text-sm leading-snug">
             {FEW_SAMPLES.map((pub, idx) => (
               <li key={idx} className="relative pl-5 py-1 bg-transparent hover:border-l-4 hover:border-red-500 transition-all duration-200">
                 <span className="absolute left-1 top-1 text-red-600 font-bold text-sm">•</span>
@@ -220,23 +220,23 @@ const Publications: React.FC = () => {
         ))}
 
         {/* Research Papers Section */}
-        <div className="w-full mb-8 relative">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-4">
+        <div className="w-full mb-6 sm:mb-8 relative">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-3 sm:mb-4">
             Research Papers
           </h2>
 
           {/* Search Bar */}
-          <div className="mb-4">
+          <div className="mb-3 sm:mb-4">
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search papers by title, author, or keywords..."
+                placeholder="Search papers..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm sm:text-base"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 pl-10 sm:pl-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-xs sm:text-sm md:text-base"
               />
               <svg
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+                className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -247,13 +247,13 @@ const Publications: React.FC = () => {
           </div>
 
           {/* Category Filters */}
-          <div className="mb-8">
-            <div className="flex flex-wrap gap-2">
+          <div className="mb-4 sm:mb-8">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${
+                  className={`px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-medium transition-all duration-200 ${
                     selectedCategory === category
                       ? 'bg-red-600 text-white shadow-md'
                       : `text-gray-700 hover:bg-gray-200 ${selectedCategory !== category ? 'bg-gray-200' : ''}`
@@ -266,14 +266,14 @@ const Publications: React.FC = () => {
           </div>
 
           {/* Results Count */}
-          <div className="mb-4 text-sm text-gray-600 font-light">
+          <div className="mb-3 sm:mb-4 text-xs sm:text-sm text-gray-600 font-light">
             Showing {startIndex + 1}-{Math.min(endIndex, filteredPublications.length)} of {filteredPublications.length} papers
             {filteredPublications.length !== PUBLICATIONS.length && (
-              <span> (filtered from {PUBLICATIONS.length} total)</span>
+              <span className="hidden sm:inline"> (filtered from {PUBLICATIONS.length} total)</span>
             )}
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+          <div className="grid gap-3 sm:gap-4 md:gap-6 lg:gap-8 grid-cols-1 md:grid-cols-2">
             {paginatedPublications.map((publication, index) => {
               const actualIndex = startIndex + index; // Calculate actual index for hover state
               const isHovered = hoveredPublication === actualIndex;

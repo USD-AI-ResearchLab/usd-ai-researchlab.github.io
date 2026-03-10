@@ -69,7 +69,7 @@ const Affiliates: React.FC = () => {
       title="Affiliates"
     >
       <motion.div 
-        className="px-8 pt-0 pb-8 w-full"
+        className="px-2 sm:px-4 md:px-8 pt-0 pb-4 sm:pb-6 md:pb-8 w-full"
         initial="initial"
         animate="animate"
         variants={{
@@ -82,13 +82,13 @@ const Affiliates: React.FC = () => {
       >
         {/* Multi-Card Carousel */}
         <motion.div 
-          className="relative mb-8 transition-all duration-500"
+          className="relative mb-4 sm:mb-6 md:mb-8 transition-all duration-500"
           variants={fadeInUp}
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
-          <div className="text-center mb-8">
-            <span className="inline-block px-6 py-2 text-logo-red rounded-full text-xl font-light">
+          <div className="text-center mb-4 sm:mb-6 md:mb-8">
+            <span className="inline-block px-4 py-1.5 sm:px-6 sm:py-2 text-logo-red rounded-full text-base sm:text-lg md:text-xl font-light">
               {currentCategory.name}
             </span>
           </div>
@@ -97,7 +97,7 @@ const Affiliates: React.FC = () => {
             {/* Navigation Arrows */}
             <button 
               onClick={goToPrevious}
-              className="absolute left-1 sm:left-4 top-1/2 transform -translate-y-1/2 z-10 p-1 sm:p-2 hover:bg-gray-100 transition-colors duration-200 rounded"
+              className="absolute left-0 sm:left-1 md:left-4 top-1/2 transform -translate-y-1/2 z-10 p-1 sm:p-2 hover:bg-gray-100 transition-colors duration-200 rounded"
               disabled={categories.length <= 1}
               aria-label="Previous category"
               title="Previous category"

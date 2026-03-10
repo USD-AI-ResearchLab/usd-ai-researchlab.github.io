@@ -92,19 +92,19 @@ const Initiatives: React.FC = () => {
         {/* Main Grid Container */}
         <div className="relative w-full py-8 overflow-visible">
           {/* Agreements/MOUs Section */}
-          <div className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
+          <div className="mb-8 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-4 sm:mb-6 md:mb-8">
               Agreements/MOUs
             </h2>
             
             {/* MOUs List */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {/* MOU Item 1 - SDBCC */}
-              <div className="py-4">
-                <div className="flex items-start gap-4">
+              <div className="py-3 sm:py-4">
+                <div className="flex items-start gap-3 sm:gap-4">
                   <div className="flex-shrink-0 mt-0.5">
                     <svg 
-                      className="w-6 h-6 text-logo-red" 
+                      className="w-5 h-5 sm:w-6 sm:h-6 text-logo-red" 
                       fill="currentColor" 
                       viewBox="0 0 640 512"
                     >
@@ -112,17 +112,17 @@ const Initiatives: React.FC = () => {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <p className="text-gray-800 leading-relaxed mb-3">
+                    <p className="text-gray-800 leading-relaxed mb-2 sm:mb-3 text-sm sm:text-base">
                       <span className="font-semibold">South Dakota Biomedical Computation Consortium (SDBCC):</span> A $6.5M Department of Education (DoEd) collaboration between <span className="font-semibold">USD Computer Science</span>, <span className="font-semibold">USD Sanford School of Medicine</span>, and <span className="font-semibold">SD School of Mines &amp; Technology</span>. The partnership leverages $0.746M from the South Dakota Board of Regents (SDBOR) to advance biomedical computation research and education across South Dakota.
                     </p>
                     <a 
                       href="https://sd-bcc.org" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-5 py-3 bg-transparent text-black font-semibold text-sm rounded-lg hover:bg-red-600 hover:text-white transition-all"
+                      className="inline-flex items-center px-3 py-2 sm:px-5 sm:py-3 bg-transparent text-black font-semibold text-xs sm:text-sm rounded-lg hover:bg-red-600 hover:text-white transition-all"
                     >
                       Visit SDBCC
-                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>
@@ -165,18 +165,18 @@ const Initiatives: React.FC = () => {
 
           {/* Leading Conferences Section */}
           <div className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-thin text-logo-red mb-4 sm:mb-6 md:mb-8">
               Leading Conferences
             </h2>
             {/* Grid Cards Container */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 w-full box-border">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 w-full box-border">
               {categories.map((category, index) => {
                 const perCardFallback = DEFAULT_BANNERS[category.title] || FALLBACK_BANNER;
 
                 return (
                   <motion.div
                     key={index}
-                    className="relative bg-white rounded-2xl shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300 box-border"
+                    className="relative bg-white rounded-xl sm:rounded-2xl shadow-md border border-gray-200 hover:shadow-xl transition-shadow duration-300 box-border"
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ 
                       opacity: 1, 
@@ -190,7 +190,7 @@ const Initiatives: React.FC = () => {
                     whileHover={{ y: -2 }}
                   >
                     {/* Banner Image */}
-                    <div className="relative h-48 overflow-hidden bg-gray-50 rounded-t-2xl">
+                    <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden bg-gray-50 rounded-t-xl sm:rounded-t-2xl">
                       <img
                         src={category.image || perCardFallback}
                         alt={category.title}
@@ -221,24 +221,24 @@ const Initiatives: React.FC = () => {
                     </div>
 
                     {/* Content Section */}
-                    <div className="p-6">
-                      <h3 className="text-2xl font-semibold text-gray-800 mb-3">
+                    <div className="p-3 sm:p-4 md:p-6">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 mb-2 sm:mb-3">
                         {category.title}
                       </h3>
                       
-                      <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+                      <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed line-clamp-3 sm:line-clamp-none">
                         {category.description}
                       </p>
 
                       {/* Action */}
-                      <div className="mt-6 relative z-30">
+                      <div className="mt-4 sm:mt-6 relative z-30">
                         {category.title === "RTIP2R Conference" ? (
-                          <div className="space-y-3">
+                          <div className="space-y-2 sm:space-y-3">
                             <a href="https://rtip2r-conference.org/" target="_blank" rel="noopener noreferrer" className="block">
-                              <span className="inline-flex items-center px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200">
+                              <span className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
                                 Learn More
                                 <svg 
-                                  className="w-4 h-4 ml-2" 
+                                  className="w-3 h-3 sm:w-4 sm:h-4 ml-2" 
                                   fill="none" 
                                   stroke="currentColor" 
                                   viewBox="0 0 24 24"
@@ -247,34 +247,34 @@ const Initiatives: React.FC = () => {
                                 </svg>
                               </span>
                             </a>
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-2 sm:gap-3">
                               <a href="https://rtip2r-conference.org/2025/" target="_blank" rel="noopener noreferrer">
-                                <span className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
+                                <span className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-xs sm:text-sm">
                                   2025
                                 </span>
                               </a>
                               <a href="https://rtip2r-conference.org/2024/" target="_blank" rel="noopener noreferrer">
-                                <span className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
+                                <span className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-xs sm:text-sm">
                                   2024
                                 </span>
                               </a>
                               <a href="https://rtip2r-conference.org/2023/" target="_blank" rel="noopener noreferrer">
-                                <span className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
+                                <span className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-xs sm:text-sm">
                                   2023
                                 </span>
                               </a>
                               <a href="https://rtip2r-conference.org/2022/" target="_blank" rel="noopener noreferrer">
-                                <span className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
+                                <span className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-xs sm:text-sm">
                                   2022
                                 </span>
                               </a>
                               <a href="https://rtip2r-conference.org/2021/" target="_blank" rel="noopener noreferrer">
-                                <span className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
+                                <span className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-xs sm:text-sm">
                                   2021
                                 </span>
                               </a>
                               <a href="https://rtip2r-conference.org/2018/" target="_blank" rel="noopener noreferrer">
-                                <span className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
+                                <span className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-xs sm:text-sm">
                                   2018
                                 </span>
                               </a>
@@ -287,10 +287,10 @@ const Initiatives: React.FC = () => {
                             rel="noopener noreferrer"
                             className="inline-flex"
                           >
-                            <span className="inline-flex items-center px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200">
+                            <span className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 text-sm">
                               Learn More
                               <svg 
-                                className="w-4 h-4 ml-2" 
+                                className="w-3 h-3 sm:w-4 sm:h-4 ml-2" 
                                 fill="none" 
                                 stroke="currentColor" 
                                 viewBox="0 0 24 24"
