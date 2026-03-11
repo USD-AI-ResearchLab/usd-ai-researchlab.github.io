@@ -387,7 +387,24 @@ export async function loginUser(email: string, password: string): Promise<AuthRe
   const authData = getLocalAuthData();
   const localAuth = authData[normalizedEmail];
   if (!localAuth || !localAuth.password) {
-    throw new NeedsRegistrationError(user.name, user.email);
+    // No password stored locally yet - first login on this browser.
+    // Save the password and log them in directly.
+    authData[normalizedEmail] = {
+      password: password,
+      hint: null,
+      lastLogin: new Date().toISOString(),
+      loginCount: 1,
+    };
+    saveLocalAuthData(authData);
+    logAudit(user.email, user.name, 'register', 'First login - password saved to this browser');
+    return {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      isReviewer: REVIEWER_EMAILS.includes(user.email.toLowerCase()),
+      isAdmin: ADMIN_EMAILS.includes(user.email.toLowerCase()),
+    };
   }
   if (localAuth.password !== password) {
     const remaining = recordFailedAttempt(normalizedEmail);
