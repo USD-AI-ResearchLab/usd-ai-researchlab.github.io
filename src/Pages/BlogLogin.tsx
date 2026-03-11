@@ -243,7 +243,7 @@ const BlogLogin: React.FC = () => {
                   ) : 'Sign In'}
                 </button>
                 <div className="flex items-center justify-between text-sm pt-1">
-                  <button type="button" onClick={() => switchMode('register')} className="text-red-600 hover:text-red-700 font-medium">First time? Create password</button>
+                  <button type="button" onClick={() => switchMode('register')} className="text-red-600 hover:text-red-700 font-medium">Sign Up</button>
                   <button type="button" onClick={() => switchMode('forgot')} className="text-gray-500 hover:text-gray-700">Forgot password?</button>
                 </div>
               </form>
@@ -337,8 +337,8 @@ const BlogLogin: React.FC = () => {
             {/* Reset Password Form */}
             {mode === 'reset' && (
               <form onSubmit={handleResetPassword} className="space-y-5">
-                <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-700">
-                  Password reset requires a GitHub token. If you are not an admin, contact an admin to reset your password.
+                <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-700">
+                  Enter your email and choose a new password.
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">USD Email Address</label>

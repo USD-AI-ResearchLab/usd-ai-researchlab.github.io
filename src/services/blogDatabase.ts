@@ -1,6 +1,13 @@
 // ============================================================
 // Blog Database Service - Self-contained, NO third-party services
 // ============================================================
+// All data is stored in JSON files under /data/blog/
+//   - users.json     -> authorized user roster (read-only)
+//   - posts.json     -> all blog posts
+//
+// Passwords are stored in browser localStorage (per device).
+// Blog post writes use the GitHub API (requires token for admins).
+// ============================================================
 
 // --- Types ---
 
@@ -49,6 +56,7 @@ export interface AuthResult {
   isAdmin: boolean;
 }
 
+// Thrown when user exists but has not set a password yet
 export class NeedsRegistrationError extends Error {
   public userName: string;
   public userEmail: string;
@@ -59,17 +67,20 @@ export class NeedsRegistrationError extends Error {
   }
 }
 
+// Thrown when user wants password hint
 export class PasswordHintResult {
   public hint: string | null;
   public maskedEmail: string;
   constructor(hint: string | null, email: string) {
     this.hint = hint;
-    const [local, domain] = email.split('@');
+    const parts = email.split('@');
+    const local = parts[0];
+    const domain = parts[1];
     this.maskedEmail = local.charAt(0) + '***' + local.charAt(local.length - 1) + '@' + domain;
   }
 }
 
-// --- Failed Login Attempt Tracking ---
+// --- Failed Login Attempt Tracking (in-memory, resets on page reload) ---
 const failedAttempts: Map<string, { count: number; lockedUntil: number }> = new Map();
 const MAX_ATTEMPTS = 3;
 const LOCKOUT_DURATION = 5 * 60 * 1000;
@@ -78,7 +89,7 @@ function checkLockout(email: string): void {
   const record = failedAttempts.get(email.toLowerCase());
   if (record && record.count >= MAX_ATTEMPTS && Date.now() < record.lockedUntil) {
     const remaining = Math.ceil((record.lockedUntil - Date.now()) / 60000);
-    throw new Error(`Account temporarily locked. Too many failed attempts. Try again in ${remaining} minute(s).`);
+    throw new Error('Account temporarily locked. Too many failed attempts. Try again in ' + remaining + ' minute(s).');
   }
   if (record && Date.now() >= record.lockedUntil) {
     failedAttempts.delete(email.toLowerCase());
@@ -121,7 +132,7 @@ const REVIEWER_EMAILS = [
   'nand.yadav@usd.edu',
 ];
 
-// --- Data Loading ---
+// --- Data Loading (fetches JSON files from repo) ---
 
 let usersCache: BlogUser[] | null = null;
 let postsCache: BlogPost[] | null = null;
@@ -159,7 +170,7 @@ function invalidateCache() {
   postsCacheTime = 0;
 }
 
-// --- GitHub API helpers ---
+// --- GitHub API helpers (for writing blog posts to repo) ---
 
 const REPO_OWNER = 'USD-AI-ResearchLab';
 const REPO_NAME = 'usd-ai-researchlab.github.io';
@@ -179,7 +190,7 @@ export function hasGitHubToken(): boolean {
 
 async function readFileFromGitHub(path: string): Promise<{ content: string; sha: string }> {
   const token = getGitHubToken();
-  if (!token) throw new Error('GitHub token not configured. Admin must set it up first.');
+  if (!token) throw new Error('GitHub token not configured. An admin must set it up first.');
   const res = await fetch(
     'https://api.github.com/repos/' + REPO_OWNER + '/' + REPO_NAME + '/contents/' + path + '?ref=' + BRANCH,
     { headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github.v3+json' } }
@@ -192,7 +203,7 @@ async function readFileFromGitHub(path: string): Promise<{ content: string; sha:
 
 async function writeFileToGitHub(path: string, content: string, message: string): Promise<void> {
   const token = getGitHubToken();
-  if (!token) throw new Error('GitHub token not configured. Admin must set it up first.');
+  if (!token) throw new Error('GitHub token not configured. An admin must set it up first.');
   let sha: string | undefined;
   try {
     const existing = await readFileFromGitHub(path);
@@ -224,31 +235,109 @@ async function writeFileToGitHub(path: string, content: string, message: string)
   }
 }
 
+// --- Helpers ---
+
 function generateId(): string {
   return Date.now().toString(36) + '-' + Math.random().toString(36).substring(2, 9);
 }
 
 function slugify(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 }
 
 // ============================================================
-// PUBLIC API - Authentication
+// AUDIT LOG (stored in localStorage)
+// ============================================================
+
+const AUDIT_LOG_KEY = 'usd_blog_audit_log';
+
+export interface AuditLogEntry {
+  timestamp: string;
+  email: string;
+  name: string;
+  action: 'login_success' | 'login_failed' | 'register' | 'password_reset' | 'lockout';
+  details: string;
+}
+
+function getAuditLog(): AuditLogEntry[] {
+  try {
+    const raw = localStorage.getItem(AUDIT_LOG_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveAuditLog(entries: AuditLogEntry[]): void {
+  const trimmed = entries.slice(-500);
+  localStorage.setItem(AUDIT_LOG_KEY, JSON.stringify(trimmed));
+}
+
+function logAudit(email: string, name: string, action: AuditLogEntry['action'], details: string): void {
+  const entries = getAuditLog();
+  entries.push({ timestamp: new Date().toISOString(), email, name, action, details });
+  saveAuditLog(entries);
+}
+
+export function getAccessLog(): AuditLogEntry[] {
+  return getAuditLog().sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+}
+
+export function clearAccessLog(): void {
+  localStorage.removeItem(AUDIT_LOG_KEY);
+}
+
+export function exportAccessLogCSV(): string {
+  const entries = getAccessLog();
+  const header = 'Timestamp,Email,Name,Action,Details';
+  const rows = entries.map(function(e) {
+    return '"' + new Date(e.timestamp).toLocaleString() + '","' + e.email + '","' + e.name + '","' + e.action + '","' + e.details.replace(/"/g, '""') + '"';
+  });
+  return [header].concat(rows).join('\n');
+}
+
+// ============================================================
+// LOCAL AUTH STORAGE (passwords in browser localStorage)
+// ============================================================
+// users.json = read-only roster of authorized members
+// Passwords/hints stored locally per browser. No GitHub token needed.
+
+const AUTH_STORAGE_KEY = 'usd_blog_auth_data';
+
+interface LocalAuthData {
+  [email: string]: {
+    password: string;
+    hint: string | null;
+    lastLogin: string | null;
+    loginCount: number;
+  };
+}
+
+function getLocalAuthData(): LocalAuthData {
+  try {
+    const raw = localStorage.getItem(AUTH_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveLocalAuthData(data: LocalAuthData): void {
+  localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(data));
+}
+
+// ============================================================
+// PUBLIC API - Authentication (NO GitHub token needed)
 // ============================================================
 
 export async function checkUser(email: string): Promise<{ exists: boolean; needsRegistration: boolean; name: string }> {
   const users = await getUsers();
   const normalizedEmail = email.toLowerCase().trim();
-  const user = users.find(u => u.email.toLowerCase() === normalizedEmail);
+  const user = users.find(function(u) { return u.email.toLowerCase() === normalizedEmail; });
   if (!user) return { exists: false, needsRegistration: false, name: '' };
-  return {
-    exists: true,
-    needsRegistration: user.password_hash === null,
-    name: user.name
-  };
+  const authData = getLocalAuthData();
+  const hasLocalPassword = !!(authData[normalizedEmail] && authData[normalizedEmail].password);
+  return { exists: true, needsRegistration: !hasLocalPassword, name: user.name };
 }
 
 export async function registerUser(
@@ -256,34 +345,27 @@ export async function registerUser(
   password: string,
   passwordHint: string
 ): Promise<AuthResult> {
-  if (!hasGitHubToken()) throw new Error('Write access not configured. Ask an admin to set up the GitHub token first.');
-  const { content: raw } = await readFileFromGitHub('data/blog/users.json');
-  const users: BlogUser[] = JSON.parse(raw);
+  const users = await getUsers();
   const normalizedEmail = email.toLowerCase().trim();
-  const idx = users.findIndex(u => u.email.toLowerCase() === normalizedEmail);
-  if (idx === -1) {
+  const user = users.find(function(u) { return u.email.toLowerCase() === normalizedEmail; });
+  if (!user) {
     throw new Error('Your email is not in the authorized list. Contact an admin to be added.');
   }
-  const user = users[idx];
-  if (user.password_hash !== null) {
+  const authData = getLocalAuthData();
+  if (authData[normalizedEmail] && authData[normalizedEmail].password) {
     throw new Error('You already have a password set. Please use Sign In instead.');
   }
   if (password.length < 6) {
     throw new Error('Password must be at least 6 characters long.');
   }
-  users[idx] = {
-    ...user,
-    password_hash: password,
-    password_hint: passwordHint.trim() || null,
-    last_login: new Date().toISOString(),
-    login_count: 1,
+  authData[normalizedEmail] = {
+    password: password,
+    hint: passwordHint.trim() || null,
+    lastLogin: new Date().toISOString(),
+    loginCount: 1,
   };
-  await writeFileToGitHub(
-    'data/blog/users.json',
-    JSON.stringify(users, null, 2),
-    '[blog] Registered: ' + user.name + ' (' + new Date().toISOString() + ')'
-  );
-  invalidateCache();
+  saveLocalAuthData(authData);
+  logAudit(user.email, user.name, 'register', 'Account password created');
   return {
     id: user.id,
     name: user.name,
@@ -298,39 +380,33 @@ export async function loginUser(email: string, password: string): Promise<AuthRe
   const normalizedEmail = email.toLowerCase().trim();
   checkLockout(normalizedEmail);
   const users = await getUsers();
-  const user = users.find(u => u.email.toLowerCase() === normalizedEmail);
+  const user = users.find(function(u) { return u.email.toLowerCase() === normalizedEmail; });
   if (!user) {
     throw new Error('No account found for this email. Contact an admin to be added.');
   }
-  if (user.password_hash === null) {
+  const authData = getLocalAuthData();
+  const localAuth = authData[normalizedEmail];
+  if (!localAuth || !localAuth.password) {
     throw new NeedsRegistrationError(user.name, user.email);
   }
-  if (user.password_hash !== password) {
+  if (localAuth.password !== password) {
     const remaining = recordFailedAttempt(normalizedEmail);
     if (remaining <= 0) {
+      logAudit(user.email, user.name, 'lockout', 'Account locked after too many failed attempts');
       throw new Error('Account temporarily locked. Too many failed attempts. Try again in 5 minutes.');
     }
+    logAudit(user.email, user.name, 'login_failed', 'Wrong password. ' + remaining + ' attempt(s) remaining');
     throw new Error('Incorrect password. ' + remaining + ' attempt(s) remaining. Click "Forgot Password?" for help.');
   }
   clearFailedAttempts(normalizedEmail);
-  try {
-    if (hasGitHubToken()) {
-      const updatedUsers = users.map(u => {
-        if (u.id === user.id) {
-          return { ...u, last_login: new Date().toISOString(), login_count: u.login_count + 1 };
-        }
-        return u;
-      });
-      await writeFileToGitHub(
-        'data/blog/users.json',
-        JSON.stringify(updatedUsers, null, 2),
-        '[blog] Login: ' + user.name + ' (' + new Date().toISOString() + ')'
-      );
-      invalidateCache();
-    }
-  } catch {
-    console.warn('Could not update login history');
-  }
+  authData[normalizedEmail] = {
+    password: localAuth.password,
+    hint: localAuth.hint,
+    lastLogin: new Date().toISOString(),
+    loginCount: (localAuth.loginCount || 0) + 1,
+  };
+  saveLocalAuthData(authData);
+  logAudit(user.email, user.name, 'login_success', 'Login #' + ((localAuth.loginCount || 0) + 1));
   return {
     id: user.id,
     name: user.name,
@@ -344,14 +420,16 @@ export async function loginUser(email: string, password: string): Promise<AuthRe
 export async function getPasswordHint(email: string): Promise<PasswordHintResult> {
   const users = await getUsers();
   const normalizedEmail = email.toLowerCase().trim();
-  const user = users.find(u => u.email.toLowerCase() === normalizedEmail);
+  const user = users.find(function(u) { return u.email.toLowerCase() === normalizedEmail; });
   if (!user) {
     throw new Error('No account found for this email.');
   }
-  if (user.password_hash === null) {
-    throw new Error('You have not set a password yet. Click "First Time? Create Password" to register.');
+  const authData = getLocalAuthData();
+  const localAuth = authData[normalizedEmail];
+  if (!localAuth || !localAuth.password) {
+    throw new Error('You have not set a password yet. Click "Sign Up" to register.');
   }
-  return new PasswordHintResult(user.password_hint, user.email);
+  return new PasswordHintResult(localAuth.hint, user.email);
 }
 
 export async function resetPassword(
@@ -359,63 +437,62 @@ export async function resetPassword(
   newPassword: string,
   newHint: string
 ): Promise<void> {
-  if (!hasGitHubToken()) throw new Error('Write access not configured. Ask an admin to set up the GitHub token first.');
-  const { content: raw } = await readFileFromGitHub('data/blog/users.json');
-  const users: BlogUser[] = JSON.parse(raw);
+  const users = await getUsers();
   const normalizedEmail = email.toLowerCase().trim();
-  const idx = users.findIndex(u => u.email.toLowerCase() === normalizedEmail);
-  if (idx === -1) throw new Error('No account found for this email.');
+  const user = users.find(function(u) { return u.email.toLowerCase() === normalizedEmail; });
+  if (!user) throw new Error('No account found for this email.');
   if (newPassword.length < 6) {
     throw new Error('Password must be at least 6 characters long.');
   }
-  users[idx] = {
-    ...users[idx],
-    password_hash: newPassword,
-    password_hint: newHint.trim() || null,
+  const authData = getLocalAuthData();
+  const existing = authData[normalizedEmail] || { lastLogin: null, loginCount: 0 };
+  authData[normalizedEmail] = {
+    password: newPassword,
+    hint: newHint.trim() || null,
+    lastLogin: existing.lastLogin,
+    loginCount: existing.loginCount,
   };
-  await writeFileToGitHub(
-    'data/blog/users.json',
-    JSON.stringify(users, null, 2),
-    '[blog] Password reset: ' + users[idx].name
-  );
-  invalidateCache();
+  saveLocalAuthData(authData);
+  logAudit(user.email, user.name, 'password_reset', 'Password was reset');
 }
 
 // ============================================================
-// PUBLIC API - Blog Posts (Read)
+// PUBLIC API - Blog Posts (Read - no token needed)
 // ============================================================
 
 export async function getPublishedPosts(): Promise<BlogPost[]> {
   const posts = await getPosts();
   return posts
-    .filter(p => p.status === 'published')
-    .sort((a, b) => new Date(b.published_at || b.created_at).getTime() - new Date(a.published_at || a.created_at).getTime());
+    .filter(function(p) { return p.status === 'published'; })
+    .sort(function(a, b) { return new Date(b.published_at || b.created_at).getTime() - new Date(a.published_at || a.created_at).getTime(); });
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   const posts = await getPosts();
-  return posts.find(p => p.slug === slug && p.status === 'published') || null;
+  return posts.find(function(p) { return p.slug === slug && p.status === 'published'; }) || null;
 }
 
 export async function getPostById(id: string): Promise<BlogPost | null> {
   const posts = await getPosts();
-  return posts.find(p => p.id === id) || null;
+  return posts.find(function(p) { return p.id === id; }) || null;
 }
 
 export async function getAllPosts(): Promise<BlogPost[]> {
   const posts = await getPosts();
-  return posts.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+  return posts.sort(function(a, b) { return new Date(b.created_at).getTime() - new Date(a.created_at).getTime(); });
 }
 
 export async function getPostsByAuthor(email: string): Promise<BlogPost[]> {
   const posts = await getPosts();
   return posts
-    .filter(p => p.author_email.toLowerCase() === email.toLowerCase())
-    .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+    .filter(function(p) { return p.author_email.toLowerCase() === email.toLowerCase(); })
+    .sort(function(a, b) { return new Date(b.created_at).getTime() - new Date(a.created_at).getTime(); });
 }
 
 // ============================================================
-// PUBLIC API - Blog Posts (Write)
+// PUBLIC API - Blog Posts (Write - requires GitHub token)
+// All authorized users can: create, update own, submit for review
+// Only admin/reviewer can: publish, unpublish, delete others
 // ============================================================
 
 export async function createPost(data: {
@@ -466,7 +543,7 @@ export async function updatePost(
   if (!hasGitHubToken()) throw new Error('Write access not configured.');
   const { content: raw } = await readFileFromGitHub('data/blog/posts.json');
   const posts: BlogPost[] = JSON.parse(raw);
-  const idx = posts.findIndex(p => p.id === postId);
+  const idx = posts.findIndex(function(p) { return p.id === postId; });
   if (idx === -1) throw new Error('Post not found');
   const post = posts[idx];
   const isReviewerUser = REVIEWER_EMAILS.includes(userEmail.toLowerCase());
@@ -494,11 +571,10 @@ export async function submitForReview(postId: string, userEmail: string): Promis
   if (!hasGitHubToken()) throw new Error('Write access not configured.');
   const { content: raw } = await readFileFromGitHub('data/blog/posts.json');
   const posts: BlogPost[] = JSON.parse(raw);
-  const idx = posts.findIndex(p => p.id === postId);
+  const idx = posts.findIndex(function(p) { return p.id === postId; });
   if (idx === -1) throw new Error('Post not found');
   const post = posts[idx];
-  const isReviewerUser = REVIEWER_EMAILS.includes(userEmail.toLowerCase());
-  if (!isReviewerUser && post.author_email.toLowerCase() !== userEmail.toLowerCase()) {
+  if (post.author_email.toLowerCase() !== userEmail.toLowerCase()) {
     throw new Error('You can only submit your own posts');
   }
   post.status = 'pending';
@@ -512,14 +588,16 @@ export async function submitForReview(postId: string, userEmail: string): Promis
   invalidateCache();
 }
 
+// --- Admin/Reviewer only: publish, unpublish, delete ---
+
 export async function publishPost(postId: string, userEmail: string): Promise<void> {
   if (!hasGitHubToken()) throw new Error('Write access not configured.');
   if (!REVIEWER_EMAILS.includes(userEmail.toLowerCase())) {
-    throw new Error('Only reviewers can publish posts');
+    throw new Error('Only reviewers and admins can publish posts.');
   }
   const { content: raw } = await readFileFromGitHub('data/blog/posts.json');
   const posts: BlogPost[] = JSON.parse(raw);
-  const idx = posts.findIndex(p => p.id === postId);
+  const idx = posts.findIndex(function(p) { return p.id === postId; });
   if (idx === -1) throw new Error('Post not found');
   posts[idx].status = 'published';
   posts[idx].published_at = new Date().toISOString();
@@ -535,11 +613,11 @@ export async function publishPost(postId: string, userEmail: string): Promise<vo
 export async function unpublishPost(postId: string, userEmail: string): Promise<void> {
   if (!hasGitHubToken()) throw new Error('Write access not configured.');
   if (!REVIEWER_EMAILS.includes(userEmail.toLowerCase())) {
-    throw new Error('Only reviewers can unpublish posts');
+    throw new Error('Only reviewers and admins can unpublish posts.');
   }
   const { content: raw } = await readFileFromGitHub('data/blog/posts.json');
   const posts: BlogPost[] = JSON.parse(raw);
-  const idx = posts.findIndex(p => p.id === postId);
+  const idx = posts.findIndex(function(p) { return p.id === postId; });
   if (idx === -1) throw new Error('Post not found');
   posts[idx].status = 'draft';
   posts[idx].published_at = null;
@@ -556,12 +634,13 @@ export async function deletePost(postId: string, userEmail: string): Promise<voi
   if (!hasGitHubToken()) throw new Error('Write access not configured.');
   const { content: raw } = await readFileFromGitHub('data/blog/posts.json');
   const posts: BlogPost[] = JSON.parse(raw);
-  const idx = posts.findIndex(p => p.id === postId);
+  const idx = posts.findIndex(function(p) { return p.id === postId; });
   if (idx === -1) throw new Error('Post not found');
   const post = posts[idx];
   const isAdminUser = ADMIN_EMAILS.includes(userEmail.toLowerCase());
-  if (!isAdminUser && post.author_email.toLowerCase() !== userEmail.toLowerCase()) {
-    throw new Error('You can only delete your own posts');
+  const isReviewerUser = REVIEWER_EMAILS.includes(userEmail.toLowerCase());
+  if (!isAdminUser && !isReviewerUser) {
+    throw new Error('Only admins and reviewers can delete posts.');
   }
   posts.splice(idx, 1);
   await writeFileToGitHub(
@@ -585,11 +664,12 @@ export async function addUser(data: {
   if (!hasGitHubToken()) throw new Error('Write access not configured.');
   const { content: raw } = await readFileFromGitHub('data/blog/users.json');
   const users: BlogUser[] = JSON.parse(raw);
-  if (users.find(u => u.email.toLowerCase() === data.email.toLowerCase())) {
+  if (users.find(function(u) { return u.email.toLowerCase() === data.email.toLowerCase(); })) {
     throw new Error('A user with this email already exists');
   }
+  const maxId = users.reduce(function(max, u) { return u.id > max ? u.id : max; }, 0);
   const newUser: BlogUser = {
-    id: Math.max(0, ...users.map(u => u.id)) + 1,
+    id: maxId + 1,
     name: data.name.trim(),
     email: data.email.toLowerCase().trim(),
     password_hash: data.password,
@@ -609,16 +689,16 @@ export async function addUser(data: {
 }
 
 // ============================================================
-// EXPORT: Generate CSV
+// EXPORT: Generate CSV for Excel
 // ============================================================
 
 export async function exportUsersCSV(): Promise<string> {
   const users = await getUsers();
-  const header = 'ID,Name,Email,Role,Password,Created At,Last Login,Login Count';
-  const rows = users.map(u =>
-    u.id + ',"' + u.name + '","' + u.email + '","' + u.role + '","' + u.password_hash + '","' + u.created_at + '","' + (u.last_login || 'Never') + '",' + u.login_count
-  );
-  return [header, ...rows].join('\n');
+  const header = 'ID,Name,Email,Role,Created At,Last Login,Login Count';
+  const rows = users.map(function(u) {
+    return u.id + ',"' + u.name + '","' + u.email + '","' + u.role + '","' + u.created_at + '","' + (u.last_login || 'Never') + '",' + u.login_count;
+  });
+  return [header].concat(rows).join('\n');
 }
 
 export function downloadCSV(csv: string, filename: string) {

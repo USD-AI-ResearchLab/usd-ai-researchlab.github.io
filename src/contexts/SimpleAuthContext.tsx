@@ -2,8 +2,6 @@ import React, { createContext, useState, useEffect } from 'react';
 import {
   loginUser,
   registerUser,
-  checkUser,
-  NeedsRegistrationError,
   type AuthResult,
 } from '../services/blogDatabase';
 
@@ -44,53 +42,36 @@ export const SimpleAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [currentUser, setCurrentUser] = useState<SimpleUser | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Restore session on mount
+  // Restore session on mount — purely from localStorage, no network calls
   useEffect(() => {
-    const restoreSession = async () => {
-      try {
-        const saved = localStorage.getItem(SESSION_KEY);
-        if (saved) {
-          const { email, password } = JSON.parse(saved);
-          if (email && password) {
-            const user = await loginUser(email, password);
-            setCurrentUser(toSimpleUser(user));
-          } else if (email) {
-            // Old session without password — check if user still needs registration
-            const status = await checkUser(email);
-            if (status.exists && !status.needsRegistration) {
-              // Can't auto-login without password, clear session
-              localStorage.removeItem(SESSION_KEY);
-            } else {
-              localStorage.removeItem(SESSION_KEY);
-            }
-          }
-        }
-      } catch (err) {
-        // If NeedsRegistrationError or any other error, clear session
-        if (err instanceof NeedsRegistrationError) {
-          localStorage.removeItem(SESSION_KEY);
+    try {
+      const saved = localStorage.getItem(SESSION_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && parsed.email && parsed.displayName) {
+          setCurrentUser(parsed as SimpleUser);
         } else {
           localStorage.removeItem(SESSION_KEY);
         }
-      } finally {
-        setLoading(false);
       }
-    };
-    restoreSession();
+    } catch {
+      localStorage.removeItem(SESSION_KEY);
+    }
+    setLoading(false);
   }, []);
 
   const login = async (email: string, password: string) => {
     const user = await loginUser(email, password);
     const simpleUser = toSimpleUser(user);
     setCurrentUser(simpleUser);
-    localStorage.setItem(SESSION_KEY, JSON.stringify({ email: simpleUser.email, password }));
+    localStorage.setItem(SESSION_KEY, JSON.stringify(simpleUser));
   };
 
   const register = async (email: string, password: string, hint: string) => {
     const user = await registerUser(email, password, hint);
     const simpleUser = toSimpleUser(user);
     setCurrentUser(simpleUser);
-    localStorage.setItem(SESSION_KEY, JSON.stringify({ email: simpleUser.email, password }));
+    localStorage.setItem(SESSION_KEY, JSON.stringify(simpleUser));
   };
 
   const logout = () => {

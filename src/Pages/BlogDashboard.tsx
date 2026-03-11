@@ -9,7 +9,12 @@ import {
   publishPost,
   unpublishPost,
   submitForReview,
+  getAccessLog,
+  exportAccessLogCSV,
+  clearAccessLog,
+  downloadCSV,
   type BlogPost,
+  type AuditLogEntry,
 } from '../services/blogDatabase';
 import PageLayout from '../components/PageLayout';
 
@@ -20,6 +25,8 @@ const BlogDashboard: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
   const [error, setError] = useState('');
+  const [showAccessLog, setShowAccessLog] = useState(false);
+  const [accessLog, setAccessLog] = useState<AuditLogEntry[]>([]);
 
   // Redirect if not logged in
   useEffect(() => {
@@ -206,6 +213,110 @@ const BlogDashboard: React.FC = () => {
           <div className="text-sm text-gray-500">Drafts</div>
         </div>
       </motion.div>
+
+      {/* Access Log (Admin only) */}
+      {currentUser.isAdmin && (
+        <motion.div
+          className="bg-white rounded-xl shadow-lg overflow-hidden mb-6 sm:mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+        >
+          <div className="p-4 sm:p-6 border-b border-gray-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div>
+              <h3 className="text-lg font-bold text-gray-900">Access Log</h3>
+              <p className="text-sm text-gray-500">Login attempts, registrations, and password resets</p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => {
+                  setAccessLog(getAccessLog());
+                  setShowAccessLog(!showAccessLog);
+                }}
+                className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+              >
+                <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={showAccessLog ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} />
+                </svg>
+                {showAccessLog ? 'Hide Log' : 'View Log'}
+              </button>
+              <button
+                onClick={() => {
+                  const csv = exportAccessLogCSV();
+                  downloadCSV(csv, `access-log-${new Date().toISOString().slice(0, 10)}.csv`);
+                }}
+                className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-gradient-to-r from-red-700 to-gray-900 hover:from-red-800 hover:to-black rounded-lg transition-colors"
+              >
+                <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Export to Excel
+              </button>
+              <button
+                onClick={() => {
+                  if (window.confirm('Clear all access log entries? This cannot be undone.')) {
+                    clearAccessLog();
+                    setAccessLog([]);
+                  }
+                }}
+                className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 hover:bg-red-100 rounded-lg transition-colors"
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+
+          {showAccessLog && (
+            <div className="max-h-80 overflow-y-auto">
+              {accessLog.length === 0 ? (
+                <div className="p-6 text-center text-gray-500 text-sm">No access log entries yet. Entries are recorded on this device.</div>
+              ) : (
+                <table className="w-full text-sm">
+                  <thead className="bg-gray-50 sticky top-0">
+                    <tr>
+                      <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Time</th>
+                      <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
+                      <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
+                      <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Action</th>
+                      <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Details</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    {accessLog.map((entry, i) => (
+                      <tr key={i} className={`hover:bg-gray-50 ${
+                        entry.action === 'login_failed' || entry.action === 'lockout' ? 'bg-red-50' :
+                        entry.action === 'login_success' ? '' :
+                        entry.action === 'register' ? 'bg-green-50' : 'bg-blue-50'
+                      }`}>
+                        <td className="px-4 py-2 text-gray-600 whitespace-nowrap">
+                          {new Date(entry.timestamp).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                        </td>
+                        <td className="px-4 py-2 text-gray-900 font-mono text-xs">{entry.email}</td>
+                        <td className="px-4 py-2 text-gray-700">{entry.name}</td>
+                        <td className="px-4 py-2">
+                          <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
+                            entry.action === 'login_success' ? 'bg-green-100 text-green-700' :
+                            entry.action === 'login_failed' ? 'bg-red-100 text-red-700' :
+                            entry.action === 'lockout' ? 'bg-red-200 text-red-800' :
+                            entry.action === 'register' ? 'bg-blue-100 text-blue-700' :
+                            'bg-purple-100 text-purple-700'
+                          }`}>
+                            {entry.action === 'login_success' ? 'Success' :
+                             entry.action === 'login_failed' ? 'Failed' :
+                             entry.action === 'lockout' ? 'Locked' :
+                             entry.action === 'register' ? 'Registered' : 'Reset'}
+                          </span>
+                        </td>
+                        <td className="px-4 py-2 text-gray-500 text-xs">{entry.details}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+          )}
+        </motion.div>
+      )}
 
       {/* Error */}
       {error && (
