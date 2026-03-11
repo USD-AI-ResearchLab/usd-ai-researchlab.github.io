@@ -32,7 +32,7 @@ const BlogEditor: React.FC = () => {
   // Redirect if not logged in
   useEffect(() => {
     if (!currentUser) {
-      navigate('/blog/login');
+      navigate('/login');
     }
   }, [currentUser, navigate]);
 

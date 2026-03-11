@@ -1,95 +1,170 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import './NavBar.css';
 import logoImage from "../assets/logo_original_backup_with_outline.svg";
 import mobileLogoImage from "../assets/logo_original_backup_with_outline.svg";
+import { useAuth } from '../hooks/useAuth';
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [userMenuOpen, setUserMenuOpen] = useState<boolean>(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+  const { currentUser, isAdmin, isReviewer, logout } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMenu = (): void => {
     setIsOpen((prev) => !prev);
   };
 
+  // Close user dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+        setUserMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+    setUserMenuOpen(false);
+  }, [location.pathname]);
+
+  const handleLogout = () => {
+    logout();
+    setUserMenuOpen(false);
+    navigate('/');
+  };
+
+  const loginUrl = `/login?returnTo=${encodeURIComponent(location.pathname)}`;
+
+  // Get initials for avatar
+  const getInitials = (name: string) => {
+    return name
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
+  };
+
   return (
     <>
-      {/* MAIN NAVBAR - Layout: Navigation Centered */}
+      {/* MAIN NAVBAR - Layout: Navigation Left, Auth Right */}
       <div className="navbar">
         
-        {/* Container with max-width */}
-        <div className="navbar-container">
+        {/* Full-width container */}
+        <div className="navbar-container navbar-container--global">
           
-          {/* NAVIGATION MENU WITH LOGO - ALL ITEMS WITH EQUAL SPACING */}
+          {/* LEFT: Navigation links */}
           <div className="nav-menu hidden md:flex">
           
-          {/* Logo */}
-          <Link to="/" className="nav-logo">
-            <img 
-              className="logo"
-              src={logoImage} 
-              alt="AI Lab Logo"
-            />
-          </Link>
+            {/* Logo */}
+            <Link to="/" className="nav-logo">
+              <img 
+                className="logo"
+                src={logoImage} 
+                alt="AI Lab Logo"
+              />
+            </Link>
 
-          {/* People Link */}
-          <Link to="/people" className="nav-link">
-            <div className="nav-link-text">
-              People
-            </div>
-          </Link>
+            <Link to="/people" className="nav-link">
+              <div className="nav-link-text">People</div>
+            </Link>
 
-          {/* Blog Link */}
-          <Link to="/blog" className="nav-link">
-            <div className="nav-link-text">
-              Blog
-            </div>
-          </Link>
+            <Link to="/blog" className="nav-link">
+              <div className="nav-link-text">Blog</div>
+            </Link>
 
-          <Link to="/publications" className="nav-link">
-            <div className="nav-link-text">
-              Publications
-            </div>
-          </Link>
+            <Link to="/publications" className="nav-link">
+              <div className="nav-link-text">Publications</div>
+            </Link>
 
-          {/* Initiatives Link */}
-          <Link to="/initiatives" className="nav-link">
-            <div className="nav-link-text">
-              Initiatives
-            </div>
-          </Link>
+            <Link to="/initiatives" className="nav-link">
+              <div className="nav-link-text">Initiatives</div>
+            </Link>
 
-          {/* Career Opportunities Link */}
-          <Link to="/opportunities" className="nav-link">
-            <div className="nav-link-text">
-              Career Opportunities
-            </div>
-          </Link>
+            <Link to="/opportunities" className="nav-link">
+              <div className="nav-link-text">Career Opportunities</div>
+            </Link>
 
-          {/* Affiliates Link */}
-          <Link to="/affiliates" className="nav-link">
-            <div className="nav-link-text">
-              Affiliates
-            </div>
-          </Link>
+            <Link to="/affiliates" className="nav-link">
+              <div className="nav-link-text">Affiliates</div>
+            </Link>
 
-          {/* Contact Link */}
-          <Link to="/contact" className="nav-link">
-            <div className="nav-link-text">
-              Contact
-            </div>
-          </Link>
-        </div>
+            <Link to="/contact" className="nav-link">
+              <div className="nav-link-text">Contact</div>
+            </Link>
+          </div>
 
-        {/* Hamburger Menu Button - Visible on small screens */}
-        <button
-          onClick={toggleMenu}
-          className="md:hidden text-white focus:outline-none z-50 hamburger-button"
-          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-          title={isOpen ? "Close menu" : "Open menu"}
-        >
-          <i className={isOpen ? 'bx bx-x' : 'bx bx-menu'}></i>
-        </button>
+          {/* RIGHT: Auth Section — Desktop */}
+          <div className="nav-auth hidden md:flex">
+            {currentUser ? (
+              <div className="nav-user-menu" ref={userMenuRef}>
+                <button
+                  className="nav-user-button"
+                  onClick={() => setUserMenuOpen((prev) => !prev)}
+                  title={currentUser.displayName}
+                >
+                  <span className="nav-user-avatar">
+                    {getInitials(currentUser.displayName)}
+                  </span>
+                  <span className="nav-user-name">{currentUser.displayName.split(' ')[0]}</span>
+                  <i className={`bx bx-chevron-${userMenuOpen ? 'up' : 'down'} nav-user-chevron`}></i>
+                </button>
+
+                {userMenuOpen && (
+                  <div className="nav-user-dropdown">
+                    <div className="nav-user-dropdown-header">
+                      <div className="nav-user-dropdown-name">{currentUser.displayName}</div>
+                      <div className="nav-user-dropdown-email">{currentUser.email}</div>
+                      <div className="nav-user-dropdown-role">
+                        {isAdmin ? '🛡️ Admin' : isReviewer ? '📝 Reviewer' : '✍️ Author'}
+                      </div>
+                    </div>
+                    <div className="nav-user-dropdown-divider" />
+                    <Link to="/blog/dashboard" className="nav-user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
+                      <i className="bx bx-edit"></i> Blog Dashboard
+                    </Link>
+                    <Link to="/blog/editor" className="nav-user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
+                      <i className="bx bx-pencil"></i> Write Post
+                    </Link>
+                    {isReviewer && (
+                      <Link to="/publications/dashboard" className="nav-user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
+                        <i className="bx bx-book-open"></i> Publications
+                      </Link>
+                    )}
+                    <div className="nav-user-dropdown-divider" />
+                    <button className="nav-user-dropdown-item nav-user-dropdown-logout" onClick={handleLogout}>
+                      <i className="bx bx-log-out"></i> Log Out
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link to={loginUrl} className="nav-login-link">
+                <div className="nav-login-text">
+                  <i className="bx bx-log-in nav-login-icon"></i>
+                  Log In
+                </div>
+              </Link>
+            )}
+          </div>
+
+          {/* Hamburger Menu Button - Visible on small screens */}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden text-white focus:outline-none z-50 hamburger-button"
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            title={isOpen ? "Close menu" : "Open menu"}
+          >
+            <i className={isOpen ? 'bx bx-x' : 'bx bx-menu'}></i>
+          </button>
         
         </div>
       </div>
@@ -134,6 +209,48 @@ const NavBar: React.FC = () => {
         <Link to="/contact" onClick={toggleMenu}>
           <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">Contact</div>
         </Link>
+
+        {/* Mobile Auth Section */}
+        <div className="mobile-auth-divider" />
+        {currentUser ? (
+          <div className="mobile-auth-section">
+            <div className="mobile-auth-user-info">
+              <span className="mobile-auth-avatar">{getInitials(currentUser.displayName)}</span>
+              <div>
+                <div className="mobile-auth-name">{currentUser.displayName}</div>
+                <div className="mobile-auth-role">
+                  {isAdmin ? '🛡️ Admin' : isReviewer ? '📝 Reviewer' : '✍️ Author'}
+                </div>
+              </div>
+            </div>
+            <Link to="/blog/dashboard" onClick={toggleMenu}>
+              <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">
+                <i className="bx bx-edit mobile-menu-icon"></i>Blog Dashboard
+              </div>
+            </Link>
+            <Link to="/blog/editor" onClick={toggleMenu}>
+              <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">
+                <i className="bx bx-pencil mobile-menu-icon"></i>Write Post
+              </div>
+            </Link>
+            {isReviewer && (
+              <Link to="/publications/dashboard" onClick={toggleMenu}>
+                <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">
+                  <i className="bx bx-book-open mobile-menu-icon"></i>Publications
+                </div>
+              </Link>
+            )}
+            <button className="mobile-auth-logout" onClick={() => { handleLogout(); toggleMenu(); }}>
+              <i className="bx bx-log-out mobile-menu-icon"></i>Log Out
+            </button>
+          </div>
+        ) : (
+          <Link to={loginUrl} onClick={toggleMenu}>
+            <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">
+              <i className="bx bx-log-in mobile-menu-icon"></i>Log In
+            </div>
+          </Link>
+        )}
       </div>
     </>
   );

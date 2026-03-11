@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '../hooks/useAuth';
 import {
@@ -28,12 +28,14 @@ const BlogLogin: React.FC = () => {
 
   const { login, register, currentUser } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const returnTo = searchParams.get('returnTo') || '/blog/dashboard';
 
   React.useEffect(() => {
     if (currentUser) {
-      navigate('/blog/dashboard');
+      navigate(returnTo);
     }
-  }, [currentUser, navigate]);
+  }, [currentUser, navigate, returnTo]);
 
   const validateEmail = (em: string): boolean => {
     const lower = em.toLowerCase().trim();
@@ -71,7 +73,7 @@ const BlogLogin: React.FC = () => {
     setLoading(true);
     try {
       await login(email, password);
-      navigate('/blog/dashboard');
+      navigate(returnTo);
     } catch (err: unknown) {
       if (err instanceof NeedsRegistrationError) {
         const regEmail = err.userEmail;
@@ -105,7 +107,7 @@ const BlogLogin: React.FC = () => {
     setLoading(true);
     try {
       await register(email, password, passwordHint);
-      navigate('/blog/dashboard');
+      navigate(returnTo);
     } catch (err: unknown) {
       const error = err as { message?: string };
       setError(error.message || 'Registration failed.');
@@ -176,13 +178,13 @@ const BlogLogin: React.FC = () => {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              {mode === 'login' && 'Author Login'}
+              {mode === 'login' && 'Sign In'}
               {mode === 'register' && 'Create Your Password'}
               {mode === 'forgot' && 'Forgot Password'}
               {mode === 'reset' && 'Reset Password'}
             </h1>
             <p className="text-gray-600 mt-2">
-              {mode === 'login' && 'Sign in with your USD email to manage your blog posts'}
+              {mode === 'login' && 'Sign in with your USD email to access the research lab portal'}
               {mode === 'register' && 'Set up your account password and a hint to remember it'}
               {mode === 'forgot' && 'Retrieve your password hint or contact an admin'}
               {mode === 'reset' && 'Set a new password for your account'}

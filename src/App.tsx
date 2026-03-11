@@ -24,6 +24,8 @@ const SponsorCardDemo = lazy(() => import("./Pages/SponsorCardDemo"));
 const BlogLogin = lazy(() => import("./Pages/BlogLogin"));
 const BlogDashboard = lazy(() => import("./Pages/BlogDashboard"));
 const BlogEditor = lazy(() => import("./Pages/BlogEditor"));
+const PublicationsDashboard = lazy(() => import("./Pages/PublicationsDashboard"));
+const PublicationsEditor = lazy(() => import("./Pages/PublicationsEditor"));
 
 // Device-optimized loading component
 const LoadingSpinner: React.FC = () => {
@@ -110,12 +112,16 @@ const App: React.FC = () => {
             <Route path="/people" element={<People />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/write" element={<BlogWriteGuide />} />
+            <Route path="/login" element={<BlogLogin />} />
             <Route path="/blog/login" element={<BlogLogin />} />
             <Route path="/blog/dashboard" element={<BlogDashboard />} />
             <Route path="/blog/editor" element={<BlogEditor />} />
             <Route path="/blog/editor/:id" element={<BlogEditor />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/publications" element={<Publications />} />
+            <Route path="/publications/dashboard" element={<PublicationsDashboard />} />
+            <Route path="/publications/editor" element={<PublicationsEditor />} />
+            <Route path="/publications/editor/:id" element={<PublicationsEditor />} />
             <Route path="/initiatives" element={<Initiatives />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/opportunities" element={<Opportunities />} />

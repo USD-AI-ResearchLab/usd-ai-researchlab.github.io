@@ -52,16 +52,6 @@ const Blog: React.FC = () => {
       <PageLayout title="Blog">
         <FloatingScrollArrows />
 
-      {/* Author Login - top right of the page */}
-      <div className="flex justify-end mb-4">
-        <Link
-          to="/blog/login"
-          className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-red-700 to-gray-900 text-white text-sm font-medium rounded-full hover:from-red-800 hover:to-black transition-all"
-        >
-          Author Login
-        </Link>
-      </div>
-
       {/* Hero Section */}
       <motion.div 
         className="text-center mb-6 sm:mb-8 md:mb-10"
@@ -138,7 +128,7 @@ const Blog: React.FC = () => {
 
                 {/* Author & Date */}
                 <div className="flex flex-wrap items-center gap-1 text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">
-                  <span className="font-medium text-gray-700">{post.author}</span>
+                  <span className="font-medium text-gray-700">{post.author_name}</span>
                   <span className="mx-1 sm:mx-2">•</span>
                   <span>{formatDate(post.published_at || post.created_at)}</span>
                 </div>
