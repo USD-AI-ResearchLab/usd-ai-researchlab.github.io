@@ -271,7 +271,7 @@ const BlogDashboard: React.FC = () => {
           {showAccessLog && (
             <div className="max-h-80 overflow-y-auto">
               {accessLog.length === 0 ? (
-                <div className="p-6 text-center text-gray-500 text-sm">No access log entries yet. Entries are recorded on this device.</div>
+                <div className="p-6 text-center text-gray-500 text-sm">No access log entries yet.</div>
               ) : (
                 <table className="w-full text-sm">
                   <thead className="bg-gray-50 sticky top-0">

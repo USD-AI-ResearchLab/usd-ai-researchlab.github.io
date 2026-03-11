@@ -4,9 +4,10 @@
 // All data is stored in Supabase PostgreSQL database
 //   - users table     -> user accounts (email, password, role)
 //   - posts table     -> all blog posts
-//   - audit_log table -> login/action audit trail
+//   - audit_log table -> login/access audit trail
 //
-// NO GitHub token needed. NO localStorage for data.
+// No GitHub token needed. No localStorage for data.
+// Supabase handles all persistence.
 // ============================================================
 
 import { supabase } from '../config/supabase';
@@ -17,9 +18,9 @@ export interface BlogUser {
   id: number;
   name: string;
   email: string;
-  role: 'admin' | 'reviewer' | 'author';
   password: string | null;
   password_hint: string | null;
+  role: 'admin' | 'reviewer' | 'author';
   failed_attempts: number;
   lockout_until: string | null;
   created_at: string;
@@ -39,6 +40,17 @@ export interface BlogPost {
   created_at: string;
   updated_at: string;
   published_at: string | null;
+  featured_image?: string | null;
+}
+
+export interface AuditLogEntry {
+  id?: number;
+  timestamp: string;
+  user_email: string;
+  user_name: string | null;
+  action: 'login_success' | 'login_failed' | 'register' | 'password_reset' | 'lockout';
+  details: string;
+  ip_address?: string | null;
 }
 
 export interface AuthResult {
@@ -48,16 +60,6 @@ export interface AuthResult {
   role: 'admin' | 'reviewer' | 'author';
   isReviewer: boolean;
   isAdmin: boolean;
-}
-
-export interface AuditLogEntry {
-  id?: number;
-  timestamp: string;
-  user_email: string;
-  user_name: string;
-  action: string;
-  details: string;
-  ip_address?: string;
 }
 
 // Thrown when user exists but hasn't set a password yet
@@ -134,20 +136,25 @@ const REVIEWER_EMAILS = [
   'nand.yadav@usd.edu',
 ];
 
-// --- Helper functions ---
-function generateId(): string {
-  return Date.now().toString(36) + '-' + Math.random().toString(36).substring(2, 9);
+// --- Helper: build AuthResult from user row ---
+function toAuthResult(user: BlogUser): AuthResult {
+  return {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+    isReviewer: REVIEWER_EMAILS.includes(user.email.toLowerCase()),
+    isAdmin: ADMIN_EMAILS.includes(user.email.toLowerCase()),
+  };
 }
 
-function slugify(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-}
-
-// --- Audit logging helper ---
-async function logAudit(email: string, name: string, action: string, details: string): Promise<void> {
+// --- Helper: log audit entry to Supabase ---
+async function logAudit(
+  email: string,
+  name: string,
+  action: AuditLogEntry['action'],
+  details: string
+): Promise<void> {
   try {
     await supabase.from('audit_log').insert({
       user_email: email,
@@ -156,14 +163,23 @@ async function logAudit(email: string, name: string, action: string, details: st
       details,
     });
   } catch {
-    // Audit logging should never break the main flow
+    // Silently fail — audit logging should never block the user
     console.warn('Audit log write failed');
   }
 }
 
-// Legacy compatibility exports (no-ops since Supabase handles everything)
-export function setGitHubToken(_token: string): void { /* no-op */ }
-export function hasGitHubToken(): boolean { return true; }
+// --- Helper: generate unique ID ---
+function generateId(): string {
+  return Date.now().toString(36) + '-' + Math.random().toString(36).substring(2, 9);
+}
+
+// --- Helper: slugify a title ---
+function slugify(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
 
 // ============================================================
 // PUBLIC API - Authentication
@@ -171,21 +187,18 @@ export function hasGitHubToken(): boolean { return true; }
 
 export async function checkUser(email: string): Promise<{ exists: boolean; needsRegistration: boolean; name: string }> {
   const normalizedEmail = email.toLowerCase().trim();
-
-  const { data, error } = await supabase
+  const { data: user } = await supabase
     .from('users')
     .select('name, password')
     .eq('email', normalizedEmail)
     .single();
 
-  if (error || !data) {
-    return { exists: false, needsRegistration: false, name: '' };
-  }
+  if (!user) return { exists: false, needsRegistration: false, name: '' };
 
   return {
     exists: true,
-    needsRegistration: !data.password,
-    name: data.name,
+    needsRegistration: !user.password,
+    name: user.name,
   };
 }
 
@@ -196,13 +209,13 @@ export async function registerUser(
 ): Promise<AuthResult> {
   const normalizedEmail = email.toLowerCase().trim();
 
-  const { data: user, error } = await supabase
+  const { data: user, error: fetchError } = await supabase
     .from('users')
     .select('*')
     .eq('email', normalizedEmail)
     .single();
 
-  if (error || !user) {
+  if (fetchError || !user) {
     throw new Error('Your email is not in the authorized list. Contact an admin to be added.');
   }
 
@@ -221,22 +234,12 @@ export async function registerUser(
       password_hint: passwordHint.trim() || null,
       updated_at: new Date().toISOString(),
     })
-    .eq('email', normalizedEmail);
+    .eq('id', user.id);
 
-  if (updateError) {
-    throw new Error('Failed to register. Please try again.');
-  }
+  if (updateError) throw new Error('Failed to save password. Please try again.');
 
   await logAudit(user.email, user.name, 'register', 'Account password created successfully');
-
-  return {
-    id: user.id,
-    name: user.name,
-    email: user.email,
-    role: user.role,
-    isReviewer: REVIEWER_EMAILS.includes(user.email.toLowerCase()),
-    isAdmin: ADMIN_EMAILS.includes(user.email.toLowerCase()),
-  };
+  return toAuthResult(user as BlogUser);
 }
 
 export async function loginUser(email: string, password: string): Promise<AuthResult> {
@@ -244,17 +247,17 @@ export async function loginUser(email: string, password: string): Promise<AuthRe
 
   checkLockout(normalizedEmail);
 
-  const { data: user, error } = await supabase
+  const { data: user, error: fetchError } = await supabase
     .from('users')
     .select('*')
     .eq('email', normalizedEmail)
     .single();
 
-  if (error || !user) {
+  if (fetchError || !user) {
     throw new Error('No account found for this email. Contact an admin to be added.');
   }
 
-  // No password stored yet -> first-time login, save it
+  // If user has no password yet, save the one they entered (first-time login)
   if (!user.password) {
     if (password.length < 6) {
       throw new Error('Password must be at least 6 characters long.');
@@ -266,21 +269,13 @@ export async function loginUser(email: string, password: string): Promise<AuthRe
         password: password,
         updated_at: new Date().toISOString(),
       })
-      .eq('email', normalizedEmail);
+      .eq('id', user.id);
 
-    await logAudit(user.email, user.name, 'register', 'First login - password saved');
-
-    return {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      role: user.role,
-      isReviewer: REVIEWER_EMAILS.includes(user.email.toLowerCase()),
-      isAdmin: ADMIN_EMAILS.includes(user.email.toLowerCase()),
-    };
+    await logAudit(user.email, user.name, 'register', 'First login — password saved');
+    return toAuthResult(user as BlogUser);
   }
 
-  // Check password
+  // Verify password
   if (user.password !== password) {
     const remaining = recordFailedAttempt(normalizedEmail);
     if (remaining <= 0) {
@@ -292,40 +287,21 @@ export async function loginUser(email: string, password: string): Promise<AuthRe
   }
 
   clearFailedAttempts(normalizedEmail);
-
-  await supabase
-    .from('users')
-    .update({ updated_at: new Date().toISOString() })
-    .eq('email', normalizedEmail);
-
-  await logAudit(user.email, user.name, 'login_success', 'Login successful');
-
-  return {
-    id: user.id,
-    name: user.name,
-    email: user.email,
-    role: user.role,
-    isReviewer: REVIEWER_EMAILS.includes(user.email.toLowerCase()),
-    isAdmin: ADMIN_EMAILS.includes(user.email.toLowerCase()),
-  };
+  await logAudit(user.email, user.name, 'login_success', 'Logged in successfully');
+  return toAuthResult(user as BlogUser);
 }
 
 export async function getPasswordHint(email: string): Promise<PasswordHintResult> {
   const normalizedEmail = email.toLowerCase().trim();
 
-  const { data: user, error } = await supabase
+  const { data: user } = await supabase
     .from('users')
     .select('email, password, password_hint')
     .eq('email', normalizedEmail)
     .single();
 
-  if (error || !user) {
-    throw new Error('No account found for this email.');
-  }
-
-  if (!user.password) {
-    throw new Error('You have not set a password yet. Click "First Time? Create Password" to register.');
-  }
+  if (!user) throw new Error('No account found for this email.');
+  if (!user.password) throw new Error('You have not set a password yet. Click "Sign Up" to register.');
 
   return new PasswordHintResult(user.password_hint, user.email);
 }
@@ -337,28 +313,28 @@ export async function resetPassword(
 ): Promise<void> {
   const normalizedEmail = email.toLowerCase().trim();
 
-  const { data: user, error } = await supabase
-    .from('users')
-    .select('name, email')
-    .eq('email', normalizedEmail)
-    .single();
-
-  if (error || !user) throw new Error('No account found for this email.');
-
   if (newPassword.length < 6) {
     throw new Error('Password must be at least 6 characters long.');
   }
 
-  const { error: updateError } = await supabase
+  const { data: user } = await supabase
+    .from('users')
+    .select('id, email, name')
+    .eq('email', normalizedEmail)
+    .single();
+
+  if (!user) throw new Error('No account found for this email.');
+
+  const { error } = await supabase
     .from('users')
     .update({
       password: newPassword,
       password_hint: newHint.trim() || null,
       updated_at: new Date().toISOString(),
     })
-    .eq('email', normalizedEmail);
+    .eq('id', user.id);
 
-  if (updateError) throw new Error('Failed to reset password. Please try again.');
+  if (error) throw new Error('Failed to reset password. Please try again.');
 
   await logAudit(user.email, user.name, 'password_reset', 'Password was reset');
 }
@@ -372,33 +348,31 @@ export async function getPublishedPosts(): Promise<BlogPost[]> {
     .from('posts')
     .select('*')
     .eq('status', 'published')
-    .order('published_at', { ascending: false });
+    .order('published_at', { ascending: false, nullsFirst: false });
 
   if (error) throw new Error('Failed to load posts');
-  return data || [];
+  return (data || []) as BlogPost[];
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
-  const { data, error } = await supabase
+  const { data } = await supabase
     .from('posts')
     .select('*')
     .eq('slug', slug)
     .eq('status', 'published')
     .single();
 
-  if (error || !data) return null;
-  return data;
+  return (data as BlogPost) || null;
 }
 
 export async function getPostById(id: string): Promise<BlogPost | null> {
-  const { data, error } = await supabase
+  const { data } = await supabase
     .from('posts')
     .select('*')
     .eq('id', id)
     .single();
 
-  if (error || !data) return null;
-  return data;
+  return (data as BlogPost) || null;
 }
 
 export async function getAllPosts(): Promise<BlogPost[]> {
@@ -408,7 +382,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
     .order('created_at', { ascending: false });
 
   if (error) throw new Error('Failed to load posts');
-  return data || [];
+  return (data || []) as BlogPost[];
 }
 
 export async function getPostsByAuthor(email: string): Promise<BlogPost[]> {
@@ -419,11 +393,11 @@ export async function getPostsByAuthor(email: string): Promise<BlogPost[]> {
     .order('created_at', { ascending: false });
 
   if (error) throw new Error('Failed to load posts');
-  return data || [];
+  return (data || []) as BlogPost[];
 }
 
 // ============================================================
-// PUBLIC API - Blog Posts (Write) - NO GitHub token needed!
+// PUBLIC API - Blog Posts (Write) — NO GitHub token needed!
 // ============================================================
 
 export async function createPost(data: {
@@ -446,9 +420,9 @@ export async function createPost(data: {
     excerpt: data.excerpt.trim() || data.content.slice(0, 160).replace(/[#*_\n]/g, '').trim(),
     content: data.content,
     tags: data.tags,
-    status: 'draft' as const,
+    status: 'draft',
     author: data.authorName,
-    author_email: data.authorEmail,
+    author_email: data.authorEmail.toLowerCase(),
     created_at: now,
     updated_at: now,
     published_at: null,
@@ -465,7 +439,7 @@ export async function updatePost(
   data: { title?: string; excerpt?: string; content?: string; tags?: string[] },
   userEmail: string
 ): Promise<void> {
-  // Get the existing post
+  // Fetch existing post
   const { data: post, error: fetchError } = await supabase
     .from('posts')
     .select('*')
@@ -475,7 +449,7 @@ export async function updatePost(
   if (fetchError || !post) throw new Error('Post not found');
 
   const isReviewerUser = REVIEWER_EMAILS.includes(userEmail.toLowerCase());
-  if (!isReviewerUser && post.author_email.toLowerCase() !== userEmail.toLowerCase()) {
+  if (!isReviewerUser && post.author_email?.toLowerCase() !== userEmail.toLowerCase()) {
     throw new Error('You can only edit your own posts');
   }
 
@@ -495,14 +469,14 @@ export async function updatePost(
 export async function submitForReview(postId: string, userEmail: string): Promise<void> {
   const { data: post, error: fetchError } = await supabase
     .from('posts')
-    .select('*')
+    .select('author_email')
     .eq('id', postId)
     .single();
 
   if (fetchError || !post) throw new Error('Post not found');
 
   const isReviewerUser = REVIEWER_EMAILS.includes(userEmail.toLowerCase());
-  if (!isReviewerUser && post.author_email.toLowerCase() !== userEmail.toLowerCase()) {
+  if (!isReviewerUser && post.author_email?.toLowerCase() !== userEmail.toLowerCase()) {
     throw new Error('You can only submit your own posts');
   }
 
@@ -511,7 +485,7 @@ export async function submitForReview(postId: string, userEmail: string): Promis
     .update({ status: 'pending', updated_at: new Date().toISOString() })
     .eq('id', postId);
 
-  if (error) throw new Error(`Failed to submit for review: ${error.message}`);
+  if (error) throw new Error('Failed to submit for review');
 }
 
 export async function publishPost(postId: string, userEmail: string): Promise<void> {
@@ -525,7 +499,7 @@ export async function publishPost(postId: string, userEmail: string): Promise<vo
     .update({ status: 'published', published_at: now, updated_at: now })
     .eq('id', postId);
 
-  if (error) throw new Error(`Failed to publish post: ${error.message}`);
+  if (error) throw new Error('Failed to publish post');
 }
 
 export async function unpublishPost(postId: string, userEmail: string): Promise<void> {
@@ -538,29 +512,29 @@ export async function unpublishPost(postId: string, userEmail: string): Promise<
     .update({ status: 'draft', published_at: null, updated_at: new Date().toISOString() })
     .eq('id', postId);
 
-  if (error) throw new Error(`Failed to unpublish post: ${error.message}`);
+  if (error) throw new Error('Failed to unpublish post');
 }
 
 export async function deletePost(postId: string, userEmail: string): Promise<void> {
   const { data: post, error: fetchError } = await supabase
     .from('posts')
-    .select('*')
+    .select('author_email')
     .eq('id', postId)
     .single();
 
   if (fetchError || !post) throw new Error('Post not found');
 
   const isAdminUser = ADMIN_EMAILS.includes(userEmail.toLowerCase());
-  if (!isAdminUser && post.author_email.toLowerCase() !== userEmail.toLowerCase()) {
+  if (!isAdminUser && post.author_email?.toLowerCase() !== userEmail.toLowerCase()) {
     throw new Error('You can only delete your own posts');
   }
 
   const { error } = await supabase.from('posts').delete().eq('id', postId);
-  if (error) throw new Error(`Failed to delete post: ${error.message}`);
+  if (error) throw new Error('Failed to delete post');
 }
 
 // ============================================================
-// AUDIT LOG - Stored in Supabase
+// AUDIT LOG
 // ============================================================
 
 export async function getAccessLog(): Promise<AuditLogEntry[]> {
@@ -570,32 +544,25 @@ export async function getAccessLog(): Promise<AuditLogEntry[]> {
     .order('timestamp', { ascending: false })
     .limit(500);
 
-  if (error) {
-    console.error('Failed to load audit log:', error);
-    return [];
-  }
-  return data || [];
+  if (error) return [];
+  return (data || []) as AuditLogEntry[];
 }
 
 export async function clearAccessLog(): Promise<void> {
-  const { error } = await supabase
-    .from('audit_log')
-    .delete()
-    .neq('id', 0); // delete all rows (neq is a workaround since .delete() needs a filter)
-
-  if (error) throw new Error('Failed to clear audit log');
+  // Delete all entries (Supabase requires a filter, use gte on id to match all)
+  await supabase.from('audit_log').delete().gte('id', 0);
 }
 
 export function exportAccessLogCSV(entries: AuditLogEntry[]): string {
   const header = 'Timestamp,Email,Name,Action,Details';
   const rows = entries.map(e =>
-    `"${new Date(e.timestamp).toLocaleString()}","${e.user_email}","${e.user_name}","${e.action}","${(e.details || '').replace(/"/g, '""')}"`
+    `"${new Date(e.timestamp).toLocaleString()}","${e.user_email}","${e.user_name || ''}","${e.action}","${(e.details || '').replace(/"/g, '""')}"`
   );
   return [header, ...rows].join('\n');
 }
 
 // ============================================================
-// EXPORT: CSV download helper
+// EXPORT: CSV helper
 // ============================================================
 
 export function downloadCSV(csv: string, filename: string) {
@@ -606,4 +573,17 @@ export function downloadCSV(csv: string, filename: string) {
   link.download = filename;
   link.click();
   URL.revokeObjectURL(url);
+}
+
+// ============================================================
+// LEGACY COMPATIBILITY - these are no-ops now
+// ============================================================
+
+export function setGitHubToken(_token: string): void {
+  // No-op: Supabase handles all writes, no GitHub token needed
+}
+
+export function hasGitHubToken(): boolean {
+  // Always true: Supabase handles writes, no token needed
+  return true;
 }
