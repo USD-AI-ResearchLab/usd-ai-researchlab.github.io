@@ -229,8 +229,9 @@ const BlogDashboard: React.FC = () => {
             </div>
             <div className="flex flex-wrap gap-2">
               <button
-                onClick={() => {
-                  setAccessLog(getAccessLog());
+                onClick={async () => {
+                  const log = await getAccessLog();
+                  setAccessLog(log);
                   setShowAccessLog(!showAccessLog);
                 }}
                 className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
@@ -241,8 +242,9 @@ const BlogDashboard: React.FC = () => {
                 {showAccessLog ? 'Hide Log' : 'View Log'}
               </button>
               <button
-                onClick={() => {
-                  const csv = exportAccessLogCSV();
+                onClick={async () => {
+                  const log = await getAccessLog();
+                  const csv = exportAccessLogCSV(log);
                   downloadCSV(csv, `access-log-${new Date().toISOString().slice(0, 10)}.csv`);
                 }}
                 className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-gradient-to-r from-red-700 to-gray-900 hover:from-red-800 hover:to-black rounded-lg transition-colors"
@@ -253,9 +255,9 @@ const BlogDashboard: React.FC = () => {
                 Export to Excel
               </button>
               <button
-                onClick={() => {
+                onClick={async () => {
                   if (window.confirm('Clear all access log entries? This cannot be undone.')) {
-                    clearAccessLog();
+                    await clearAccessLog();
                     setAccessLog([]);
                   }
                 }}
@@ -291,8 +293,8 @@ const BlogDashboard: React.FC = () => {
                         <td className="px-4 py-2 text-gray-600 whitespace-nowrap">
                           {new Date(entry.timestamp).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
                         </td>
-                        <td className="px-4 py-2 text-gray-900 font-mono text-xs">{entry.email}</td>
-                        <td className="px-4 py-2 text-gray-700">{entry.name}</td>
+                        <td className="px-4 py-2 text-gray-900 font-mono text-xs">{entry.user_email}</td>
+                        <td className="px-4 py-2 text-gray-700">{entry.user_name}</td>
                         <td className="px-4 py-2">
                           <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
                             entry.action === 'login_success' ? 'bg-green-100 text-green-700' :
@@ -367,7 +369,7 @@ const BlogDashboard: React.FC = () => {
                       </span>
                       {isReviewer && post.author_email !== currentUser.email && (
                         <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
-                          By: {post.author_name || 'Unknown'}
+                          By: {post.author || 'Unknown'}
                         </span>
                       )}
                     </div>
