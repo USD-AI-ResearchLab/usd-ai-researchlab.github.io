@@ -49,8 +49,8 @@ const AISymposiumBanner: React.FC = () => {
 
         {/* Animated elements */}
         <div className="absolute top-2 right-2 w-2 h-2 bg-white rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute bottom-4 right-8 w-1 h-1 bg-white rounded-full opacity-40 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute top-1/2 right-4 w-1.5 h-1.5 bg-white rounded-full opacity-50 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-4 right-8 w-1 h-1 bg-white rounded-full opacity-40 animate-pulse [animation-delay:0.5s]"></div>
+        <div className="absolute top-1/2 right-4 w-1.5 h-1.5 bg-white rounded-full opacity-50 animate-pulse [animation-delay:1s]"></div>
       </div>
     </Link>
   );

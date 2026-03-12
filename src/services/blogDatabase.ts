@@ -587,7 +587,7 @@ export function downloadCSV(csv: string, filename: string) {
 // LEGACY COMPATIBILITY - these are no-ops now
 // ============================================================
 
-export function setGitHubToken(_token: string): void {
+export function setGitHubToken(/* token unused — Supabase handles all writes */): void {
   // No-op: Supabase handles all writes, no GitHub token needed
 }
 
