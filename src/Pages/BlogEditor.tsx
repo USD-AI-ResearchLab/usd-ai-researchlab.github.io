@@ -13,7 +13,7 @@ import PageLayout from '../components/PageLayout';
 
 const BlogEditor: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { currentUser, isReviewer } = useAuth();
+  const { currentUser, isReviewer, loading: authLoading } = useAuth();
   const navigate = useNavigate();
 
   const [title, setTitle] = useState('');
@@ -29,12 +29,12 @@ const BlogEditor: React.FC = () => {
   const [error, setError] = useState('');
   const [uploading, setUploading] = useState(false);
 
-  // Redirect if not logged in
+  // Redirect if not logged in (wait for auth to finish loading first)
   useEffect(() => {
-    if (!currentUser) {
+    if (!authLoading && !currentUser) {
       navigate('/login');
     }
-  }, [currentUser, navigate]);
+  }, [currentUser, authLoading, navigate]);
 
   // Load existing post if editing
   useEffect(() => {

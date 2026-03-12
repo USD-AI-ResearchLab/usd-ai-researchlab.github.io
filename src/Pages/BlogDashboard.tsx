@@ -19,7 +19,7 @@ import {
 import PageLayout from '../components/PageLayout';
 
 const BlogDashboard: React.FC = () => {
-  const { currentUser, logout, isReviewer, isApprover } = useAuth();
+  const { currentUser, logout, isReviewer, isApprover, loading: authLoading } = useAuth();
   const navigate = useNavigate();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -28,12 +28,12 @@ const BlogDashboard: React.FC = () => {
   const [showAccessLog, setShowAccessLog] = useState(false);
   const [accessLog, setAccessLog] = useState<AuditLogEntry[]>([]);
 
-  // Redirect if not logged in
+  // Redirect if not logged in (wait for auth to finish loading first)
   useEffect(() => {
-    if (!currentUser) {
+    if (!authLoading && !currentUser) {
       navigate('/login');
     }
-  }, [currentUser, navigate]);
+  }, [currentUser, authLoading, navigate]);
 
   // Fetch posts (filtered by role)
   useEffect(() => {
