@@ -219,7 +219,7 @@ const PublicationsDashboard: React.FC = () => {
                   className={`p-3 rounded-lg border text-left transition-all ${
                     filter === s.filterVal && s.filterVal !== 'all'
                       ? 'border-red-300 bg-red-50 ring-1 ring-red-200'
-                      : 'border-gray-200 bg-white hover:border-gray-300'
+                      : 'border-gray-300 bg-transparent hover:border-gray-400'
                   }`}
                 >
                   <div className={`text-xl font-semibold text-${s.color}-600`}>{s.value}</div>
@@ -247,7 +247,7 @@ const PublicationsDashboard: React.FC = () => {
               value={typeFilter}
               onChange={e => setTypeFilter(e.target.value)}
               title="Filter by publication type"
-              className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="px-3 py-2.5 border border-gray-200 rounded-lg text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-red-500"
             >
               <option value="all">All Types</option>
               <option value="journal">Journal</option>
@@ -298,11 +298,11 @@ const PublicationsDashboard: React.FC = () => {
             </div>
           ) : (
             /* Papers Table */
-            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+            <div className="bg-transparent border border-gray-200 rounded-xl overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-gray-100 bg-gray-50/60">
+                    <tr className="border-b border-gray-100 bg-transparent">
                       <th className="text-left py-3 px-4 font-medium text-gray-500 text-xs uppercase tracking-wider">Paper</th>
                       <th className="text-left py-3 px-4 font-medium text-gray-500 text-xs uppercase tracking-wider hidden md:table-cell">Type</th>
                       <th className="text-left py-3 px-4 font-medium text-gray-500 text-xs uppercase tracking-wider hidden lg:table-cell">Year</th>
@@ -314,7 +314,7 @@ const PublicationsDashboard: React.FC = () => {
                     {filteredPapers.map(paper => (
                       <tr
                         key={paper.id}
-                        className="group hover:bg-gray-50/50 transition-colors"
+                        className="group hover:bg-white/20 transition-colors"
                       >
                         <td className="py-3 px-4 max-w-md">
                           <div className="flex items-start gap-2">
@@ -419,7 +419,7 @@ const PublicationsDashboard: React.FC = () => {
                   </tbody>
                 </table>
               </div>
-              <div className="px-4 py-3 border-t border-gray-100 bg-gray-50/40 text-xs text-gray-400">
+              <div className="px-4 py-3 border-t border-gray-100 bg-transparent text-xs text-gray-400">
                 {filteredPapers.length} of {papers.length} publications
               </div>
             </div>

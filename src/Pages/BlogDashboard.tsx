@@ -134,7 +134,7 @@ const BlogDashboard: React.FC = () => {
     <PageLayout title="Blog Dashboard">
       {/* Header */}
       <motion.div
-        className="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-6 sm:mb-8"
+        className="bg-transparent rounded-xl border border-white/20 p-4 sm:p-6 mb-6 sm:mb-8"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -190,23 +190,23 @@ const BlogDashboard: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <div className="bg-white rounded-xl shadow-md p-4">
+        <div className="bg-transparent rounded-xl border border-white/20 p-4">
           <div className="text-2xl sm:text-3xl font-bold text-gray-900">{posts.length}</div>
           <div className="text-sm text-gray-500">Total Posts</div>
         </div>
-        <div className="bg-white rounded-xl shadow-md p-4">
+        <div className="bg-transparent rounded-xl border border-white/20 p-4">
           <div className="text-2xl sm:text-3xl font-bold text-green-600">
             {posts.filter(p => p.status === 'published').length}
           </div>
           <div className="text-sm text-gray-500">Published</div>
         </div>
-        <div className="bg-white rounded-xl shadow-md p-4">
+        <div className="bg-transparent rounded-xl border border-white/20 p-4">
           <div className="text-2xl sm:text-3xl font-bold text-orange-600">
             {posts.filter(p => p.status === 'pending').length}
           </div>
           <div className="text-sm text-gray-500">Pending Review</div>
         </div>
-        <div className="bg-white rounded-xl shadow-md p-4">
+        <div className="bg-transparent rounded-xl border border-white/20 p-4">
           <div className="text-2xl sm:text-3xl font-bold text-yellow-600">
             {posts.filter(p => p.status === 'draft').length}
           </div>
@@ -217,7 +217,7 @@ const BlogDashboard: React.FC = () => {
       {/* Access Log (Admin only) */}
       {currentUser.isAdmin && (
         <motion.div
-          className="bg-white rounded-xl shadow-lg overflow-hidden mb-6 sm:mb-8"
+          className="bg-transparent rounded-xl border border-white/20 overflow-hidden mb-6 sm:mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
@@ -234,7 +234,7 @@ const BlogDashboard: React.FC = () => {
                   setAccessLog(log);
                   setShowAccessLog(!showAccessLog);
                 }}
-                className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 bg-transparent border border-gray-300 hover:bg-white/20 rounded-lg transition-colors"
               >
                 <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={showAccessLog ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} />
@@ -273,7 +273,7 @@ const BlogDashboard: React.FC = () => {
                 <div className="p-6 text-center text-gray-500 text-sm">No access log entries yet. Entries are recorded on this device.</div>
               ) : (
                 <table className="w-full text-sm">
-                  <thead className="bg-gray-50 sticky top-0">
+                  <thead className="bg-transparent sticky top-0">
                     <tr>
                       <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Time</th>
                       <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
@@ -284,7 +284,7 @@ const BlogDashboard: React.FC = () => {
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {accessLog.map((entry, i) => (
-                      <tr key={i} className={`hover:bg-gray-50 ${
+                      <tr key={i} className={`hover:bg-white/10 ${
                         entry.action === 'login_failed' || entry.action === 'lockout' ? 'bg-red-50' :
                         entry.action === 'login_success' ? '' :
                         entry.action === 'register' ? 'bg-green-50' : 'bg-blue-50'
@@ -326,7 +326,7 @@ const BlogDashboard: React.FC = () => {
 
       {/* Posts List */}
       <motion.div
-        className="bg-white rounded-xl shadow-lg overflow-hidden"
+        className="bg-transparent rounded-xl border border-white/20 overflow-hidden"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -360,7 +360,7 @@ const BlogDashboard: React.FC = () => {
         ) : (
           <div className="divide-y divide-gray-200">
             {posts.map((post) => (
-              <div key={post.id} className="p-4 sm:p-6 hover:bg-gray-50 transition-colors">
+              <div key={post.id} className="p-4 sm:p-6 hover:bg-white/10 transition-colors">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
