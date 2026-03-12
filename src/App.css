@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* Hide @uiw/react-md-editor watermark / resize bar */
+.w-md-editor-bar,
+.w-md-editor .w-md-editor-bar,
+div.w-md-editor-bar {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
 /* Cross-browser reset and compatibility */
 *, *::before, *::after {
   -webkit-box-sizing: border-box;

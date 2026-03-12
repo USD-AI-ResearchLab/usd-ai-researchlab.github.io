@@ -339,7 +339,7 @@ const BlogDashboard: React.FC = () => {
             {isApprover
               ? 'As an approver, you can publish and unpublish all posts'
               : isReviewer
-              ? 'As a reviewer, you can see all posts — approval by KC Santosh or Deepika Nuthalapati required to publish'
+              ? 'As a reviewer, you can see all posts — approval by KC Santosh required to publish'
               : 'You can view and edit your own posts'}
           </p>
         </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import MDEditor from '@uiw/react-md-editor';
+import '@uiw/react-md-editor/dist/mdeditor.min.css';
 import { useAuth } from '../hooks/useAuth';
 import {
   getPostById,
@@ -351,6 +352,7 @@ const BlogEditor: React.FC = () => {
                 preview="live"
                 hideToolbar={false}
                 enableScroll={true}
+                visibleDragbar={false}
               />
             </div>
           </div>
