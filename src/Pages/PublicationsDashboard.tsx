@@ -11,7 +11,6 @@ import {
   getPublicationStats,
   seedFromStaticData,
   isPublicationsAdmin,
-  isPublicationsReviewer,
   type ResearchPaper,
 } from '../services/publicationsDatabase';
 import PageLayout from '../components/PageLayout';
@@ -26,7 +25,7 @@ const TYPE_LABELS: Record<string, string> = {
 };
 
 const PublicationsDashboard: React.FC = () => {
-  const { currentUser } = useAuth();
+  const { currentUser, loading: authLoading } = useAuth();
   const navigate = useNavigate();
   const [papers, setPapers] = useState<ResearchPaper[]>([]);
   const [loading, setLoading] = useState(true);
@@ -42,14 +41,10 @@ const PublicationsDashboard: React.FC = () => {
 
   // Auth guard
   useEffect(() => {
-    if (!currentUser) {
+    if (!authLoading && !currentUser) {
       navigate('/login');
-      return;
     }
-    if (!isPublicationsReviewer(currentUser.email)) {
-      navigate('/publications');
-    }
-  }, [currentUser, navigate]);
+  }, [currentUser, authLoading, navigate]);
 
   // Fetch data
   useEffect(() => {
@@ -154,7 +149,7 @@ const PublicationsDashboard: React.FC = () => {
   if (!currentUser) return null;
 
   return (
-    <PageLayout title="Publications Manager">
+    <PageLayout title="Publications Dashboard">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -165,7 +160,7 @@ const PublicationsDashboard: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <div>
               <h1 className="text-2xl font-light text-gray-900 tracking-tight">
-                Publications Manager
+                Publications Dashboard
               </h1>
               <p className="text-sm text-gray-500 mt-1">
                 Manage research papers, journals & conference proceedings
