@@ -114,7 +114,7 @@ const ConferenceSchedule: React.FC = () => {
               className="underline font-medium schedule-download-link"
               download
             >
-              📥 Download Full Schedule (PDF)
+              Download Full Schedule (PDF)
             </a>
           </div>
         </div>

@@ -5,6 +5,8 @@ import './NavBar.css';
 import logoImage from "../assets/logo_original_backup_with_outline.svg";
 import mobileLogoImage from "../assets/logo_original_backup_with_outline.svg";
 import { useAuth } from '../hooks/useAuth';
+import { facultyData } from '../data/faculty';
+import { staffData } from '../data/staff';
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -51,6 +53,17 @@ const NavBar: React.FC = () => {
       .join('')
       .toUpperCase()
       .slice(0, 2);
+  };
+
+  // Look up photo from faculty/staff data by matching full display name
+  const getUserPhoto = (displayName: string): string | undefined => {
+    const allPeople = [...facultyData, ...staffData];
+    const match = allPeople.find(
+      (p) => p.name.toLowerCase() === displayName.toLowerCase() ||
+             p.name.toLowerCase().includes(displayName.toLowerCase()) ||
+             displayName.toLowerCase().includes(p.name.toLowerCase().split(' ').slice(-1)[0])
+    );
+    return match?.photo;
   };
 
   return (
@@ -112,7 +125,15 @@ const NavBar: React.FC = () => {
                   title={currentUser.displayName}
                 >
                   <span className="nav-user-avatar">
-                    {getInitials(currentUser.displayName)}
+                    {getUserPhoto(currentUser.displayName) ? (
+                      <img
+                        src={getUserPhoto(currentUser.displayName)}
+                        alt={currentUser.displayName}
+                        className="nav-user-avatar-img"
+                      />
+                    ) : (
+                      getInitials(currentUser.displayName)
+                    )}
                   </span>
                   <span className="nav-user-name">{currentUser.displayName.split(' ')[0]}</span>
                   <i className={`bx bx-chevron-${userMenuOpen ? 'up' : 'down'} nav-user-chevron`}></i>
@@ -124,24 +145,27 @@ const NavBar: React.FC = () => {
                       <div className="nav-user-dropdown-name">{currentUser.displayName}</div>
                       <div className="nav-user-dropdown-email">{currentUser.email}</div>
                       <div className="nav-user-dropdown-role">
-                        {isAdmin ? '🛡️ Admin' : isReviewer ? '📝 Reviewer' : '✍️ Author'}
+                        {isAdmin ? 'Admin' : isReviewer ? 'Reviewer' : 'Author'}
                       </div>
                     </div>
                     <div className="nav-user-dropdown-divider" />
                     <Link to="/blog/dashboard" className="nav-user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
-                      <i className="bx bx-edit"></i> Blog Dashboard
+                      Blog Dashboard
                     </Link>
                     <Link to="/blog/editor" className="nav-user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
-                      <i className="bx bx-pencil"></i> Write Post
+                      Write Post
+                    </Link>
+                    <Link to="/publications/dashboard" className="nav-user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
+                      Research Paper Dashboard
                     </Link>
                     {isReviewer && (
                       <Link to="/publications/dashboard" className="nav-user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
-                        <i className="bx bx-book-open"></i> Publications
+                        Publications
                       </Link>
                     )}
                     <div className="nav-user-dropdown-divider" />
                     <button className="nav-user-dropdown-item nav-user-dropdown-logout" onClick={handleLogout}>
-                      <i className="bx bx-log-out"></i> Log Out
+                      Log Out
                     </button>
                   </div>
                 )}
@@ -149,7 +173,6 @@ const NavBar: React.FC = () => {
             ) : (
               <Link to={loginUrl} className="nav-login-link">
                 <div className="nav-login-text">
-                  <i className="bx bx-log-in nav-login-icon"></i>
                   Log In
                 </div>
               </Link>
@@ -215,39 +238,54 @@ const NavBar: React.FC = () => {
         {currentUser ? (
           <div className="mobile-auth-section">
             <div className="mobile-auth-user-info">
-              <span className="mobile-auth-avatar">{getInitials(currentUser.displayName)}</span>
+              <span className="mobile-auth-avatar">
+                {getUserPhoto(currentUser.displayName) ? (
+                  <img
+                    src={getUserPhoto(currentUser.displayName)}
+                    alt={currentUser.displayName}
+                    className="nav-user-avatar-img"
+                  />
+                ) : (
+                  getInitials(currentUser.displayName)
+                )}
+              </span>
               <div>
                 <div className="mobile-auth-name">{currentUser.displayName}</div>
                 <div className="mobile-auth-role">
-                  {isAdmin ? '🛡️ Admin' : isReviewer ? '📝 Reviewer' : '✍️ Author'}
+                  {isAdmin ? 'Admin' : isReviewer ? 'Reviewer' : 'Author'}
                 </div>
               </div>
             </div>
             <Link to="/blog/dashboard" onClick={toggleMenu}>
               <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">
-                <i className="bx bx-edit mobile-menu-icon"></i>Blog Dashboard
+                Blog Dashboard
               </div>
             </Link>
             <Link to="/blog/editor" onClick={toggleMenu}>
               <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">
-                <i className="bx bx-pencil mobile-menu-icon"></i>Write Post
+                Write Post
+              </div>
+            </Link>
+            <Link to="/publications/dashboard" onClick={toggleMenu}>
+              <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">
+                Research Paper Dashboard
               </div>
             </Link>
             {isReviewer && (
               <Link to="/publications/dashboard" onClick={toggleMenu}>
                 <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">
-                  <i className="bx bx-book-open mobile-menu-icon"></i>Publications
+                  Publications
                 </div>
               </Link>
             )}
             <button className="mobile-auth-logout" onClick={() => { handleLogout(); toggleMenu(); }}>
-              <i className="bx bx-log-out mobile-menu-icon"></i>Log Out
+              Log Out
             </button>
           </div>
         ) : (
           <Link to={loginUrl} onClick={toggleMenu}>
             <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">
-              <i className="bx bx-log-in mobile-menu-icon"></i>Log In
+              Log In
             </div>
           </Link>
         )}

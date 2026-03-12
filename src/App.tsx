@@ -20,7 +20,6 @@ const Contact = lazy(() => import("./Pages/Contact"));
 const Affiliates = lazy(() => import("./Pages/Affiliates"));
 const Opportunities = lazy(() => import("./Pages/Opportunities"));
 const AISymposium2025 = lazy(() => import("./Pages/AISymposium2025"));
-const SponsorCardDemo = lazy(() => import("./Pages/SponsorCardDemo"));
 const BlogLogin = lazy(() => import("./Pages/BlogLogin"));
 const BlogDashboard = lazy(() => import("./Pages/BlogDashboard"));
 const BlogEditor = lazy(() => import("./Pages/BlogEditor"));
@@ -127,7 +126,6 @@ const App: React.FC = () => {
             <Route path="/opportunities" element={<Opportunities />} />
             <Route path="/affiliates" element={<Affiliates />} />
             <Route path="/events/ai-symposium/2025" element={<AISymposium2025 />} />
-            <Route path="/sponsor-cards-demo" element={<SponsorCardDemo />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>

@@ -13,6 +13,7 @@ export interface SimpleUser {
   role: 'admin' | 'reviewer' | 'author';
   isReviewer: boolean;
   isAdmin: boolean;
+  isApprover: boolean;
 }
 
 export interface AuthContextType {
@@ -20,6 +21,7 @@ export interface AuthContextType {
   loading: boolean;
   isReviewer: boolean;
   isAdmin: boolean;
+  isApprover: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string, hint: string) => Promise<void>;
   logout: () => void;
@@ -36,6 +38,7 @@ const toSimpleUser = (user: AuthResult): SimpleUser => ({
   role: user.role,
   isReviewer: user.isReviewer,
   isAdmin: user.isAdmin,
+  isApprover: user.isApprover,
 });
 
 export const SimpleAuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -84,6 +87,7 @@ export const SimpleAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     loading,
     isReviewer: currentUser?.isReviewer ?? false,
     isAdmin: currentUser?.isAdmin ?? false,
+    isApprover: currentUser?.isApprover ?? false,
     login,
     register,
     logout,

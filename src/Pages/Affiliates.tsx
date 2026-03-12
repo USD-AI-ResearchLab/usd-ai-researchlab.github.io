@@ -11,6 +11,7 @@ const Affiliates: React.FC = () => {
 
   // Grouped cards by category for 3-dot navigation
   const industryPartners = [
+    { name: "Monolyth AI", image: "/images/sponsor/monolythai.png", url: "https://www.monolythai.com/", alt: "Monolyth AI", darkBg: true },
     { name: "Sterling", image: "/images/sponsor/Sterling.png", url: "https://www.sterlingcomputers.com/", alt: "Sterling" },
     { name: "Vermillion Chamber of Commerce", image: "/images/sponsor/Area.png", url: "https://livevermillion.com/", alt: "Vermillion Chamber of Commerce" },
     { name: "Dakota PC", image: "/images/sponsor/dakota.png", url: "https://dakotapcwarehouse.com/", alt: "Dakota PC" }
@@ -127,7 +128,7 @@ const Affiliates: React.FC = () => {
                       className="flex flex-col items-center justify-between h-full w-full no-underline text-current"
                     >
                       {/* Logo Container */}
-                      <div className="flex items-center justify-center w-full mb-1 sm:mb-2 h-14 sm:h-16 md:h-20 lg:h-24 xl:h-28 bg-white rounded-lg shadow-sm border border-gray-100 p-1 sm:p-2">
+                      <div className={`flex items-center justify-center w-full mb-1 sm:mb-2 h-14 sm:h-16 md:h-20 lg:h-24 xl:h-28 rounded-lg shadow-sm border border-gray-100 p-1 sm:p-2 ${'darkBg' in card && card.darkBg ? 'bg-gray-900' : 'bg-white'}`}>
                         <img 
                           src={card.image} 
                           alt={card.alt} 

@@ -124,8 +124,8 @@ const Contact: React.FC = () => {
               />
               {/* "You are here" indicator */}
               <div className="absolute top-2 left-2 bg-red-600 text-white px-2 py-1 sm:px-3 sm:py-2 rounded-lg shadow-lg text-xs sm:text-sm font-medium z-10 pointer-events-none max-w-[calc(100%-1rem)]">
-                <span className="hidden sm:inline">📍 USD Computer Science - 414 E Clark St</span>
-                <span className="sm:hidden">📍 USD CS - 414 E Clark St</span>
+                <span className="hidden sm:inline">USD Computer Science — 414 E Clark St</span>
+                <span className="sm:hidden">USD CS — 414 E Clark St</span>
               </div>
               {/* Direct Maps Link */}
               <div className="absolute bottom-2 right-2">

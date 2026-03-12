@@ -37,7 +37,7 @@ const RegistrationInfo: React.FC = () => {
             This event is <strong>free</strong>, but registration is required to attend.
           </p>
           <p className="mb-4">
-            📌 Registration link:{" "}
+            Registration link:{" "}
             <a
               href="https://events.vtools.ieee.org/event/register/487885"
               target="_blank"
@@ -48,7 +48,7 @@ const RegistrationInfo: React.FC = () => {
             </a>
           </p>
           <p className="mb-4">
-            <strong>🎓 Sign up, attend, and receive a certificate of participation immediately after the event!</strong>
+            <strong>Sign up, attend, and receive a certificate of participation immediately after the event!</strong>
           </p>
         </div>
       )}

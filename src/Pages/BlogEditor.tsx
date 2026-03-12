@@ -369,7 +369,7 @@ const BlogEditor: React.FC = () => {
               <div><code className="bg-gray-200 px-1 rounded">`code`</code></div>
             </div>
 
-            <h4 className="font-medium text-gray-900 mt-4 mb-2">📄 Publishing Research Content</h4>
+            <h4 className="font-medium text-gray-900 mt-4 mb-2">Publishing Research Content</h4>
             <div className="text-sm text-gray-600 space-y-1">
               <p>• <strong>Images & Figures:</strong> Upload via the drag-drop area above — they auto-insert as markdown</p>
               <p>• <strong>Datasets:</strong> Host on GitHub/Kaggle and link: <code className="bg-gray-200 px-1 rounded">[Dataset](https://github.com/...)</code></p>

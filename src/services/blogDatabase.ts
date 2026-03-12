@@ -60,6 +60,7 @@ export interface AuthResult {
   role: 'admin' | 'reviewer' | 'author';
   isReviewer: boolean;
   isAdmin: boolean;
+  isApprover: boolean;
 }
 
 // Thrown when user exists but hasn't set a password yet
@@ -135,6 +136,12 @@ const REVIEWER_EMAILS = [
   ...ADMIN_EMAILS,
   'nand.yadav@usd.edu',
 ];
+// Only KC Santosh and Deepika Nuthalapati can approve (publish/unpublish) posts
+const APPROVER_EMAILS = [
+  'kc.santosh@usd.edu',
+  'deepika.nuthalapati@usd.edu',
+  'deepika.nuthalapati@coyotes.usd.edu',
+];
 
 // --- Helper: build AuthResult from user row ---
 function toAuthResult(user: BlogUser): AuthResult {
@@ -145,6 +152,7 @@ function toAuthResult(user: BlogUser): AuthResult {
     role: user.role,
     isReviewer: REVIEWER_EMAILS.includes(user.email.toLowerCase()),
     isAdmin: ADMIN_EMAILS.includes(user.email.toLowerCase()),
+    isApprover: APPROVER_EMAILS.includes(user.email.toLowerCase()),
   };
 }
 
@@ -489,8 +497,8 @@ export async function submitForReview(postId: string, userEmail: string): Promis
 }
 
 export async function publishPost(postId: string, userEmail: string): Promise<void> {
-  if (!REVIEWER_EMAILS.includes(userEmail.toLowerCase())) {
-    throw new Error('Only reviewers can publish posts');
+  if (!APPROVER_EMAILS.includes(userEmail.toLowerCase())) {
+    throw new Error('Only KC Santosh or Deepika Nuthalapati can approve and publish posts');
   }
 
   const now = new Date().toISOString();
@@ -503,8 +511,8 @@ export async function publishPost(postId: string, userEmail: string): Promise<vo
 }
 
 export async function unpublishPost(postId: string, userEmail: string): Promise<void> {
-  if (!REVIEWER_EMAILS.includes(userEmail.toLowerCase())) {
-    throw new Error('Only reviewers can unpublish posts');
+  if (!APPROVER_EMAILS.includes(userEmail.toLowerCase())) {
+    throw new Error('Only KC Santosh or Deepika Nuthalapati can unpublish posts');
   }
 
   const { error } = await supabase

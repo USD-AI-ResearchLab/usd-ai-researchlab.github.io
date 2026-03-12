@@ -19,7 +19,7 @@ import {
 import PageLayout from '../components/PageLayout';
 
 const BlogDashboard: React.FC = () => {
-  const { currentUser, logout, isReviewer } = useAuth();
+  const { currentUser, logout, isReviewer, isApprover } = useAuth();
   const navigate = useNavigate();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -243,7 +243,7 @@ const BlogDashboard: React.FC = () => {
               </button>
               <button
                 onClick={async () => {
-                  const csv = exportAccessLogCSV();
+                  const csv = exportAccessLogCSV(accessLog);
                   downloadCSV(csv, `access-log-${new Date().toISOString().slice(0, 10)}.csv`);
                 }}
                 className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-gradient-to-r from-red-700 to-gray-900 hover:from-red-800 hover:to-black rounded-lg transition-colors"
@@ -292,8 +292,8 @@ const BlogDashboard: React.FC = () => {
                         <td className="px-4 py-2 text-gray-600 whitespace-nowrap">
                           {new Date(entry.timestamp).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
                         </td>
-                        <td className="px-4 py-2 text-gray-900 font-mono text-xs">{entry.email}</td>
-                        <td className="px-4 py-2 text-gray-700">{entry.name}</td>
+                        <td className="px-4 py-2 text-gray-900 font-mono text-xs">{entry.user_email}</td>
+                        <td className="px-4 py-2 text-gray-700">{entry.user_name}</td>
                         <td className="px-4 py-2">
                           <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
                             entry.action === 'login_success' ? 'bg-green-100 text-green-700' :
@@ -336,10 +336,11 @@ const BlogDashboard: React.FC = () => {
             All Posts
           </h3>
           <p className="text-sm text-gray-500">
-            {isReviewer 
-              ? 'As a reviewer, you can edit & publish all posts'
-              : 'You can view all posts but only edit your own work'
-            }
+            {isApprover
+              ? 'As an approver, you can publish and unpublish all posts'
+              : isReviewer
+              ? 'As a reviewer, you can see all posts — approval by KC Santosh or Deepika Nuthalapati required to publish'
+              : 'You can view and edit your own posts'}
           </p>
         </div>
 
@@ -368,7 +369,7 @@ const BlogDashboard: React.FC = () => {
                       </span>
                       {isReviewer && post.author_email !== currentUser.email && (
                         <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
-                          By: {post.author_name || 'Unknown'}
+                          By: {post.author || 'Unknown'}
                         </span>
                       )}
                     </div>
@@ -401,8 +402,8 @@ const BlogDashboard: React.FC = () => {
                         Submit for Review
                       </button>
                     )}
-                    {/* Reviewer: Publish/Unpublish */}
-                    {isReviewer && (
+                    {/* Approver only: Publish/Unpublish */}
+                    {isApprover && (
                       <button
                         onClick={() => handlePublishToggle(post)}
                         disabled={actionLoading === post.id}
@@ -411,7 +412,7 @@ const BlogDashboard: React.FC = () => {
                             ? 'text-yellow-600 hover:bg-yellow-50'
                             : 'text-green-600 hover:bg-green-50'
                         }`}
-                        title={post.status === 'published' ? 'Unpublish' : 'Publish'}
+                        title={post.status === 'published' ? 'Unpublish' : 'Approve & Publish'}
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
