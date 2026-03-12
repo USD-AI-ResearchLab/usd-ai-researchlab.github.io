@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import BooksComponent from '../components/BooksComponent';
 import { PUBLICATIONS } from '../data/publications';
-import { FEW_SAMPLES, PUBLICATIONS_BY_YEAR } from '../data/publicationsByYear';
-import { getPublishedPapers, isPublicationsReviewer, type ResearchPaper } from '../services/publicationsDatabase';
+import { FEW_SAMPLES } from '../data/publicationsByYear';
 import { useAuth } from '../hooks/useAuth';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
 
@@ -14,30 +13,8 @@ const Publications: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [supabasePapers, setSupabasePapers] = useState<ResearchPaper[]>([]);
-  const [activeTab, setActiveTab] = useState<'highlights' | 'year-by-year' | 'research-papers'>('highlights');
+  const [activeTab, setActiveTab] = useState<'few-samples' | 'research-papers'>('few-samples');
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const [expandedYears, setExpandedYears] = useState<Set<string>>(
-    new Set(PUBLICATIONS_BY_YEAR.slice(0, 3).map(s => s.year))
-  );
-
-  // Load Supabase papers
-  useEffect(() => {
-    getPublishedPapers().then(setSupabasePapers).catch(() => {});
-  }, []);
-
-  const toggleYear = (year: string) => {
-    setExpandedYears(prev => {
-      const next = new Set(prev);
-      if (next.has(year)) {
-        next.delete(year);
-      } else {
-        next.add(year);
-      }
-      return next;
-    });
-  };
 
   const itemsPerPage = 8;
 
@@ -84,8 +61,8 @@ const Publications: React.FC = () => {
   };
   useEffect(() => () => { if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current); }, []);
 
-  // Total publications count
-  const totalPubCount = PUBLICATIONS_BY_YEAR.reduce((sum, s) => sum + s.publications.length, 0);
+  // Total publications count (used for reference)
+  // const totalPubCount = PUBLICATIONS_BY_YEAR.reduce((sum, s) => sum + s.publications.length, 0);
 
   return (
     <PageLayout title="Publications">
@@ -104,7 +81,7 @@ const Publications: React.FC = () => {
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                {currentUser && isPublicationsReviewer(currentUser.email) && (
+                {currentUser && (
                   <Link
                     to="/publications/dashboard"
                     className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors"
@@ -119,27 +96,7 @@ const Publications: React.FC = () => {
               </div>
             </div>
 
-            {/* Stats Bar */}
-            <div className="mt-6 flex flex-wrap gap-6 text-sm">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-red-500" />
-                <span className="text-gray-500">{totalPubCount}+ papers</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-blue-500" />
-                <span className="text-gray-500">{PUBLICATIONS_BY_YEAR.length} years of research</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-amber-500" />
-                <span className="text-gray-500">{PUBLICATIONS.filter(p => p.codeUrl && p.codeUrl !== '#').length} with code</span>
-              </div>
-              {supabasePapers.length > 0 && (
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-green-500" />
-                  <span className="text-gray-500">{supabasePapers.length} in database</span>
-                </div>
-              )}
-            </div>
+
           </div>
 
           {/* Books Section */}
@@ -154,8 +111,7 @@ const Publications: React.FC = () => {
           {/* Tab Navigation */}
           <div className="flex border-b border-gray-200 mb-6">
             {[
-              { id: 'highlights' as const, label: 'Highlights', count: FEW_SAMPLES.length },
-              { id: 'year-by-year' as const, label: 'Year by Year', count: totalPubCount },
+              { id: 'few-samples' as const, label: 'Few Samples', count: FEW_SAMPLES.length },
               { id: 'research-papers' as const, label: 'Research Papers', count: PUBLICATIONS.length },
             ].map(tab => (
               <button
@@ -177,14 +133,11 @@ const Publications: React.FC = () => {
             ))}
           </div>
 
-          {/* ===== Highlights Tab ===== */}
-          {activeTab === 'highlights' && (
+          {/* ===== Few Samples Tab ===== */}
+          {activeTab === 'few-samples' && (
             <section className="mb-10">
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-100 overflow-hidden">
                 <div className="p-4 sm:p-6">
-                  <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-4">
-                    Featured Samples
-                  </h3>
                   <ul className="space-y-1">
                     {FEW_SAMPLES.map((pub, idx) => (
                       <li
@@ -220,79 +173,6 @@ const Publications: React.FC = () => {
                   </ul>
                 </div>
               </div>
-            </section>
-          )}
-
-          {/* ===== Year-by-Year Tab ===== */}
-          {activeTab === 'year-by-year' && (
-            <section className="mb-10 space-y-2">
-              {PUBLICATIONS_BY_YEAR.map((section) => (
-                <div key={section.year} className="border border-gray-100 rounded-xl overflow-hidden bg-white">
-                  <button
-                    onClick={() => toggleYear(section.year)}
-                    className="w-full flex items-center justify-between px-5 py-4 cursor-pointer group hover:bg-gray-50/50 transition-colors"
-                  >
-                    <div className="flex items-center gap-4">
-                      <span className="text-xl font-light text-gray-900 tabular-nums">{section.year}</span>
-                      <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">
-                        {section.publications.length} papers
-                      </span>
-                    </div>
-                    <svg
-                      className={`w-5 h-5 text-gray-400 group-hover:text-red-500 transition-all duration-300 ${expandedYears.has(section.year) ? 'rotate-180' : ''}`}
-                      fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  {expandedYears.has(section.year) && (
-                    <div className="px-5 pb-5 border-t border-gray-50">
-                      {section.summary && (
-                        <p className="text-sm text-gray-600 py-3 border-b border-gray-50 mb-3">
-                          {section.summary.split(/(\d+ journal articles|\d+ conference proceedings|\d+ book chapters?)/).map((part, i) =>
-                            /^\d+ (journal articles|conference proceedings|book chapters?)$/.test(part)
-                              ? <strong key={i} className="text-gray-800">{part}</strong>
-                              : <span key={i}>{part}</span>
-                          )}
-                        </p>
-                      )}
-                      <ul className="space-y-0.5">
-                        {section.publications.map((pub, idx) => (
-                          <li key={idx} className="group relative pl-4 py-2 rounded hover:bg-gray-50 transition-colors">
-                            <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-transparent group-hover:bg-red-500 rounded-full transition-colors" />
-                            <div className="text-sm text-gray-700 leading-relaxed">
-                              <span className="text-gray-500">{pub.authors}:</span>{' '}
-                              <span className="text-gray-900">{pub.title}</span>,{' '}
-                              <span className="text-blue-700 font-medium">{pub.venue}</span>{' '}
-                              <span className="text-green-600">({pub.year}{pub.note ? `, ${pub.note}` : ''})</span>
-                              {pub.linkUrl && (
-                                <a href={pub.linkUrl} target="_blank" rel="noopener noreferrer"
-                                  className={`ml-1.5 inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-xs font-medium ${
-                                    pub.linkLabel === 'arXiv' ? 'bg-blue-50 text-blue-700 hover:bg-blue-100' :
-                                    pub.linkLabel === 'URL' ? 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100' :
-                                    'bg-green-50 text-green-700 hover:bg-green-100'
-                                  }`}>
-                                  {pub.linkLabel}
-                                </a>
-                              )}
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                      {(section.conferenceProceedings || section.bookChapters) && (
-                        <div className="mt-3 pt-3 border-t border-gray-50 space-y-1 text-sm text-gray-600">
-                          {section.conferenceProceedings && (
-                            <p><strong className="text-gray-700">Conference proceedings:</strong> {section.conferenceProceedings}</p>
-                          )}
-                          {section.bookChapters && (
-                            <p><strong className="text-gray-700">Book chapters:</strong> {section.bookChapters}</p>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-              ))}
             </section>
           )}
 
