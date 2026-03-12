@@ -39,7 +39,6 @@ const ADMIN_EMAILS = [
   'kc.santosh@usd.edu',
   'rodrigue.rizk@usd.edu',
   'deepika.nuthalapati@usd.edu',
-  'deepika.nuthalapati@coyotes.usd.edu',
   'srikanth.baride@usd.edu',
   'longwei.wang@usd.edu',
 ];

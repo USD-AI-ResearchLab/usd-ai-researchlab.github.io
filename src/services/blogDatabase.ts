@@ -128,7 +128,6 @@ const ADMIN_EMAILS = [
   'kc.santosh@usd.edu',
   'rodrigue.rizk@usd.edu',
   'deepika.nuthalapati@usd.edu',
-  'deepika.nuthalapati@coyotes.usd.edu',
   'srikanth.baride@usd.edu',
   'longwei.wang@usd.edu',
 ];
@@ -140,7 +139,6 @@ const REVIEWER_EMAILS = [
 const APPROVER_EMAILS = [
   'kc.santosh@usd.edu',
   'deepika.nuthalapati@usd.edu',
-  'deepika.nuthalapati@coyotes.usd.edu',
 ];
 
 // --- Helper: build AuthResult from user row ---
