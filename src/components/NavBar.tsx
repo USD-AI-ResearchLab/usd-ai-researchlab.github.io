@@ -152,17 +152,9 @@ const NavBar: React.FC = () => {
                     <Link to="/blog/dashboard" className="nav-user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
                       Blog Dashboard
                     </Link>
-                    <Link to="/blog/editor" className="nav-user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
-                      Write Post
-                    </Link>
                     <Link to="/publications/dashboard" className="nav-user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
-                      Research Paper Dashboard
+                      Publications Dashboard
                     </Link>
-                    {isReviewer && (
-                      <Link to="/publications/dashboard" className="nav-user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
-                        Publications
-                      </Link>
-                    )}
                     <div className="nav-user-dropdown-divider" />
                     <button className="nav-user-dropdown-item nav-user-dropdown-logout" onClick={handleLogout}>
                       Log Out
@@ -261,23 +253,11 @@ const NavBar: React.FC = () => {
                 Blog Dashboard
               </div>
             </Link>
-            <Link to="/blog/editor" onClick={toggleMenu}>
-              <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">
-                Write Post
-              </div>
-            </Link>
             <Link to="/publications/dashboard" onClick={toggleMenu}>
               <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">
-                Research Paper Dashboard
+                Publications Dashboard
               </div>
             </Link>
-            {isReviewer && (
-              <Link to="/publications/dashboard" onClick={toggleMenu}>
-                <div className="text-lg font-thin text-gray-700 hover:text-logo-red transition-colors">
-                  Publications
-                </div>
-              </Link>
-            )}
             <button className="mobile-auth-logout" onClick={() => { handleLogout(); toggleMenu(); }}>
               Log Out
             </button>
