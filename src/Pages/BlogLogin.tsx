@@ -376,26 +376,7 @@ const BlogLogin: React.FC = () => {
               </form>
             )}
 
-            {/* Role Info */}
-            {mode === 'login' && (
-              <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-                <h4 className="text-sm font-medium text-gray-900 mb-2">Access Levels</h4>
-                <div className="space-y-1 text-xs text-gray-600">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-                    <span><strong>Admin</strong> Full control, can manage all posts and authors</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    <span><strong>Reviewer</strong> Can review, edit and publish all posts</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                    <span><strong>Author</strong> Can write and edit your own posts only</span>
-                  </div>
-                </div>
-              </div>
-            )}
+
 
           </div>
 
