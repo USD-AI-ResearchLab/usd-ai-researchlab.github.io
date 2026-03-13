@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import BooksComponent from '../components/BooksComponent';
 import { PUBLICATIONS } from '../data/publications';
-import { FEW_SAMPLES } from '../data/publicationsByYear';
+import { PUBLICATIONS_BY_YEAR } from '../data/publicationsByYear';
 import { useAuth } from '../hooks/useAuth';
 import FloatingScrollArrows from "../components/FloatingScrollArrows";
 
@@ -77,7 +77,7 @@ const Publications: React.FC = () => {
                   Publications
                 </h1>
                 <p className="text-gray-500 mt-2 text-sm sm:text-base font-light max-w-2xl">
-                  Research output from the USD AI Research Lab — journals, conferences, books &amp; preprints
+                  Research output from the USD AI Research Lab — journals, conferences, books & preprints
                 </p>
               </div>
               <div className="flex items-center gap-3">
@@ -111,7 +111,7 @@ const Publications: React.FC = () => {
           {/* Tab Navigation */}
           <div className="flex border-b border-gray-200 mb-6">
             {[
-              { id: 'few-samples' as const, label: 'Few Samples', count: FEW_SAMPLES.length },
+              { id: 'few-samples' as const, label: 'Few Samples', count: PUBLICATIONS_BY_YEAR.reduce((sum, s) => sum + s.publications.length, 0) },
               { id: 'research-papers' as const, label: 'Research Papers', count: PUBLICATIONS.length },
             ].map(tab => (
               <button
@@ -135,44 +135,55 @@ const Publications: React.FC = () => {
 
           {/* ===== Few Samples Tab ===== */}
           {activeTab === 'few-samples' && (
-            <section className="mb-10">
-              <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-100 overflow-hidden">
-                <div className="p-4 sm:p-6">
-                  <ul className="space-y-1">
-                    {FEW_SAMPLES.map((pub, idx) => (
-                      <li
-                        key={idx}
-                        className="group relative pl-4 py-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200 border border-transparent hover:border-gray-100"
-                      >
-                        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200 group-hover:bg-red-500 rounded-full transition-colors" />
-                        <div className="text-sm text-gray-700 leading-relaxed">
-                          <span className="text-gray-500">{pub.authors}:</span>{' '}
-                          <span className="font-medium text-gray-900">{pub.title}</span>,{' '}
-                          <span className="text-blue-700 font-medium">{pub.venue}</span>{' '}
-                          <span className="text-green-700">({pub.year}{pub.note ? `, ${pub.note}` : ''})</span>
-                          {pub.linkUrl && (
-                            <a
-                              href={pub.linkUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={`ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium transition-colors ${
-                                pub.linkLabel === 'arXiv' ? 'bg-blue-50 text-blue-700 hover:bg-blue-100' :
-                                pub.linkLabel === 'URL' ? 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100' :
-                                'bg-green-50 text-green-700 hover:bg-green-100'
-                              }`}
-                            >
-                              {pub.linkLabel}
-                              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                              </svg>
-                            </a>
-                          )}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+            <section className="mb-10 space-y-8">
+              {PUBLICATIONS_BY_YEAR.map((section) => (
+                <div key={section.year} className="bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-100 overflow-hidden">
+                  {/* Year header */}
+                  <div className="flex items-center gap-3 px-4 sm:px-6 py-3 border-b border-gray-100 bg-white/60">
+                    <div className="w-1 h-5 bg-red-600 rounded-full" />
+                    <h3 className="text-base font-semibold text-gray-900">{section.year}</h3>
+                    <span className="text-xs text-gray-400 ml-1">({section.publications.length} papers)</span>
+                    {section.summary && (
+                      <span className="text-xs text-gray-400 hidden sm:inline">— {section.summary}</span>
+                    )}
+                  </div>
+                  <div className="p-4 sm:p-6">
+                    <ul className="space-y-1">
+                      {section.publications.map((pub, idx) => (
+                        <li
+                          key={idx}
+                          className="group relative pl-4 py-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200 border border-transparent hover:border-gray-100"
+                        >
+                          <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200 group-hover:bg-red-500 rounded-full transition-colors" />
+                          <div className="text-sm text-gray-700 leading-relaxed">
+                            <span className="text-gray-500">{pub.authors}:</span>{' '}
+                            <span className="font-medium text-gray-900">{pub.title}</span>,{' '}
+                            <span className="text-blue-700 font-medium">{pub.venue}</span>{' '}
+                            <span className="text-green-700">({pub.year}{pub.note ? `, ${pub.note}` : ''})</span>
+                            {pub.linkUrl && (
+                              <a
+                                href={pub.linkUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium transition-colors ${
+                                  pub.linkLabel === 'arXiv' ? 'bg-blue-50 text-blue-700 hover:bg-blue-100' :
+                                  pub.linkLabel === 'URL' ? 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100' :
+                                  'bg-green-50 text-green-700 hover:bg-green-100'
+                                }`}
+                              >
+                                {pub.linkLabel}
+                                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                              </a>
+                            )}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
+              ))}
             </section>
           )}
 
