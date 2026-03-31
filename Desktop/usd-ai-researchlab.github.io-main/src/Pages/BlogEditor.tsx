@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import MDEditor from '@uiw/react-md-editor';
-import '@uiw/react-md-editor/markdown-editor.css';
-import '@uiw/react-markdown-preview/markdown.css';
+// import MDEditor from '@uiw/react-md-editor';
+// import '@uiw/react-md-editor/markdown-editor.css';
+// import '@uiw/react-markdown-preview/markdown.css';
 import { useAuth } from '../hooks/useAuth';
 import {
   getPostById,
@@ -345,17 +345,13 @@ const BlogEditor: React.FC = () => {
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Content (Markdown supported)
             </label>
-            <div data-color-mode="light" className="border rounded-lg overflow-hidden">
-              <MDEditor
-                value={content}
-                onChange={(val) => setContent(val || '')}
-                height={500}
-                preview="live"
-                hideToolbar={false}
-                enableScroll={true}
-                visibleDragbar={false}
-              />
-            </div>
+            <textarea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              className="w-full border rounded-lg p-3 font-mono text-sm"
+              rows={20}
+              placeholder="Enter your content in Markdown format..."
+            />
           </div>
 
           {/* Markdown Help */}
