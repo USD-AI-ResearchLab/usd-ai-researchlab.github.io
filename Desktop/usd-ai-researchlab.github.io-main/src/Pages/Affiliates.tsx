@@ -1,0 +1,256 @@
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import PageLayout from '../components/PageLayout';
+import FloatingScrollArrows from '../components/FloatingScrollArrows';
+
+const Affiliates: React.FC = () => {
+  const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+  };
+
+  // Grouped cards by category for 3-dot navigation
+  const industryPartners = [
+    { name: "Monolyth AI", image: "/images/sponsor/monolythai.png", url: "https://www.monolythai.com/", alt: "Monolyth AI", darkBg: true },
+    { name: "Sterling", image: "/images/sponsor/Sterling.png", url: "https://www.sterlingcomputers.com/", alt: "Sterling" },
+    { name: "Vermillion Chamber of Commerce", image: "/images/sponsor/Area.png", url: "https://livevermillion.com/", alt: "Vermillion Chamber of Commerce" },
+    { name: "Dakota PC", image: "/images/sponsor/dakota.png", url: "https://dakotapcwarehouse.com/", alt: "Dakota PC" }
+  ];
+
+  const academicPartners = [
+    { name: "South Dakota Biomedical Computing Consortium (SDBCC)", image: "/images/sponsor/SD-BCC.png", url: "https://sd-bcc.org", alt: "South Dakota Biomedical Computing Consortium" },
+    { name: "LAMIS Laboratory", image: "/images/sponsor/Picture0.png", url: "https://lamis.univ-tebessa.dz/", alt: "LAMIS Laboratory" },
+    { name: "CARCE", image: "/images/sponsor/carce_logo.png", url: "#", alt: "CARCE" },
+    { name: "CARISET", image: "/images/sponsor/cariset_logo.png", url: "#", alt: "CARISET" }
+  ];
+
+  const professionalOrganizations = [
+    { name: "IEEE", image: "/images/sponsor/IEEE.png", url: "https://www.ieee.org/", alt: "IEEE" }
+  ];
+
+  const categories = [
+    { name: "Industry Partners", cards: industryPartners },
+    { name: "Academic Partners", cards: academicPartners },
+    { name: "Professional Organizations", cards: professionalOrganizations }
+  ];
+
+  // Carousel state - 3 categories showing all cards simultaneously
+  const [currentCategoryIndex, setCategoryIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  const currentCategory = categories[currentCategoryIndex];
+
+  // Auto-rotation effect - 3 seconds per category
+  useEffect(() => {
+    if (isAutoPlaying) {
+      const interval = setInterval(() => {
+        setCategoryIndex(prevCat => (prevCat + 1) % categories.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [isAutoPlaying, categories.length]);
+
+  // Navigation functions
+  const goToPrevious = () => {
+    setCategoryIndex(prevIndex => 
+      prevIndex === 0 ? categories.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCategoryIndex(prevIndex => (prevIndex + 1) % categories.length);
+  };
+
+  const goToCategory = (index: number) => {
+    setCategoryIndex(index);
+  };
+
+  return (
+    <PageLayout
+      title="Affiliates"
+    >
+      <motion.div 
+        className="px-2 sm:px-4 md:px-8 pt-0 pb-4 sm:pb-6 md:pb-8 w-full"
+        initial="initial"
+        animate="animate"
+        variants={{
+          animate: {
+            transition: {
+              staggerChildren: 0.2
+            }
+          }
+        }}
+      >
+        {/* Multi-Card Carousel */}
+        <motion.div 
+          className="relative mb-4 sm:mb-6 md:mb-8 transition-all duration-500"
+          variants={fadeInUp}
+          onMouseEnter={() => setIsAutoPlaying(false)}
+          onMouseLeave={() => setIsAutoPlaying(true)}
+        >
+          <div className="text-center mb-4 sm:mb-6 md:mb-8">
+            <span className="inline-block px-4 py-1.5 sm:px-6 sm:py-2 text-logo-red rounded-full text-base sm:text-lg md:text-xl font-light">
+              {currentCategory.name}
+            </span>
+          </div>
+          
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <button 
+              onClick={goToPrevious}
+              className="absolute left-0 sm:left-1 md:left-4 top-1/2 transform -translate-y-1/2 z-10 p-1 sm:p-2 hover:bg-gray-100 transition-colors duration-200 rounded"
+              disabled={categories.length <= 1}
+              aria-label="Previous category"
+              title="Previous category"
+            >
+              <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Multiple Cards Display */}
+            <div className="flex justify-center items-center min-h-[200px] sm:min-h-[250px] md:min-h-[300px] lg:min-h-[350px] xl:min-h-[380px] w-full px-4 sm:px-6 md:px-8">
+              <div className="flex flex-nowrap justify-center gap-2 sm:gap-3 md:gap-4 w-full">
+                {currentCategory.cards.map((card, index) => (
+                  <motion.div 
+                    key={`${currentCategoryIndex}-${index}`}
+                    className="flex flex-col items-center flex-1 min-w-0 max-w-[120px] sm:max-w-[140px] md:max-w-[160px] lg:max-w-[180px] xl:max-w-[200px] h-40 sm:h-48 md:h-56 lg:h-60 xl:h-64 transition-all duration-300 group cursor-pointer hover:scale-105 p-1 sm:p-2 overflow-hidden flex-shrink-1"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -6, transition: { duration: 0.3 } }}
+                  >
+                    <a 
+                      href={card.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="flex flex-col items-center justify-between h-full w-full no-underline text-current"
+                    >
+                      {/* Logo Container */}
+                      <div className={`flex items-center justify-center w-full mb-1 sm:mb-2 h-14 sm:h-16 md:h-20 lg:h-24 xl:h-28 rounded-lg shadow-sm border border-gray-100 p-1 sm:p-2 ${'darkBg' in card && card.darkBg ? 'bg-gray-900' : 'bg-white'}`}>
+                        <img 
+                          src={card.image} 
+                          alt={card.alt} 
+                          className="max-h-10 sm:max-h-12 md:max-h-14 lg:max-h-16 xl:max-h-20 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                      
+                      {/* Company Name */}
+                      <div className="flex-1 flex items-center justify-center w-full px-1 overflow-hidden">
+                        <h3 className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-800 text-center font-semibold leading-tight group-hover:text-logo-red transition-colors duration-300 line-clamp-2 sm:line-clamp-3">
+                          {card.name}
+                        </h3>
+                      </div>
+
+                      {/* Visit Website Indicator */}
+                      <div className="mt-2 sm:mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="flex items-center text-logo-red text-xs sm:text-sm font-medium">
+                          Visit Website
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Arrow */}
+            <button 
+              onClick={goToNext}
+              className="absolute right-1 sm:right-4 top-1/2 transform -translate-y-1/2 z-10 p-1 sm:p-2 hover:bg-gray-100 transition-colors duration-200 rounded"
+              disabled={categories.length <= 1}
+              aria-label="Next category"
+              title="Next category"
+            >
+              <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Navigation dots - 3 categories */}
+          <div className="flex justify-center mt-1 space-x-2">
+            {categories.map((_, index) => (
+              <div
+                key={index}
+                className={`w-6 h-1 transition-all duration-300 cursor-pointer ${
+                  index === currentCategoryIndex 
+                    ? 'bg-logo-red shadow-md' 
+                    : 'bg-gray-300 hover:bg-gray-500'
+                }`}
+                onClick={() => goToCategory(index)}
+              />
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Partnership Information - Separate Section */}
+      <motion.div 
+        className="w-full"
+        initial="initial"
+        animate="animate"
+        variants={{
+          animate: {
+            transition: {
+              staggerChildren: 0.2
+            }
+          }
+        }}
+      >
+        <motion.div 
+          className="transition-all duration-500"
+          variants={{
+            initial: { opacity: 0, y: 30 },
+            animate: { opacity: 1, y: 0, transition: { duration: 0.7 } }
+          }}
+          whileHover={{ y: -8, transition: { duration: 0.4 } }}
+        >
+          <div className="text-left">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-light mb-8 text-logo-red tracking-tight">
+              Partnership Opportunities
+            </h3>
+            <p className="text-gray-700 leading-relaxed mb-8 text-lg">
+              We welcome collaborations with organizations that share our commitment to advancing artificial intelligence research and education.
+            </p>
+            <div className="text-left">
+              <p className="text-gray-700 leading-relaxed text-base mb-4">
+                For partnership inquiries, please contact us at:
+              </p>
+              <div className="flex items-center justify-start">
+                <a 
+                  href="mailto:usd.airesearch.lab@gmail.com" 
+                  className="inline-flex items-center text-logo-red hover:text-logo-red-light transition-colors duration-300 text-lg font-medium underline hover:no-underline"
+                >
+                  <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  usd.airesearch.lab@gmail.com
+                </a>
+                <span className="text-gray-400 text-lg mx-3">|</span>
+                <a 
+                  href="mailto:kc.santosh@usd.edu" 
+                  className="inline-flex items-center text-logo-red hover:text-logo-red-light transition-colors duration-300 text-lg font-medium underline hover:no-underline"
+                >
+                  <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  kc.santosh@usd.edu
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Floating Scroll Arrows */}
+      <FloatingScrollArrows />
+    </PageLayout>
+  );
+};
+
+export default Affiliates;

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260210143000" />
+    <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg?v=20260210143000" />
+    <link rel="apple-touch-icon" href="/favicon.svg?v=20260210143000" />
+    <!-- Cross-browser compatibility and responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
+    <!-- Enhanced browser support -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="USD AI Research">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileColor" content="#1e3a8a">
+    
+    <!-- HTTPS enforcement for both domains -->
+    <script>
+      // Safari-compatible HTTPS enforcement
+      if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
+        // Use window.location instead of location for better Safari compatibility
+        window.location.replace('https:' + window.location.href.substring(window.location.protocol.length));
+      }
+      
+      // Handle www redirects and legacy domain redirects (Safari-compatible)
+      if (window.location.hostname === 'www.ai-research-lab.org') {
+        var newUrl = 'https://ai-research-lab.org' + window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(newUrl);
+      }
+      if (window.location.hostname === 'usd-ai-research.org' || window.location.hostname === 'www.usd-ai-research.org') {
+        var newUrl = 'https://ai-research-lab.org' + window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(newUrl);
+      }
+    </script>
+    
+    <!-- HSTS Header simulation for browsers -->
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    
+    <title>USD AI Research - University of South Dakota</title>
+    <meta name="description" content="USD AI Research - Pioneering artificial intelligence research at the University of South Dakota. Explore our faculty, publications, initiatives, and AI symposium." />
+    <meta name="keywords" content="USD AI Research, University of South Dakota, artificial intelligence, AI research, machine learning, computer science, faculty, publications" />
+    <meta name="author" content="USD AI Research" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="USD AI Research Lab - University of South Dakota" />
+    <meta property="og:description" content="USD AI Research Lab - Pioneering artificial intelligence research at the University of South Dakota. Explore our faculty, publications, initiatives, and AI symposium." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ai-research-lab.org/" />
+    <meta property="og:site_name" content="USD AI Research Lab" />
+    
+    <!-- Alternative domain handling -->
+    <link rel="alternate" href="https://ai-research-lab.org/" hreflang="en" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="USD AI Research Lab - University of South Dakota" />
+    <meta name="twitter:description" content="USD AI Research Lab - Pioneering artificial intelligence research at the University of South Dakota." />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ai-research-lab.org/" />
+    
+    <!-- Performance optimization preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.google.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    
+    <!-- Mobile-specific preloads -->
+    <link rel="preload" href="/src/assets/logo.svg" as="image" type="image/svg+xml" media="(min-width: 768px)">
+    <link rel="preload" href="/images/building-bg.jpeg" as="image" type="image/jpeg" media="(min-width: 768px)">
+    
+    <!-- Font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Ubuntu+Mono:wght@400;700&family=Yanone+Kaffeesatz:wght@200;300;400;500;600;700&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- BoxIcons for modern icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+      :root{
+        --ui-font: 'Ubuntu', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+        --mono-font: 'Ubuntu Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        --logo-red: #C53030;
+        --logo-red-light: #E53E3E;
+      }
+      html, body, p, span, div, li, a, button, input, select, textarea, table, tr, td, th,
+      h1, h2, h3, h4, h5, h6, small, label, nav, footer, header, section, article, aside {
+        font-family: var(--ui-font) !important;
+      }
+      code, pre, kbd, samp { font-family: var(--mono-font) !important; }
+    </style>
+    <!-- Single Page Apps for GitHub Pages -->
+    <!-- This script checks to see if a redirect is present in the query string -->
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    <!-- Fallback styles -->
+    <link rel="stylesheet" href="/fallback.css">
+    <script type="module" src="/src/main.tsx"></script>
+  </head>
+  <body>
+    <noscript>
+      <div class="noscript-container">
+        <h1>USD AI Research Lab</h1>
+        <p>This website requires JavaScript to run. Please enable JavaScript in your browser settings.</p>
+        <p>You can also visit us directly at: <strong>https://usd-ai-researchlab.github.io</strong></p>
+      </div>
+    </noscript>
+    <div id="root">
+      <!-- Fallback content while React loads -->
+      <div class="loading-container">
+        <div class="loading-content">
+          <h1>USD AI Research Lab</h1>
+          <p>Loading...</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+.floating-scroll-btn {
+  position: fixed;
+  background-color: #C53030;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  -webkit-user-select: none;
+  user-select: none;
+  opacity: 0.8;
+  right: 20px;
+}
+
+.floating-scroll-btn:hover {
+  background-color: #B91C1C;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.floating-scroll-btn--up {
+  bottom: 80px;
+}
+
+.floating-scroll-btn--down {
+  bottom: 35px;
+}

@@ -1,0 +1,640 @@
+@import "tailwindcss";
+
+/* Hide @uiw/react-md-editor watermark / resize bar */
+.w-md-editor-bar,
+.w-md-editor .w-md-editor-bar,
+div.w-md-editor-bar {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Cross-browser reset and compatibility */
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive containers */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 640px) {
+  html { font-size: 14px; }
+  .container { padding-left: 0.75rem; padding-right: 0.75rem; }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  html { font-size: 15px; }
+}
+
+@media (min-width: 1025px) {
+  html { font-size: 16px; }
+}
+
+/* Device-specific performance optimizations */
+
+/* Fast devices - no blur effects */
+.fast-device {
+  --animation-duration: 0.6s;
+  --backdrop-blur: none;
+}
+
+/* Slow devices - no blur effects */
+.slow-device {
+  --animation-duration: 0.2s;
+  --backdrop-blur: none;
+}
+
+.slow-device * {
+  animation-duration: 0.2s !important;
+  transition-duration: 0.2s !important;
+}
+
+.slow-device .backdrop-blur-sm,
+.slow-device .backdrop-blur-md,
+.slow-device .backdrop-blur-lg {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Globally disable all blur effects and animations */
+*, *::before, *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Disable all loading animations */
+.animate-pulse,
+.animate-spin,
+.animate-bounce {
+  animation: none !important;
+}
+
+/* Remove all blur filters */
+.blur-sm, .blur, .blur-md, .blur-lg, .blur-xl {
+  filter: none !important;
+}
+
+/* Disable transitions */
+.transition-opacity,
+.transition-all,
+.transition-colors,
+.transition-transform {
+  transition: none !important;
+}
+
+/* Slow connection - simplified visuals */
+.slow-connection .animate-pulse,
+.slow-connection .animate-spin {
+  animation: none !important;
+}
+
+.slow-connection .shadow-lg,
+.slow-connection .shadow-xl {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Mobile optimizations */
+.mobile-device {
+  --scroll-behavior: auto;
+}
+
+.mobile-device img {
+  image-rendering: optimizeSpeed;
+}
+
+/* Animation delay classes for background patterns */
+.animate-pulse-delay-2 {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 2s;
+}
+
+.animate-pulse-delay-4 {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 4s;
+}
+
+/* Line clamp utility for text truncation */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Enhanced text selection styling with beautiful effects */
+::selection {
+  background: linear-gradient(45deg, #C53030, #E53E3E) !important;
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 2px !important;
+}
+
+::-moz-selection {
+  background: linear-gradient(45deg, #C53030, #E53E3E) !important;
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Premium header and navigation selection styling */
+nav ::selection,
+header ::selection,
+.navbar ::selection,
+nav *::selection,
+header *::selection,
+.navbar *::selection {
+  background: linear-gradient(135deg, #E53E3E, #FC8181, #E53E3E) !important;
+  color: white !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  border-radius: 3px !important;
+}
+
+nav ::-moz-selection,
+header ::-moz-selection,
+.navbar ::-moz-selection,
+nav *::-moz-selection,
+header *::-moz-selection,
+.navbar *::-moz-selection {
+  background: linear-gradient(135deg, #E53E3E, #FC8181, #E53E3E) !important;
+  color: white !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Enhanced footer selection styling */
+footer ::selection,
+footer *::selection {
+  background: linear-gradient(45deg, #A02727, #C53030, #A02727) !important;
+  color: white !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  border-radius: 3px !important;
+}
+
+footer ::-moz-selection,
+footer *::-moz-selection {
+  background: linear-gradient(45deg, #A02727, #C53030, #A02727) !important;
+  color: white !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* Beautiful heading selection styling */
+h1 ::selection,
+h2 ::selection,
+h3 ::selection,
+h4 ::selection,
+h5 ::selection,
+h6 ::selection,
+h1 *::selection,
+h2 *::selection,
+h3 *::selection,
+h4 *::selection,
+h5 *::selection,
+h6 *::selection {
+  background: linear-gradient(120deg, #C53030, #E53E3E, #FC8181) !important;
+  color: white !important;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4) !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  border-radius: 4px !important;
+}
+
+h1 ::-moz-selection,
+h2 ::-moz-selection,
+h3 ::-moz-selection,
+h4 ::-moz-selection,
+h5 ::-moz-selection,
+h6 ::-moz-selection,
+h1 *::-moz-selection,
+h2 *::-moz-selection,
+h3 *::-moz-selection,
+h4 *::-moz-selection,
+h5 *::-moz-selection,
+h6 *::-moz-selection {
+  background: linear-gradient(120deg, #C53030, #E53E3E, #FC8181) !important;
+  color: white !important;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4) !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+}
+
+/* Enhanced link selection styling */
+a ::selection,
+a *::selection {
+  background: linear-gradient(90deg, #FC8181, #FED7D7, #FC8181) !important;
+  color: #1A202C !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px !important;
+  border-radius: 2px !important;
+}
+
+a ::-moz-selection,
+a *::-moz-selection {
+  background: linear-gradient(90deg, #FC8181, #FED7D7, #FC8181) !important;
+  color: #1A202C !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* Premium button and interactive elements selection */
+button ::selection,
+button *::selection,
+.btn ::selection,
+.btn *::selection {
+  background: linear-gradient(135deg, #2D3748, #4A5568, #2D3748) !important;
+  color: #F7FAFC !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  border-radius: 3px !important;
+}
+
+button ::-moz-selection,
+button *::-moz-selection,
+.btn ::-moz-selection,
+.btn *::-moz-selection {
+  background: linear-gradient(135deg, #2D3748, #4A5568, #2D3748) !important;
+  color: #F7FAFC !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Special logo text selection */
+.logo ::selection,
+.logo *::selection,
+.brand ::selection,
+.brand *::selection {
+  background: linear-gradient(45deg, #C53030, #E53E3E, #FC8181, #E53E3E, #C53030) !important;
+  color: white !important;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5) !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
+  border-radius: 4px !important;
+}
+
+.logo ::-moz-selection,
+.logo *::-moz-selection,
+.brand ::-moz-selection,
+.brand *::-moz-selection {
+  background: linear-gradient(45deg, #C53030, #E53E3E, #FC8181, #E53E3E, #C53030) !important;
+  color: white !important;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5) !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
+}
+
+/* Content area selection styling */
+.content ::selection,
+.main ::selection,
+.container ::selection {
+  background: linear-gradient(60deg, #C53030, #E53E3E) !important;
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 2px !important;
+}
+
+.content ::-moz-selection,
+.main ::-moz-selection,
+.container ::-moz-selection {
+  background: linear-gradient(60deg, #C53030, #E53E3E) !important;
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background: #f0f0f0;
+  background-image: none !important;
+  background-size: auto;
+  color: black;
+}
+
+/* Ensure consistent spacing below navbar across all browsers */
+.main-with-bg {
+  padding-top: 80px;
+  margin-top: 0;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  background: #f0f0f0;
+  /* Main content now handles the navbar spacing */
+  padding-top: 0;
+  margin: 0;
+}
+
+.heading-red {
+  color: #C53030 !important;
+}
+
+h1.heading-red {
+  color: #C53030 !important;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* Remove scrollbar-width for better browser compatibility */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.body-text-18 {
+  font-size: 18px;
+  font-family: 'Ubuntu', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+}
+
+.text-logo-red {
+  color: #C53030 !important;
+}
+
+.text-logo-red:hover {
+  color: #A02727 !important;
+}
+
+.border-logo-red {
+  border-color: #C53030 !important;
+}
+
+/* More specific selectors to override Tailwind */
+a.text-logo-red {
+  color: #C53030 !important;
+}
+
+a.text-logo-red:hover {
+  color: #A02727 !important;
+}
+
+div.border-logo-red {
+  border-color: #C53030 !important;
+}
+
+/* Override ALL red colors throughout the project with logo red */
+
+/* Text colors - all red variations */
+.text-red-50, .text-red-100, .text-red-200, .text-red-300, 
+.text-red-400, .text-red-500, .text-red-600, .text-red-700, 
+.text-red-800, .text-red-900 {
+  color: #C53030 !important;
+}
+
+/* Hover text colors */
+.hover\:text-red-50:hover, .hover\:text-red-100:hover, .hover\:text-red-200:hover,
+.hover\:text-red-300:hover, .hover\:text-red-400:hover, .hover\:text-red-500:hover,
+.hover\:text-red-600:hover, .hover\:text-red-700:hover, .hover\:text-red-800:hover,
+.hover\:text-red-900:hover {
+  color: #C53030 !important;
+}
+
+/* Background colors */
+.bg-red-50, .bg-red-100, .bg-red-200 {
+  background-color: rgba(197, 48, 48, 0.1) !important;
+}
+
+.bg-red-300, .bg-red-400 {
+  background-color: rgba(197, 48, 48, 0.3) !important;
+}
+
+.bg-red-500, .bg-red-600 {
+  background-color: #C53030 !important;
+}
+
+.bg-red-700, .bg-red-800, .bg-red-900 {
+  background-color: #C53030 !important;
+}
+
+/* Hover background colors */
+.hover\:bg-red-50:hover, .hover\:bg-red-100:hover {
+  background-color: rgba(197, 48, 48, 0.1) !important;
+}
+
+.hover\:bg-red-600:hover, .hover\:bg-red-700:hover {
+  background-color: #C53030 !important;
+}
+
+/* Border colors */
+.border-red-50, .border-red-100, .border-red-200, .border-red-300,
+.border-red-400, .border-red-500, .border-red-600, .border-red-700,
+.border-red-800, .border-red-900 {
+  border-color: #C53030 !important;
+}
+
+/* Hover border colors */
+.hover\:border-red-100:hover, .hover\:border-red-200:hover,
+.hover\:border-red-300:hover, .hover\:border-red-400:hover,
+.hover\:border-red-500:hover, .hover\:border-red-600:hover,
+.hover\:border-red-700:hover, .hover\:border-red-800:hover {
+  border-color: #C53030 !important;
+}
+
+/* Inline style overrides for any hardcoded red colors */
+[style*="color: red"], [style*="color: #dc2626"], [style*="color: #ef4444"],
+[style*="color: #f87171"], [style*="color: #fca5a5"], [style*="color: #dc143c"],
+[style*="color: rgb(220, 38, 38)"], [style*="color: rgb(239, 68, 68)"] {
+  color: #C53030 !important;
+}
+
+[style*="background-color: red"], [style*="background-color: #dc2626"],
+[style*="background-color: #ef4444"], [style*="background-color: rgba(220, 38, 38"] {
+  background-color: #C53030 !important;
+}
+
+[style*="border-color: red"], [style*="border-color: #dc2626"],
+[style*="border-color: #ef4444"] {
+  border-color: #C53030 !important;
+}
+
+/* Focus and active states */
+.focus\:text-red-600:focus, .focus\:text-red-700:focus {
+  color: #C53030 !important;
+}
+
+.focus\:border-red-600:focus, .focus\:border-red-700:focus {
+  border-color: #C53030 !important;
+}
+
+.active\:text-red-600:active, .active\:text-red-700:active {
+  color: #C53030 !important;
+}
+
+/* Custom background colors for red components */
+.bg-red-50-custom {
+  background-color: rgba(197, 48, 48, 0.05) !important;
+}
+
+.bg-red-100-custom {
+  background-color: rgba(197, 48, 48, 0.1) !important;
+}
+
+/* Ubuntu font class */
+.font-ubuntu {
+  font-family: 'Ubuntu', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif !important;
+}
+
+/* Custom scrollbar styles for LinkedIn section - webkit only for better compatibility */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgb(243 244 246);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgb(252 165 165);
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgb(248 113 113);
+}
+
+.scrollbar-track-gray-100::-webkit-scrollbar-track {
+  background: rgb(243 244 246);
+}
+
+.scrollbar-thumb-red-300::-webkit-scrollbar-thumb {
+  background: rgb(252 165 165);
+}
+
+.scrollbar-thumb-red-400::-webkit-scrollbar-thumb:hover {
+  background: rgb(248 113 113);
+}
+
+/* Updated stat cards with red border and selection effect */
+.stat-card {
+  background-color: rgba(245, 245, 245, 0.98);
+  border: 2px solid transparent !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+  transition: all 300ms ease;
+}
+
+.stat-card:hover {
+  border-color: #C53030 !important;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Transparent director card - no blur effect */
+.director-card {
+  background: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Glass card with light grey 0.9 opacity */
+.glass-card {
+  background: rgba(225, 225, 225, 0.9) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.glass-card-inner {
+  background: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Main background image for all pages */
+.main-with-bg {
+  background-image: url('/images/building-bg.jpeg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Override any inline styles from Home page */
+.main-with-bg[style] {
+  background-image: url('/images/building-bg.jpeg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Tab Navigation Styling */
+.tab-current-active {
+  border-bottom-color: #C53030 !important;
+  color: #C53030 !important;
+}
+
+.tab-current-inactive {
+  border-bottom-color: transparent !important;
+  color: inherit !important;
+}
+
+.tab-become-active {
+  border-bottom-color: #C53030 !important;
+  color: #C53030 !important;
+}
+
+.tab-become-inactive {
+  border-bottom-color: transparent !important;
+  color: inherit !important;
+}
+
+/* Force GitHub Pages rebuild - Updated Jan 28, 2026 */
