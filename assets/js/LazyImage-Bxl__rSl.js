@@ -1,0 +1,1 @@
+import{j as a}from"./animations-D9kKyzbC.js";const s=({src:s,alt:l,className:o="",onLoad:e})=>a.jsx("div",{className:`relative ${o}`,children:a.jsx("img",{src:s,alt:l,className:`w-full h-full object-cover ${o}`,onLoad:()=>{null==e||e()},loading:"eager",decoding:"sync"})});export{s as L};
