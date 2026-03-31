@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import MDEditor from '@uiw/react-md-editor';
-import '@uiw/react-md-editor/dist/mdeditor.min.css';
 import { useAuth } from '../hooks/useAuth';
 import {
   getPostById,
@@ -345,14 +343,12 @@ const BlogEditor: React.FC = () => {
               Content (Markdown supported)
             </label>
             <div data-color-mode="light" className="border rounded-lg overflow-hidden">
-              <MDEditor
+              <textarea
                 value={content}
-                onChange={(val) => setContent(val || '')}
-                height={500}
-                preview="live"
-                hideToolbar={false}
-                enableScroll={true}
-                visibleDragbar={false}
+                onChange={(e) => setContent(e.target.value)}
+                className="w-full p-3 font-mono text-sm focus:outline-none"
+                rows={20}
+                placeholder="Write your blog post in Markdown..."
               />
             </div>
           </div>
