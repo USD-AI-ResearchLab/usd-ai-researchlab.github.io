@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "ms-vscode.azure-repos",
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ],
+  "unwantedRecommendations": [
+    "GitHub.vscode-github-actions"
+  ]
+}
